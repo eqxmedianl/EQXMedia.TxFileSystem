@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Company>EQX Media B.V.</Company>
+    <Authors>Jarno Kamminga</Authors>
+    <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageId>EQXMedia.TxFileSystem</PackageId>
+    <Version>1.0.0</Version>
+    <Description>TxFileSystem is a transactional filesystem wrapper using the .NET Standard filesystem abstraction from System.IO.Abstractions. 
+Use this filesystem wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
+* Files,
+* Directories,
+* FileStreams.
+
+All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true filesystem being wrapped.</Description>
+    <PackageReleaseNotes>Version 1.0-alpha
+------------------
+* Providing a System.IO.Abstractions filesystem wrapper.
+* Can be used to wrap any filesystem that implements the IFileSystem interface.
+* Support transactional operations on:
+  * Files,
+  * Directories,
+  * Filestreams.
+  * Plain proxy functionality for all remaining parts of the System.IO.Abstractions interfaces.
+* Fully covered by Unit Tests (100% code coverage).</PackageReleaseNotes>
+    <Copyright>© EQX Media B.V. All rights reserved.</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://txfilesystem.io/</PackageProjectUrl>
+    <PackageTags>TransactionScope, File, Directory, FileStream, Transaction, NET, dotnet, IO</PackageTags>
+    <PackageIcon>eqxmedia-logo.png</PackageIcon>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
+    <AssemblyName>EQXMedia.TxFileSystem</AssemblyName>
+    <RootNamespace>EQXMedia.TxFileSystem</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Abstractions" Version="13.2.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\eqxmedia-logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\License.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

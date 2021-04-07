@@ -1,0 +1,8 @@
+﻿/.sonarqube
+/.vs
+
+bin/
+obj/
+
+Debug/
+Release/
