@@ -1,6 +1,6 @@
 TxFileSystem
 =================
-`TxFileSystem` is a transactional filesystem wrapper using the .NET Core filesystem abstraction from `System.IO.Abstractions`.
+`TxFileSystem` is a transactional filesystem wrapper using the .NET Standard filesystem abstraction from `System.IO.Abstractions`.
 
 Version 1.0-alpha
 -----------------
