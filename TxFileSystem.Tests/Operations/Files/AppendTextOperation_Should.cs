@@ -24,7 +24,7 @@
 
             using var transactionScope = new TransactionScope();
             txFileSystem = new TxFileSystem(mockFileSystem);
-            
+
             textFileStream = txFileSystem.File.AppendText("/tmp/filetoappendtextto.txt");
             textFileStream.Write(GetLoremIpsumText());
             textFileStream.Flush();

@@ -44,7 +44,7 @@
             txFileSystem.File.OpenRead(fileName);
 
             var txJournal = ((ITxFileSystem)txFileSystem).Journal;
-            
+
             Assert.Empty(txJournal._txJournalEntries);
         }
 

@@ -62,7 +62,7 @@
         public void TxFileInfo_NotAddedToJournal()
         {
             var fileName = "/tmp/filetogetinfoof.txt";
-            
+
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.Directory.CreateDirectory("/tmp");

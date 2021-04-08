@@ -11,7 +11,7 @@
             : base(directory, path)
         {
         }
-         
+
         public GetCreationTimeOperation(ITxDirectory directory, string path, bool asUtc)
             : this(directory, path)
         {

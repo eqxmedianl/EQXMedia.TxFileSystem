@@ -63,7 +63,7 @@
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.Directory.CreateDirectory("/tmp");
-            
+
             var textStream = txFileSystem.File.CreateText("/tmp/sourcefile.txt");
             textStream.Write("Source file contents");
             textStream.Flush();

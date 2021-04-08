@@ -26,14 +26,14 @@
         {
             _searchOption = searchOption;
         }
-        
+
         public GetFilesOperation(ITxDirectory directory, string path, string searchPattern,
             EnumerationOptions enumerationOptions)
             : this(directory, path, searchPattern)
         {
             _enumerationOptions = enumerationOptions;
         }
-        
+
         public override OperationType OperationType => OperationType.Info;
 
         public string[] Execute()

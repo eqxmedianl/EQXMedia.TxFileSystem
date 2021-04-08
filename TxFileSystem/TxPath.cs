@@ -140,7 +140,7 @@
             return this.FileSystem.Path.Join(path1, path2, path3);
         }
 
-        public bool TryJoin(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3, 
+        public bool TryJoin(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3,
             Span<char> destination, out int charsWritten)
         {
             return this.FileSystem.Path.TryJoin(path1, path2, path3, destination, out charsWritten);

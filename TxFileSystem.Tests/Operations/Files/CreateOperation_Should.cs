@@ -39,7 +39,7 @@
             Assert.ThrowsAsync<Exception>(() =>
             {
                 using var transactionScope = new TransactionScope();
-                
+
                 txFileSystem = new TxFileSystem(mockFileSystem);
                 txFileSystem.Directory.CreateDirectory("/var/log");
                 txFileSystem.File.Create(fileName);

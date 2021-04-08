@@ -6,7 +6,6 @@
     using System.IO;
     using System.IO.Abstractions;
     using System.Reflection;
-    using System.Security.AccessControl;
     using Xunit;
 
     public sealed class GetAttributesOperation_Should

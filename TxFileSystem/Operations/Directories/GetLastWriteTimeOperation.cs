@@ -11,7 +11,7 @@
             : base(directory, path)
         {
         }
-         
+
         public GetLastWriteTimeOperation(ITxDirectory directory, string path, bool asUtc)
             : this(directory, path)
         {

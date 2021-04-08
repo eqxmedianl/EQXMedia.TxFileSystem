@@ -52,7 +52,7 @@
                 {
                     _file.TxFileSystem.FileSystem.File.WriteAllLines(_path, _contentsEnumerable, _encoding);
                 }
-            } 
+            }
             else
             {
                 if (_encoding == null)
@@ -74,7 +74,7 @@
             {
                 if (_encoding == null)
                 {
-                    return _file.TxFileSystem.FileSystem.File.WriteAllLinesAsync(_path, _contentsEnumerable, 
+                    return _file.TxFileSystem.FileSystem.File.WriteAllLinesAsync(_path, _contentsEnumerable,
                         cancellationToken);
                 }
                 else
@@ -87,7 +87,7 @@
             {
                 if (_encoding == null)
                 {
-                    return _file.TxFileSystem.FileSystem.File.WriteAllLinesAsync(_path, _contentsArray, 
+                    return _file.TxFileSystem.FileSystem.File.WriteAllLinesAsync(_path, _contentsArray,
                         cancellationToken);
                 }
                 else

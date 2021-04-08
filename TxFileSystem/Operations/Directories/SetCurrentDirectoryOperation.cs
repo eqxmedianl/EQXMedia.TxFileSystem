@@ -18,7 +18,7 @@
         }
 
         public override OperationType OperationType => OperationType.Navigate;
-        
+
         public void Execute()
         {
             Journalize(this);

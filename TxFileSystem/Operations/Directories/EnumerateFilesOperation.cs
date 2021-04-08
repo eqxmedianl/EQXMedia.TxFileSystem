@@ -14,7 +14,7 @@
             : base(directory, path)
         {
         }
-        
+
         public EnumerateFilesOperation(ITxDirectory directory, string path, string searchPattern)
             : this(directory, path)
         {

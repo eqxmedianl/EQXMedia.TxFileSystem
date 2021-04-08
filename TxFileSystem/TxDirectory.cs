@@ -115,7 +115,7 @@
         }
 
 #if NET5_0
-    [SupportedOSPlatform("windows")]
+        [SupportedOSPlatform("windows")]
 #endif
         public DirectorySecurity GetAccessControl(string path)
         {
@@ -123,7 +123,7 @@
         }
 
 #if NET5_0
-    [SupportedOSPlatform("windows")]
+        [SupportedOSPlatform("windows")]
 #endif
         public DirectorySecurity GetAccessControl(string path, AccessControlSections includeSections)
         {
@@ -236,7 +236,7 @@
         }
 
 #if NET5_0
-    [SupportedOSPlatform("windows")]
+        [SupportedOSPlatform("windows")]
 #endif
         public void SetAccessControl(string path, DirectorySecurity directorySecurity)
         {

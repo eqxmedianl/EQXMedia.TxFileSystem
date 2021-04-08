@@ -46,7 +46,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
         public void CreateDirectoryOperation_ResultsInExists_ReturnsTrue()
         {
             TxFileSystem txFileSystem = null;
-            
+
             void CreateDirectories()
             {
                 var mockFileSystem = new MockFileSystem();

@@ -42,13 +42,13 @@
             return new CreateFromPathOperation(this, path, mode, access, share, bufferSize).Execute();
         }
 
-        public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, 
+        public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize,
             FileOptions options)
         {
             return new CreateFromPathOperation(this, path, mode, access, share, bufferSize, options).Execute();
         }
 
-        public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, 
+        public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize,
             bool useAsync)
         {
             return new CreateFromPathOperation(this, path, mode, access, share, bufferSize, useAsync: useAsync)
@@ -69,7 +69,7 @@
         {
             return new CreateFromSafeFileHandleOperation(this, handle, access, bufferSize, isAsync: isAsync).Execute();
         }
-        
+
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif

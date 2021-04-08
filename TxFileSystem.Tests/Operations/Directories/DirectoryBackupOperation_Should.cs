@@ -69,7 +69,7 @@
                 txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped/subdir_" + i.ToString());
                 for (var j = 1; j <= 3; j++)
                 {
-                    txFileSystem.File.Create("/tmp/directorytobackupped/subdir_" + i.ToString() + 
+                    txFileSystem.File.Create("/tmp/directorytobackupped/subdir_" + i.ToString() +
                         "/subfile_" + i.ToString());
                 }
             }

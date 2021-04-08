@@ -78,7 +78,7 @@
             txFileSystem.File.WriteAllLines("/tmp/filetowritelinesinto.txt", new string[] { "line one", "line two" }
                 .AsEnumerable(), Encoding.ASCII);
 
-            fileSystemMock.Verify(f => f.File.WriteAllLines(It.IsAny<string>(), It.IsAny<IEnumerable<string>>(), 
+            fileSystemMock.Verify(f => f.File.WriteAllLines(It.IsAny<string>(), It.IsAny<IEnumerable<string>>(),
                 It.IsAny<Encoding>()), Times.Once);
         }
 

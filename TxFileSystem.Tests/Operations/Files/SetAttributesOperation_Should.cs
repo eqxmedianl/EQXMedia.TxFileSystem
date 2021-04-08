@@ -1,12 +1,8 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.Files
 {
-    using global::EQXMedia.TxFileSystem.Tests.Attributes;
-    using Moq;
     using System;
     using System.IO;
-    using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
-    using System.Reflection;
     using System.Transactions;
     using Xunit;
 

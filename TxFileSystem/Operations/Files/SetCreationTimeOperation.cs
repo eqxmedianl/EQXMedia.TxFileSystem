@@ -29,7 +29,7 @@
             if (_asUtc)
             {
                 _file.TxFileSystem.FileSystem.File.SetCreationTimeUtc(_path, _creationTime);
-                
+
                 return;
             }
 

@@ -1,6 +1,5 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
 {
-    using System.IO;
     using System.IO.Abstractions.TestingHelpers;
     using System.Linq;
     using Xunit;
