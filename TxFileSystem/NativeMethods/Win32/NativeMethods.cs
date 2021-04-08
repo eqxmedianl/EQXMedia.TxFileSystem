@@ -2,7 +2,9 @@
 {
     using System;
     using System.IO;
+#if !NET5_0
     using System.Runtime.ConstrainedExecution;
+#endif
     using System.Runtime.InteropServices;
     using System.Security;
     using System.Text;
