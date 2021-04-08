@@ -53,8 +53,7 @@ using EQXMedia.TxFileSystem;
     
 using var transactionScope = TransactionScope();
 
-var fileSystem = new FileSystem();
-var txFileSystem = new TxFileSystem(fileSystem);
+var txFileSystem = new TxFileSystem(new FileSystem());
 txFileSystem.File.Create(@"C:\Users\JohnDoe\Documents\example.txt");
 
 throw new Exception("Error occurs after creating the file. Resulting in the creation to be rolled back.");
