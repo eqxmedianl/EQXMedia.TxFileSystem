@@ -22,6 +22,7 @@ The project has a website of its own which can be found at [https://txfilesystem
 A NuGet package is created of every `EQXMedia.TxFileSystem` release and can be installed to your .NET project using the *NuGet Package Manager* or `dotnet` command.
 
 More information about the NuGet package can be found at NuGet.org:
+
 [https://www.nuget.org/packages/EQXMedia.TxFileSystem/](https://www.nuget.org/packages/EQXMedia.TxFileSystem/ "Visit the NuGet package listing of EQXMedia.TxFileSystem")
 
 ### Installing the package
