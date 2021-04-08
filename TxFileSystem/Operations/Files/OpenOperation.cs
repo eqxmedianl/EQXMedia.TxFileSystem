@@ -35,15 +35,15 @@
 
             if (_access.HasValue && _share.HasValue)
             {
-                return _file.TxFileSystem.FileSystem.File.Open(_path, _mode, _access.Value, _share.Value);
+                return _file.FileSystem.File.Open(_path, _mode, _access.Value, _share.Value);
             }
 
             if (_access.HasValue)
             {
-                return _file.TxFileSystem.FileSystem.File.Open(_path, _mode, _access.Value);
+                return _file.FileSystem.File.Open(_path, _mode, _access.Value);
             }
 
-            return _file.TxFileSystem.FileSystem.File.Open(_path, _mode);
+            return _file.FileSystem.File.Open(_path, _mode);
         }
     }
 }

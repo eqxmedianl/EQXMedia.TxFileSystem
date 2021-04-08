@@ -21,9 +21,9 @@
         {
             get
             {
-                var parentDirectory = _directory.TxFileSystem.FileSystem.DirectoryInfo.FromDirectoryName(this.Path)
-                    .Parent.FullName + _directory.TxFileSystem.FileSystem.Path.DirectorySeparatorChar;
-                var backupDir = parentDirectory + "tempdir_" + _tempFileUuid + "_" + _directory.TxFileSystem.FileSystem
+                var parentDirectory = _directory.FileSystem.DirectoryInfo.FromDirectoryName(this.Path)
+                    .Parent.FullName + _directory.FileSystem.Path.DirectorySeparatorChar;
+                var backupDir = parentDirectory + "tempdir_" + _tempFileUuid + "_" + _directory.FileSystem
                     .FileInfo.FromFileName(this.Path).Name;
 
                 return backupDir;
@@ -43,7 +43,7 @@
                 return;
             }
 
-            if (_directory.TxFileSystem.FileSystem.Directory.Exists(this.Path))
+            if (_directory.FileSystem.Directory.Exists(this.Path))
             {
                 _directory.CopyRecursive(this.Path, this.BackupPath);
             }
@@ -58,9 +58,9 @@
                 return;
             }
 
-            if (_directory.TxFileSystem.FileSystem.Directory.Exists(this.BackupPath))
+            if (_directory.FileSystem.Directory.Exists(this.BackupPath))
             {
-                _directory.TxFileSystem.FileSystem.Directory.Delete(this.BackupPath, recursive: true);
+                _directory.FileSystem.Directory.Delete(this.BackupPath, recursive: true);
             }
         }
 

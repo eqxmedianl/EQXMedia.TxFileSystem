@@ -25,11 +25,11 @@
 
             if (!_recursive.HasValue)
             {
-                _directory.TxFileSystem.FileSystem.Directory.Delete(_path);
+                _directory.FileSystem.Directory.Delete(_path);
             }
             else
             {
-                _directory.TxFileSystem.FileSystem.Directory.Delete(_path, _recursive.Value);
+                _directory.FileSystem.Directory.Delete(_path, _recursive.Value);
             }
         }
     }

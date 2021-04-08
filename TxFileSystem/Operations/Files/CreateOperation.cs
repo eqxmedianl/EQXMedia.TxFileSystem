@@ -33,15 +33,15 @@
 
             if (_fileOptions.HasValue)
             {
-                return _file.TxFileSystem.FileSystem.File.Create(_path, _bufferSize.Value, _fileOptions.Value);
+                return _file.FileSystem.File.Create(_path, _bufferSize.Value, _fileOptions.Value);
             }
 
             if (_bufferSize.HasValue)
             {
-                return _file.TxFileSystem.FileSystem.File.Create(_path, _bufferSize.Value);
+                return _file.FileSystem.File.Create(_path, _bufferSize.Value);
             }
 
-            return _file.TxFileSystem.FileSystem.File.Create(_path);
+            return _file.FileSystem.File.Create(_path);
         }
 
         public override void Rollback()

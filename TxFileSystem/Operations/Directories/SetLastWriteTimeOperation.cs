@@ -28,10 +28,10 @@
 
             if (_asUtc)
             {
-                _directory.TxFileSystem.FileSystem.Directory.SetLastWriteTimeUtc(_path, _lastWriteTime);
+                _directory.FileSystem.Directory.SetLastWriteTimeUtc(_path, _lastWriteTime);
             }
 
-            _directory.TxFileSystem.FileSystem.Directory.SetLastWriteTime(_path, _lastWriteTime);
+            _directory.FileSystem.Directory.SetLastWriteTime(_path, _lastWriteTime);
         }
     }
 }

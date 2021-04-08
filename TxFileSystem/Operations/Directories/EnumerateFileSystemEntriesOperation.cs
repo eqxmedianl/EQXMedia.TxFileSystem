@@ -43,20 +43,20 @@
 
             if (_searchOption.HasValue)
             {
-                return _directory.TxFileSystem.FileSystem.Directory.EnumerateFileSystemEntries(_path, _searchPattern, _searchOption.Value);
+                return _directory.FileSystem.Directory.EnumerateFileSystemEntries(_path, _searchPattern, _searchOption.Value);
             }
 
             if (_enumerationOptions != null)
             {
-                return _directory.TxFileSystem.FileSystem.Directory.EnumerateFileSystemEntries(_path, _searchPattern, _enumerationOptions);
+                return _directory.FileSystem.Directory.EnumerateFileSystemEntries(_path, _searchPattern, _enumerationOptions);
             }
 
             if (_searchPattern != null)
             {
-                return _directory.TxFileSystem.FileSystem.Directory.EnumerateFileSystemEntries(_path, _searchPattern);
+                return _directory.FileSystem.Directory.EnumerateFileSystemEntries(_path, _searchPattern);
             }
 
-            return _directory.TxFileSystem.FileSystem.Directory.EnumerateFileSystemEntries(_path);
+            return _directory.FileSystem.Directory.EnumerateFileSystemEntries(_path);
         }
     }
 }

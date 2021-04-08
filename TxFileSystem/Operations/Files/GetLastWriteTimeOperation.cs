@@ -21,10 +21,10 @@
 
             if (_asUtc)
             {
-                return _file.TxFileSystem.FileSystem.File.GetLastWriteTimeUtc(_path);
+                return _file.FileSystem.File.GetLastWriteTimeUtc(_path);
             }
 
-            return _file.TxFileSystem.FileSystem.File.GetLastWriteTime(_path);
+            return _file.FileSystem.File.GetLastWriteTime(_path);
         }
     }
 }

@@ -20,14 +20,14 @@
         {
             Journalize(this);
 
-            _file.TxFileSystem.FileSystem.File.WriteAllBytes(_path, _bytes);
+            _file.FileSystem.File.WriteAllBytes(_path, _bytes);
         }
 
         public Task ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);
 
-            return _file.TxFileSystem.FileSystem.File.WriteAllBytesAsync(_path, _bytes, cancellationToken);
+            return _file.FileSystem.File.WriteAllBytesAsync(_path, _bytes, cancellationToken);
         }
     }
 }

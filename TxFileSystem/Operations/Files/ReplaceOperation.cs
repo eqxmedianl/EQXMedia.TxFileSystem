@@ -30,11 +30,11 @@
 
             if (!_ignoreMetadataErrors.HasValue)
             {
-                _file.TxFileSystem.FileSystem.File.Replace(_path, _destPath, _destBackupFileName);
+                _file.FileSystem.File.Replace(_path, _destPath, _destBackupFileName);
             }
             else
             {
-                _file.TxFileSystem.FileSystem.File.Replace(_path, _destPath, _destBackupFileName, _ignoreMetadataErrors.Value);
+                _file.FileSystem.File.Replace(_path, _destPath, _destBackupFileName, _ignoreMetadataErrors.Value);
             }
         }
 

@@ -19,7 +19,7 @@
         {
             Journalize(this);
 
-            _file.TxFileSystem.FileSystem.File.SetAttributes(_path, _fileAttributes);
+            _file.FileSystem.File.SetAttributes(_path, _fileAttributes);
         }
     }
 }

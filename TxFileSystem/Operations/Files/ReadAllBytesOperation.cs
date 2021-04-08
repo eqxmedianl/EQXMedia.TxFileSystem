@@ -17,14 +17,14 @@
         {
             Journalize(this);
 
-            return _file.TxFileSystem.FileSystem.File.ReadAllBytes(_path);
+            return _file.FileSystem.File.ReadAllBytes(_path);
         }
 
         public Task<byte[]> ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);
 
-            return _file.TxFileSystem.FileSystem.File.ReadAllBytesAsync(_path, cancellationToken);
+            return _file.FileSystem.File.ReadAllBytesAsync(_path, cancellationToken);
         }
     }
 }

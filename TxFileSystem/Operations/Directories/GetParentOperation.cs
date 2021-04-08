@@ -16,7 +16,7 @@
         {
             Journalize(this);
 
-            return _directory.TxFileSystem.FileSystem.Directory.GetParent(_path);
+            return _directory.FileSystem.Directory.GetParent(_path);
         }
     }
 }

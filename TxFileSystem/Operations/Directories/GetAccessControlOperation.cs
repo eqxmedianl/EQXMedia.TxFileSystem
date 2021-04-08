@@ -32,10 +32,10 @@
 
             if (_includeSections.HasValue)
             {
-                return _directory.TxFileSystem.FileSystem.Directory.GetAccessControl(_path, _includeSections.Value);
+                return _directory.FileSystem.Directory.GetAccessControl(_path, _includeSections.Value);
             }
 
-            return _directory.TxFileSystem.FileSystem.Directory.GetAccessControl(_path);
+            return _directory.FileSystem.Directory.GetAccessControl(_path);
         }
     }
 }

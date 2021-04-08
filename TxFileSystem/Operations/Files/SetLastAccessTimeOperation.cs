@@ -28,11 +28,11 @@
 
             if (_asUtc)
             {
-                _file.TxFileSystem.FileSystem.File.SetLastAccessTimeUtc(_path, _lastAccessTime);
+                _file.FileSystem.File.SetLastAccessTimeUtc(_path, _lastAccessTime);
             }
             else
             {
-                _file.TxFileSystem.FileSystem.File.SetLastAccessTime(_path, _lastAccessTime);
+                _file.FileSystem.File.SetLastAccessTime(_path, _lastAccessTime);
             }
         }
     }

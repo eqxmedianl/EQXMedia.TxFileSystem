@@ -26,10 +26,10 @@
 
             if (_asUtc)
             {
-                return _directory.TxFileSystem.FileSystem.Directory.GetLastAccessTimeUtc(_path);
+                return _directory.FileSystem.Directory.GetLastAccessTimeUtc(_path);
             }
 
-            return _directory.TxFileSystem.FileSystem.Directory.GetLastAccessTime(_path);
+            return _directory.FileSystem.Directory.GetLastAccessTime(_path);
         }
     }
 }

@@ -29,10 +29,10 @@
 
             if (_encoding != null)
             {
-                return _file.TxFileSystem.FileSystem.File.ReadAllLines(_path, _encoding);
+                return _file.FileSystem.File.ReadAllLines(_path, _encoding);
             }
 
-            return _file.TxFileSystem.FileSystem.File.ReadAllLines(_path);
+            return _file.FileSystem.File.ReadAllLines(_path);
         }
 
         public Task<string[]> ExecuteAsync(CancellationToken cancellationToken = default)
@@ -41,10 +41,10 @@
 
             if (_encoding != null)
             {
-                return _file.TxFileSystem.FileSystem.File.ReadAllLinesAsync(_path, _encoding, cancellationToken);
+                return _file.FileSystem.File.ReadAllLinesAsync(_path, _encoding, cancellationToken);
             }
 
-            return _file.TxFileSystem.FileSystem.File.ReadAllLinesAsync(_path, cancellationToken);
+            return _file.FileSystem.File.ReadAllLinesAsync(_path, cancellationToken);
         }
     }
 }

@@ -16,7 +16,7 @@
         {
             Journalize(this);
 
-            return _file.TxFileSystem.FileSystem.File.GetAttributes(_path);
+            return _file.FileSystem.File.GetAttributes(_path);
         }
     }
 }

@@ -25,10 +25,10 @@
 
             if (_searchPattern == null)
             {
-                return _directory.TxFileSystem.FileSystem.Directory.GetFileSystemEntries(_path);
+                return _directory.FileSystem.Directory.GetFileSystemEntries(_path);
             }
 
-            return _directory.TxFileSystem.FileSystem.Directory.GetFileSystemEntries(_path, _searchPattern);
+            return _directory.FileSystem.Directory.GetFileSystemEntries(_path, _searchPattern);
         }
     }
 }

@@ -26,10 +26,10 @@
 
             if (_asUtc)
             {
-                return _directory.TxFileSystem.FileSystem.Directory.GetCreationTimeUtc(_path);
+                return _directory.FileSystem.Directory.GetCreationTimeUtc(_path);
             }
 
-            return _directory.TxFileSystem.FileSystem.Directory.GetCreationTime(_path);
+            return _directory.FileSystem.Directory.GetCreationTime(_path);
         }
     }
 }

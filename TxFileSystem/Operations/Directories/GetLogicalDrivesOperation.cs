@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            return _directory.TxFileSystem.FileSystem.Directory.GetLogicalDrives();
+            return _directory.FileSystem.Directory.GetLogicalDrives();
         }
     }
 }

@@ -26,8 +26,8 @@
 
         public override void Backup()
         {
-            _oldLastAccessTimeUtc = _directory.TxFileSystem.FileSystem.Directory.GetLastAccessTimeUtc(this.Path);
-            _oldLastAccessTime = _directory.TxFileSystem.FileSystem.Directory.GetLastAccessTime(this.Path);
+            _oldLastAccessTimeUtc = _directory.FileSystem.Directory.GetLastAccessTimeUtc(this.Path);
+            _oldLastAccessTime = _directory.FileSystem.Directory.GetLastAccessTime(this.Path);
         }
 
         public void Execute()
@@ -36,21 +36,21 @@
 
             if (_asUtc)
             {
-                _directory.TxFileSystem.FileSystem.Directory.SetLastAccessTimeUtc(_path, _lastAccessTime);
+                _directory.FileSystem.Directory.SetLastAccessTimeUtc(_path, _lastAccessTime);
             }
 
-            _directory.TxFileSystem.FileSystem.Directory.SetLastAccessTime(_path, _lastAccessTime);
+            _directory.FileSystem.Directory.SetLastAccessTime(_path, _lastAccessTime);
         }
 
         public override void Rollback()
         {
             if (_asUtc)
             {
-                _directory.TxFileSystem.FileSystem.Directory.SetLastAccessTimeUtc(_path, _oldLastAccessTimeUtc);
+                _directory.FileSystem.Directory.SetLastAccessTimeUtc(_path, _oldLastAccessTimeUtc);
             }
             else
             {
-                _directory.TxFileSystem.FileSystem.Directory.SetLastAccessTime(_path, _oldLastAccessTime);
+                _directory.FileSystem.Directory.SetLastAccessTime(_path, _oldLastAccessTime);
             }
         }
     }

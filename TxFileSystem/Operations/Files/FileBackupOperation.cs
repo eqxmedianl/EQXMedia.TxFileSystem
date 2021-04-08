@@ -36,25 +36,25 @@
                 return;
             }
 
-            if (!_file.TxFileSystem.FileSystem.File.Exists(this.BackupPath))
+            if (!_file.FileSystem.File.Exists(this.BackupPath))
             {
-                _file.TxFileSystem.FileSystem.File.Copy(this.Path, this.BackupPath);
+                _file.FileSystem.File.Copy(this.Path, this.BackupPath);
             }
         }
 
         public void Delete()
         {
-            if (_file.TxFileSystem.FileSystem.File.Exists(this.BackupPath))
+            if (_file.FileSystem.File.Exists(this.BackupPath))
             {
-                _file.TxFileSystem.FileSystem.File.Delete(this.BackupPath);
+                _file.FileSystem.File.Delete(this.BackupPath);
             }
         }
 
         public void Restore()
         {
-            if (_file.TxFileSystem.FileSystem.File.Exists(this.BackupPath))
+            if (_file.FileSystem.File.Exists(this.BackupPath))
             {
-                _file.TxFileSystem.FileSystem.File.Copy(this.BackupPath, this.Path, overwrite: true);
+                _file.FileSystem.File.Copy(this.BackupPath, this.Path, overwrite: true);
             }
             Delete();
         }

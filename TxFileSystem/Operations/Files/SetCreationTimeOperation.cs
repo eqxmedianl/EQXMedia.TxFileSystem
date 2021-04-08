@@ -28,12 +28,12 @@
 
             if (_asUtc)
             {
-                _file.TxFileSystem.FileSystem.File.SetCreationTimeUtc(_path, _creationTime);
+                _file.FileSystem.File.SetCreationTimeUtc(_path, _creationTime);
 
                 return;
             }
 
-            _file.TxFileSystem.FileSystem.File.SetCreationTime(_path, _creationTime);
+            _file.FileSystem.File.SetCreationTime(_path, _creationTime);
         }
     }
 }

@@ -31,10 +31,10 @@
 
             if (_includeSections.HasValue)
             {
-                return _file.TxFileSystem.FileSystem.File.GetAccessControl(_path, _includeSections.Value);
+                return _file.FileSystem.File.GetAccessControl(_path, _includeSections.Value);
             }
 
-            return _file.TxFileSystem.FileSystem.File.GetAccessControl(_path);
+            return _file.FileSystem.File.GetAccessControl(_path);
         }
     }
 }

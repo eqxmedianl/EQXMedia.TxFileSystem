@@ -18,7 +18,7 @@
         {
             Journalize(this);
 
-            _directory.TxFileSystem.FileSystem.Directory.Move(_path, _destPath);
+            _directory.FileSystem.Directory.Move(_path, _destPath);
         }
 
         public override void Rollback()

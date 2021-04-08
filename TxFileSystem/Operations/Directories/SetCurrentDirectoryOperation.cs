@@ -23,12 +23,12 @@
         {
             Journalize(this);
 
-            _directory.TxFileSystem.FileSystem.Directory.SetCurrentDirectory(_newDirectoryPath);
+            _directory.FileSystem.Directory.SetCurrentDirectory(_newDirectoryPath);
         }
 
         public override void Rollback()
         {
-            _directory.TxFileSystem.FileSystem.Directory.SetCurrentDirectory(this.Path);
+            _directory.FileSystem.Directory.SetCurrentDirectory(this.Path);
 
             Delete();
         }

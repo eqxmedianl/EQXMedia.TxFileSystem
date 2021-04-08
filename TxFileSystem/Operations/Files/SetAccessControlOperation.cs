@@ -24,7 +24,7 @@
         {
             Journalize(this);
 
-            _file.TxFileSystem.FileSystem.File.SetAccessControl(_path, _fileSecurity);
+            _file.FileSystem.File.SetAccessControl(_path, _fileSecurity);
         }
     }
 }

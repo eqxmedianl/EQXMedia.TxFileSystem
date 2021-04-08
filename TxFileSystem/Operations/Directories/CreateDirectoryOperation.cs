@@ -27,10 +27,10 @@
 
             if (_directorySecurity != null)
             {
-                return _directory.TxFileSystem.FileSystem.Directory.CreateDirectory(_path, _directorySecurity);
+                return _directory.FileSystem.Directory.CreateDirectory(_path, _directorySecurity);
             }
 
-            return _directory.TxFileSystem.FileSystem.Directory.CreateDirectory(_path);
+            return _directory.FileSystem.Directory.CreateDirectory(_path);
         }
 
         public override void Rollback()

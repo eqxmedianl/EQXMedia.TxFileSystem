@@ -21,10 +21,10 @@
 
             if (_asUtc)
             {
-                return _file.TxFileSystem.FileSystem.File.GetCreationTimeUtc(_path);
+                return _file.FileSystem.File.GetCreationTimeUtc(_path);
             }
 
-            return _file.TxFileSystem.FileSystem.File.GetCreationTime(_path);
+            return _file.FileSystem.File.GetCreationTime(_path);
         }
     }
 }

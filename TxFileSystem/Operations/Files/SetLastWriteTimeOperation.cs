@@ -28,11 +28,11 @@
 
             if (_asUtc)
             {
-                _file.TxFileSystem.FileSystem.File.SetLastWriteTimeUtc(_path, _lastWriteTime);
+                _file.FileSystem.File.SetLastWriteTimeUtc(_path, _lastWriteTime);
             }
             else
             {
-                _file.TxFileSystem.FileSystem.File.SetLastWriteTime(_path, _lastWriteTime);
+                _file.FileSystem.File.SetLastWriteTime(_path, _lastWriteTime);
             }
         }
     }

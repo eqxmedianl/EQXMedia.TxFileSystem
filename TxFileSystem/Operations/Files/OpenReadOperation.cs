@@ -16,7 +16,7 @@
         {
             Journalize(this);
 
-            return _file.TxFileSystem.FileSystem.File.OpenRead(_path);
+            return _file.FileSystem.File.OpenRead(_path);
         }
     }
 }

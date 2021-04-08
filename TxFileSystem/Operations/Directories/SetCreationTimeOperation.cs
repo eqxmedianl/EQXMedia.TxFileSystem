@@ -28,10 +28,10 @@
 
             if (_asUtc)
             {
-                _directory.TxFileSystem.FileSystem.Directory.SetCreationTimeUtc(_path, _creationTime);
+                _directory.FileSystem.Directory.SetCreationTimeUtc(_path, _creationTime);
             }
 
-            _directory.TxFileSystem.FileSystem.Directory.SetCreationTime(_path, _creationTime);
+            _directory.FileSystem.Directory.SetCreationTime(_path, _creationTime);
         }
 
         public override void Rollback()

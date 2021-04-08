@@ -24,13 +24,13 @@
         {
             Journalize(this);
 
-            _directory.TxFileSystem.FileSystem.Directory.SetAccessControl(_path, _directorySecurity);
+            _directory.FileSystem.Directory.SetAccessControl(_path, _directorySecurity);
         }
 
         public override void Rollback()
         {
-            var oldDirectorySecurity = _directory.TxFileSystem.FileSystem.Directory.GetAccessControl(this.BackupPath);
-            _directory.TxFileSystem.FileSystem.Directory.SetAccessControl(_path, oldDirectorySecurity);
+            var oldDirectorySecurity = _directory.FileSystem.Directory.GetAccessControl(this.BackupPath);
+            _directory.FileSystem.Directory.SetAccessControl(_path, oldDirectorySecurity);
 
             Delete();
         }

@@ -30,11 +30,11 @@
 
             if (_encoding == null)
             {
-                _file.TxFileSystem.FileSystem.File.WriteAllText(_path, _contents);
+                _file.FileSystem.File.WriteAllText(_path, _contents);
             }
             else
             {
-                _file.TxFileSystem.FileSystem.File.WriteAllText(_path, _contents, _encoding);
+                _file.FileSystem.File.WriteAllText(_path, _contents, _encoding);
             }
         }
 
@@ -44,11 +44,11 @@
 
             if (_encoding == null)
             {
-                return _file.TxFileSystem.FileSystem.File.WriteAllTextAsync(_path, _contents, cancellationToken);
+                return _file.FileSystem.File.WriteAllTextAsync(_path, _contents, cancellationToken);
             }
             else
             {
-                return _file.TxFileSystem.FileSystem.File.WriteAllTextAsync(_path, _contents, _encoding, cancellationToken);
+                return _file.FileSystem.File.WriteAllTextAsync(_path, _contents, _encoding, cancellationToken);
             }
         }
     }

@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            return _directory.TxFileSystem.FileSystem.Directory.GetDirectoryRoot(_path);
+            return _directory.FileSystem.Directory.GetDirectoryRoot(_path);
         }
     }
 }

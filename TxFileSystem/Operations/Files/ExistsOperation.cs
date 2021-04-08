@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            return _file.TxFileSystem.FileSystem.File.Exists(_path);
+            return _file.FileSystem.File.Exists(_path);
         }
     }
 }

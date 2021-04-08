@@ -16,7 +16,7 @@
         {
             Journalize(this);
 
-            return _file.TxFileSystem.FileSystem.File.CreateText(_path);
+            return _file.FileSystem.File.CreateText(_path);
         }
 
         public override void Rollback()

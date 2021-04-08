@@ -29,9 +29,9 @@
         {
             base.Backup();
 
-            if (_overwrite.HasValue && _overwrite.Value && _file.TxFileSystem.FileSystem.File.Exists(_destPath))
+            if (_overwrite.HasValue && _overwrite.Value && _file.FileSystem.File.Exists(_destPath))
             {
-                _file.TxFileSystem.FileSystem.File.Copy(_destPath, _file.GetBackupPath(_destPath, _tempFileUuid));
+                _file.FileSystem.File.Copy(_destPath, _file.GetBackupPath(_destPath, _tempFileUuid));
             }
         }
 
@@ -41,11 +41,11 @@
 
             if (!_overwrite.HasValue)
             {
-                _file.TxFileSystem.FileSystem.File.Copy(_path, _destPath);
+                _file.FileSystem.File.Copy(_path, _destPath);
             }
             else
             {
-                _file.TxFileSystem.FileSystem.File.Copy(_path, _destPath, _overwrite.Value);
+                _file.FileSystem.File.Copy(_path, _destPath, _overwrite.Value);
             }
         }
 
@@ -59,10 +59,10 @@
         private void RestoreOverwrittenDestinationFile()
         {
             var backupFile = _file.GetBackupPath(_destPath, _tempFileUuid);
-            if (_overwrite.HasValue && _overwrite.Value && _file.TxFileSystem.FileSystem.File.Exists(backupFile))
+            if (_overwrite.HasValue && _overwrite.Value && _file.FileSystem.File.Exists(backupFile))
             {
-                _file.TxFileSystem.FileSystem.File.Copy(backupFile, _destPath);
-                _file.TxFileSystem.FileSystem.File.Delete(backupFile);
+                _file.FileSystem.File.Copy(backupFile, _destPath);
+                _file.FileSystem.File.Delete(backupFile);
             }
         }
     }

@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            _file.TxFileSystem.FileSystem.File.Delete(_path);
+            _file.FileSystem.File.Delete(_path);
         }
     }
 }

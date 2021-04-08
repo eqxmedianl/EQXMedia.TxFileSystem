@@ -27,10 +27,10 @@
 
             if (_encoding != null)
             {
-                return _file.TxFileSystem.FileSystem.File.ReadLines(_path, _encoding);
+                return _file.FileSystem.File.ReadLines(_path, _encoding);
             }
 
-            return _file.TxFileSystem.FileSystem.File.ReadLines(_path);
+            return _file.FileSystem.File.ReadLines(_path);
         }
     }
 }

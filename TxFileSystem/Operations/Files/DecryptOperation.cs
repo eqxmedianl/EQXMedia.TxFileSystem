@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            _file.TxFileSystem.FileSystem.File.Decrypt(_path);
+            _file.FileSystem.File.Decrypt(_path);
         }
 
         public override void Rollback()
