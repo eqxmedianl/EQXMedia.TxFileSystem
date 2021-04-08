@@ -1,6 +1,6 @@
 # EQXMedia.TxFileSystem
 
-`EQXMedia.TxFileSystem` is a transactional filesystem wrapper using the .NET Standard filesystem abstraction from `System.IO.Abstractions`.
+`EQXMedia.TxFileSystem` is a transactional filesystem wrapper using the .NET filesystem abstraction from `System.IO.Abstractions`.
 
 This filesystem wrapper supports transactional operations on:
 *   Files,
