@@ -16,17 +16,18 @@ Use this filesystem wrapper in combination with System.Transactions.TransactionS
 * FileStreams.
 
 All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true filesystem being wrapped.</Description>
-    <PackageReleaseNotes>Version 1.1.0
-------------------
-* Providing a System.IO.Abstractions filesystem wrapper.
-* Can be used to wrap any filesystem that implements the IFileSystem interface.
-* Support transactional operations on:
-  * Files,
-  * Directories,
-  * Filestreams.
-  * Plain proxy functionality for all remaining parts of the System.IO.Abstractions interfaces.
-* Fully covered by Unit Tests (100% code coverage).
-* Now supports multiple framework versions.</PackageReleaseNotes>
+    <PackageReleaseNotes>Version 1.1.1
+-------------
+
+● Providing a System.IO.Abstractions filesystem wrapper.
+● Can be used to wrap any filesystem that implements the IFileSystem interface.
+● Support transactional operations on:
+  ○ Files,
+  ○ Directories,
+  ○ Filestreams.
+● Plain proxy functionality for all remaining parts of the System.IO.Abstractions interfaces.
+● Fully covered by Unit Tests (100% code coverage).
+● Now supports multiple framework versions.</PackageReleaseNotes>
     <Copyright>© EQX Media B.V. All rights reserved.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
