@@ -21,12 +21,14 @@
             IntPtr templateFileHandle);
 
         [DllImport("kernel32.dll", SetLastError = true)]
+#if !NET5_0
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
+#endif
         [SuppressUnmanagedCodeSecurity]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool CloseHandle(IntPtr hObject);
 
-        [DllImport("kernel32.dll", SetLastError = true)]
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         internal static extern int GetFinalPathNameByHandle(
             IntPtr handle,
             [In, Out] StringBuilder path,
@@ -36,11 +38,15 @@
         internal static string GetFinalPathNameByHandle(IntPtr handle)
         {
             var pathBuilder = new StringBuilder(512);
-            GetFinalPathNameByHandle(handle, pathBuilder, pathBuilder.Capacity, 0);
+            var result = GetFinalPathNameByHandle(handle, pathBuilder, pathBuilder.Capacity, 0);
+            if (result != 0)
+            {
+                var path = pathBuilder.ToString();
 
-            var path = pathBuilder.ToString();
+                return path.Replace(@"\\?\", "");
+            }
 
-            return path.Replace(@"\\?\", "");
+            return null;
         }
     }
 }

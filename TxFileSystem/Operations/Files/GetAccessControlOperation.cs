@@ -3,6 +3,11 @@
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Security.AccessControl;
 
+#if NET5_0
+    using System.Runtime.Versioning;
+
+    [SupportedOSPlatform("windows")]
+#endif
     internal sealed class GetAccessControlOperation : FileOperation, IReturningOperation<FileSecurity>
     {
         private readonly AccessControlSections? _includeSections = null;
