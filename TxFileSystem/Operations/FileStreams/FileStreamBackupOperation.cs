@@ -52,7 +52,7 @@
                     return _backupPath;
                 }
 
-                if (_safeFileHandle == null)
+                if (_safeFileHandle == null && _path != null)
                 {
                     var backupDirectory = _fileStream.TxFileSystem.FileSystem.FileInfo.FromFileName(_path).DirectoryName + _fileStream.TxFileSystem.FileSystem.Path.DirectorySeparatorChar;
                     _backupPath = backupDirectory + "temp_" + _tempFileUuid + "_" + _fileStream.TxFileSystem.FileSystem.FileInfo.FromFileName(_path).Name;

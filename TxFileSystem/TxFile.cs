@@ -11,6 +11,10 @@
     using System.Threading;
     using System.Threading.Tasks;
 
+#if NET5_0
+    using System.Runtime.Versioning;
+#endif
+
     public sealed class TxFile : IFile, ITxFile
     {
         public TxFile(ITxFileSystem fileSystem)
@@ -121,11 +125,17 @@
             return new ExistsOperation(this, path).Execute();
         }
 
+#if NET5_0
+        [SupportedOSPlatform("windows")]
+#endif
         public FileSecurity GetAccessControl(string path)
         {
             return new GetAccessControlOperation(this, path).Execute();
         }
 
+#if NET5_0
+        [SupportedOSPlatform("windows")]
+#endif
         public FileSecurity GetAccessControl(string path, AccessControlSections includeSections)
         {
             return new GetAccessControlOperation(this, path, includeSections).Execute();
@@ -170,6 +180,13 @@
         {
             new MoveOperation(this, sourceFileName, destFileName).Execute();
         }
+
+#if NET5_0
+        public void Move(string sourceFileName, string destFileName, bool overwrite)
+        {
+            new MoveOperation(this, sourceFileName, destFileName, overwrite).Execute();
+        }
+#endif
 
         public Stream Open(string path, FileMode mode)
         {
@@ -277,6 +294,9 @@
                 .Execute();
         }
 
+#if NET5_0
+        [SupportedOSPlatform("windows")]
+#endif
         public void SetAccessControl(string path, FileSecurity fileSecurity)
         {
             new SetAccessControlOperation(this, path, fileSecurity).Execute();
