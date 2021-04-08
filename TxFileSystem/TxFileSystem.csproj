@@ -11,9 +11,9 @@
     <Description>TxFileSystem is a transactional filesystem wrapper using the .NET filesystem abstraction from System.IO.Abstractions. 
 
 Use this filesystem wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
-* Files,
-* Directories,
-* FileStreams.
+● Files,
+● Directories,
+● FileStreams.
 
 All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true filesystem being wrapped.</Description>
     <PackageReleaseNotes>Version 1.1.1
