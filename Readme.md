@@ -9,7 +9,7 @@ This filesystem wrapper supports transactional operations on:
 
 # Project Website
 
-The project has a website of its own which can be found at [https://txfilesystem.io/ "Visit the project website of EQXMedia.TxFileSystem"](https://txfilesystem.io/).
+The project has a website of its own which can be found at [https://txfilesystem.io/](https://txfilesystem.io/ "Visit the project website of EQXMedia.TxFileSystem").
 
 # NuGet Package
 
