@@ -15,7 +15,7 @@ More information about the NuGet package can be found at NuGet.org:
 
 ## Installing the package
 
-### Package Manager**
+### Package Manager
 ```powershell
 PS> Install-Package EQXMedia.TxFileSystem -Version 1.0.0
 ```
