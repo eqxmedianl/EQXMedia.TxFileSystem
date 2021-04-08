@@ -2,6 +2,6 @@
 {
     internal interface IReturningOperation<out TReturn> : IOperation
     {
-        public abstract TReturn Execute();
+        TReturn Execute();
     }
 }

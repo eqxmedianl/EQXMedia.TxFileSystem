@@ -17,7 +17,7 @@
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
 
-            Assert.Equal(mockFileSystem, ((ITxFileSystemWatcher)txFileSystem.FileSystemWatcher).FileSystem);
+            Assert.Equal(mockFileSystem, ((TxFileSystemWatcher)txFileSystem.FileSystemWatcher).FileSystem);
         }
 
         [Fact, FsFact]

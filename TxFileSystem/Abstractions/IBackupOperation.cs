@@ -4,14 +4,14 @@
 
     public interface IBackupOperation
     {
-        public OperationType OperationType { get; }
+        OperationType OperationType { get; }
 
-        public string BackupPath { get; }
+        string BackupPath { get; }
 
-        public void Backup();
+        void Backup();
 
-        public void Delete();
+        void Delete();
 
-        public void Restore();
+        void Restore();
     }
 }

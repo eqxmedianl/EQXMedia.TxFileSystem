@@ -2,10 +2,15 @@
 {
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Text;
+#if !NETSTANDARD2_0
     using System.Threading;
     using System.Threading.Tasks;
+#endif
 
-    internal sealed class AppendAllTextOperation : FileOperation, IExecutingOperation, IAsyncOperation
+    internal sealed class AppendAllTextOperation : FileOperation, IExecutingOperation
+#if !NETSTANDARD2_0
+        , IAsyncOperation
+#endif
     {
         private readonly string _contents = null;
         private readonly Encoding _encoding = null;
@@ -38,6 +43,7 @@
             }
         }
 
+#if !NETSTANDARD2_0
         public Task ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);
@@ -51,5 +57,6 @@
                 return _file.FileSystem.File.AppendAllTextAsync(_path, _contents, _encoding, cancellationToken);
             }
         }
+#endif
     }
 }

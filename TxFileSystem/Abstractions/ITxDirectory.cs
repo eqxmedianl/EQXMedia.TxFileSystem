@@ -4,8 +4,6 @@
 
     public interface ITxDirectory
     {
-        public IFileSystem FileSystem { get; }
-
-        internal ITxFileSystem TxFileSystem { get; set; }
+        IFileSystem FileSystem { get; }
     }
 }

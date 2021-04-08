@@ -45,7 +45,7 @@
             txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.File.Open(fileName, FileMode.Append);
 
-            Assert.NotEmpty(((ITxFileSystem)txFileSystem).Journal._txJournalEntries);
+            Assert.NotEmpty(txFileSystem.Journal._txJournalEntries);
         }
 
         [Fact]

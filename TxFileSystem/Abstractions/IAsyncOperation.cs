@@ -5,6 +5,6 @@
 
     public interface IAsyncOperation
     {
-        public Task ExecuteAsync(CancellationToken cancellationToken = default);
+        Task ExecuteAsync(CancellationToken cancellationToken = default);
     }
 }

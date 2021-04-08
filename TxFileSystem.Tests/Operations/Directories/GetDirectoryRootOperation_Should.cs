@@ -27,7 +27,7 @@
 
             txFileSystem.Directory.GetDirectoryRoot(dirName);
 
-            Assert.Empty(((ITxFileSystem)txFileSystem).Journal._txJournalEntries);
+            Assert.Empty(txFileSystem.Journal._txJournalEntries);
         }
 
         [Fact, FsFact]

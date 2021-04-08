@@ -4,8 +4,8 @@
 
     public interface IOperation
     {
-        public OperationType OperationType { get; }
+        OperationType OperationType { get; }
 
-        public abstract void Journalize(IOperation operation);
+        void Journalize(IOperation operation);
     }
 }

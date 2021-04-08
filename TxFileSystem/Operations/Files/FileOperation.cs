@@ -25,7 +25,7 @@
 
         public virtual void Rollback()
         {
-            if (OperationRollbackGuard.ShouldRollback(this.OperationType, _file.TxFileSystem.Journal.State))
+            if (OperationRollbackGuard.ShouldRollback(this.OperationType, ((TxFile)_file)._txFileSystem.Journal.State))
             {
                 Restore();
             }
@@ -33,7 +33,7 @@
 
         public void Journalize(IOperation operation)
         {
-            _file.TxFileSystem.Journal.Add(operation);
+            ((TxFile)_file)._txFileSystem.Journal.Add(operation);
         }
     }
 }

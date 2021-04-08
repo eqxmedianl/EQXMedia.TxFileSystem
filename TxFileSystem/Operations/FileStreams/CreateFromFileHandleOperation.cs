@@ -54,22 +54,22 @@
 
             if (_ownsHandle.HasValue && _bufferSize.HasValue && _isAsync.HasValue)
             {
-                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_handle, _access,
+                _stream = _fileStream.FileSystem.FileStream.Create(_handle, _access,
                     _ownsHandle.Value, _bufferSize.Value, _isAsync.Value);
             }
             else if (_ownsHandle.HasValue && _bufferSize.HasValue)
             {
-                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_handle, _access,
+                _stream = _fileStream.FileSystem.FileStream.Create(_handle, _access,
                     _ownsHandle.Value, _bufferSize.Value);
             }
             else if (_ownsHandle.HasValue)
             {
-                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_handle, _access,
+                _stream = _fileStream.FileSystem.FileStream.Create(_handle, _access,
                     _ownsHandle.Value);
             }
             else
             {
-                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_handle, _access);
+                _stream = _fileStream.FileSystem.FileStream.Create(_handle, _access);
             }
 
             Backup();

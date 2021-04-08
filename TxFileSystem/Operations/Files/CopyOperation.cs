@@ -31,7 +31,7 @@
 
             if (_overwrite.HasValue && _overwrite.Value && _file.FileSystem.File.Exists(_destPath))
             {
-                _file.FileSystem.File.Copy(_destPath, _file.GetBackupPath(_destPath, _tempFileUuid));
+                _file.FileSystem.File.Copy(_destPath, ((TxFile)_file).GetBackupPath(_destPath, _tempFileUuid));
             }
         }
 
@@ -58,7 +58,7 @@
 
         private void RestoreOverwrittenDestinationFile()
         {
-            var backupFile = _file.GetBackupPath(_destPath, _tempFileUuid);
+            var backupFile = ((TxFile)_file).GetBackupPath(_destPath, _tempFileUuid);
             if (_overwrite.HasValue && _overwrite.Value && _file.FileSystem.File.Exists(backupFile))
             {
                 _file.FileSystem.File.Copy(backupFile, _destPath);

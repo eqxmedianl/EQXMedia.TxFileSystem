@@ -3,10 +3,15 @@
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Collections.Generic;
     using System.Text;
+#if !NETSTANDARD2_0
     using System.Threading;
     using System.Threading.Tasks;
+#endif
 
-    internal sealed class WriteAllLinesOperation : FileOperation, IExecutingOperation, IAsyncOperation
+    internal sealed class WriteAllLinesOperation : FileOperation, IExecutingOperation
+#if !NETSTANDARD2_0
+        , IAsyncOperation
+#endif
     {
         private readonly IEnumerable<string> _contentsEnumerable = null;
         private readonly string[] _contentsArray = null;
@@ -66,6 +71,7 @@
             }
         }
 
+#if !NETSTANDARD2_0
         public Task ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);
@@ -97,5 +103,6 @@
                 }
             }
         }
+#endif
     }
 }

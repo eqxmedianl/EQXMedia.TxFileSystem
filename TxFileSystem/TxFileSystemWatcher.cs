@@ -5,14 +5,14 @@
 
     internal sealed class TxFileSystemWatcher : ITxFileSystemWatcher
     {
-        public TxFileSystemWatcher(ITxFileSystem txFileSystem)
+        private readonly TxFileSystem _txFileSystem;
+
+        public TxFileSystemWatcher(TxFileSystem txFileSystem)
         {
-            ((ITxFileSystemWatcher)this).TxFileSystem = txFileSystem;
+            _txFileSystem = txFileSystem;
         }
 
-        ITxFileSystem ITxFileSystemWatcher.TxFileSystem { get; set; }
-
-        public IFileSystem FileSystem => ((ITxFileSystemWatcher)this).TxFileSystem.FileSystem;
+        public IFileSystem FileSystem => _txFileSystem.FileSystem;
 
         public IFileSystemWatcher CreateNew()
         {

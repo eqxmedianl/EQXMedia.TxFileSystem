@@ -21,7 +21,7 @@
         {
             get
             {
-                return _file.GetBackupPath(this.Path, _tempFileUuid);
+                return ((TxFile)_file).GetBackupPath(this.Path, _tempFileUuid);
             }
         }
 
@@ -31,7 +31,7 @@
 
         public virtual void Backup()
         {
-            if (!OperationBackupGuard.ShouldBackup(_file.TxFileSystem.Journal, this.OperationType))
+            if (!OperationBackupGuard.ShouldBackup(((TxFile)_file)._txFileSystem.Journal, this.OperationType))
             {
                 return;
             }

@@ -33,12 +33,12 @@
 
         public void Journalize(IOperation operation)
         {
-            _directory.TxFileSystem.Journal.Add(operation);
+            ((TxDirectory)_directory)._txFileSystem.Journal.Add(operation);
         }
 
-        public virtual void Rollback()
+        public void Rollback()
         {
-            if (OperationRollbackGuard.ShouldRollback(this.OperationType, _directory.TxFileSystem.Journal.State))
+            if (OperationRollbackGuard.ShouldRollback(this.OperationType, ((TxDirectory)_directory)._txFileSystem.Journal.State))
             {
                 Restore();
             }

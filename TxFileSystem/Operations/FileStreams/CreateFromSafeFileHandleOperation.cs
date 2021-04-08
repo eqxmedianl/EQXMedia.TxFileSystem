@@ -39,17 +39,17 @@
 
             if (_bufferSize.HasValue && _isAsync.HasValue)
             {
-                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_safeFileHandle, _access,
+                _stream = _fileStream.FileSystem.FileStream.Create(_safeFileHandle, _access,
                     _bufferSize.Value, _isAsync.Value);
             }
             else if (_bufferSize.HasValue)
             {
-                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_safeFileHandle, _access,
+                _stream = _fileStream.FileSystem.FileStream.Create(_safeFileHandle, _access,
                     _bufferSize.Value);
             }
             else
             {
-                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_safeFileHandle, _access);
+                _stream = _fileStream.FileSystem.FileStream.Create(_safeFileHandle, _access);
             }
 
             Backup();

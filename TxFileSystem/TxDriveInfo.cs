@@ -5,12 +5,12 @@
 
     internal sealed class TxDriveInfo : IDriveInfoFactory
     {
-        public TxDriveInfo(ITxFileSystem fileSystem)
+        public TxDriveInfo(TxFileSystem fileSystem)
         {
             this.TxFileSystem = fileSystem;
         }
 
-        public ITxFileSystem TxFileSystem { get; }
+        public TxFileSystem TxFileSystem { get; }
 
         public IDriveInfo FromDriveName(string driveName)
         {

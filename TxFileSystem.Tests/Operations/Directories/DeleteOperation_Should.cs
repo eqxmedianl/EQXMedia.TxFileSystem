@@ -26,7 +26,7 @@
 
             CreateAndDeleteDirectory();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.Equal(JournalState.Committed, txJournal.State);
             Assert.False(txJournal.IsRolledBack);
@@ -51,7 +51,7 @@
 
             CreateAndDeleteDirectories();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.Equal(JournalState.Committed, txJournal.State);
             Assert.False(txJournal.IsRolledBack);
@@ -78,7 +78,7 @@
                 throw new Exception("Error while deleting failing directory");
             });
 
-            Assert.True(((ITxFileSystem)txFileSystem).Journal.IsRolledBack);
+            Assert.True(txFileSystem.Journal.IsRolledBack);
             Assert.True(txFileSystem.Directory.Exists("/var/failingdirectory"));
         }
     }

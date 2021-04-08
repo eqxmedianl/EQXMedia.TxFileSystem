@@ -38,14 +38,14 @@
 
         public virtual void Backup()
         {
-            if (!OperationBackupGuard.ShouldBackup(_directory.TxFileSystem.Journal, this.OperationType))
+            if (!OperationBackupGuard.ShouldBackup(((TxDirectory)_directory)._txFileSystem.Journal, this.OperationType))
             {
                 return;
             }
 
             if (_directory.FileSystem.Directory.Exists(this.Path))
             {
-                _directory.CopyRecursive(this.Path, this.BackupPath);
+                ((TxDirectory)_directory).CopyRecursive(this.Path, this.BackupPath);
             }
 
             this.IsBackedUp = true;
@@ -53,7 +53,7 @@
 
         public virtual void Delete()
         {
-            if (!OperationBackupGuard.ShouldRestore(_directory.TxFileSystem.Journal, this.OperationType))
+            if (!OperationBackupGuard.ShouldRestore(((TxDirectory)_directory)._txFileSystem.Journal, this.OperationType))
             {
                 return;
             }
@@ -64,9 +64,9 @@
             }
         }
 
-        public void Restore()
+        public virtual void Restore()
         {
-            _directory.CopyRecursive(this.BackupPath, this.Path);
+            ((TxDirectory)_directory).CopyRecursive(this.BackupPath, this.Path);
 
             Delete();
         }

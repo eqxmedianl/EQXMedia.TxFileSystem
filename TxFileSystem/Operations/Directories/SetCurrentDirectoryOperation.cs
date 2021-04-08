@@ -14,7 +14,7 @@
 
         private static string GetCurrentDirectory(ITxDirectory directory)
         {
-            return directory.TxFileSystem.FileSystem.Directory.GetCurrentDirectory();
+            return ((TxDirectory)directory)._txFileSystem.FileSystem.Directory.GetCurrentDirectory();
         }
 
         public override OperationType OperationType => OperationType.Navigate;
@@ -26,7 +26,7 @@
             _directory.FileSystem.Directory.SetCurrentDirectory(_newDirectoryPath);
         }
 
-        public override void Rollback()
+        public override void Restore()
         {
             _directory.FileSystem.Directory.SetCurrentDirectory(this.Path);
 

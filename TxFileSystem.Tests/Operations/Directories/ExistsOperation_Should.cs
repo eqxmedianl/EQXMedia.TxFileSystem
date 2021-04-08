@@ -43,7 +43,7 @@
                 throw new Exception("Error occured right after creating directory");
             });
 
-            Assert.True(((ITxFileSystem)txFileSystem).Journal.IsRolledBack);
+            Assert.True(txFileSystem.Journal.IsRolledBack);
             Assert.False(txFileSystem.Directory.Exists("/var/failafterthisdirectory"));
         }
     }

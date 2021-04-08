@@ -2,8 +2,8 @@
 {
     public interface IEnlistmentOperation
     {
-        public abstract void Commit();
+        void Commit();
 
-        public abstract void Rollback();
+        void Rollback();
     }
 }

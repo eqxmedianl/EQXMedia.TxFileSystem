@@ -21,9 +21,11 @@
             _directory.FileSystem.Directory.Move(_path, _destPath);
         }
 
-        public override void Rollback()
+        public override void Restore()
         {
             new MoveOperation(_directory, _destPath, _path).Execute();
+
+            Delete();
         }
     }
 }

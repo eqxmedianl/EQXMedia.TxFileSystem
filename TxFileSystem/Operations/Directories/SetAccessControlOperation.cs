@@ -27,7 +27,7 @@
             _directory.FileSystem.Directory.SetAccessControl(_path, _directorySecurity);
         }
 
-        public override void Rollback()
+        public override void Restore()
         {
             var oldDirectorySecurity = _directory.FileSystem.Directory.GetAccessControl(this.BackupPath);
             _directory.FileSystem.Directory.SetAccessControl(_path, oldDirectorySecurity);

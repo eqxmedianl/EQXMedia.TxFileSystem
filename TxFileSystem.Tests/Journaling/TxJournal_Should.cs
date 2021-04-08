@@ -19,7 +19,7 @@
             using var transactionScope = new TransactionScope();
 
             var txFileSystem = new TxFileSystem(mockFileSystem);
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
             txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
                 "/var/journaltestdir"));
 
@@ -34,7 +34,7 @@
             using var transactionScope = new TransactionScope();
 
             var txFileSystem = new TxFileSystem(mockFileSystem);
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
             txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
                 "/var/journaltestdir"));
 
@@ -48,7 +48,7 @@
         {
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.False(txJournal.IsRolledBack);
         }
@@ -58,7 +58,7 @@
         {
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
             txJournal.Rollback(JournalState.RollingBack);
 
             Assert.True(txJournal.IsRolledBack);
@@ -69,7 +69,7 @@
         {
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
             using var transactionScope = new TransactionScope();
 
             var enlistment = Transaction.Current.EnlistVolatile(txJournal,
@@ -85,7 +85,7 @@
         {
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.Equal(JournalState.Initial, txJournal.State);
             Assert.False(txJournal.IsRolledBack);
@@ -96,7 +96,7 @@
         {
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
             using var transactionScope = new TransactionScope();
 
             var enlistment = Transaction.Current.EnlistVolatile(txJournal,

@@ -53,7 +53,7 @@
             txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.File.ReadLines(fileName);
 
-            Assert.Empty(((ITxFileSystem)txFileSystem).Journal._txJournalEntries);
+            Assert.Empty(txFileSystem.Journal._txJournalEntries);
         }
 
         [Fact, FsFact]

@@ -49,7 +49,7 @@
             txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.Directory.GetParent(dirName);
 
-            Assert.Empty(((ITxFileSystem)txFileSystem).Journal._txJournalEntries);
+            Assert.Empty(txFileSystem.Journal._txJournalEntries);
         }
     }
 }

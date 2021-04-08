@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
     <Company>EQX Media B.V.</Company>
     <Authors>Jarno Kamminga</Authors>
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
@@ -41,6 +41,7 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
 
   <ItemGroup>
     <PackageReference Include="System.IO.Abstractions" Version="13.2.9" />
+    <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
 
   <ItemGroup>

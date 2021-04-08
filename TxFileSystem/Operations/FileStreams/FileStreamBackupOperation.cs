@@ -54,12 +54,12 @@
 
                 if (_safeFileHandle == null && _path != null)
                 {
-                    var backupDirectory = _fileStream.TxFileSystem.FileSystem.FileInfo.FromFileName(_path).DirectoryName + _fileStream.TxFileSystem.FileSystem.Path.DirectorySeparatorChar;
-                    _backupPath = backupDirectory + "temp_" + _tempFileUuid + "_" + _fileStream.TxFileSystem.FileSystem.FileInfo.FromFileName(_path).Name;
+                    var backupDirectory = _fileStream.FileSystem.FileInfo.FromFileName(_path).DirectoryName + _fileStream.FileSystem.Path.DirectorySeparatorChar;
+                    _backupPath = backupDirectory + "temp_" + _tempFileUuid + "_" + _fileStream.FileSystem.FileInfo.FromFileName(_path).Name;
                 }
                 else
                 {
-                    _backupPath = _fileStream.TxFileSystem.Path.GetTempFileName();
+                    _backupPath = _fileStream.FileSystem.Path.GetTempFileName();
                 }
 
                 return _backupPath;
@@ -70,7 +70,7 @@
 
         public virtual void Backup()
         {
-            if (!OperationBackupGuard.ShouldBackup(_fileStream.TxFileSystem.Journal, this.OperationType))
+            if (!OperationBackupGuard.ShouldBackup(((TxFileStream)_fileStream)._txFileSystem.Journal, this.OperationType))
             {
                 return;
             }
@@ -78,12 +78,11 @@
             var oldPosition = _stream.Position;
 
             var data = new byte[_stream.Length];
-            var buffer = new Span<byte>(data);
             _stream.Seek(0, SeekOrigin.Begin);
-            _stream.Read(buffer);
+            _stream.Read(data, 0, (int)_stream.Length);
 
-            var backupFileStream = _fileStream.TxFileSystem.FileSystem.File.Create(this.BackupPath);
-            backupFileStream.Write(data);
+            var backupFileStream = _fileStream.FileSystem.File.Create(this.BackupPath);
+            backupFileStream.Write(data, 0, data.Length);
             backupFileStream.Flush();
             backupFileStream.Close();
 
@@ -92,21 +91,21 @@
 
         public void Delete()
         {
-            if (_fileStream.TxFileSystem.FileSystem.File.Exists(this.BackupPath))
+            if (_fileStream.FileSystem.File.Exists(this.BackupPath))
             {
-                _fileStream.TxFileSystem.FileSystem.File.Delete(this.BackupPath);
+                _fileStream.FileSystem.File.Delete(this.BackupPath);
             }
         }
 
         public void Restore()
         {
-            if (_fileStream.TxFileSystem.FileSystem.File.Exists(this.BackupPath))
+            if (_fileStream.FileSystem.File.Exists(this.BackupPath))
             {
-                var originalData = _fileStream.TxFileSystem.FileSystem.File.ReadAllBytes(this.BackupPath);
+                var originalData = _fileStream.FileSystem.File.ReadAllBytes(this.BackupPath);
 
                 _stream.Seek(0, SeekOrigin.Begin);
                 _stream.SetLength(originalData.Length);
-                _stream.Write(originalData);
+                _stream.Write(originalData, 0, originalData.Length);
                 _stream.Flush();
             }
             Delete();

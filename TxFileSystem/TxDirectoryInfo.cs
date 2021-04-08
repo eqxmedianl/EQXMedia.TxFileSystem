@@ -5,12 +5,12 @@
 
     internal sealed class TxDirectoryInfo : IDirectoryInfoFactory
     {
-        public TxDirectoryInfo(ITxFileSystem fileSystem)
+        public TxDirectoryInfo(TxFileSystem fileSystem)
         {
             this.TxFileSystem = fileSystem;
         }
 
-        public ITxFileSystem TxFileSystem { get; }
+        public TxFileSystem TxFileSystem { get; }
 
         public IDirectoryInfo FromDirectoryName(string directoryName)
         {

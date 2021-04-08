@@ -37,7 +37,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
                 transactionScope.Complete();
             });
 
-            Assert.True(((ITxFileSystem)txFileSystem).Journal.IsRolledBack);
+            Assert.True(txFileSystem.Journal.IsRolledBack);
             Assert.False(txFileSystem.Directory.Exists("/var/www"));
             Assert.False(txFileSystem.Directory.Exists("/var/failingdirectory"));
         }
@@ -59,7 +59,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
 
             CreateDirectories();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.Equal(JournalState.Committed, txJournal.State);
             Assert.False(txJournal.IsRolledBack);

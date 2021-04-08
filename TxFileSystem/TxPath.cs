@@ -6,14 +6,14 @@
 
     internal sealed class TxPath : ITxPath
     {
-        public TxPath(ITxFileSystem txFileSystem)
+        private readonly TxFileSystem _txFileSystem;
+
+        public TxPath(TxFileSystem txFileSystem)
         {
-            ((ITxPath)this).TxFileSystem = txFileSystem;
+            _txFileSystem = txFileSystem;
         }
 
-        public IFileSystem FileSystem => ((ITxPath)this).TxFileSystem.FileSystem;
-
-        ITxFileSystem ITxPath.TxFileSystem { get; set; }
+        public IFileSystem FileSystem => _txFileSystem.FileSystem;
 
         public char AltDirectorySeparatorChar => this.FileSystem.Path.AltDirectorySeparatorChar;
 
@@ -75,10 +75,12 @@
             return this.FileSystem.Path.GetFullPath(path);
         }
 
+#if !NETSTANDARD2_0
         public string GetFullPath(string path, string basePath)
         {
             return this.FileSystem.Path.GetFullPath(path, basePath);
         }
+#endif
 
         public char[] GetInvalidFileNameChars()
         {
@@ -100,10 +102,12 @@
             return this.FileSystem.Path.GetRandomFileName();
         }
 
+#if !NETSTANDARD2_0
         public string GetRelativePath(string relativeTo, string path)
         {
             return this.FileSystem.Path.GetRelativePath(relativeTo, path);
         }
+#endif
 
         public string GetTempFileName()
         {
@@ -120,16 +124,19 @@
             return this.FileSystem.Path.HasExtension(path);
         }
 
+#if !NETSTANDARD2_0
         public bool IsPathFullyQualified(string path)
         {
             return this.FileSystem.Path.IsPathFullyQualified(path);
         }
+#endif
 
         public bool IsPathRooted(string path)
         {
             return this.FileSystem.Path.IsPathRooted(path);
         }
 
+#if !NETSTANDARD2_0
         public string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2)
         {
             return this.FileSystem.Path.Join(path1, path2);
@@ -151,5 +158,6 @@
         {
             return this.FileSystem.Path.TryJoin(path1, path2, destination, out charsWritten);
         }
+#endif
     }
 }

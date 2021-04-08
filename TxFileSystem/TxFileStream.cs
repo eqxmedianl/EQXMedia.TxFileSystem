@@ -13,14 +13,14 @@
 
     internal class TxFileStream : ITxFileStream
     {
-        public TxFileStream(ITxFileSystem txFileSystem)
+        internal readonly TxFileSystem _txFileSystem;
+
+        public TxFileStream(TxFileSystem txFileSystem)
         {
-            ((ITxFileStream)this).TxFileSystem = txFileSystem;
+            _txFileSystem = txFileSystem;
         }
 
-        public IFileSystem FileSystem => ((ITxFileStream)this).TxFileSystem.FileSystem;
-
-        ITxFileSystem ITxFileStream.TxFileSystem { get; set; }
+        public IFileSystem FileSystem => _txFileSystem.FileSystem;
 
         public Stream Create(string path, FileMode mode)
         {

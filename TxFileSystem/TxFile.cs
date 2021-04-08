@@ -8,8 +8,10 @@
     using System.IO.Abstractions;
     using System.Security.AccessControl;
     using System.Text;
+#if !NETSTANDARD2_0
     using System.Threading;
     using System.Threading.Tasks;
+#endif
 
 #if NET5_0
     using System.Runtime.Versioning;
@@ -17,14 +19,14 @@
 
     public sealed class TxFile : IFile, ITxFile
     {
-        public TxFile(ITxFileSystem fileSystem)
+        internal readonly TxFileSystem _txFileSystem;
+
+        public TxFile(TxFileSystem fileSystem)
         {
-            ((ITxFile)this).TxFileSystem = fileSystem;
+            _txFileSystem = fileSystem;
         }
 
-        public IFileSystem FileSystem => ((ITxFile)this).TxFileSystem.FileSystem;
-
-        ITxFileSystem ITxFile.TxFileSystem { get; set; }
+        public IFileSystem FileSystem => _txFileSystem.FileSystem;
 
         public void AppendAllLines(string path, IEnumerable<string> contents)
         {
@@ -36,6 +38,7 @@
             new AppendAllLinesOperation(this, path, contents, encoding).Execute();
         }
 
+#if !NETSTANDARD2_0
         public Task AppendAllLinesAsync(string path, IEnumerable<string> contents,
             CancellationToken cancellationToken = default)
         {
@@ -47,6 +50,7 @@
         {
             return new AppendAllLinesOperation(this, path, contents, encoding).ExecuteAsync(cancellationToken);
         }
+#endif
 
         public void AppendAllText(string path, string contents)
         {
@@ -58,6 +62,7 @@
             new AppendAllTextOperation(this, path, contents, encoding).Execute();
         }
 
+#if !NETSTANDARD2_0
         public Task AppendAllTextAsync(string path, string contents,
             CancellationToken cancellationToken = default)
         {
@@ -69,6 +74,7 @@
         {
             return new AppendAllTextOperation(this, path, contents, encoding).ExecuteAsync(cancellationToken);
         }
+#endif
 
         public StreamWriter AppendText(string path)
         {
@@ -223,10 +229,12 @@
             return new ReadAllBytesOperation(this, path).Execute();
         }
 
+#if !NETSTANDARD2_0
         public Task<byte[]> ReadAllBytesAsync(string path, CancellationToken cancellationToken = default)
         {
             return new ReadAllBytesOperation(this, path).ExecuteAsync(cancellationToken);
         }
+#endif
 
         public string[] ReadAllLines(string path)
         {
@@ -238,6 +246,7 @@
             return new ReadAllLinesOperation(this, path, encoding).Execute();
         }
 
+#if !NETSTANDARD2_0
         public Task<string[]> ReadAllLinesAsync(string path, CancellationToken cancellationToken = default)
         {
             return new ReadAllLinesOperation(this, path).ExecuteAsync(cancellationToken);
@@ -248,6 +257,7 @@
         {
             return new ReadAllLinesOperation(this, path, encoding).ExecuteAsync(cancellationToken);
         }
+#endif
 
         public string ReadAllText(string path)
         {
@@ -259,6 +269,7 @@
             return new ReadAllTextOperation(this, path, encoding).Execute();
         }
 
+#if !NETSTANDARD2_0
         public Task<string> ReadAllTextAsync(string path, CancellationToken cancellationToken = default)
         {
             return new ReadAllTextOperation(this, path).ExecuteAsync(cancellationToken);
@@ -269,6 +280,7 @@
         {
             return new ReadAllTextOperation(this, path, encoding).ExecuteAsync(cancellationToken);
         }
+#endif
 
         public IEnumerable<string> ReadLines(string path)
         {
@@ -342,10 +354,12 @@
             new WriteAllBytesOperation(this, path, bytes).Execute();
         }
 
+#if !NETSTANDARD2_0
         public Task WriteAllBytesAsync(string path, byte[] bytes, CancellationToken cancellationToken = default)
         {
             return new WriteAllBytesOperation(this, path, bytes).ExecuteAsync(cancellationToken);
         }
+#endif
 
         public void WriteAllLines(string path, IEnumerable<string> contents)
         {
@@ -367,6 +381,7 @@
             new WriteAllLinesOperation(this, path, contents, encoding).Execute();
         }
 
+#if !NETSTANDARD2_0
         public Task WriteAllLinesAsync(string path, IEnumerable<string> contents,
             CancellationToken cancellationToken = default)
         {
@@ -390,6 +405,7 @@
         {
             return new WriteAllLinesOperation(this, path, contents, encoding).ExecuteAsync(cancellationToken);
         }
+#endif
 
         public void WriteAllText(string path, string contents)
         {
@@ -401,6 +417,7 @@
             new WriteAllTextOperation(this, path, contents, encoding).Execute();
         }
 
+#if !NETSTANDARD2_0
         public Task WriteAllTextAsync(string path, string contents, CancellationToken cancellationToken = default)
         {
             return new WriteAllTextOperation(this, path, contents).ExecuteAsync(cancellationToken);
@@ -411,5 +428,6 @@
         {
             return new WriteAllTextOperation(this, path, contents, encoding).ExecuteAsync(cancellationToken);
         }
+#endif
     }
 }

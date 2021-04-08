@@ -24,7 +24,7 @@
             txFileSystem.File.AppendAllText("/tmp/filetoappendtextto.txt", GetLoremIpsumText());
             transactionScope.Complete();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.False(txJournal.IsRolledBack);
             Assert.Equal(GetLoremIpsumText(), txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt"));
@@ -49,7 +49,7 @@
                 throw new Exception("Error occurred right after appending text");
             });
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.True(txJournal.IsRolledBack);
             Assert.Equal(string.Empty, txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt"));
@@ -71,7 +71,7 @@
                 Encoding.ASCII);
             transactionScope.Complete();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.False(txJournal.IsRolledBack);
             Assert.NotEqual(GetRandomlyGeneratedFrenchText(),
@@ -94,7 +94,7 @@
                 Encoding.UTF8);
             transactionScope.Complete();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.False(txJournal.IsRolledBack);
             Assert.Equal(GetRandomlyGeneratedFrenchText(), txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt"));
@@ -115,7 +115,7 @@
             txFileSystem.File.AppendAllTextAsync("/tmp/filetoappendtextto.txt", GetLoremIpsumText()).Wait();
             transactionScope.Complete();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.False(txJournal.IsRolledBack);
             Assert.Equal(GetLoremIpsumText(), txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt"));
@@ -140,7 +140,7 @@
                 throw new Exception("Error occurred right after appending text");
             });
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.True(txJournal.IsRolledBack);
             Assert.Equal(string.Empty, txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt"));
@@ -162,7 +162,7 @@
                 Encoding.ASCII).Wait();
             transactionScope.Complete();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.False(txJournal.IsRolledBack);
             Assert.NotEqual(GetRandomlyGeneratedFrenchText(),
@@ -185,7 +185,7 @@
                 Encoding.UTF8).Wait();
             transactionScope.Complete();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.False(txJournal.IsRolledBack);
             Assert.Equal(GetRandomlyGeneratedFrenchText(), txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt"));

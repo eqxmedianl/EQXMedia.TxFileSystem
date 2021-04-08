@@ -14,14 +14,14 @@
 
     public sealed class TxDirectory : ITxDirectory, IDirectory
     {
-        public TxDirectory(ITxFileSystem txFileSystem)
+        internal readonly TxFileSystem _txFileSystem;
+
+        public TxDirectory(TxFileSystem txFileSystem)
         {
-            ((ITxDirectory)this).TxFileSystem = txFileSystem;
+            _txFileSystem = txFileSystem;
         }
 
-        public IFileSystem FileSystem => ((ITxDirectory)this).TxFileSystem.FileSystem;
-
-        ITxFileSystem ITxDirectory.TxFileSystem { get; set; }
+        public IFileSystem FileSystem => _txFileSystem.FileSystem;
 
         public IDirectoryInfo CreateDirectory(string path)
         {
@@ -59,11 +59,13 @@
             return new EnumerateDirectoriesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
+#if !NETSTANDARD2_0
         public IEnumerable<string> EnumerateDirectories(string path, string searchPattern,
             EnumerationOptions enumerationOptions)
         {
             return new EnumerateDirectoriesOperation(this, path, searchPattern, enumerationOptions).Execute();
         }
+#endif
 
         public IEnumerable<string> EnumerateFiles(string path)
         {
@@ -80,11 +82,13 @@
             return new EnumerateFilesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
+#if !NETSTANDARD2_0
         public IEnumerable<string> EnumerateFiles(string path, string searchPattern,
             EnumerationOptions enumerationOptions)
         {
             return new EnumerateFilesOperation(this, path, searchPattern, enumerationOptions).Execute();
         }
+#endif
 
         public IEnumerable<string> EnumerateFileSystemEntries(string path)
         {
@@ -102,12 +106,14 @@
             return new EnumerateFileSystemEntriesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
+#if !NETSTANDARD2_0
         public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern,
             EnumerationOptions enumerationOptions)
         {
             return new EnumerateFileSystemEntriesOperation(this, path, searchPattern, enumerationOptions)
                 .Execute();
         }
+#endif
 
         public bool Exists(string path)
         {
@@ -160,10 +166,13 @@
             return new GetDirectoriesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
+
+#if !NETSTANDARD2_0
         public string[] GetDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return new GetDirectoriesOperation(this, path, searchPattern, enumerationOptions).Execute();
         }
+#endif
 
         public string GetDirectoryRoot(string path)
         {
@@ -185,10 +194,12 @@
             return new GetFilesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
+#if !NETSTANDARD2_0
         public string[] GetFiles(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return new GetFilesOperation(this, path, searchPattern, enumerationOptions).Execute();
         }
+#endif
 
         public string[] GetFileSystemEntries(string path)
         {

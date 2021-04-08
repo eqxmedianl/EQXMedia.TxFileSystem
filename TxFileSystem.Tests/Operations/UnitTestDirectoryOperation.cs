@@ -24,7 +24,7 @@
 
         public void Journalize(IOperation operation)
         {
-            _txDirectory.TxFileSystem.Journal.Add(operation);
+            ((TxDirectory)_txDirectory)._txFileSystem.Journal.Add(operation);
         }
 
         public void Rollback()

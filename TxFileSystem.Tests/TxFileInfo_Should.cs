@@ -77,7 +77,7 @@
 
             Assert.IsType<MockFileInfo>(fileInfo);
 
-            Assert.Empty(((ITxFileSystem)txFileSystem).Journal._txJournalEntries);
+            Assert.Empty(txFileSystem.Journal._txJournalEntries);
         }
     }
 }

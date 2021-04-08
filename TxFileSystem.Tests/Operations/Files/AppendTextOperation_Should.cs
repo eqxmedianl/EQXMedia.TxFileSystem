@@ -32,7 +32,7 @@
 
             transactionScope.Complete();
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.False(txJournal.IsRolledBack);
             Assert.Equal(
@@ -68,7 +68,7 @@
                 throw new Exception("Error occurred right after appending text");
             });
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.True(txJournal.IsRolledBack);
             Assert.Equal("Initial contents" + Environment.NewLine, txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt")

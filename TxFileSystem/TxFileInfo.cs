@@ -5,12 +5,12 @@
 
     internal class TxFileInfo : IFileInfoFactory
     {
-        public TxFileInfo(ITxFileSystem txFileSystem)
+        public TxFileInfo(TxFileSystem txFileSystem)
         {
             this.TxFileSystem = txFileSystem;
         }
 
-        public ITxFileSystem TxFileSystem { get; }
+        public TxFileSystem TxFileSystem { get; }
 
         public IFileInfo FromFileName(string fileName)
         {

@@ -61,7 +61,7 @@
                 throw new Exception("Error occurred right after appending lines");
             });
 
-            Assert.True(((ITxFileSystem)txFileSystem).Journal.IsRolledBack);
+            Assert.True(txFileSystem.Journal.IsRolledBack);
             Assert.Equal(initialLine, txFileSystem.File.ReadAllLines("/tmp/filetoappendto.txt"));
         }
 
@@ -180,7 +180,7 @@
                 throw new Exception("Error occurred right after appending lines");
             });
 
-            Assert.True(((ITxFileSystem)txFileSystem).Journal.IsRolledBack);
+            Assert.True(txFileSystem.Journal.IsRolledBack);
             Assert.Equal(initialLine, txFileSystem.File.ReadAllLines("/tmp/filetoappendto.txt"));
         }
 

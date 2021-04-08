@@ -4,11 +4,11 @@
     using global::EQXMedia.TxFileSystem.Journaling;
     using System.IO.Abstractions;
 
-    public sealed class TxFileSystem : ITxFileSystem
+    public sealed class TxFileSystem
     {
         public TxFileSystem(IFileSystem fileSystem = null)
         {
-            ((ITxFileSystem)this).FileSystem = fileSystem ?? new FileSystem();
+            this.FileSystem = fileSystem ?? new FileSystem();
 
             this.File = new TxFile(this);
             this.Directory = new TxDirectory(this);
@@ -28,9 +28,9 @@
 
         public IFileStreamFactory FileStream { get; }
 
-        IFileSystem ITxFileSystem.FileSystem { get; set; }
+        internal IFileSystem FileSystem { get; set; }
 
-        TxJournal ITxFileSystem.Journal { get; } = new TxJournal();
+        internal TxJournal Journal { get; } = new TxJournal();
 
         public IPath Path { get; }
 

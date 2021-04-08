@@ -4,8 +4,6 @@
 
     internal interface ITxFileSystemWatcher : IFileSystemWatcherFactory
     {
-        public IFileSystem FileSystem { get; }
-
-        internal ITxFileSystem TxFileSystem { get; set; }
+        IFileSystem FileSystem { get; }
     }
 }

@@ -42,7 +42,7 @@
             _directory.FileSystem.Directory.SetLastAccessTime(_path, _lastAccessTime);
         }
 
-        public override void Rollback()
+        public override void Restore()
         {
             if (_asUtc)
             {
@@ -52,6 +52,8 @@
             {
                 _directory.FileSystem.Directory.SetLastAccessTime(_path, _oldLastAccessTime);
             }
+
+            Delete();
         }
     }
 }

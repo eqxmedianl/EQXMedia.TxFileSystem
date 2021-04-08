@@ -33,9 +33,11 @@
             return _directory.FileSystem.Directory.CreateDirectory(_path);
         }
 
-        public override void Rollback()
+        public override void Restore()
         {
             new DeleteOperation(_directory, _path).Execute();
+
+            Delete();
         }
     }
 }

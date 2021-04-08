@@ -43,7 +43,7 @@
             txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.File.OpenRead(fileName);
 
-            var txJournal = ((ITxFileSystem)txFileSystem).Journal;
+            var txJournal = txFileSystem.Journal;
 
             Assert.Empty(txJournal._txJournalEntries);
         }

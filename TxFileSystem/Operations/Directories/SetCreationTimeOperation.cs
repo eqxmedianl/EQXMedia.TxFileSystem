@@ -34,7 +34,7 @@
             _directory.FileSystem.Directory.SetCreationTime(_path, _creationTime);
         }
 
-        public override void Rollback()
+        public override void Restore()
         {
             Restore();
         }

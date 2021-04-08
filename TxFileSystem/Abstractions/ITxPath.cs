@@ -4,6 +4,5 @@
 
     public interface ITxPath : IPath
     {
-        internal ITxFileSystem TxFileSystem { get; set; }
     }
 }

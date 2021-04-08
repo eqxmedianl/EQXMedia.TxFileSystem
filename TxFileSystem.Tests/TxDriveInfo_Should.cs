@@ -115,7 +115,7 @@
             txFileSystem.DriveInfo.FromDriveName(logicalDrives[0]);
             txFileSystem.DriveInfo.GetDrives();
 
-            Assert.Empty(((ITxFileSystem)txFileSystem).Journal._txJournalEntries);
+            Assert.Empty(txFileSystem.Journal._txJournalEntries);
         }
     }
 }
