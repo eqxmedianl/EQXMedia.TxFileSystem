@@ -11,7 +11,7 @@ This filesystem wrapper supports transactional operations on:
 
 ### Project Development
 
-This library has been designed and implemented by [https://www.linkedin.com/in/jarnokamminga/](Jarno Kamminga "Visit the profile of Jarno Kamminga on LinkedIn") for [https://www.eqx-media.nl](EQX Media B.V. "Visit the website of EQX Media B.V."), and published as an OpenSource project on GitHub.
+This library has been designed and implemented by [Jarno Kamminga](https://www.linkedin.com/in/jarnokamminga/ "Visit the profile of Jarno Kamminga on LinkedIn") for [EQX Media B.V.](https://www.eqx-media.nl "Visit the website of EQX Media B.V."), and published as an OpenSource project on GitHub.
 
 ### Project Website
 
