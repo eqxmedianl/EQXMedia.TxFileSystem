@@ -2,6 +2,11 @@ TxFileSystem
 =================
 `TxFileSystem` is a transactional filesystem wrapper using the .NET filesystem abstraction from `System.IO.Abstractions`.
 
+Version 1.1.1
+-----------------
+
+*  Bug in rollback functionality of `File.Move(string sourceFileName, string destFileName, bool overwrite)` (>= `.NET 5.0`) fixed.
+
 Version 1.1.0
 -----------------
 
