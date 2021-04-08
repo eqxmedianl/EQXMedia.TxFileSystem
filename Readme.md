@@ -7,35 +7,41 @@ This filesystem wrapper supports transactional operations on:
 *   Directories,
 *   Filestreams.
 
-# Project Website
+## About the Project
+
+### Project Development
+
+This library has been designed and implemented by [https://www.linkedin.com/in/jarnokamminga/](Jarno Kamminga "Visit the profile of Jarno Kamminga on LinkedIn") for [https://www.eqx-media.nl](EQX Media B.V. "Visit the website of EQX Media B.V."), and published as an OpenSource project on GitHub.
+
+### Project Website
 
 The project has a website of its own which can be found at [https://txfilesystem.io/](https://txfilesystem.io/ "Visit the project website of EQXMedia.TxFileSystem").
 
-# NuGet Package
+## NuGet Package
 
 A NuGet package is created of every `EQXMedia.TxFileSystem` release and can be installed to your .NET project using the *NuGet Package Manager* or `dotnet` command.
 
 More information about the NuGet package can be found at NuGet.org:
 [https://www.nuget.org/packages/EQXMedia.TxFileSystem/](https://www.nuget.org/packages/EQXMedia.TxFileSystem/ "Visit the NuGet package listing of EQXMedia.TxFileSystem")
 
-## Installing the package
+### Installing the package
 
-### Package Manager
+#### Package Manager
 ```powershell
 PS> Install-Package EQXMedia.TxFileSystem -Version 1.1.1
 ```
 
-### .NET CLI
+#### .NET CLI
 ```
 $ dotnet add package EQXMedia.TxFileSystem --version 1.1.1
 ```
 
-### Package Reference
+#### Package Reference
 ```xml
 <PackageReference Include="EQXMedia.TxFileSystem" Version="1.1.1" />
 ```
 
-# Code Example
+## Code Example
 
 ```csharp
 
