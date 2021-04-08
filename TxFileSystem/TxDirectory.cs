@@ -8,6 +8,10 @@
     using System.IO.Abstractions;
     using System.Security.AccessControl;
 
+#if NET5_0
+    using System.Runtime.Versioning;
+#endif
+
     public sealed class TxDirectory : ITxDirectory, IDirectory
     {
         public TxDirectory(ITxFileSystem txFileSystem)
@@ -110,11 +114,17 @@
             return new ExistsOperation(this, path).Execute();
         }
 
+#if NET5_0
+    [SupportedOSPlatform("windows")]
+#endif
         public DirectorySecurity GetAccessControl(string path)
         {
             return new GetAccessControlOperation(this, path).Execute();
         }
 
+#if NET5_0
+    [SupportedOSPlatform("windows")]
+#endif
         public DirectorySecurity GetAccessControl(string path, AccessControlSections includeSections)
         {
             return new GetAccessControlOperation(this, path, includeSections).Execute();
@@ -225,6 +235,9 @@
             new MoveOperation(this, sourceDirName, destDirName).Execute();
         }
 
+#if NET5_0
+    [SupportedOSPlatform("windows")]
+#endif
         public void SetAccessControl(string path, DirectorySecurity directorySecurity)
         {
             new SetAccessControlOperation(this, path, directorySecurity).Execute();

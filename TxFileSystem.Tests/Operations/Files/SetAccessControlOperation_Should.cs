@@ -6,8 +6,15 @@
     using System.Transactions;
     using Xunit;
 
+#if NET5_0
+    using System.Runtime.Versioning;
+#endif
+
     public sealed class SetAccessControlOperation_Should
     {
+#if NET5_0
+        [SupportedOSPlatform("windows")]
+#endif
         [Fact]
         public void SetAccessControlOperation_AccessControlChanged()
         {
@@ -32,6 +39,9 @@
             Assert.Equal(modifiedAccessControl, txFileSystem.File.GetAccessControl(fileName));
         }
 
+#if NET5_0
+        [SupportedOSPlatform("windows")]
+#endif
         [Fact]
         public void SetAccessControlOperation_ExceptionThrown_AccessControlUnchanged()
         {

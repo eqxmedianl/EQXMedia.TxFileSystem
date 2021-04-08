@@ -8,8 +8,15 @@
     using System.Security.AccessControl;
     using Xunit;
 
+#if NET5_0
+    using System.Runtime.Versioning;
+#endif
+
     public sealed class GetAccessControlOperation_Should
     {
+#if NET5_0
+        [SupportedOSPlatform("windows")]
+#endif
         [Fact, FsFact]
         public void GetAccessControlOperation_CalledOnce_ReturnsSameDirectorySecurity()
         {
@@ -32,6 +39,9 @@
             Assert.Equal(accessControl, accessControlReturned);
         }
 
+#if NET5_0
+        [SupportedOSPlatform("windows")]
+#endif
         [Fact, FsFact]
         public void GetAccessControlOperation_AccassControlSections_CalledOnce_ReturnsSameDirectorySecurity()
         {

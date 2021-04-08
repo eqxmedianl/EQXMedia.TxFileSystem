@@ -11,6 +11,10 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
     using System.Transactions;
     using Xunit;
 
+#if NET5_0
+    using System.Runtime.Versioning;
+#endif
+
     public sealed class CreateDirectoryOperation_Should
     {
         [Fact]
@@ -63,6 +67,9 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
             Assert.True(txFileSystem.Directory.Exists("/var/nonfailingdirectory"));
         }
 
+#if NET5_0
+        [SupportedOSPlatform("windows")]
+#endif
         [Fact]
         public void CreateDirectoryOperation_WithDirectorySecurity_ReturnsSameFileAccessRule()
         {
@@ -92,6 +99,9 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
             Assert.Equal(Environment.UserName, identityUserName);
         }
 
+#if NET5_0
+        [SupportedOSPlatform("windows")]
+#endif
         [Fact]
         public void CreateDirectoryOperation_WithoutDirectorySecurity_ReturnsEmptyAuthorizationRuleCollection()
         {
