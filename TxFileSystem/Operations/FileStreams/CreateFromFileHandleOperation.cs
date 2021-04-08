@@ -5,6 +5,11 @@
     using System;
     using System.IO;
 
+#if NET5_0
+    using System.Runtime.Versioning;
+
+    [SupportedOSPlatform("windows")]
+#endif
     [Obsolete("Eventhough the underlying FileStream.Create() methods are deprecated they are still part of the interface")]
     internal sealed class CreateFromFileHandleOperation : FileStreamOperation, IReturningOperation<Stream>
     {
