@@ -7,6 +7,10 @@ This filesystem wrapper supports transactional operations on:
 *   Directories,
 *   Filestreams.
 
+# Project Website
+
+The project has a website of its own which can be found at [https://txfilesystem.io/ "Visit the project website of EQXMedia.TxFileSystem"](https://txfilesystem.io/).
+
 # NuGet Package
 
 A NuGet package is created of every `EQXMedia.TxFileSystem` release and can be installed to your .NET project using the *NuGet Package Manager* or `dotnet` command.
