@@ -22,10 +22,12 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.Directory.CreateDirectory(dirName);
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
 
-            txFileSystem.Directory.GetDirectoryRoot(dirName);
+                txFileSystem.Directory.GetDirectoryRoot(dirName);
+            }
 
             Assert.Empty(txFileSystem.Journal._txJournalEntries);
         }

@@ -38,14 +38,15 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText(fileName);
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.OpenRead(fileName);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.OpenRead(fileName);
+                var txJournal = txFileSystem.Journal;
 
-            var txJournal = txFileSystem.Journal;
-
-            Assert.Empty(txJournal._txJournalEntries);
+                Assert.Empty(txJournal._txJournalEntries);
+            }
         }
 
         [Fact, FsFact]

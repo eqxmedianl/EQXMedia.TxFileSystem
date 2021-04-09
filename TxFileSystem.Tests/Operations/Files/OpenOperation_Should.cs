@@ -40,10 +40,11 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText(fileName);
 
-            using var transactionScope = new TransactionScope();
-
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.Open(fileName, FileMode.Append);
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.Open(fileName, FileMode.Append);
+            }
 
             Assert.NotEmpty(txFileSystem.Journal._txJournalEntries);
         }
@@ -59,14 +60,17 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText(fileName);
 
-            using var transactionScope = new TransactionScope();
+            Stream fileStream = null;
 
-            var fileStream = txFileSystem.File.Open(fileName, FileMode.Append);
-            fileStream.Write(data, 0, data.Length);
-            fileStream.Flush();
-            fileStream.Close();
+            using (var transactionScope = new TransactionScope())
+            {
+                fileStream = txFileSystem.File.Open(fileName, FileMode.Append);
+                fileStream.Write(data, 0, data.Length);
+                fileStream.Flush();
+                fileStream.Close();
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.Equal(data, txFileSystem.File.ReadAllBytes(fileName));
         }
@@ -84,15 +88,17 @@
 
             Assert.ThrowsAny<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                var txFileSystem = new TxFileSystem(mockFileSystem);
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
 
-                var fileStream = txFileSystem.File.Open(fileName, FileMode.Append);
-                fileStream.Write(data, 0, data.Length);
-                fileStream.Flush();
-                fileStream.Close();
+                    var fileStream = txFileSystem.File.Open(fileName, FileMode.Append);
+                    fileStream.Write(data, 0, data.Length);
+                    fileStream.Flush();
+                    fileStream.Close();
 
-                throw new Exception("Error occurred right after appending bytes");
+                    throw new Exception("Error occurred right after appending bytes");
+                }
             });
 
             Assert.Equal(new byte[] { }, txFileSystem.File.ReadAllBytes(fileName));

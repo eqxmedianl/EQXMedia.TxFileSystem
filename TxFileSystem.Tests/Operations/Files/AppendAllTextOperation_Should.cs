@@ -19,10 +19,12 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText("/tmp/filetoappendtextto.txt");
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllText("/tmp/filetoappendtextto.txt", GetLoremIpsumText());
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllText("/tmp/filetoappendtextto.txt", GetLoremIpsumText());
+                transactionScope.Complete();
+            }
 
             var txJournal = txFileSystem.Journal;
 
@@ -42,11 +44,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.AppendAllText("/tmp/filetoappendtextto.txt", GetLoremIpsumText());
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.AppendAllText("/tmp/filetoappendtextto.txt", GetLoremIpsumText());
 
-                throw new Exception("Error occurred right after appending text");
+                    throw new Exception("Error occurred right after appending text");
+                }
             });
 
             var txJournal = txFileSystem.Journal;
@@ -65,11 +69,13 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText("/tmp/filetoappendtextto.txt");
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllText("/tmp/filetoappendtextto.txt", GetRandomlyGeneratedFrenchText(),
-                Encoding.ASCII);
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {    
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllText("/tmp/filetoappendtextto.txt", GetRandomlyGeneratedFrenchText(),
+                    Encoding.ASCII);
+                transactionScope.Complete();
+            }
 
             var txJournal = txFileSystem.Journal;
 
@@ -88,11 +94,13 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText("/tmp/filetoappendtextto.txt");
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllText("/tmp/filetoappendtextto.txt", GetRandomlyGeneratedFrenchText(),
-                Encoding.UTF8);
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {    
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllText("/tmp/filetoappendtextto.txt", GetRandomlyGeneratedFrenchText(),
+                    Encoding.UTF8);
+                transactionScope.Complete();
+            }
 
             var txJournal = txFileSystem.Journal;
 
@@ -100,6 +108,7 @@
             Assert.Equal(GetRandomlyGeneratedFrenchText(), txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt"));
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact]
         public void AppendAllTextOperationAsync_Transactional_AllText_EqualsAppendedText()
         {
@@ -110,10 +119,12 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText("/tmp/filetoappendtextto.txt");
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllTextAsync("/tmp/filetoappendtextto.txt", GetLoremIpsumText()).Wait();
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllTextAsync("/tmp/filetoappendtextto.txt", GetLoremIpsumText()).Wait();
+                transactionScope.Complete();
+            }
 
             var txJournal = txFileSystem.Journal;
 
@@ -133,11 +144,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.AppendAllTextAsync("/tmp/filetoappendtextto.txt", GetLoremIpsumText()).Wait();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.AppendAllTextAsync("/tmp/filetoappendtextto.txt", GetLoremIpsumText()).Wait();
 
-                throw new Exception("Error occurred right after appending text");
+                    throw new Exception("Error occurred right after appending text");
+                }
             });
 
             var txJournal = txFileSystem.Journal;
@@ -156,11 +169,13 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText("/tmp/filetoappendtextto.txt");
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllTextAsync("/tmp/filetoappendtextto.txt", GetRandomlyGeneratedFrenchText(),
-                Encoding.ASCII).Wait();
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllTextAsync("/tmp/filetoappendtextto.txt", GetRandomlyGeneratedFrenchText(),
+                    Encoding.ASCII).Wait();
+                transactionScope.Complete();
+            }
 
             var txJournal = txFileSystem.Journal;
 
@@ -179,17 +194,20 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText("/tmp/filetoappendtextto.txt");
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllTextAsync("/tmp/filetoappendtextto.txt", GetRandomlyGeneratedFrenchText(),
-                Encoding.UTF8).Wait();
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllTextAsync("/tmp/filetoappendtextto.txt", GetRandomlyGeneratedFrenchText(),
+                    Encoding.UTF8).Wait();
+                transactionScope.Complete();
+            }
 
             var txJournal = txFileSystem.Journal;
 
             Assert.False(txJournal.IsRolledBack);
             Assert.Equal(GetRandomlyGeneratedFrenchText(), txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt"));
         }
+#endif
 
         private static string GetRandomlyGeneratedFrenchText()
         {

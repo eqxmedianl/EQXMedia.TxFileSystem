@@ -36,11 +36,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.Directory.CreateDirectory("/var/failafterthisdirectory");
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.Directory.CreateDirectory("/var/failafterthisdirectory");
 
-                throw new Exception("Error occured right after creating directory");
+                    throw new Exception("Error occured right after creating directory");
+                }
             });
 
             Assert.True(txFileSystem.Journal.IsRolledBack);

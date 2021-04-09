@@ -26,17 +26,20 @@
             streamWriter.Flush();
             streamWriter.Close();
 
-            using var transactionScope = new TransactionScope();
+            Stream fileStream = null;
 
-            txFileSystem = new TxFileSystem(fileSystem);
-            var fileStream = txFileSystem.FileStream.Create(fileName, FileMode.Open);
-            var data = Encoding.Default.GetBytes("Written" + Environment.NewLine);
-            fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
-            fileStream.SetLength(fileStream.Length + data.Length);
-            fileStream.Write(data, 0, data.Length);
-            fileStream.Flush();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(fileSystem);
+                fileStream = txFileSystem.FileStream.Create(fileName, FileMode.Open);
+                var data = Encoding.Default.GetBytes("Written" + Environment.NewLine);
+                fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
+                fileStream.SetLength(fileStream.Length + data.Length);
+                fileStream.Write(data, 0, data.Length);
+                fileStream.Flush();
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             fileStream.Close();
 
@@ -64,16 +67,17 @@
 
             Assert.ThrowsAny<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(fileSystem);
+                    fileStream = txFileSystem.FileStream.Create(fileName, FileMode.Open);
+                    fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
+                    fileStream.SetLength(fileStream.Length + data.Length);
+                    fileStream.Write(data, 0, data.Length);
+                    fileStream.Flush();
 
-                txFileSystem = new TxFileSystem(fileSystem);
-                fileStream = txFileSystem.FileStream.Create(fileName, FileMode.Open);
-                fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
-                fileStream.SetLength(fileStream.Length + data.Length);
-                fileStream.Write(data, 0, data.Length);
-                fileStream.Flush();
-
-                throw new Exception("Error occurred right after writing to stream");
+                    throw new Exception("Error occurred right after writing to stream");
+                }
             });
 
             fileStream.Close();
@@ -97,13 +101,13 @@
 
             var fileStreamMock = new Mock<FileStream>(MockBehavior.Loose, fileName, fileMode, fileAccess);
 
-            fileSystemMock.Setup(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Setup(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess)))
                 .Returns(fileStreamMock.Object);
 
             var fileStreamReturned = txFileSystem.FileStream.Create(fileName, fileMode, fileAccess);
 
-            fileSystemMock.Verify(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Verify(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess)), Times.Once);
 
             Assert.Equal(fileStreamMock.Object, fileStreamReturned);
@@ -124,14 +128,14 @@
 
             var fileStreamMock = new Mock<FileStream>(MockBehavior.Loose, fileName, fileMode, fileAccess, fileShare);
 
-            fileSystemMock.Setup(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Setup(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess),
                 It.Is<FileShare>((s) => s == fileShare)))
                 .Returns(fileStreamMock.Object);
 
             var fileStreamReturned = txFileSystem.FileStream.Create(fileName, fileMode, fileAccess, fileShare);
 
-            fileSystemMock.Verify(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Verify(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess),
                 It.Is<FileShare>((s) => s == fileShare)), Times.Once);
 
@@ -155,7 +159,7 @@
             var fileStreamMock = new Mock<FileStream>(MockBehavior.Loose, fileName, fileMode, fileAccess, fileShare,
                 bufferSize);
 
-            fileSystemMock.Setup(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Setup(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess),
                 It.Is<FileShare>((s) => s == fileShare), It.Is<int>((s) => s == bufferSize)))
                 .Returns(fileStreamMock.Object);
@@ -163,7 +167,7 @@
             var fileStreamReturned = txFileSystem.FileStream.Create(fileName, fileMode, fileAccess,
                 fileShare, bufferSize);
 
-            fileSystemMock.Verify(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Verify(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess),
                 It.Is<FileShare>((s) => s == fileShare), It.Is<int>((s) => s == bufferSize)), Times.Once);
 
@@ -188,7 +192,7 @@
             var fileStreamMock = new Mock<FileStream>(MockBehavior.Loose, fileName, fileMode, fileAccess, fileShare,
                 bufferSize, useAsync);
 
-            fileSystemMock.Setup(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Setup(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess),
                 It.Is<FileShare>((s) => s == fileShare), It.Is<int>((s) => s == bufferSize),
                 It.Is<bool>((a) => a == useAsync)))
@@ -197,7 +201,7 @@
             var fileStreamReturned = txFileSystem.FileStream.Create(fileName, fileMode, fileAccess,
                 fileShare, bufferSize, useAsync);
 
-            fileSystemMock.Verify(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Verify(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess),
                 It.Is<FileShare>((s) => s == fileShare), It.Is<int>((s) => s == bufferSize),
                 It.Is<bool>((a) => a == useAsync)), Times.Once);
@@ -223,7 +227,7 @@
             var fileStreamMock = new Mock<FileStream>(MockBehavior.Loose, fileName, fileMode, fileAccess, fileShare,
                 bufferSize, fileOptions);
 
-            fileSystemMock.Setup(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Setup(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess),
                 It.Is<FileShare>((s) => s == fileShare), It.Is<int>((s) => s == bufferSize),
                 It.Is<FileOptions>((o) => o == fileOptions)))
@@ -232,7 +236,7 @@
             var fileStreamReturned = txFileSystem.FileStream.Create(fileName, fileMode, fileAccess,
                 fileShare, bufferSize, fileOptions);
 
-            fileSystemMock.Verify(f => f.FileStream.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Verify(fs => fs.FileStream.Create(It.Is<string>((f) => f == fileName),
                 It.Is<FileMode>((m) => m == fileMode), It.Is<FileAccess>((a) => a == fileAccess),
                 It.Is<FileShare>((s) => s == fileShare), It.Is<int>((s) => s == bufferSize),
                 It.Is<FileOptions>((o) => o == fileOptions)), Times.Once);

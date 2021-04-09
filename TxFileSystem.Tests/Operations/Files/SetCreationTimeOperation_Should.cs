@@ -24,12 +24,13 @@
             var originalCreationTime = txFileSystem.File.GetCreationTime(fileName);
             var modifiedCreationTime = originalCreationTime.AddDays(-7);
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.SetCreationTime(fileName, modifiedCreationTime);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.SetCreationTime(fileName, modifiedCreationTime);
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.Equal(modifiedCreationTime, txFileSystem.File.GetCreationTime(fileName));
         }
@@ -49,12 +50,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.SetCreationTime(fileName, modifiedCreationTime);
 
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.SetCreationTime(fileName, modifiedCreationTime);
-
-                throw new Exception("Error occurred right after changing creation time");
+                    throw new Exception("Error occurred right after changing creation time");
+                }
             });
 
             Assert.NotEqual(modifiedCreationTime, txFileSystem.File.GetCreationTime(fileName));

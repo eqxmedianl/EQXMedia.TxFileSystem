@@ -98,6 +98,7 @@
             Assert.True(directories.Count() == 3);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact, FsFact]
         public void EnumerateDirectoriesOperation_WithEnumerationOptions_CalledOnce()
         {
@@ -122,5 +123,6 @@
                 It.Is<string>((p) => p == searchPattern), It.Is<EnumerationOptions>((o) => o == enumerationOptions)),
                 Times.Once);
         }
+#endif
     }
 }

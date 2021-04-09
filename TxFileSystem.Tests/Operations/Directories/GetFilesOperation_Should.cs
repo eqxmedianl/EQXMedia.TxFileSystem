@@ -106,6 +106,7 @@
             Assert.True(fileNames.Count() == 3);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact]
         public void GetFilesOperation_RecurseSubDirs_ReturnsTwentyOneFileNames()
         {
@@ -133,5 +134,6 @@
             Assert.NotEmpty(fileNames);
             Assert.True(fileNames.Count() == 21);
         }
+#endif
     }
 }

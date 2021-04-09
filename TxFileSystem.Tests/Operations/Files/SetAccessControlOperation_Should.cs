@@ -28,15 +28,16 @@
             var originalAccessControl = txFileSystem.File.GetAccessControl(fileName);
             var modifiedAccessControl = new FileSecurity();
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.SetAccessControl(fileName, modifiedAccessControl);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.SetAccessControl(fileName, modifiedAccessControl);
+                transactionScope.Complete();
 
-            transactionScope.Complete();
-
-            Assert.NotEqual(originalAccessControl, txFileSystem.File.GetAccessControl(fileName));
-            Assert.Equal(modifiedAccessControl, txFileSystem.File.GetAccessControl(fileName));
+                Assert.NotEqual(originalAccessControl, txFileSystem.File.GetAccessControl(fileName));
+                Assert.Equal(modifiedAccessControl, txFileSystem.File.GetAccessControl(fileName));
+            }
         }
 
 #if NET5_0
@@ -57,12 +58,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.SetAccessControl(fileName, modifiedAccessControl);
 
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.SetAccessControl(fileName, modifiedAccessControl);
-
-                throw new Exception("Error occurred right after changing accesscontrol");
+                    throw new Exception("Error occurred right after changing accesscontrol");
+                }
             });
 
             Assert.NotEqual(modifiedAccessControl, txFileSystem.File.GetAccessControl(fileName));

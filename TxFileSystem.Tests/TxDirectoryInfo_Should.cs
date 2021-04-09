@@ -1,5 +1,6 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests
 {
+    using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
     using System.Transactions;
     using Xunit;
@@ -12,15 +13,17 @@
             var dirName = "/tmp/dirtogetdirinfoof";
 
             var mockFileSystem = new MockFileSystem();
+            IDirectoryInfo dirInfo = null;
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
+                txFileSystem.Directory.CreateDirectory(dirName);
+                dirInfo = txFileSystem.DirectoryInfo.FromDirectoryName(dirName);
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
-            txFileSystem.Directory.CreateDirectory(dirName);
-            var dirInfo = txFileSystem.DirectoryInfo.FromDirectoryName(dirName);
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.IsType<MockDirectoryInfo>(dirInfo);
         }

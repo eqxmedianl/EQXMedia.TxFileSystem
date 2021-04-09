@@ -17,15 +17,16 @@
         {
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                var logicalDrives = txFileSystem.Directory.GetLogicalDrives();
+                var driveInfo = txFileSystem.DriveInfo.FromDriveName(logicalDrives[0]);
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            var logicalDrives = txFileSystem.Directory.GetLogicalDrives();
-            var driveInfo = txFileSystem.DriveInfo.FromDriveName(logicalDrives[0]);
+                transactionScope.Complete();
 
-            transactionScope.Complete();
-
-            Assert.IsType<MockDriveInfo>(driveInfo);
+                Assert.IsType<MockDriveInfo>(driveInfo);
+            }
         }
 
         [Fact, FsFact]
@@ -60,14 +61,15 @@
         {
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                var drives = txFileSystem.DriveInfo.GetDrives();
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            var drives = txFileSystem.DriveInfo.GetDrives();
+                transactionScope.Complete();
 
-            transactionScope.Complete();
-
-            Assert.IsType<DriveInfoBase[]>(drives);
+                Assert.IsType<DriveInfoBase[]>(drives);
+            }
         }
 
         [Fact, FsFact]
@@ -108,14 +110,15 @@
         {
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                var logicalDrives = txFileSystem.Directory.GetLogicalDrives();
+                txFileSystem.DriveInfo.FromDriveName(logicalDrives[0]);
+                txFileSystem.DriveInfo.GetDrives();
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            var logicalDrives = txFileSystem.Directory.GetLogicalDrives();
-            txFileSystem.DriveInfo.FromDriveName(logicalDrives[0]);
-            txFileSystem.DriveInfo.GetDrives();
-
-            Assert.Empty(txFileSystem.Journal._txJournalEntries);
+                Assert.Empty(txFileSystem.Journal._txJournalEntries);
+            }
         }
     }
 }

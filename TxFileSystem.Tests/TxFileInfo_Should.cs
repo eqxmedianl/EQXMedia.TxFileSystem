@@ -19,14 +19,17 @@
 
             var fileName = "/tmp/filetogetinfoof.txt";
 
-            using var transactionScope = new TransactionScope();
+            IFileInfo fileInfo = null;
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
-            txFileSystem.File.Create(fileName);
-            var fileInfo = txFileSystem.FileInfo.FromFileName(fileName);
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
+                txFileSystem.File.Create(fileName);
+                fileInfo = txFileSystem.FileInfo.FromFileName(fileName);
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.IsType<MockFileInfo>(fileInfo);
         }
@@ -68,12 +71,15 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.Create(fileName);
 
-            using var transactionScope = new TransactionScope();
+            IFileInfo fileInfo = null;
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            var fileInfo = txFileSystem.FileInfo.FromFileName(fileName);
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                fileInfo = txFileSystem.FileInfo.FromFileName(fileName);
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.IsType<MockFileInfo>(fileInfo);
 

@@ -308,6 +308,7 @@
             Assert.Equal(fullPath, fullPathReturned);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact, FsFact]
         public void TxPath_GetFullPath_WithBasePath_CalledOnce_ReturnsFullPath()
         {
@@ -332,6 +333,7 @@
 
             Assert.Equal(fullPath, fullPathReturned);
         }
+#endif
 
         [Fact, FsFact]
         public void TxPath_GetPathRoot_CalledOnce_ReturnsPathRoot()
@@ -376,6 +378,7 @@
             Assert.Equal(randomFileName, randomFileNameReturned);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact, FsFact]
         public void TxPath_GetRelativePath_CalledOnce_ReturnsRelativePath()
         {
@@ -400,6 +403,7 @@
 
             Assert.Equal(relativePath, relativePathReturned);
         }
+#endif
 
         [Fact, FsFact]
         public void TxPath_GetTempFileName_CalledOnce_ReturnsTempFileName()
@@ -465,6 +469,7 @@
             Assert.Equal(hasExtension, hasExtensionReturned);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact, FsFact]
         public void TxPath_IsPathFullyQualified_CalledOnce_ReturnsIsPathFullyQualified()
         {
@@ -486,6 +491,7 @@
 
             Assert.Equal(isPathFullyQualified, isPathFullyQualifiedReturned);
         }
+#endif
 
         [Fact, FsFact]
         public void TxPath_IsPathRooted_CalledOnce_ReturnsIsPathRooted()
@@ -551,6 +557,7 @@
             Assert.Equal(invalidPathChars, invalidPathCharsReturned);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact]
         public void TxPath_Join_TwoPaths_CalledOnce_ReturnsJoinedPaths()
         {
@@ -615,5 +622,6 @@
             Assert.Equal(destinationOne.ToString(), destinationTwo.ToString());
             Assert.Equal(charsWrittenOne, charsWrittenTwo);
         }
+#endif
     }
 }

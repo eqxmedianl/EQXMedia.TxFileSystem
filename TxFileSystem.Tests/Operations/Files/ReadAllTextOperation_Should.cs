@@ -37,6 +37,7 @@
             Assert.Equal(text, textReturned);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact, FsFact]
         public void ReadAllTextOperationAsync_CalledOnce_ReturnsSameStringTask()
         {
@@ -92,6 +93,7 @@
             Assert.IsAssignableFrom<Task<string>>(taskReturned);
             Assert.Equal(task, taskReturned);
         }
+#endif
     }
 }
 

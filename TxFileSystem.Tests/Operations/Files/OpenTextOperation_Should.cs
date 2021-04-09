@@ -15,17 +15,18 @@
 
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
+                txFileSystem.File.CreateText(fileName);
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
-            txFileSystem.File.CreateText(fileName);
+                var streamReader = txFileSystem.File.OpenText(fileName);
 
-            var streamReader = txFileSystem.File.OpenText(fileName);
+                transactionScope.Complete();
 
-            transactionScope.Complete();
-
-            Assert.IsAssignableFrom<StreamReader>(streamReader);
+                Assert.IsAssignableFrom<StreamReader>(streamReader);
+            }
         }
 
         [Fact]
@@ -39,12 +40,13 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText(fileName);
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.OpenText(fileName);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.OpenText(fileName);
-
-            Assert.Empty(txFileSystem.Journal._txJournalEntries);
+                Assert.Empty(txFileSystem.Journal._txJournalEntries);
+            }
         }
     }
 }

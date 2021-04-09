@@ -16,20 +16,22 @@
         public void MoveOperation_ProperlyMoved()
         {
             var mockFileSystem = new MockFileSystem();
+            TxFileSystem txFileSystem = null;
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
+                var textStream = txFileSystem.File.CreateText("/tmp/sourcefile.txt");
+                textStream.Write("Source file contents");
+                textStream.Flush();
+                textStream.Close();
 
-            var textStream = txFileSystem.File.CreateText("/tmp/sourcefile.txt");
-            textStream.Write("Source file contents");
-            textStream.Flush();
-            textStream.Close();
+                txFileSystem.File.Move("/tmp/sourcefile.txt", "/tmp/destfile.txt");
 
-            txFileSystem.File.Move("/tmp/sourcefile.txt", "/tmp/destfile.txt");
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.False(txFileSystem.File.Exists("/tmp/sourcefile.txt"));
             Assert.True(txFileSystem.File.Exists("/tmp/destfile.txt"));
@@ -46,12 +48,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.Move("/tmp/sourcefile.txt", "/tmp/destfile.txt");
 
-                var txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.Move("/tmp/sourcefile.txt", "/tmp/destfile.txt");
-
-                throw new Exception("Error occurred right after moving file");
+                    throw new Exception("Error occurred right after moving file");
+                }
             });
 
             Assert.False(txFileSystem.File.Exists("/tmp/destfile.txt"));
@@ -71,12 +74,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.Move("/tmp/sourcefile.txt", "/tmp/destfile.txt");
 
-                var txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.Move("/tmp/sourcefile.txt", "/tmp/destfile.txt");
-
-                throw new Exception("Error occurred right after moving file");
+                    throw new Exception("Error occurred right after moving file");
+                }
             });
 
             Assert.True(txFileSystem.File.Exists("/tmp/sourcefile.txt"));

@@ -21,14 +21,15 @@
             var originalAttributes = txFileSystem.File.GetAttributes(fileName);
             var modifiedAttributes = originalAttributes | FileAttributes.Compressed;
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.SetAttributes(fileName, modifiedAttributes);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.SetAttributes(fileName, modifiedAttributes);
+                transactionScope.Complete();
 
-            transactionScope.Complete();
-
-            Assert.Equal(modifiedAttributes, txFileSystem.File.GetAttributes(fileName));
+                Assert.Equal(modifiedAttributes, txFileSystem.File.GetAttributes(fileName));
+            }
         }
 
         [Fact]
@@ -46,12 +47,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.SetAttributes(fileName, modifiedAttributes);
 
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.SetAttributes(fileName, modifiedAttributes);
-
-                throw new Exception("Error occurred right after changing attributes");
+                    throw new Exception("Error occurred right after changing attributes");
+                }
             });
 
             Assert.NotEqual(modifiedAttributes, txFileSystem.File.GetAttributes(fileName));

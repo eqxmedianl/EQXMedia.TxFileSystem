@@ -45,12 +45,14 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                var txFileSystem = new TxFileSystem(mockFileSystem);
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
 
-                txFileSystem.File.SetLastAccessTime(fileName, modifiedAccessTime);
+                    txFileSystem.File.SetLastAccessTime(fileName, modifiedAccessTime);
 
-                throw new Exception("Exception occurred right after modifying write time");
+                    throw new Exception("Exception occurred right after modifying write time");
+                }
             });
 
             Assert.Equal(originalAccessTime, txFileSystem.File.GetLastAccessTime(fileName));

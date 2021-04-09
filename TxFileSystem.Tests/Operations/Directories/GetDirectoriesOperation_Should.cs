@@ -110,6 +110,7 @@
             Assert.True(directories.Count() == 3);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact]
         public void GetDirectoriesOperation_RecurseSubDirs_ReturnsTwentyOneDirNames()
         {
@@ -138,5 +139,6 @@
             Assert.NotEmpty(directories);
             Assert.True(directories.Count() == 21);
         }
+#endif
     }
 }

@@ -17,11 +17,13 @@
             void CreateAndDeleteDirectory()
             {
                 var mockFileSystem = new MockFileSystem();
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.Directory.CreateDirectory("/var/tobedeleted");
-                txFileSystem.Directory.Delete("/var/tobedeleted");
-                transactionScope.Complete();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.Directory.CreateDirectory("/var/tobedeleted");
+                    txFileSystem.Directory.Delete("/var/tobedeleted");
+                    transactionScope.Complete();
+                }
             }
 
             CreateAndDeleteDirectory();
@@ -42,11 +44,13 @@
             void CreateAndDeleteDirectories()
             {
                 var mockFileSystem = new MockFileSystem();
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.Directory.CreateDirectory("/var/tobedeleted");
-                txFileSystem.Directory.Delete("/var", recursive: true);
-                transactionScope.Complete();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.Directory.CreateDirectory("/var/tobedeleted");
+                    txFileSystem.Directory.Delete("/var", recursive: true);
+                    transactionScope.Complete();
+                }
             }
 
             CreateAndDeleteDirectories();
@@ -71,11 +75,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.Directory.Delete("/var/failingdirectory");
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.Directory.Delete("/var/failingdirectory");
 
-                throw new Exception("Error while deleting failing directory");
+                    throw new Exception("Error while deleting failing directory");
+                }
             });
 
             Assert.True(txFileSystem.Journal.IsRolledBack);

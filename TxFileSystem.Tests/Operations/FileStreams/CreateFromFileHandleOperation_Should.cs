@@ -32,17 +32,20 @@
             var filePtr = NativeMethods.CreateFile(fileName, FileAccess.ReadWrite, FileShare.ReadWrite, IntPtr.Zero,
                 FileMode.OpenOrCreate, FileAttributes.Normal, IntPtr.Zero);
 
-            using var transactionScope = new TransactionScope();
+            Stream fileStream = null;
 
-            txFileSystem = new TxFileSystem(fileSystem);
-            var fileStream = txFileSystem.FileStream.Create(filePtr, FileAccess.ReadWrite);
-            var data = Encoding.Default.GetBytes("Written" + Environment.NewLine);
-            fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
-            fileStream.SetLength(fileStream.Length + data.Length);
-            fileStream.Write(data, 0, data.Length);
-            fileStream.Flush();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(fileSystem);
+                fileStream = txFileSystem.FileStream.Create(filePtr, FileAccess.ReadWrite);
+                var data = Encoding.Default.GetBytes("Written" + Environment.NewLine);
+                fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
+                fileStream.SetLength(fileStream.Length + data.Length);
+                fileStream.Write(data, 0, data.Length);
+                fileStream.Flush();
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             NativeMethods.CloseHandle(filePtr);
             fileStream.Close();
@@ -75,16 +78,17 @@
 
             Assert.ThrowsAny<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(fileSystem);
+                    fileStream = txFileSystem.FileStream.Create(filePtr, FileAccess.ReadWrite);
+                    fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
+                    fileStream.SetLength(fileStream.Length + data.Length);
+                    fileStream.Write(data, 0, data.Length);
+                    fileStream.Flush();
 
-                txFileSystem = new TxFileSystem(fileSystem);
-                fileStream = txFileSystem.FileStream.Create(filePtr, FileAccess.ReadWrite);
-                fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
-                fileStream.SetLength(fileStream.Length + data.Length);
-                fileStream.Write(data, 0, data.Length);
-                fileStream.Flush();
-
-                throw new Exception("Error occurred right after writing to stream");
+                    throw new Exception("Error occurred right after writing to stream");
+                }
             });
 
             NativeMethods.CloseHandle(filePtr);
@@ -112,17 +116,20 @@
             var filePtr = NativeMethods.CreateFile(fileName, FileAccess.ReadWrite, FileShare.ReadWrite, IntPtr.Zero,
                 FileMode.OpenOrCreate, FileAttributes.Normal, IntPtr.Zero);
 
-            using var transactionScope = new TransactionScope();
+            Stream fileStream = null;
 
-            txFileSystem = new TxFileSystem(fileSystem);
-            var fileStream = txFileSystem.FileStream.Create(filePtr, FileAccess.ReadWrite, ownsHandle: true);
-            var data = Encoding.Default.GetBytes("Written" + Environment.NewLine);
-            fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
-            fileStream.SetLength(fileStream.Length + data.Length);
-            fileStream.Write(data, 0, data.Length);
-            fileStream.Flush();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(fileSystem);
+                fileStream = txFileSystem.FileStream.Create(filePtr, FileAccess.ReadWrite, ownsHandle: true);
+                var data = Encoding.Default.GetBytes("Written" + Environment.NewLine);
+                fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
+                fileStream.SetLength(fileStream.Length + data.Length);
+                fileStream.Write(data, 0, data.Length);
+                fileStream.Flush();
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             NativeMethods.CloseHandle(filePtr);
             fileStream.Close();
@@ -155,16 +162,17 @@
 
             Assert.ThrowsAny<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(fileSystem);
+                    fileStream = txFileSystem.FileStream.Create(filePtr, FileAccess.ReadWrite, ownsHandle: true);
+                    fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
+                    fileStream.SetLength(fileStream.Length + data.Length);
+                    fileStream.Write(data, 0, data.Length);
+                    fileStream.Flush();
 
-                txFileSystem = new TxFileSystem(fileSystem);
-                fileStream = txFileSystem.FileStream.Create(filePtr, FileAccess.ReadWrite, ownsHandle: true);
-                fileStream.Seek(fileStream.Length, SeekOrigin.Begin);
-                fileStream.SetLength(fileStream.Length + data.Length);
-                fileStream.Write(data, 0, data.Length);
-                fileStream.Flush();
-
-                throw new Exception("Error occurred right after writing to stream");
+                    throw new Exception("Error occurred right after writing to stream");
+                }
             });
 
             NativeMethods.CloseHandle(filePtr);

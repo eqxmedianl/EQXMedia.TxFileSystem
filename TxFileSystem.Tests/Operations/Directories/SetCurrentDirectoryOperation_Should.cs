@@ -17,13 +17,14 @@
             var txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.Directory.CreateDirectory("/tmp");
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                oldDirPath = txFileSystem.Directory.GetCurrentDirectory();
+                txFileSystem.Directory.SetCurrentDirectory(newDirPath);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            oldDirPath = txFileSystem.Directory.GetCurrentDirectory();
-            txFileSystem.Directory.SetCurrentDirectory(newDirPath);
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.NotEqual(oldDirPath, txFileSystem.Directory.GetCurrentDirectory());
             Assert.Equal(newDirPath, txFileSystem.Directory.GetCurrentDirectory());
@@ -41,13 +42,14 @@
 
             Assert.ThrowsAny<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    oldDirPath = txFileSystem.Directory.GetCurrentDirectory();
+                    txFileSystem.Directory.SetCurrentDirectory(newDirPath);
 
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                oldDirPath = txFileSystem.Directory.GetCurrentDirectory();
-                txFileSystem.Directory.SetCurrentDirectory(newDirPath);
-
-                throw new Exception("Error occurred right after changing directory");
+                    throw new Exception("Error occurred right after changing directory");
+                }
             });
 
             Assert.NotEqual(newDirPath, txFileSystem.Directory.GetCurrentDirectory());

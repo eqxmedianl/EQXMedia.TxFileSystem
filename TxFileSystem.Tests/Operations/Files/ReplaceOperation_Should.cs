@@ -17,22 +17,24 @@
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem.Directory.CreateDirectory("/tmp");
+            using (var transactionScope = new TransactionScope())
+            {    
+                txFileSystem.Directory.CreateDirectory("/tmp");
 
-            var sourceTextStream = txFileSystem.File.CreateText("/tmp/sourcefile.txt");
-            sourceTextStream.Write("Source file contents");
-            sourceTextStream.Flush();
-            sourceTextStream.Close();
+                var sourceTextStream = txFileSystem.File.CreateText("/tmp/sourcefile.txt");
+                sourceTextStream.Write("Source file contents");
+                sourceTextStream.Flush();
+                sourceTextStream.Close();
 
-            var destTextStream = txFileSystem.File.CreateText("/tmp/destfile.txt");
-            destTextStream.Write("Dest file contents");
-            destTextStream.Flush();
-            destTextStream.Close();
+                var destTextStream = txFileSystem.File.CreateText("/tmp/destfile.txt");
+                destTextStream.Write("Dest file contents");
+                destTextStream.Flush();
+                destTextStream.Close();
 
-            txFileSystem.File.Replace("/tmp/sourcefile.txt", "/tmp/destfile.txt", "/tmp/destbackupfile.txt");
+                txFileSystem.File.Replace("/tmp/sourcefile.txt", "/tmp/destfile.txt", "/tmp/destbackupfile.txt");
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.False(txFileSystem.File.Exists("/tmp/sourcefile.txt"));
             Assert.True(txFileSystem.File.Exists("/tmp/destfile.txt"));
@@ -60,12 +62,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.Replace("/tmp/sourcefile.txt", "/tmp/destfile.txt", "/tmp/destbackupfile.txt");
 
-                var txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.Replace("/tmp/sourcefile.txt", "/tmp/destfile.txt", "/tmp/destbackupfile.txt");
-
-                throw new Exception("Error occurred right after replacing file");
+                    throw new Exception("Error occurred right after replacing file");
+                }
             });
 
             Assert.True(txFileSystem.File.Exists("/tmp/sourcefile.txt"));

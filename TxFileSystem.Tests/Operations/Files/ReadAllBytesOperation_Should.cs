@@ -10,6 +10,7 @@
 
     public sealed class ReadAllBytesOperation_Should
     {
+#if NETCOREAPP3_1_OR_GREATER
         [Fact, FsFact]
         public void ReadAllBytesOperationAsync_CalledOnce()
         {
@@ -30,5 +31,6 @@
             fileSystemMock.Verify(f => f.File.ReadAllBytesAsync(It.Is<string>((s) => s == fileName),
                 It.IsAny<CancellationToken>()), Times.Once);
         }
+#endif
     }
 }

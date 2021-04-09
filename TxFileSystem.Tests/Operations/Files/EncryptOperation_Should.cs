@@ -37,12 +37,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    var txFileSystem = new TxFileSystem(fileSystemMock.Object);
+                    txFileSystem.File.Encrypt("/tmp/filetoencrypt.txt");
 
-                var txFileSystem = new TxFileSystem(fileSystemMock.Object);
-                txFileSystem.File.Encrypt("/tmp/filetoencrypt.txt");
-
-                throw new Exception("Error occurred right after decrypting");
+                    throw new Exception("Error occurred right after decrypting");
+                }
             });
 
             fileSystemMock.Verify(f => f.File.Encrypt(It.Is<string>(s => s == "/tmp/filetoencrypt.txt")), Times.Once);

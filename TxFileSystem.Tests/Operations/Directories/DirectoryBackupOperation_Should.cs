@@ -14,12 +14,14 @@
         {
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            TxFileSystem txFileSystem = null;
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped");
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped");
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
                 "/tmp/directorytobackupped");
@@ -33,16 +35,19 @@
         {
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            TxFileSystem txFileSystem = null;
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped");
-            for (var i = 1; i <= 3; i++)
+            using (var transactionScope = new TransactionScope())
             {
-                txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped/subdir_" + i.ToString());
-            }
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped");
+                for (var i = 1; i <= 3; i++)
+                {
+                    txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped/subdir_" + i.ToString());
+                }
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
                 "/tmp/directorytobackupped");
@@ -59,18 +64,20 @@
         {
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
-
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped");
-            for (var i = 1; i <= 3; i++)
+            TxFileSystem txFileSystem = null;
+            using (var transactionScope = new TransactionScope())
             {
-                txFileSystem.File.Create("/tmp/directorytobackupped/rootfile_" + i.ToString());
-                txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped/subdir_" + i.ToString());
-                for (var j = 1; j <= 3; j++)
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped");
+                for (var i = 1; i <= 3; i++)
                 {
-                    txFileSystem.File.Create("/tmp/directorytobackupped/subdir_" + i.ToString() +
-                        "/subfile_" + i.ToString());
+                    txFileSystem.File.Create("/tmp/directorytobackupped/rootfile_" + i.ToString());
+                    txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped/subdir_" + i.ToString());
+                    for (var j = 1; j <= 3; j++)
+                    {
+                        txFileSystem.File.Create("/tmp/directorytobackupped/subdir_" + i.ToString() +
+                            "/subfile_" + i.ToString());
+                    }
                 }
             }
 

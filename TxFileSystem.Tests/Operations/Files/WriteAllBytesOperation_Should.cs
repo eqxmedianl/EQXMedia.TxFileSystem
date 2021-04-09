@@ -20,12 +20,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.WriteAllBytes("/tmp/bytesfile.txt", data);
 
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.WriteAllBytes("/tmp/bytesfile.txt", data);
-
-                throw new Exception("Error occurred right after writing bytes");
+                    throw new Exception("Error occurred right after writing bytes");
+                }
             });
 
             Assert.True(txFileSystem.File.Exists("/tmp/bytesfile.txt"));
@@ -42,17 +43,19 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText("/tmp/bytesfile.txt");
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.WriteAllBytes("/tmp/bytesfile.txt", data);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.WriteAllBytes("/tmp/bytesfile.txt", data);
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.True(txFileSystem.File.Exists("/tmp/bytesfile.txt"));
             Assert.Equal(data, txFileSystem.File.ReadAllBytes("/tmp/bytesfile.txt"));
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact]
         public void WriteAllBytesOperationAsync_ExceptionThrown_KeepsFile()
         {
@@ -87,15 +90,17 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText("/tmp/bytesfile.txt");
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.WriteAllBytesAsync("/tmp/bytesfile.txt", data).Wait();
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.WriteAllBytesAsync("/tmp/bytesfile.txt", data).Wait();
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.True(txFileSystem.File.Exists("/tmp/bytesfile.txt"));
             Assert.Equal(data, txFileSystem.File.ReadAllBytes("/tmp/bytesfile.txt"));
         }
+#endif
     }
 }

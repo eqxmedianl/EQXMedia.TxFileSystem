@@ -37,6 +37,7 @@
             Assert.Equal(lines, linesReturned);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact, FsFact]
         public void ReadAllLinesOperationAsync_CalledOnce_ReturnsStringArrayTask()
         {
@@ -92,5 +93,6 @@
             Assert.NotEmpty(taskReturned.Result);
             Assert.Equal(task, taskReturned);
         }
+#endif
     }
 }

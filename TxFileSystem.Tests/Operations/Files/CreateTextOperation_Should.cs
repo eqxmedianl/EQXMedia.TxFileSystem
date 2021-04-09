@@ -15,13 +15,17 @@
 
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
+            StreamWriter streamWriter = null;
 
-            var streamWriter = txFileSystem.File.CreateText(fileName);
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
 
-            transactionScope.Complete();
+                streamWriter = txFileSystem.File.CreateText(fileName);
+
+                transactionScope.Complete();
+            }
 
             Assert.IsAssignableFrom<StreamWriter>(streamWriter);
         }
@@ -32,14 +36,17 @@
             var fileName = "/tmp/generatedfile.txt";
 
             var mockFileSystem = new MockFileSystem();
+            TxFileSystem txFileSystem = null;
 
-            using var transactionScope = new TransactionScope();
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
 
-            txFileSystem.File.CreateText(fileName);
+                txFileSystem.File.CreateText(fileName);
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.True(txFileSystem.File.Exists(fileName));
         }
@@ -51,16 +58,20 @@
 
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
+            TxFileSystem txFileSystem = null;
 
-            var streamWriter = txFileSystem.File.CreateText(fileName);
-            streamWriter.Write(GetLoremIpsumText());
-            streamWriter.Flush();
-            streamWriter.Close();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
 
-            transactionScope.Complete();
+                var streamWriter = txFileSystem.File.CreateText(fileName);
+                streamWriter.Write(GetLoremIpsumText());
+                streamWriter.Flush();
+                streamWriter.Close();
+
+                transactionScope.Complete();
+            }
 
             Assert.Equal(GetLoremIpsumText(), txFileSystem.File.ReadAllText(fileName));
         }
@@ -76,15 +87,17 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
 
-                var streamWriter = txFileSystem.File.CreateText(fileName);
-                streamWriter.Write(GetLoremIpsumText());
-                streamWriter.Flush();
-                streamWriter.Close();
+                    var streamWriter = txFileSystem.File.CreateText(fileName);
+                    streamWriter.Write(GetLoremIpsumText());
+                    streamWriter.Flush();
+                    streamWriter.Close();
 
-                throw new Exception("Error right after writing to stream");
+                    throw new Exception("Error right after writing to stream");
+                }
             });
 
             Assert.False(txFileSystem.File.Exists(fileName));

@@ -16,14 +16,16 @@
             var fileName = "/var/log/logtocreate.log";
 
             var mockFileSystem = new MockFileSystem();
+            TxFileSystem txFileSystem = null;
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/var/log");
+                txFileSystem.File.Create(fileName);
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/var/log");
-            txFileSystem.File.Create(fileName);
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.True(txFileSystem.File.Exists(fileName));
         }
@@ -38,13 +40,14 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.Directory.CreateDirectory("/var/log");
+                    txFileSystem.File.Create(fileName);
 
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.Directory.CreateDirectory("/var/log");
-                txFileSystem.File.Create(fileName);
-
-                throw new Exception("Error occured right after creating the file");
+                    throw new Exception("Error occured right after creating the file");
+                }
             });
 
             Assert.False(txFileSystem.File.Exists(fileName));
@@ -57,13 +60,16 @@
 
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            Stream createdStream = null;
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/var/log");
-            var createdStream = txFileSystem.File.Create(fileName);
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/var/log");
+                createdStream = txFileSystem.File.Create(fileName);
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.IsAssignableFrom<Stream>(createdStream);
         }
@@ -76,14 +82,14 @@
             var streamMock = new Mock<Stream>();
 
             var fileSystemMock = new Mock<IFileSystem>();
-            fileSystemMock.Setup(f => f.File.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Setup(fs => fs.File.Create(It.Is<string>((f) => f == fileName),
                 It.Is<int>(i => i == byteSize)))
                 .Returns(streamMock.Object);
 
             var txFileSystem = new TxFileSystem(fileSystemMock.Object);
             var streamReturned = txFileSystem.File.Create(fileName, byteSize);
 
-            fileSystemMock.Verify(f => f.File.Create(It.Is<string>((f) => f == fileName),
+            fileSystemMock.Verify(fs => fs.File.Create(It.Is<string>((f) => f == fileName),
                 It.Is<int>(i => i == byteSize)), Times.Once);
 
             Assert.IsAssignableFrom<Stream>(streamReturned);
@@ -98,13 +104,13 @@
             var fileOptions = FileOptions.DeleteOnClose;
 
             var fileSystemMock = new Mock<IFileSystem>();
-            fileSystemMock.Setup(f => f.File.Create(It.Is<string>((f => f == fileName)), It.Is<int>(i => i == byteSize),
+            fileSystemMock.Setup(fs => fs.File.Create(It.Is<string>((f => f == fileName)), It.Is<int>(i => i == byteSize),
                 It.Is<FileOptions>(o => o == fileOptions)));
 
             var txFileSystem = new TxFileSystem(fileSystemMock.Object);
             txFileSystem.File.Create(fileName, byteSize, fileOptions);
 
-            fileSystemMock.Verify(f => f.File.Create(It.Is<string>((f => f == fileName)), It.Is<int>(i => i == byteSize),
+            fileSystemMock.Verify(fs => fs.File.Create(It.Is<string>((f => f == fileName)), It.Is<int>(i => i == byteSize),
                 It.Is<FileOptions>(o => o == fileOptions)), Times.Once);
         }
     }

@@ -25,12 +25,13 @@
             var originalAccessControl = txFileSystem.Directory.GetAccessControl(dirName);
             var modifiedAccessControl = new DirectorySecurity();
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.SetAccessControl(dirName, modifiedAccessControl);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.SetAccessControl(dirName, modifiedAccessControl);
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.NotEqual(originalAccessControl, txFileSystem.Directory.GetAccessControl(dirName));
             Assert.Equal(modifiedAccessControl, txFileSystem.Directory.GetAccessControl(dirName));
@@ -49,12 +50,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.Directory.SetAccessControl(dirName, modifiedAccessControl);
 
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.Directory.SetAccessControl(dirName, modifiedAccessControl);
-
-                throw new Exception("Error occurred right after changing accesscontrol");
+                    throw new Exception("Error occurred right after changing accesscontrol");
+                }
             });
 
             Assert.NotEqual(modifiedAccessControl, txFileSystem.Directory.GetAccessControl(dirName));

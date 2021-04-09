@@ -16,14 +16,16 @@
         {
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            TxFileSystem txFileSystem = null;
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                var txJournal = txFileSystem.Journal;
+                txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                    "/var/journaltestdir"));
+            }
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            var txJournal = txFileSystem.Journal;
-            txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
-                "/var/journaltestdir"));
-
-            Assert.Single(txJournal._txJournalEntries);
+            Assert.Single(txFileSystem.Journal._txJournalEntries);
         }
 
         [Fact]
@@ -31,14 +33,17 @@
         {
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            TxJournalEntry firstJournalEntry = null;
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            var txJournal = txFileSystem.Journal;
-            txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
-                "/var/journaltestdir"));
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                var txJournal = txFileSystem.Journal;
+                txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                    "/var/journaltestdir"));
 
-            var firstJournalEntry = txJournal._txJournalEntries.First();
+                firstJournalEntry = txJournal._txJournalEntries.First();
+            }
 
             Assert.Equal(OperationType.Delete, firstJournalEntry.Operation.OperationType);
         }
@@ -70,11 +75,12 @@
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
             var txJournal = txFileSystem.Journal;
-            using var transactionScope = new TransactionScope();
-
-            var enlistment = Transaction.Current.EnlistVolatile(txJournal,
-                EnlistmentOptions.EnlistDuringPrepareRequired);
-            txJournal.InDoubt(enlistment);
+            using (var transactionScope = new TransactionScope())
+            {
+                var enlistment = Transaction.Current.EnlistVolatile(txJournal,
+                    EnlistmentOptions.EnlistDuringPrepareRequired);
+                txJournal.InDoubt(enlistment);
+            }
 
             Assert.Equal(JournalState.RolledBack, txJournal.State);
             Assert.True(txJournal.IsRolledBack);
@@ -97,12 +103,13 @@
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
             var txJournal = txFileSystem.Journal;
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                var enlistment = Transaction.Current.EnlistVolatile(txJournal,
+                    EnlistmentOptions.EnlistDuringPrepareRequired);
 
-            var enlistment = Transaction.Current.EnlistVolatile(txJournal,
-                EnlistmentOptions.EnlistDuringPrepareRequired);
-
-            txJournal.Rollback(enlistment);
+                txJournal.Rollback(enlistment);
+            }
 
             Assert.Equal(JournalState.RolledBack, txJournal.State);
             Assert.True(txJournal.IsRolledBack);

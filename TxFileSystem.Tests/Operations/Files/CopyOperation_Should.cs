@@ -14,16 +14,17 @@
             var txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.Directory.CreateDirectory("/tmp");
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                var textFileStream = txFileSystem.File.CreateText("/tmp/createdfile.txt");
+                textFileStream.Write("Newly created file which is going to be copied");
+                textFileStream.Flush();
+                textFileStream.Close();
 
-            var textFileStream = txFileSystem.File.CreateText("/tmp/createdfile.txt");
-            textFileStream.Write("Newly created file which is going to be copied");
-            textFileStream.Flush();
-            textFileStream.Close();
+                txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/copied.txt");
 
-            txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/copied.txt");
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.Equal(txFileSystem.File.ReadAllText("/tmp/createdfile.txt"),
                 txFileSystem.File.ReadAllText("/tmp/copied.txt"));
@@ -43,11 +44,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/copied.txt");
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/copied.txt");
 
-                throw new Exception("Error right after copying file.");
+                    throw new Exception("Error right after copying file.");
+                }
             });
 
             Assert.True(txFileSystem.File.Exists("/tmp/createdfile.txt"));
@@ -61,18 +64,19 @@
             var txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.Directory.CreateDirectory("/tmp");
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem.File.CreateText("/tmp/destfile.txt");
 
-            txFileSystem.File.CreateText("/tmp/destfile.txt");
+                var textFileStream = txFileSystem.File.CreateText("/tmp/createdfile.txt");
+                textFileStream.Write("Newly created file which is going to be copied");
+                textFileStream.Flush();
+                textFileStream.Close();
 
-            var textFileStream = txFileSystem.File.CreateText("/tmp/createdfile.txt");
-            textFileStream.Write("Newly created file which is going to be copied");
-            textFileStream.Flush();
-            textFileStream.Close();
+                txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/destfile.txt", overwrite: true);
 
-            txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/destfile.txt", overwrite: true);
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.Equal(txFileSystem.File.ReadAllText("/tmp/createdfile.txt"),
                 txFileSystem.File.ReadAllText("/tmp/destfile.txt"));
@@ -97,12 +101,14 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                var txFileSystem = new TxFileSystem(mockFileSystem);
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
 
-                txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/destfile.txt", overwrite: true);
+                    txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/destfile.txt", overwrite: true);
 
-                throw new Exception("Error occurred right after copy");
+                    throw new Exception("Error occurred right after copy");
+                }
             });
 
             Assert.NotEqual(txFileSystem.File.ReadAllText("/tmp/createdfile.txt"),
@@ -124,12 +130,14 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                var txFileSystem = new TxFileSystem(mockFileSystem);
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
 
-                txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/destfile.txt", overwrite: true);
+                    txFileSystem.File.Copy("/tmp/createdfile.txt", "/tmp/destfile.txt", overwrite: true);
 
-                throw new Exception("Error occurred right after copy");
+                    throw new Exception("Error occurred right after copy");
+                }
             });
 
             Assert.True(txFileSystem.File.Exists("/tmp/createdfile.txt"));

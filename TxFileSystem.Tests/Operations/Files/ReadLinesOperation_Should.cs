@@ -26,14 +26,15 @@
             txFileSystem.File.CreateText(fileName);
             txFileSystem.File.WriteAllLines(fileName, lines);
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                var linesReturned = txFileSystem.File.ReadLines(fileName);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            var linesReturned = txFileSystem.File.ReadLines(fileName);
+                transactionScope.Complete();
 
-            transactionScope.Complete();
-
-            Assert.Equal(lines, linesReturned);
+                Assert.Equal(lines, linesReturned);
+            }
         }
 
         [Fact]
@@ -48,12 +49,13 @@
             txFileSystem.File.CreateText(fileName);
             txFileSystem.File.WriteAllLines(fileName, lines);
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.ReadLines(fileName);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.ReadLines(fileName);
-
-            Assert.Empty(txFileSystem.Journal._txJournalEntries);
+                Assert.Empty(txFileSystem.Journal._txJournalEntries);
+            }
         }
 
         [Fact, FsFact]
@@ -67,22 +69,23 @@
             var encoding = Encoding.UTF8;
             var lines = new string[] { "Line one", "Line two", "Line three" };
 
-            fileSystemMock.Setup(f => f.File.ReadLines(It.Is<string>((s) => s == fileName),
+            fileSystemMock.Setup(fs => fs.File.ReadLines(It.Is<string>((s) => s == fileName),
                 It.Is<Encoding>((e) => e == encoding)))
                 .Returns(lines);
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(fileSystemMock.Object);
+                var linesReturned = txFileSystem.File.ReadLines(fileName, encoding);
 
-            var txFileSystem = new TxFileSystem(fileSystemMock.Object);
-            var linesReturned = txFileSystem.File.ReadLines(fileName, encoding);
+                transactionScope.Complete();
 
-            transactionScope.Complete();
+                fileSystemMock.Verify(fs => fs.File.ReadLines(It.Is<string>((s) => s == fileName),
+                    It.Is<Encoding>((e) => e == encoding)), Times.Once);
 
-            fileSystemMock.Verify(f => f.File.ReadLines(It.Is<string>((s) => s == fileName),
-                It.Is<Encoding>((e) => e == encoding)), Times.Once);
-
-            Assert.IsAssignableFrom<IEnumerable<string>>(linesReturned);
-            Assert.Equal(lines, linesReturned);
+                Assert.IsAssignableFrom<IEnumerable<string>>(linesReturned);
+                Assert.Equal(lines, linesReturned);
+            }
         }
     }
 }

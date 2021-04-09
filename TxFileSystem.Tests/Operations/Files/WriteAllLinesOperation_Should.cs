@@ -82,6 +82,7 @@
                 It.IsAny<Encoding>()), Times.Once);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact, FsFact]
         public void WriteAllLinesOperationAsync_ContentsArray_CalledOnce()
         {
@@ -161,5 +162,6 @@
             fileSystemMock.Verify(f => f.File.WriteAllLinesAsync(It.IsAny<string>(), It.IsAny<IEnumerable<string>>(),
                 It.IsAny<Encoding>(), It.IsAny<CancellationToken>()), Times.Once);
         }
+#endif
     }
 }

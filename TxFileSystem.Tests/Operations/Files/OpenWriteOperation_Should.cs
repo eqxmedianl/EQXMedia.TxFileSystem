@@ -17,17 +17,18 @@
 
             var mockFileSystem = new MockFileSystem();
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                var txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
+                txFileSystem.File.CreateText(fileName);
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
-            txFileSystem.File.CreateText(fileName);
+                var fileStream = txFileSystem.File.OpenWrite(fileName);
 
-            var fileStream = txFileSystem.File.OpenWrite(fileName);
+                transactionScope.Complete();
 
-            transactionScope.Complete();
-
-            Assert.IsAssignableFrom<Stream>(fileStream);
+                Assert.IsAssignableFrom<Stream>(fileStream);
+            }
         }
 
         [Fact]
@@ -41,12 +42,13 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText(fileName);
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.OpenWrite(fileName);
 
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.OpenWrite(fileName);
-
-            Assert.NotEmpty(txFileSystem.Journal._txJournalEntries);
+                Assert.NotEmpty(txFileSystem.Journal._txJournalEntries);
+            }
         }
 
         [Fact]
@@ -62,16 +64,17 @@
 
             Assert.ThrowsAny<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
 
-                txFileSystem = new TxFileSystem(mockFileSystem);
+                    var fileStream = txFileSystem.File.OpenWrite(fileName);
+                    fileStream.Write(data, 0, data.Length);
+                    fileStream.Flush();
+                    fileStream.Close();
 
-                var fileStream = txFileSystem.File.OpenWrite(fileName);
-                fileStream.Write(data);
-                fileStream.Flush();
-                fileStream.Close();
-
-                throw new Exception("Error occurred right after writing to stream");
+                    throw new Exception("Error occurred right after writing to stream");
+                }
             });
 
             Assert.Equal(new byte[] { }, txFileSystem.File.ReadAllBytes(fileName));
@@ -84,19 +87,21 @@
             var data = Encoding.ASCII.GetBytes("Bytes written to file");
 
             var mockFileSystem = new MockFileSystem();
+            TxFileSystem txFileSystem = null;
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
+                txFileSystem.File.CreateText(fileName);
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
-            txFileSystem.File.CreateText(fileName);
+                var fileStream = txFileSystem.File.OpenWrite(fileName);
+                fileStream.Write(data, 0, data.Length);
+                fileStream.Flush();
+                fileStream.Close();
 
-            var fileStream = txFileSystem.File.OpenWrite(fileName);
-            fileStream.Write(data);
-            fileStream.Flush();
-            fileStream.Close();
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.Equal(data, txFileSystem.File.ReadAllBytes(fileName));
         }

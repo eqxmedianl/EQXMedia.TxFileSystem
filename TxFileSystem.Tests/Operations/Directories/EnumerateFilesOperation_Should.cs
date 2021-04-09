@@ -93,6 +93,7 @@
             Assert.True(files.Count() == 21);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact]
         public void EnumerateFilesOperation_EnumerateFiles_FilterCaseSensitive_ReturnsNoFiles()
         {
@@ -147,5 +148,6 @@
             Assert.NotEmpty(files);
             Assert.True(files.Count() == 3);
         }
+#endif
     }
 }

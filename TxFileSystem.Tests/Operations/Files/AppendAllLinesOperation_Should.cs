@@ -54,11 +54,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.AppendAllLines("/tmp/filetoappendto.txt", lines.ToList());
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.AppendAllLines("/tmp/filetoappendto.txt", lines.ToList());
 
-                throw new Exception("Error occurred right after appending lines");
+                    throw new Exception("Error occurred right after appending lines");
+                }
             });
 
             Assert.True(txFileSystem.Journal.IsRolledBack);
@@ -83,10 +85,12 @@
             Assert.Equal("Initial contents" + Environment.NewLine,
                 txFileSystem.File.ReadAllText("/tmp/filetoappendto.txt"));
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllLines("/tmp/filetoappendto.txt", lines.ToList());
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllLines("/tmp/filetoappendto.txt", lines.ToList());
+                transactionScope.Complete();
+            }
 
             lines = lines.Prepend("Initial contents").ToArray();
 
@@ -103,10 +107,12 @@
 
             var lines = new string[] { "Crème brûlée", "Chocolate mouse", "Cheesecake Icecream" };
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllLines("/tmp/filetoappendto.txt", lines.ToList(), Encoding.ASCII);
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllLines("/tmp/filetoappendto.txt", lines.ToList(), Encoding.ASCII);
+                transactionScope.Complete();
+            }
 
             Assert.NotEqual(lines, txFileSystem.File.ReadAllLines("/tmp/filetoappendto.txt"));
         }
@@ -121,14 +127,17 @@
 
             var lines = new string[] { "Crème brûlée", "Chocolate mouse", "Cheesecake Icecream" };
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllLines("/tmp/filetoappendto.txt", lines.ToList(), Encoding.UTF8);
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllLines("/tmp/filetoappendto.txt", lines.ToList(), Encoding.UTF8);
+                transactionScope.Complete();
+            }
 
             Assert.Equal(lines, txFileSystem.File.ReadAllLines("/tmp/filetoappendto.txt"));
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact]
         public void AppendAllLinesOperationAsync_EqualsAllWrittenLines()
         {
@@ -173,11 +182,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.AppendAllLinesAsync("/tmp/filetoappendto.txt", lines.ToList()).Wait();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.AppendAllLinesAsync("/tmp/filetoappendto.txt", lines.ToList()).Wait();
 
-                throw new Exception("Error occurred right after appending lines");
+                    throw new Exception("Error occurred right after appending lines");
+                }
             });
 
             Assert.True(txFileSystem.Journal.IsRolledBack);
@@ -202,10 +213,12 @@
             Assert.Equal("Initial contents" + Environment.NewLine,
                 txFileSystem.File.ReadAllText("/tmp/filetoappendto.txt"));
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllLinesAsync("/tmp/filetoappendto.txt", lines.ToList()).Wait();
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllLinesAsync("/tmp/filetoappendto.txt", lines.ToList()).Wait();
+                transactionScope.Complete();
+            }
 
             lines = lines.Prepend("Initial contents").ToArray();
 
@@ -222,10 +235,12 @@
 
             var lines = new string[] { "Crème brûlée", "Chocolate mouse", "Cheesecake Icecream" };
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllLinesAsync("/tmp/filetoappendto.txt", lines.ToList(), Encoding.ASCII).Wait();
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllLinesAsync("/tmp/filetoappendto.txt", lines.ToList(), Encoding.ASCII).Wait();
+                transactionScope.Complete();
+            }
 
             Assert.NotEqual(lines, txFileSystem.File.ReadAllLines("/tmp/filetoappendto.txt"));
         }
@@ -240,12 +255,15 @@
 
             var lines = new string[] { "Crème brûlée", "Chocolate mouse", "Cheesecake Icecream" };
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.AppendAllLinesAsync("/tmp/filetoappendto.txt", lines.ToList(), Encoding.UTF8).Wait();
-            transactionScope.Complete();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.AppendAllLinesAsync("/tmp/filetoappendto.txt", lines.ToList(), Encoding.UTF8).Wait();
+                transactionScope.Complete();
+            }
 
             Assert.Equal(lines, txFileSystem.File.ReadAllLines("/tmp/filetoappendto.txt"));
         }
+#endif
     }
 }

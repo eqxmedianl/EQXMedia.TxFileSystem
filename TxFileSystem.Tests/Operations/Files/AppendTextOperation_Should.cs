@@ -22,15 +22,17 @@
             textFileStream.Flush();
             textFileStream.Close();
 
-            using var transactionScope = new TransactionScope();
-            txFileSystem = new TxFileSystem(mockFileSystem);
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
 
-            textFileStream = txFileSystem.File.AppendText("/tmp/filetoappendtextto.txt");
-            textFileStream.Write(GetLoremIpsumText());
-            textFileStream.Flush();
-            textFileStream.Close();
+                textFileStream = txFileSystem.File.AppendText("/tmp/filetoappendtextto.txt");
+                textFileStream.Write(GetLoremIpsumText());
+                textFileStream.Flush();
+                textFileStream.Close();
 
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             var txJournal = txFileSystem.Journal;
 
@@ -57,15 +59,17 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
 
-                textFileStream = txFileSystem.File.AppendText("/tmp/filetoappendtextto.txt");
-                textFileStream.Write(GetRandomlyGeneratedFrenchText());
-                textFileStream.Flush();
-                textFileStream.Close();
+                    textFileStream = txFileSystem.File.AppendText("/tmp/filetoappendtextto.txt");
+                    textFileStream.Write(GetRandomlyGeneratedFrenchText());
+                    textFileStream.Flush();
+                    textFileStream.Close();
 
-                throw new Exception("Error occurred right after appending text");
+                    throw new Exception("Error occurred right after appending text");
+                }
             });
 
             var txJournal = txFileSystem.Journal;

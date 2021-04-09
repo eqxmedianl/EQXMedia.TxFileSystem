@@ -30,11 +30,13 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
 
             Assert.Throws<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(fileSystemMock.Object);
-                txFileSystem.Directory.CreateDirectory("/var/www");
-                txFileSystem.Directory.CreateDirectory("/var/failingdirectory");
-                transactionScope.Complete();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(fileSystemMock.Object);
+                    txFileSystem.Directory.CreateDirectory("/var/www");
+                    txFileSystem.Directory.CreateDirectory("/var/failingdirectory");
+                    transactionScope.Complete();
+                }
             });
 
             Assert.True(txFileSystem.Journal.IsRolledBack);
@@ -50,11 +52,13 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
             void CreateDirectories()
             {
                 var mockFileSystem = new MockFileSystem();
-                using var transactionScope = new TransactionScope();
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.Directory.CreateDirectory("/var/www");
-                txFileSystem.Directory.CreateDirectory("/var/nonfailingdirectory");
-                transactionScope.Complete();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.Directory.CreateDirectory("/var/www");
+                    txFileSystem.Directory.CreateDirectory("/var/nonfailingdirectory");
+                    transactionScope.Complete();
+                }
             }
 
             CreateDirectories();

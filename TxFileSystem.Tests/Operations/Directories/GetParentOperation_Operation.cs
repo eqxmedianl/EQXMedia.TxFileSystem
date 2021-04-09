@@ -44,10 +44,11 @@
             var txFileSystem = new TxFileSystem(mockFileSystem);
             txFileSystem.Directory.CreateDirectory(dirName);
 
-            using var transactionScope = new TransactionScope();
-
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.GetParent(dirName);
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.GetParent(dirName);
+            }
 
             Assert.Empty(txFileSystem.Journal._txJournalEntries);
         }

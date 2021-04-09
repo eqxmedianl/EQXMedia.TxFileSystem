@@ -14,15 +14,17 @@
             var fileName = "/tmp/filetobedeleted.txt";
 
             var mockFileSystem = new MockFileSystem();
+            TxFileSystem txFileSystem = null;
 
-            using var transactionScope = new TransactionScope();
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.Directory.CreateDirectory("/tmp");
+                txFileSystem.File.Create(fileName);
+                txFileSystem.File.Delete(fileName);
 
-            var txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.Directory.CreateDirectory("/tmp");
-            txFileSystem.File.Create(fileName);
-            txFileSystem.File.Delete(fileName);
-
-            transactionScope.Complete();
+                transactionScope.Complete();
+            }
 
             Assert.False(txFileSystem.File.Exists(fileName));
         }
@@ -37,10 +39,11 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.Create(fileName);
 
-            using var transactionScope = new TransactionScope();
-
-            txFileSystem = new TxFileSystem(mockFileSystem);
-            txFileSystem.File.Delete(fileName);
+            using (var transactionScope = new TransactionScope())
+            {
+                txFileSystem = new TxFileSystem(mockFileSystem);
+                txFileSystem.File.Delete(fileName);
+            }
 
             Assert.NotEmpty(txFileSystem.Journal._txJournalEntries);
         }
@@ -57,12 +60,13 @@
 
             Assert.ThrowsAsync<Exception>(() =>
             {
-                using var transactionScope = new TransactionScope();
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.File.Delete(fileName);
 
-                txFileSystem = new TxFileSystem(mockFileSystem);
-                txFileSystem.File.Delete(fileName);
-
-                throw new Exception("Error right after deleting file");
+                    throw new Exception("Error right after deleting file");
+                }
             });
 
             Assert.True(txFileSystem.File.Exists(fileName));

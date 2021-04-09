@@ -106,6 +106,7 @@
             Assert.True(entries.Count() == 6);
         }
 
+#if NETCOREAPP3_1_OR_GREATER
         [Fact]
         public void EnumerateFileSystemEntriesOperation_RecurseSubDirs_ReturnsTwentyFourEntries()
         {
@@ -133,5 +134,6 @@
             Assert.NotEmpty(entries);
             Assert.True(entries.Count() == 24);
         }
+#endif
     }
 }
