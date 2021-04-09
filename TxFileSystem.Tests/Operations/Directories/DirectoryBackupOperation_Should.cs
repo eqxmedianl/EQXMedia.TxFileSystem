@@ -20,14 +20,12 @@
                 txFileSystem = new TxFileSystem(mockFileSystem);
                 txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped");
 
-                transactionScope.Complete();
+                var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                    "/tmp/directorytobackupped");
+                unitTestOperation.Backup();
+
+                Assert.True(txFileSystem.Directory.Exists(unitTestOperation.BackupPath));
             }
-
-            var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
-                "/tmp/directorytobackupped");
-            unitTestOperation.Backup();
-
-            Assert.True(txFileSystem.Directory.Exists(unitTestOperation.BackupPath));
         }
 
         [Fact]
@@ -46,17 +44,15 @@
                     txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped/subdir_" + i.ToString());
                 }
 
-                transactionScope.Complete();
+                var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                    "/tmp/directorytobackupped");
+                unitTestOperation.Backup();
+
+                var directories = txFileSystem.Directory.EnumerateDirectories(unitTestOperation.BackupPath);
+
+                Assert.NotEmpty(directories);
+                Assert.Equal(3, directories.Count());
             }
-
-            var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
-                "/tmp/directorytobackupped");
-            unitTestOperation.Backup();
-
-            var directories = txFileSystem.Directory.EnumerateDirectories(unitTestOperation.BackupPath);
-
-            Assert.NotEmpty(directories);
-            Assert.Equal(3, directories.Count());
         }
 
         [Fact]
@@ -79,22 +75,22 @@
                             "/subfile_" + i.ToString());
                     }
                 }
+
+                var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                    "/tmp/directorytobackupped");
+                unitTestOperation.Backup();
+
+                var directories = txFileSystem.Directory.EnumerateDirectories(unitTestOperation.BackupPath);
+
+                Assert.NotEmpty(directories);
+                Assert.Equal(3, directories.Count());
+
+                var files = txFileSystem.Directory.EnumerateFiles(unitTestOperation.BackupPath, "*",
+                    SearchOption.AllDirectories);
+
+                Assert.NotEmpty(files);
+                Assert.Equal(6, files.Count());
             }
-
-            var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
-                "/tmp/directorytobackupped");
-            unitTestOperation.Backup();
-
-            var directories = txFileSystem.Directory.EnumerateDirectories(unitTestOperation.BackupPath);
-
-            Assert.NotEmpty(directories);
-            Assert.Equal(3, directories.Count());
-
-            var files = txFileSystem.Directory.EnumerateFiles(unitTestOperation.BackupPath, "*",
-                SearchOption.AllDirectories);
-
-            Assert.NotEmpty(files);
-            Assert.Equal(6, files.Count());
         }
     }
 }

@@ -16,16 +16,15 @@
         {
             var mockFileSystem = new MockFileSystem();
 
-            TxFileSystem txFileSystem = null;
             using (var transactionScope = new TransactionScope())
             {
-                txFileSystem = new TxFileSystem(mockFileSystem);
+                var txFileSystem = new TxFileSystem(mockFileSystem);
                 var txJournal = txFileSystem.Journal;
                 txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
                     "/var/journaltestdir"));
-            }
 
-            Assert.Single(txFileSystem.Journal._txJournalEntries);
+                Assert.Single(txFileSystem.Journal._txJournalEntries);
+            }
         }
 
         [Fact]
