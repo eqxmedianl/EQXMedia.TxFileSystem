@@ -29,9 +29,9 @@
                 txFileSystem.Directory.SetCreationTime(dirName, modifiedCreationTime);
 
                 transactionScope.Complete();
-            }
 
-            Assert.Equal(modifiedCreationTime, txFileSystem.Directory.GetCreationTime(dirName));
+                Assert.Equal(modifiedCreationTime, txFileSystem.Directory.GetCreationTime(dirName));
+            }
         }
 
         [Fact]
