@@ -27,10 +27,12 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   ○ Filestreams.
 ● Plain proxy functionality for all remaining parts of the System.IO.Abstractions interfaces.
 ● Fully covered by Unit Tests (100% code coverage).
+● Added support for .NET Standard 2.0, as per System.IO.Abstractions.
 ● Now supports multiple framework versions:
   ○ .NET Standard 2.0,
   ○ .NET Standard 2.1,
-  ○ .NET 5.0.</PackageReleaseNotes>
+  ○ .NET 5.0.
+● Unit Testing all supported framework versions.</PackageReleaseNotes>
     <Copyright>© EQX Media B.V. All rights reserved.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -44,9 +46,12 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
 
   <ItemGroup>
     <PackageReference Include="System.IO.Abstractions" Version="13.2.9" />
-    <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Memory" Version="4.5.4" />
+  </ItemGroup>
+  
   <ItemGroup>
     <None Include="..\eqxmedia-logo.png">
       <Pack>True</Pack>
