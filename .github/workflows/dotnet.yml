@@ -16,9 +16,11 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 5.0.x        
+    - name: List directory
+      run: dir
     - name: Clean solution and NuGet cache
-      run: dotnet clean EQXMedia.TxFileSystem/TxFileSystem.sln --configuration Debug && dotnet nuget locals all --clear
+      run: dotnet clean EQXMedia.TxFileSystem/TxFileSystem/TxFileSystem.sln --configuration Debug && dotnet nuget locals all --clear
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
