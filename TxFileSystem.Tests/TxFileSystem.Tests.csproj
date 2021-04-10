@@ -5,6 +5,8 @@
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">2.0.0</RuntimeFrameworkVersion>
 
     <IsPackable>false</IsPackable>
+
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
