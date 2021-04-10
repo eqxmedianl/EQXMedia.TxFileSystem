@@ -192,8 +192,10 @@
             var fileSystemMock = attr.GetMock<IFileSystem>();
             var txFileSystem = new TxFileSystem(fileSystemMock.Object);
 
-            var filePtr = new IntPtr(1234);
+            string fileName = UnitTestUtils.GetTempFileName(txFileSystem);
             var fileAccess = FileAccess.ReadWrite;
+            var filePtr = NativeMethods.CreateFile(fileName, fileAccess, FileShare.ReadWrite, IntPtr.Zero,
+                FileMode.OpenOrCreate, FileAttributes.Normal, IntPtr.Zero);
             var ownsHandle = false;
 
             var fileStreamMock = new Mock<FileStream>(MockBehavior.Loose, filePtr, fileAccess, ownsHandle);
@@ -208,6 +210,10 @@
                 It.Is<FileAccess>((a) => a == fileAccess), It.Is<bool>((o) => o == ownsHandle)), Times.Once);
 
             Assert.Equal(fileStreamMock.Object, fileStreamReturned);
+
+            NativeMethods.CloseHandle(filePtr);
+
+            new FileSystem().File.Delete(fileName);
         }
 
         [Fact, FsFact]
@@ -219,8 +225,10 @@
             var fileSystemMock = attr.GetMock<IFileSystem>();
             var txFileSystem = new TxFileSystem(fileSystemMock.Object);
 
-            var filePtr = new IntPtr(1234);
+            string fileName = UnitTestUtils.GetTempFileName(txFileSystem);
             var fileAccess = FileAccess.ReadWrite;
+            var filePtr = NativeMethods.CreateFile(fileName, fileAccess, FileShare.ReadWrite, IntPtr.Zero,
+                FileMode.OpenOrCreate, FileAttributes.Normal, IntPtr.Zero);
             var ownsHandle = false;
             var bufferSize = 512;
 
@@ -238,6 +246,10 @@
                 It.Is<int>((s) => s == bufferSize)), Times.Once);
 
             Assert.Equal(fileStreamMock.Object, fileStreamReturned);
+
+            NativeMethods.CloseHandle(filePtr);
+
+            new FileSystem().File.Delete(fileName);
         }
 
         [Fact, FsFact]
@@ -249,8 +261,10 @@
             var fileSystemMock = attr.GetMock<IFileSystem>();
             var txFileSystem = new TxFileSystem(fileSystemMock.Object);
 
-            var filePtr = new IntPtr(1234);
+            string fileName = UnitTestUtils.GetTempFileName(txFileSystem);
             var fileAccess = FileAccess.ReadWrite;
+            var filePtr = NativeMethods.CreateFile(fileName, fileAccess, FileShare.ReadWrite, IntPtr.Zero,
+                FileMode.OpenOrCreate, FileAttributes.Normal, IntPtr.Zero);
             var ownsHandle = false;
             var bufferSize = 512;
             var isAsync = false;
@@ -271,6 +285,10 @@
                 It.Is<int>((s) => s == bufferSize), It.Is<bool>((a) => a == isAsync)), Times.Once);
 
             Assert.Equal(fileStreamMock.Object, fileStreamReturned);
+
+            NativeMethods.CloseHandle(filePtr);
+
+            new FileSystem().File.Delete(fileName);
         }
     }
 }
