@@ -193,8 +193,11 @@
             var txFileSystem = new TxFileSystem(fileSystemMock.Object);
 
             var ownsHandle = false;
-            var safeFileHandle = new SafeFileHandle(new IntPtr(1234), ownsHandle: ownsHandle);
             var fileAccess = FileAccess.ReadWrite;
+            var fileName = UnitTestUtils.GetTempFileName(new TxFileSystem());
+            var filePtr = NativeMethods.CreateFile(fileName, fileAccess, FileShare.ReadWrite, IntPtr.Zero,
+                FileMode.OpenOrCreate, FileAttributes.Normal, IntPtr.Zero);
+            var safeFileHandle = new SafeFileHandle(filePtr, ownsHandle: ownsHandle);
 
             var fileStreamMock = new Mock<FileStream>(MockBehavior.Loose, safeFileHandle, fileAccess);
 
@@ -208,6 +211,9 @@
                 It.Is<FileAccess>((a) => a == fileAccess)), Times.Once);
 
             Assert.Equal(fileStreamMock.Object, fileStreamReturned);
+
+            NativeMethods.CloseHandle(filePtr);
+            new TxFileSystem().File.Delete(fileName);
         }
 
         [Fact, FsFact]
@@ -219,8 +225,11 @@
             var txFileSystem = new TxFileSystem(fileSystemMock.Object);
 
             var ownsHandle = true;
-            var safeFileHandle = new SafeFileHandle(new IntPtr(1234), ownsHandle: ownsHandle);
             var fileAccess = FileAccess.ReadWrite;
+            var fileName = UnitTestUtils.GetTempFileName(new TxFileSystem());
+            var filePtr = NativeMethods.CreateFile(fileName, fileAccess, FileShare.ReadWrite, IntPtr.Zero,
+                FileMode.OpenOrCreate, FileAttributes.Normal, IntPtr.Zero);
+            var safeFileHandle = new SafeFileHandle(filePtr, ownsHandle: ownsHandle);
             var bufferSize = 512;
 
             var fileStreamMock = new Mock<FileStream>(MockBehavior.Loose, safeFileHandle, fileAccess, bufferSize);
@@ -235,6 +244,9 @@
                 It.Is<FileAccess>((a) => a == fileAccess), It.Is<int>((s) => s == bufferSize)), Times.Once);
 
             Assert.Equal(fileStreamMock.Object, fileStreamReturned);
+
+            NativeMethods.CloseHandle(filePtr);
+            new TxFileSystem().File.Delete(fileName);
         }
 
         [Fact, FsFact]
@@ -246,8 +258,11 @@
             var txFileSystem = new TxFileSystem(fileSystemMock.Object);
 
             var ownsHandle = true;
-            var safeFileHandle = new SafeFileHandle(new IntPtr(1234), ownsHandle: ownsHandle);
             var fileAccess = FileAccess.ReadWrite;
+            var fileName = UnitTestUtils.GetTempFileName(new TxFileSystem());
+            var filePtr = NativeMethods.CreateFile(fileName, fileAccess, FileShare.ReadWrite, IntPtr.Zero,
+                FileMode.OpenOrCreate, FileAttributes.Normal, IntPtr.Zero);
+            var safeFileHandle = new SafeFileHandle(filePtr, ownsHandle: ownsHandle);
             var bufferSize = 512;
             var isAsync = false;
 
@@ -266,6 +281,9 @@
                 It.Is<bool>((a) => a == isAsync)), Times.Once);
 
             Assert.Equal(fileStreamMock.Object, fileStreamReturned);
+
+            NativeMethods.CloseHandle(filePtr);
+            new TxFileSystem().File.Delete(fileName);
         }
     }
 }
