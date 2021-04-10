@@ -29,17 +29,17 @@ More information about the NuGet package can be found at NuGet.org:
 
 #### Package Manager
 ```powershell
-PS> Install-Package EQXMedia.TxFileSystem -Version 1.1.1
+PS> Install-Package EQXMedia.TxFileSystem -Version 1.2.0
 ```
 
 #### .NET CLI
 ```
-$ dotnet add package EQXMedia.TxFileSystem --version 1.1.1
+$ dotnet add package EQXMedia.TxFileSystem --version 1.2.0
 ```
 
 #### Package Reference
 ```xml
-<PackageReference Include="EQXMedia.TxFileSystem" Version="1.1.1" />
+<PackageReference Include="EQXMedia.TxFileSystem" Version="1.2.0" />
 ```
 
 ## Code Example
