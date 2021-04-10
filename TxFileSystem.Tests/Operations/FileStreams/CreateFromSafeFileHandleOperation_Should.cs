@@ -194,7 +194,7 @@
 
             var ownsHandle = false;
             var fileAccess = FileAccess.ReadWrite;
-            var fileName = UnitTestUtils.GetTempFileName(new TxFileSystem());
+            var fileName = UnitTestUtils.GetTempFileName(txFileSystem);
             var filePtr = NativeMethods.CreateFile(fileName, fileAccess, FileShare.ReadWrite, IntPtr.Zero,
                 FileMode.OpenOrCreate, FileAttributes.Normal, IntPtr.Zero);
             var safeFileHandle = new SafeFileHandle(filePtr, ownsHandle: ownsHandle);
