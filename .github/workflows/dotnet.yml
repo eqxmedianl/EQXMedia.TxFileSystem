@@ -20,7 +20,7 @@ jobs:
     - name: List directory
       run: dir
     - name: Clean solution and NuGet cache
-      run: dotnet clean EQXMedia.TxFileSystem/TxFileSystem/TxFileSystem.sln --configuration Debug && dotnet nuget locals all --clear
+      run: dotnet clean TxFileSystem\TxFileSystem.sln --configuration Debug && dotnet nuget locals all --clear
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
