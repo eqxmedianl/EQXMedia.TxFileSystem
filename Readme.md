@@ -7,6 +7,8 @@ This filesystem wrapper supports transactional operations on:
 *   Directories,
 *   Filestreams.
 
+![Quality Gate Status](https://txfilesystem.io/coverage-badge.php)
+
 ## About the Project
 
 ### Project Development
