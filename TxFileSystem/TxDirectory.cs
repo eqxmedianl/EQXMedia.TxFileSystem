@@ -59,7 +59,7 @@
             return new EnumerateDirectoriesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET461
         public IEnumerable<string> EnumerateDirectories(string path, string searchPattern,
             EnumerationOptions enumerationOptions)
         {
@@ -82,7 +82,7 @@
             return new EnumerateFilesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET461
         public IEnumerable<string> EnumerateFiles(string path, string searchPattern,
             EnumerationOptions enumerationOptions)
         {
@@ -106,7 +106,7 @@
             return new EnumerateFileSystemEntriesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET461
         public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern,
             EnumerationOptions enumerationOptions)
         {
@@ -167,7 +167,7 @@
         }
 
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET461
         public string[] GetDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return new GetDirectoriesOperation(this, path, searchPattern, enumerationOptions).Execute();
@@ -194,7 +194,7 @@
             return new GetFilesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET461
         public string[] GetFiles(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return new GetFilesOperation(this, path, searchPattern, enumerationOptions).Execute();
