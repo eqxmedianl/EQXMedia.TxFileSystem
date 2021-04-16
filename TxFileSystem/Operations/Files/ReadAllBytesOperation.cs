@@ -1,13 +1,13 @@
 ﻿namespace EQXMedia.TxFileSystem.Operations.Files
 {
     using global::EQXMedia.TxFileSystem.Abstractions;
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET461
     using System.Threading;
     using System.Threading.Tasks;
 #endif
 
     internal sealed class ReadAllBytesOperation : FileOperation, IReturningOperation<byte[]>
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET461
         , IAsyncReturningOperation<byte[]>
 #endif
     {
@@ -25,7 +25,7 @@
             return _file.FileSystem.File.ReadAllBytes(_path);
         }
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET461
         public Task<byte[]> ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);

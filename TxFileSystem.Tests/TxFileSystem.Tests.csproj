@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp3.1;net5.0;net461</TargetFrameworks>
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">2.0.0</RuntimeFrameworkVersion>
 
     <IsPackable>false</IsPackable>
 
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +24,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
@@ -33,8 +32,13 @@
   
   <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp2.0'">
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
-  </ItemGroup>    
-    
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\TxFileSystem\TxFileSystem.csproj" />
   </ItemGroup>

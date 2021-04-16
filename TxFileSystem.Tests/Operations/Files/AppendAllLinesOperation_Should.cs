@@ -29,7 +29,7 @@
 
             txFileSystem.File.AppendAllLines("/tmp/filetoappendto.txt", lines.ToList());
 
-            lines = lines.Prepend("Initial contents").ToArray();
+            lines = new[] { "Initial contents" }.Concat(lines).ToArray();
 
             Assert.Equal(lines, txFileSystem.File.ReadAllLines("/tmp/filetoappendto.txt"));
         }
@@ -92,7 +92,7 @@
                 transactionScope.Complete();
             }
 
-            lines = lines.Prepend("Initial contents").ToArray();
+            lines = new[] { "Initial contents" }.Concat(lines).ToArray();
 
             Assert.Equal(lines, txFileSystem.File.ReadAllLines("/tmp/filetoappendto.txt"));
         }
