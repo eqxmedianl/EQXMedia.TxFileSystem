@@ -59,13 +59,14 @@
         ///   <para>
         ///     Always ensure that you create an instance of <see cref="TxFileSystem"/> inside the 
         ///     <see cref="System.Transactions.TransactionScope"/> to acivate the operations journal. Without doing so,
-        ///     operations on files and directories won't be restored. Even when you perform them using the 
-        ///     <see cref="TxFileSystem"/> instance created outside the scope.
+        ///     operations on files and directories are not transactional. Having created a <see cref="TxFileSystem"/> 
+        ///     instance outside a <see cref="System.Transactions.TransactionScope"/> and still performing the 
+        ///     operations using it inside the scope, the operations are simply not transactional.
         ///   </para>
         ///   <para>
         ///     Also, when you perform operations directory a filesystem you pass to the constructor, you loose data 
         ///     integrity in case of exceptions. Because doing that the journal providing the rollback functionality 
-        ///     will not be used.
+        ///     will simply not be used.
         /// </para>
         /// </remarks>
         /// <param name="fileSystem">
