@@ -3,7 +3,7 @@
     using System;
 
     [Flags]
-    public enum FileAttributes : uint
+    internal enum FileAttributes : uint
     {
         Readonly = 0x00000001,
         Hidden = 0x00000002,
