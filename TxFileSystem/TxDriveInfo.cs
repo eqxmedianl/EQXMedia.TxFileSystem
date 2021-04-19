@@ -8,9 +8,9 @@
     ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
     /// </remarks>
     [Serializable]
-    internal sealed class TxDriveInfo : IDriveInfoFactory
+    public sealed class TxDriveInfo : IDriveInfoFactory
     {
-        public TxDriveInfo(TxFileSystem fileSystem)
+        internal TxDriveInfo(TxFileSystem fileSystem)
         {
             this.TxFileSystem = fileSystem;
         }

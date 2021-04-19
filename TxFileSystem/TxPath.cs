@@ -9,11 +9,11 @@
     ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
     /// </remarks>
     [Serializable]
-    internal sealed class TxPath : ITxPath
+    public sealed class TxPath : ITxPath
     {
         private readonly TxFileSystem _txFileSystem;
 
-        public TxPath(TxFileSystem txFileSystem)
+        internal TxPath(TxFileSystem txFileSystem)
         {
             _txFileSystem = txFileSystem;
         }

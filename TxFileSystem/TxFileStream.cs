@@ -16,11 +16,11 @@
     ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
     /// </remarks>
     [Serializable]
-    internal class TxFileStream : ITxFileStream
+    public class TxFileStream : ITxFileStream
     {
         internal readonly TxFileSystem _txFileSystem;
 
-        public TxFileStream(TxFileSystem txFileSystem)
+        internal TxFileStream(TxFileSystem txFileSystem)
         {
             _txFileSystem = txFileSystem;
         }
@@ -78,7 +78,7 @@
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access) is deprecated it is still part of the interface")]
         public Stream Create(IntPtr handle, FileAccess access)
         {
             return new CreateFromFileHandleOperation(this, handle, access).Execute();
@@ -87,7 +87,7 @@
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
         public Stream Create(IntPtr handle, FileAccess access, bool ownsHandle)
         {
             return new CreateFromFileHandleOperation(this, handle, access, ownsHandle).Execute();
@@ -96,7 +96,7 @@
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize) is deprecated it is still part of the interface")]
         public Stream Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize)
         {
             return new CreateFromFileHandleOperation(this, handle, access, ownsHandle, bufferSize).Execute();
@@ -105,7 +105,7 @@
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync) is deprecated it is still part of the interface")]
         public Stream Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync)
         {
             return new CreateFromFileHandleOperation(this, handle, access, ownsHandle, bufferSize, isAsync: isAsync)

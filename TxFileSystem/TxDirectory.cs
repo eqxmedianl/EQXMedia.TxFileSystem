@@ -17,11 +17,11 @@
     ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
     /// </remarks>
     [Serializable]
-    internal sealed class TxDirectory : ITxDirectory, IDirectory
+    public sealed class TxDirectory : ITxDirectory, IDirectory
     {
         internal readonly TxFileSystem _txFileSystem;
 
-        public TxDirectory(TxFileSystem txFileSystem)
+        internal TxDirectory(TxFileSystem txFileSystem)
         {
             _txFileSystem = txFileSystem;
         }

@@ -5,24 +5,26 @@
     using System.IO.Abstractions;
 
     /// <summary>
-    ///   Transactional filesystem is actually a wrapper around filesystems that implement the 
+    ///   Transactional file system is actually a wrapper around file systems that implement the 
     ///   <see cref="System.IO.Abstractions.IFileSystem" /> interface.
     ///   
     ///   <para>
-    ///     File, directory and filestream operations performed through <see cref="EQXMedia.TxFileSystem.TxFileSystem" />,
+    ///     File, directory and file stream operations performed through <see cref="EQXMedia.TxFileSystem.TxFileSystem" />,
     ///     will be rolled back whenever an exception occurs inside the transaction scope, when they altered a file 
     ///     or directory.
     ///   </para>
     ///   
     ///   <para>
-    ///     All operations that make modifications to files, directories or files in created filestreams, result in
-    ///     backups to be created. They are then journalized by <see cref="EQXMedia.TxFileSystem.TxFileSystem" />.
+    ///     All operations that make modifications to files, directories or files in created file streams, result in
+    ///     backups to be created. They are then journalized by <see cref="EQXMedia.TxFileSystem.TxFileSystem" />. 
+    ///     Journalizing operations makes it possible for all of them to be rolled back when an error occurs.
     ///   </para>
     ///   
     ///   <para>
-    ///     When an error occurs inside the transaction scope, all operations inside the journal are rolled back. 
-    ///     Causing the backups of the files and directories to be restored. If the transaction scope completes 
-    ///     successfully, all operations are committed. Resulting in the backups being removed.
+    ///     As said, when an error occurs inside the transaction scope, all operations inside the journal are rolled 
+    ///     back. Causing the backups of the files and directories to be restored. On the other hand, if the transaction 
+    ///     scope completes successfully, all operations that were journalized are committed. Resulting in the backups 
+    ///     to be removed.
     ///   </para>
     ///   
     ///   <para>
@@ -45,32 +47,32 @@
     ///     implementation instance it wraps.
     ///   </para>
     /// </remarks>
-    /// <see href="https://txfilesystem.io/docs/TxFileSystem" />
+    /// <seealso href="https://txfilesystem.io/docs/TxFileSystem" />
     [Serializable]
-    public sealed class TxFileSystem : IFileSystem
+    public sealed class TxFileSystem
     {
         /// <summary>
         ///   Creates a <see cref="TxFileSystem"/> instance.
         ///   
-        ///   When no filesystem is passed using <paramref name="fileSystem" /> an instance of 
+        ///   When no file system is passed using <paramref name="fileSystem" /> an instance of 
         ///   <see cref="System.IO.Abstractions.FileSystem" /> is used instead.
         /// </summary>
         /// <remarks>
         ///   <para>
         ///     Always ensure that you create an instance of <see cref="TxFileSystem"/> inside the 
-        ///     <see cref="System.Transactions.TransactionScope"/> to acivate the operations journal. Without doing so,
+        ///     <see cref="System.Transactions.TransactionScope"/> to activate the operations journal. Without doing so,
         ///     operations on files and directories are not transactional. Having created a <see cref="TxFileSystem"/> 
         ///     instance outside a <see cref="System.Transactions.TransactionScope"/> and still performing the 
         ///     operations using it inside the scope, the operations are simply not transactional.
         ///   </para>
         ///   <para>
-        ///     Also, when you perform operations directory a filesystem you pass to the constructor, you loose data 
+        ///     Also, when you perform operations directory a file system you pass to the constructor, you loose data 
         ///     integrity in case of exceptions. Because doing that the journal providing the rollback functionality 
         ///     will simply not be used.
         /// </para>
         /// </remarks>
         /// <param name="fileSystem">
-        ///   A filesystem on which transactional operations should be performed (optional).
+        ///   A file system on which transactional operations should be performed (optional).
         /// </param>
         /// <seealso cref="System.Transactions.TransactionScope"/>
         public TxFileSystem(IFileSystem fileSystem = null)
@@ -92,13 +94,17 @@
         ///   and aids in the creation of <see cref="FileStream" /> objects.
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation"]/*' />
-        public IFile File { get; }
+        public TxFile File { get; }
 
         /// <summary>
-        ///   Exposes operations for creating, moving, and enumerating through directories and subdirectories. 
-        ///   This class cannot be inherited.
+        ///   <para>
+        ///     Exposes operations for creating, moving, and enumerating through directories and subdirectories.
+        ///   </para>
+        ///   <para>
+        ///     This class cannot be inherited.
+        ///   </para>
         /// </summary>
-        public IDirectory Directory { get; }
+        public TxDirectory Directory { get; }
 
         /// <summary>
         ///   <para>
@@ -109,13 +115,18 @@
         ///     This class cannot be inherited.
         ///   </para>
         /// </summary>        
-        public IFileInfoFactory FileInfo { get; }
+        public TxFileInfo FileInfo { get; }
 
         /// <summary>
-        ///   Provides a <see cref="System.IO.Stream" /> for a file, supporting both synchronous and asynchronous 
-        ///   read and write operations.
+        ///   <para>
+        ///     Provides a <see cref="System.IO.Stream" /> for a file, supporting both synchronous and asynchronous 
+        ///     read and write operations.
+        ///   </para>
+        ///   <para>
+        ///     This class cannot be inherited.
+        ///   </para>
         /// </summary>        
-        public IFileStreamFactory FileStream { get; }
+        public TxFileStream FileStream { get; }
 
         internal IFileSystem FileSystem { get; set; }
 
@@ -124,13 +135,13 @@
         /// <summary>
         ///   <para>
         ///     Performs operations on <see cref="System.String"/> instances that contain file or directory path 
-        ///     information.
+        ///     information. These operations are performed in a cross-platform manner.
         ///   </para>
         ///   <para>
-        ///     These operations are performed in a cross-platform manner.
+        ///     This class cannot be inherited.
         ///   </para>
         /// </summary>
-        public IPath Path { get; }
+        public TxPath Path { get; }
 
         /// <summary>
         ///   <para>
@@ -140,17 +151,27 @@
         ///     This class cannot be inherited.
         ///   </para>
         /// </summary>
-        public IDirectoryInfoFactory DirectoryInfo { get; }
+        public TxDirectoryInfo DirectoryInfo { get; }
 
         /// <summary>
-        ///   Provides access to information on a drive.
+        ///   <para>
+        ///     Provides access to information on a drive.
+        ///   </para>
+        ///   <para>
+        ///     This class cannot be inherited.
+        ///   </para>
         /// </summary>
-        public IDriveInfoFactory DriveInfo { get; }
+        public TxDriveInfo DriveInfo { get; }
 
         /// <summary>
-        ///   Listens to the file system change notifications and raises events when a directory, or file in a 
-        ///   directory, changes.
+        ///   <para>
+        ///     Listens to the file system change notifications and raises events when a directory, or file 
+        ///     in a directory, changes.
+        ///   </para>
+        ///   <para>
+        ///     This class cannot be inherited.
+        ///   </para>
         /// </summary>
-        public IFileSystemWatcherFactory FileSystemWatcher { get; }
+        public TxFileSystemWatcher FileSystemWatcher { get; }
     }
 }

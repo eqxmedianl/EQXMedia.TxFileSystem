@@ -9,11 +9,11 @@
     ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
     /// </remarks>
     [Serializable]
-    internal sealed class TxFileSystemWatcher : ITxFileSystemWatcher
+    public sealed class TxFileSystemWatcher : ITxFileSystemWatcher
     {
         private readonly TxFileSystem _txFileSystem;
 
-        public TxFileSystemWatcher(TxFileSystem txFileSystem)
+        internal TxFileSystemWatcher(TxFileSystem txFileSystem)
         {
             _txFileSystem = txFileSystem;
         }
