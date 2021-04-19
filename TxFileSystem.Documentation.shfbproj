@@ -1,0 +1,121 @@
+﻿<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Import the common properties to support NuGet restore -->
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <!-- A framework version is required for NuGet restore.  This can be any valid version -->
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <!-- The configuration and platform will be used to determine which assemblies to include from solution and
+				 project documentation sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33a7dea9-e2a5-4d1f-a536-23a9131cc7ae}</ProjectGuid>
+    <SHFBSchemaVersion>2017.9.26.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual Studio adds them anyway -->
+    <AssemblyName>Documentation</AssemblyName>
+    <RootNamespace>Documentation</RootNamespace>
+    <Name>Documentation</Name>
+    <!-- SHFB properties -->
+    <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
+    <OutputPath>Help\</OutputPath>
+    <HtmlHelpName>TxFileSystem Documentation</HtmlHelpName>
+    <Language>en-US</Language>
+    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
+    <SyntaxFilters>C#</SyntaxFilters>
+    <PresentationStyle>VS2013</PresentationStyle>
+    <CleanIntermediates>True</CleanIntermediates>
+    <KeepLogFile>True</KeepLogFile>
+    <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
+    <IndentHtml>False</IndentHtml>
+    <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
+    <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
+    <HelpTitle>TxFileSystem</HelpTitle>
+    <HelpFileVersion>1.3.0.0</HelpFileVersion>
+    <NamingMethod>Guid</NamingMethod>
+    <ContentPlacement>AboveNamespaces</ContentPlacement>
+    <RootNamespaceContainer>False</RootNamespaceContainer>
+    <NamespaceGrouping>False</NamespaceGrouping>
+    <MaximumGroupParts>2</MaximumGroupParts>
+    <Preliminary>False</Preliminary>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
+    <SourceCodeBasePath>TxFileSystem\</SourceCodeBasePath>
+    <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="Documentation\GeneratedFiles\net461\EQXMedia.TxFileSystem.xml" targetFramework="net461" />
+      <DocumentationSource sourceFile="Documentation\GeneratedFiles\net461\EQXMedia.TxFileSystem.dll" targetFramework="net461" />
+    </DocumentationSources>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <CopyrightHref>https://raw.githubusercontent.com/eqxmedianl/EQXMedia.TxFileSystem/main/License.md</CopyrightHref>
+    <CopyrightText>Copyright %28c%29 2021, EQX Media B.V. - All rights reserved.</CopyrightText>
+    <FeedbackEMailAddress>txfilesystem%40eqx-media.nl</FeedbackEMailAddress>
+    <FeedbackEMailLinkText>the TxFileSystem Development Team</FeedbackEMailLinkText>
+    <PlugInConfigurations />
+    <TransformComponentArguments>
+      <Argument Key="logoFile" Value="" />
+      <Argument Key="logoHeight" Value="" />
+      <Argument Key="logoWidth" Value="" />
+      <Argument Key="logoAltText" Value="" />
+      <Argument Key="logoPlacement" Value="left" />
+      <Argument Key="logoAlignment" Value="left" />
+      <Argument Key="maxVersionParts" Value="" />
+      <Argument Key="defaultLanguage" Value="cs" />
+      <Argument Key="includeEnumValues" Value="true" />
+      <Argument Key="baseSourceCodeUrl" Value="https://github.com/eqxmedianl/EQXMedia.TxFileSystem/blob/main/TxFileSystem/" />
+      <Argument Key="requestExampleUrl" Value="" />
+    </TransformComponentArguments>
+    <ApiFilter>
+      <Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Abstractions" isExposed="False" xmlns="" />
+<Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Journaling" isExposed="False" xmlns="" />
+<Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.NativeMethods.Win32" isExposed="False" xmlns="" />
+<Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Operations" isExposed="False" xmlns="" /></ApiFilter>
+    <CatalogProductId>VS</CatalogProductId>
+    <CatalogVersion>100</CatalogVersion>
+    <VendorName>EQX Media BV</VendorName>
+    <ProductTitle>TxFileSystem</ProductTitle>
+    <TocOrder>-1</TocOrder>
+    <TocParentId>-1</TocParentId>
+    <TocParentVersion>100</TocParentVersion>
+    <TopicVersion>100</TopicVersion>
+    <MSHelpViewerSdkLinkType>Msdn</MSHelpViewerSdkLinkType>
+    <HeaderText>You can find the project website at &amp;lt%3ba href=&amp;quot%3bhttps://txfilesystem.io/&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bhttps://txfilesystem.io/&amp;lt%3b/a&amp;gt%3b.</HeaderText>
+    <FooterText>TxFileSystem is an OpenSource .NET Library designed and implemented by &amp;lt%3ba href=&amp;quot%3bhttps://www.linkedin.com/in/jarnokamminga/&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bJarno Kamminga&amp;lt%3b/a&amp;gt%3b.</FooterText>
+  </PropertyGroup>
+  <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
+			 the build.  The others are optional common platform types that may appear. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Win32' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
+  </PropertyGroup>
+  <!-- Uncomment this to use the NuGet packages when SHFB is not installed locally, e.g. in the CI build pipeline.
+			Update the package versions to the latest releases.
+	<ItemGroup>
+		<PackageReference Include="EWSoftware.SHFB" Version="2019.9.15" />
+		<PackageReference Include="EWSoftware.SHFB.NETFramework" Version="4.8.0" />
+	</ItemGroup>
+	-->
+  <!-- Import the common build targets during NuGet restore because before the packages are being installed, $(SHFBROOT) is not set yet -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="'$(MSBuildRestoreSessionId)' != ''" />
+  <!-- Import the SHFB build targets during build -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" Condition="'$(MSBuildRestoreSessionId)' == ''" />
+  <!-- The pre-build and post-build event properties must appear *after* the targets file import in order to be
+			 evaluated correctly. -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+</Project>
