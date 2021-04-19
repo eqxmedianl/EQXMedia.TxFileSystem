@@ -44,7 +44,6 @@
     <DocumentationSources>
       <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Release\net461\EQXMedia.TxFileSystem.dll" />
       <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Release\net461\EQXMedia.TxFileSystem.xml" />
-      <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Release\net461\System.IO.Abstractions.dll" />
     </DocumentationSources>
     <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
     <CopyrightHref>https://raw.githubusercontent.com/eqxmedianl/EQXMedia.TxFileSystem/main/License.md</CopyrightHref>
