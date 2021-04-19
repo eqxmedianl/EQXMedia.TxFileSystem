@@ -49,7 +49,6 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DocumentationFile>..\Documentation\GeneratedFiles\netstandard2.0\EQXMedia.TxFileSystem.xml</DocumentationFile>
     <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
-    <OutputPath>$(ProjectDir)..\Documentation\GeneratedFiles\</OutputPath>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
@@ -57,7 +56,6 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
     <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
-    <OutputPath>$(ProjectDir)..\Documentation\GeneratedFiles\</OutputPath>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
@@ -65,7 +63,6 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
     <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
-    <OutputPath>$(ProjectDir)..\Documentation\GeneratedFiles\</OutputPath>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
@@ -73,7 +70,6 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
     <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
-    <OutputPath>$(ProjectDir)..\Documentation\GeneratedFiles\</OutputPath>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 

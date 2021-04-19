@@ -93,7 +93,8 @@
         ///   Provides operations for the creation, copying, deletion, moving, and opening of a single file,
         ///   and aids in the creation of <see cref="FileStream" /> objects.
         /// </summary>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
+        /// <returns></returns>
         public TxFile File { get; }
 
         /// <summary>

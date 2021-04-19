@@ -17,7 +17,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
-    <OutputPath>Help\</OutputPath>
+    <OutputPath>..\Help\</OutputPath>
     <HtmlHelpName>TxFileSystem Documentation</HtmlHelpName>
     <Language>en-US</Language>
     <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
@@ -38,13 +38,14 @@
     <MaximumGroupParts>2</MaximumGroupParts>
     <Preliminary>False</Preliminary>
     <SdkLinkTarget>Blank</SdkLinkTarget>
-    <SourceCodeBasePath>TxFileSystem\</SourceCodeBasePath>
+    <SourceCodeBasePath>..\TxFileSystem\</SourceCodeBasePath>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <DocumentationSources>
-      <DocumentationSource sourceFile="Documentation\GeneratedFiles\net461\EQXMedia.TxFileSystem.xml" targetFramework="net461" />
-      <DocumentationSource sourceFile="Documentation\GeneratedFiles\net461\EQXMedia.TxFileSystem.dll" targetFramework="net461" />
+      <DocumentationSource sourceFile="..\TxFileSystem\bin\Release\net461\EQXMedia.TxFileSystem.dll" />
+      <DocumentationSource sourceFile="..\TxFileSystem\bin\Release\net461\EQXMedia.TxFileSystem.xml" />
+      <DocumentationSource sourceFile="..\TxFileSystem\bin\Release\net461\System.IO.Abstractions.dll" />
     </DocumentationSources>
-    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
     <CopyrightHref>https://raw.githubusercontent.com/eqxmedianl/EQXMedia.TxFileSystem/main/License.md</CopyrightHref>
     <CopyrightText>Copyright %28c%29 2021, EQX Media B.V. - All rights reserved.</CopyrightText>
     <FeedbackEMailAddress>txfilesystem%40eqx-media.nl</FeedbackEMailAddress>
@@ -65,9 +66,10 @@
     </TransformComponentArguments>
     <ApiFilter>
       <Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Abstractions" isExposed="False" xmlns="" />
-<Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Journaling" isExposed="False" xmlns="" />
-<Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.NativeMethods.Win32" isExposed="False" xmlns="" />
-<Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Operations" isExposed="False" xmlns="" /></ApiFilter>
+      <Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Journaling" isExposed="False" xmlns="" />
+      <Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.NativeMethods.Win32" isExposed="False" xmlns="" />
+      <Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Operations" isExposed="False" xmlns="" />
+    </ApiFilter>
     <CatalogProductId>VS</CatalogProductId>
     <CatalogVersion>100</CatalogVersion>
     <VendorName>EQX Media BV</VendorName>
@@ -99,12 +101,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
   </PropertyGroup>
   <!-- Uncomment this to use the NuGet packages when SHFB is not installed locally, e.g. in the CI build pipeline.
-			Update the package versions to the latest releases.
-	<ItemGroup>
-		<PackageReference Include="EWSoftware.SHFB" Version="2019.9.15" />
-		<PackageReference Include="EWSoftware.SHFB.NETFramework" Version="4.8.0" />
-	</ItemGroup>
-	-->
+			Update the package versions to the latest releases. -->
+  <ItemGroup>
+    <PackageReference Include="EWSoftware.SHFB" Version="2019.9.15" />
+    <PackageReference Include="EWSoftware.SHFB.NETFramework" Version="4.8.0" />
+  </ItemGroup>
   <!-- Import the common build targets during NuGet restore because before the packages are being installed, $(SHFBROOT) is not set yet -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="'$(MSBuildRestoreSessionId)' != ''" />
   <!-- Import the SHFB build targets during build -->

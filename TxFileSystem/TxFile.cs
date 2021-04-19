@@ -415,8 +415,8 @@
                 .Execute();
         }
 
-        /// <inheritdoc cref="System.IO.File.SetAccessControl(string, FileSecurity)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
+        /// <inheritdoc cref="System.IO.File.SetAccessControl(string, FileSecurity)" />
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
