@@ -65,14 +65,14 @@
         }
 #endif
 
-        /// <inheritdoc cref="System.IO.File.AppendAllText(string, string?)"/>
+        /// <inheritdoc cref="System.IO.File.AppendAllText(string, string)"/>
         /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void AppendAllText(string path, string contents)
         {
             new AppendAllTextOperation(this, path, contents).Execute();
         }
 
-        /// <inheritdoc cref="System.IO.File.AppendAllText(string, string?, Encoding)"/>
+        /// <inheritdoc cref="System.IO.File.AppendAllText(string, string, Encoding)"/>
         /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void AppendAllText(string path, string contents, Encoding encoding)
         {
