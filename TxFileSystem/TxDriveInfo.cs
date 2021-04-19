@@ -1,6 +1,5 @@
 ﻿namespace EQXMedia.TxFileSystem
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using System.IO.Abstractions;
 
     internal sealed class TxDriveInfo : IDriveInfoFactory

@@ -12,7 +12,7 @@
     using System.Runtime.Versioning;
 #endif
 
-    public sealed class TxDirectory : ITxDirectory, IDirectory
+    internal sealed class TxDirectory : ITxDirectory, IDirectory
     {
         internal readonly TxFileSystem _txFileSystem;
 
