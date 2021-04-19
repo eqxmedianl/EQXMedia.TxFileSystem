@@ -17,14 +17,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{9148B333-9DD9-43FA-8A13-141B5B8C468D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XmlDoc", "XmlDoc", "{170DC9FE-2492-40A5-8218-2102E1A47155}"
-	ProjectSection(SolutionItems) = preProject
-		Documentation\XmlDoc\TxFileSystem.XmlDoc.Extensions.xml = Documentation\XmlDoc\TxFileSystem.XmlDoc.Extensions.xml
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "net461", "Documentation\net461\net461.shfbproj", "{33A7DEA9-E2A5-4D1F-A536-23A9131CC7AE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{523DB749-C7DE-4414-88C4-8C0E41D38A37} = {523DB749-C7DE-4414-88C4-8C0E41D38A37}
 	EndProjectSection
 EndProject
-Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "TxFileSystem.Documentation", "TxFileSystem.Documentation\TxFileSystem.Documentation.shfbproj", "{33A7DEA9-E2A5-4D1F-A536-23A9131CC7AE}"
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "netstandard2.0", "Documentation\netstandard2.0\netstandard2.0.shfbproj", "{523DB749-C7DE-4414-88C4-8C0E41D38A37}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F61B7179-281F-4A3F-81E6-80609A0AF06B} = {F61B7179-281F-4A3F-81E6-80609A0AF06B}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{713EC071-8A8C-410F-8C1F-C44F8A831683}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,13 +46,17 @@ Global
 		{33A7DEA9-E2A5-4D1F-A536-23A9131CC7AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33A7DEA9-E2A5-4D1F-A536-23A9131CC7AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33A7DEA9-E2A5-4D1F-A536-23A9131CC7AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{523DB749-C7DE-4414-88C4-8C0E41D38A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{523DB749-C7DE-4414-88C4-8C0E41D38A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{523DB749-C7DE-4414-88C4-8C0E41D38A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{523DB749-C7DE-4414-88C4-8C0E41D38A37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9148B333-9DD9-43FA-8A13-141B5B8C468D} = {5C8C3B34-3D88-48AE-B788-0B8D8B327665}
-		{170DC9FE-2492-40A5-8218-2102E1A47155} = {9148B333-9DD9-43FA-8A13-141B5B8C468D}
+		{33A7DEA9-E2A5-4D1F-A536-23A9131CC7AE} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
+		{523DB749-C7DE-4414-88C4-8C0E41D38A37} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7076B68C-14D6-4D20-A715-F5FB506D15CF}
