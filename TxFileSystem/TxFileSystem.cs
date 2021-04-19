@@ -93,8 +93,7 @@
         ///   Provides operations for the creation, copying, deletion, moving, and opening of a single file,
         ///   and aids in the creation of <see cref="FileStream" /> objects.
         /// </summary>
-        /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
-        /// <returns></returns>
+        /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
         public TxFile File { get; }
 
         /// <summary>
@@ -105,6 +104,7 @@
         ///     This class cannot be inherited.
         ///   </para>
         /// </summary>
+        /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
         public TxDirectory Directory { get; }
 
         /// <summary>
@@ -115,7 +115,8 @@
         ///   <para>
         ///     This class cannot be inherited.
         ///   </para>
-        /// </summary>        
+        /// </summary>
+        /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
         public TxFileInfo FileInfo { get; }
 
         /// <summary>
@@ -127,6 +128,7 @@
         ///     This class cannot be inherited.
         ///   </para>
         /// </summary>        
+        /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
         public TxFileStream FileStream { get; }
 
         internal IFileSystem FileSystem { get; set; }
@@ -152,6 +154,7 @@
         ///     This class cannot be inherited.
         ///   </para>
         /// </summary>
+        /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
         public TxDirectoryInfo DirectoryInfo { get; }
 
         /// <summary>
@@ -162,6 +165,7 @@
         ///     This class cannot be inherited.
         ///   </para>
         /// </summary>
+        /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
         public TxDriveInfo DriveInfo { get; }
 
         /// <summary>
@@ -173,6 +177,7 @@
         ///     This class cannot be inherited.
         ///   </para>
         /// </summary>
+        /// <include file="../TxFileSystem.Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
         public TxFileSystemWatcher FileSystemWatcher { get; }
     }
 }

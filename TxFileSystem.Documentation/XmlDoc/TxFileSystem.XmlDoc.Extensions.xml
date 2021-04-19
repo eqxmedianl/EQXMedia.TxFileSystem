@@ -1,5 +1,25 @@
 <TxFileSystem.BaseDocs>
    <Extensions>
+      <FileSystemProperties>
+         <FileSystemProperty modifying="true">
+            <remarks>
+              <para>
+                This object contains methods that modify file system resources, and those that don't
+                modify those. Dependant on the method being invoked journalizing and, backup and
+                restore, might take place or not.
+              </para>
+            </remarks>
+         </FileSystemProperty>
+         <FileSystemProperty modifying="false">
+            <remarks>
+              <para>
+                This object only contains methods that don't modify any file system resources.
+                Regardless of which of this object's methods is being invoked journalizing and, backup 
+                and restore, never take place.
+              </para>
+            </remarks>
+         </FileSystemProperty>
+      </FileSystemProperties>
       <Operations>      
          <Operation type="FileOperation" modifying="true">
             <remarks>
