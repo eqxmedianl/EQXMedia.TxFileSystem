@@ -106,6 +106,12 @@
     <PackageReference Include="EWSoftware.SHFB" Version="2019.9.15" />
     <PackageReference Include="EWSoftware.SHFB.NETFramework" Version="4.8.0" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="XmlDoc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XmlDoc\TxFileSystem.XmlDoc.Extensions.xml" />
+  </ItemGroup>
   <!-- Import the common build targets during NuGet restore because before the packages are being installed, $(SHFBROOT) is not set yet -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="'$(MSBuildRestoreSessionId)' != ''" />
   <!-- Import the SHFB build targets during build -->
