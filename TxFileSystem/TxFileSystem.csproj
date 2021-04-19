@@ -7,7 +7,7 @@
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageId>EQXMedia.TxFileSystem</PackageId>
-    <Version>1.3.0</Version>
+    <Version>1.3.1</Version>
     <Description>TxFileSystem is a transactional filesystem wrapper using the .NET filesystem abstraction from System.IO.Abstractions. 
 
 Use this filesystem wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
@@ -44,9 +44,45 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <AssemblyName>EQXMedia.TxFileSystem</AssemblyName>
     <RootNamespace>EQXMedia.TxFileSystem</RootNamespace>
   </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>..\Documentation\GeneratedFiles\netstandard2.0\EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <OutputPath>$(ProjectDir)..\Documentation\GeneratedFiles\</OutputPath>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <OutputPath>$(ProjectDir)..\Documentation\GeneratedFiles\</OutputPath>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <OutputPath>$(ProjectDir)..\Documentation\GeneratedFiles\</OutputPath>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net461'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <OutputPath>$(ProjectDir)..\Documentation\GeneratedFiles\</OutputPath>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.IO.Abstractions" Version="13.2.9" />
+    <PackageReference Include="Vsxmd" Version="1.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">

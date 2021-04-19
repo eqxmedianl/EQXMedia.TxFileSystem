@@ -4,6 +4,11 @@
     using System;
     using System.IO.Abstractions;
 
+    /// <remarks>
+    ///   <c>TxPath</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.Path" />. 
+    ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
+    /// </remarks>
+    [Serializable]
     internal sealed class TxPath : ITxPath
     {
         private readonly TxFileSystem _txFileSystem;

@@ -17,6 +17,11 @@
     using System.Runtime.Versioning;
 #endif
 
+    /// <remarks>
+    ///   <c>TxFile</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.File" />. It can't 
+    ///   be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
+    /// </remarks>
+    [Serializable]
     internal sealed class TxFile : IFile, ITxFile
     {
         internal readonly TxFileSystem _txFileSystem;
@@ -29,14 +34,14 @@
         public IFileSystem FileSystem => _txFileSystem.FileSystem;
 
         /// <inheritdoc cref="System.IO.File.AppendAllLines(string, IEnumerable{string})"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void AppendAllLines(string path, IEnumerable<string> contents)
         {
             new AppendAllLinesOperation(this, path, contents).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.AppendAllLines(string, IEnumerable{string}, Encoding)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding)
         {
             new AppendAllLinesOperation(this, path, contents, encoding).Execute();
@@ -44,7 +49,7 @@
 
 #if !NETSTANDARD2_0 && !NET461
         /// <inheritdoc cref="System.IO.File.AppendAllLinesAsync(string, IEnumerable{string}, CancellationToken)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task AppendAllLinesAsync(string path, IEnumerable<string> contents,
             CancellationToken cancellationToken = default)
         {
@@ -52,7 +57,7 @@
         }
 
         /// <inheritdoc cref="System.IO.File.AppendAllLinesAsync(string, IEnumerable{string}, Encoding, CancellationToken)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task AppendAllLinesAsync(string path, IEnumerable<string> contents, Encoding encoding,
             CancellationToken cancellationToken = default)
         {
@@ -61,14 +66,14 @@
 #endif
 
         /// <inheritdoc cref="System.IO.File.AppendAllText(string, string?)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void AppendAllText(string path, string contents)
         {
             new AppendAllTextOperation(this, path, contents).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.AppendAllText(string, string?, Encoding)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void AppendAllText(string path, string contents, Encoding encoding)
         {
             new AppendAllTextOperation(this, path, contents, encoding).Execute();
@@ -76,7 +81,7 @@
 
 #if !NETSTANDARD2_0 && !NET461
         /// <inheritdoc cref="System.IO.File.AppendAllTextAsync(string, string?, CancellationToken)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task AppendAllTextAsync(string path, string contents,
             CancellationToken cancellationToken = default)
         {
@@ -84,7 +89,7 @@
         }
 
         /// <inheritdoc cref="System.IO.File.AppendAllTextAsync(string, string?, Encoding, CancellationToken)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task AppendAllTextAsync(string path, string contents, Encoding encoding,
             CancellationToken cancellationToken = default)
         {
@@ -93,70 +98,70 @@
 #endif
 
         /// <inheritdoc cref="System.IO.File.AppendText(string)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public StreamWriter AppendText(string path)
         {
             return new AppendTextOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.Copy(string, string)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Copy(string sourceFileName, string destFileName)
         {
             new CopyOperation(this, sourceFileName, destFileName).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.Copy(string, string, bool)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Copy(string sourceFileName, string destFileName, bool overwrite)
         {
             new CopyOperation(this, sourceFileName, destFileName, overwrite).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.Create(string)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Stream Create(string path)
         {
             return new CreateOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.Create(string, int)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Stream Create(string path, int bufferSize)
         {
             return new CreateOperation(this, path, bufferSize).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.Create(string, int, FileOptions)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Stream Create(string path, int bufferSize, FileOptions options)
         {
             return new CreateOperation(this, path, bufferSize, options).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.CreateText(string)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public StreamWriter CreateText(string path)
         {
             return new CreateTextOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.Decrypt(string)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Decrypt(string path)
         {
             new DecryptOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.Delete(string)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Delete(string path)
         {
             new DeleteOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.File.Encrypt(string)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Encrypt(string path)
         {
             new EncryptOperation(this, path).Execute();
@@ -219,7 +224,7 @@
         }
 
         /// <inheritdoc cref="System.IO.File.Move(string, string)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Move(string sourceFileName, string destFileName)
         {
             new MoveOperation(this, sourceFileName, destFileName).Execute();
@@ -227,7 +232,7 @@
 
 #if NET5_0
         /// <inheritdoc cref="System.IO.File.Move(string, string, bool)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Move(string sourceFileName, string destFileName, bool overwrite)
         {
             new MoveOperation(this, sourceFileName, destFileName, overwrite).Execute();
@@ -257,7 +262,7 @@
         }
 
         /// <inheritdoc cref="System.IO.File.OpenWrite(string)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Stream OpenWrite(string path)
         {
             return new OpenWriteOperation(this, path).Execute();
@@ -332,7 +337,7 @@
         }
 
         /// <inheritdoc cref="System.IO.File.Replace(string, string, string?)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName)
         {
             new ReplaceOperation(this, sourceFileName, destinationFileName, destinationBackupFileName)
@@ -340,7 +345,7 @@
         }
 
         /// <inheritdoc cref="System.IO.File.Replace(string, string, string?, bool)"/>
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Doc.Extension[@name="FileOperation"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName,
             bool ignoreMetadataErrors)
         {

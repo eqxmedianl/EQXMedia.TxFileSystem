@@ -1,8 +1,13 @@
 ﻿namespace EQXMedia.TxFileSystem
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
+    using System;
     using System.IO.Abstractions;
 
+    /// <remarks>
+    ///   <c>TxFileInfo</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileInfo" />. 
+    ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
+    /// </remarks>
+    [Serializable]
     internal class TxFileInfo : IFileInfoFactory
     {
         public TxFileInfo(TxFileSystem txFileSystem)

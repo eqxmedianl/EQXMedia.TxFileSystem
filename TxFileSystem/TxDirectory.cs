@@ -12,6 +12,11 @@
     using System.Runtime.Versioning;
 #endif
 
+    /// <remarks>
+    ///   <c>TxDirectory</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.Directory" />. 
+    ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
+    /// </remarks>
+    [Serializable]
     internal sealed class TxDirectory : ITxDirectory, IDirectory
     {
         internal readonly TxFileSystem _txFileSystem;

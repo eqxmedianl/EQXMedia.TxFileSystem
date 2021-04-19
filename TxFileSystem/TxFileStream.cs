@@ -11,6 +11,11 @@
     using System.Runtime.Versioning;
 #endif
 
+    /// <remarks>
+    ///   <c>TxFileStream</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileStream" />. 
+    ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
+    /// </remarks>
+    [Serializable]
     internal class TxFileStream : ITxFileStream
     {
         internal readonly TxFileSystem _txFileSystem;

@@ -17,6 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{9148B333-9DD9-43FA-8A13-141B5B8C468D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XmlDoc", "XmlDoc", "{170DC9FE-2492-40A5-8218-2102E1A47155}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\XmlDoc\TxFileSystem.XmlDoc.Extensions.xml = Documentation\XmlDoc\TxFileSystem.XmlDoc.Extensions.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +41,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9148B333-9DD9-43FA-8A13-141B5B8C468D} = {5C8C3B34-3D88-48AE-B788-0B8D8B327665}
+		{170DC9FE-2492-40A5-8218-2102E1A47155} = {9148B333-9DD9-43FA-8A13-141B5B8C468D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7076B68C-14D6-4D20-A715-F5FB506D15CF}

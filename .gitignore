@@ -4,5 +4,8 @@
 bin/
 obj/
 
+GeneratedFiles/
+/TxFileSystem/EQXMedia.TxFileSystem.xml
+
 Debug/
 Release/

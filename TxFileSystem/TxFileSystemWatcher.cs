@@ -1,8 +1,14 @@
 ﻿namespace EQXMedia.TxFileSystem
 {
     using global::EQXMedia.TxFileSystem.Abstractions;
+    using System;
     using System.IO.Abstractions;
 
+    /// <remarks>
+    ///   <c>TxFileSystemWatcher</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystemWatcher" />. 
+    ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
+    /// </remarks>
+    [Serializable]
     internal sealed class TxFileSystemWatcher : ITxFileSystemWatcher
     {
         private readonly TxFileSystem _txFileSystem;
