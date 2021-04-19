@@ -1,24 +1,34 @@
 <TxFileSystem.BaseDocs>
-
-  <Extensions>
-
-    <Operations>
-      
-      <Operation type="FileOperation" modifying="true">
+   <Extensions>
+      <Operations>      
+         <Operation type="FileOperation" modifying="true">
             <remarks>
               <para>
-                This is a file modifying operation, hence it is journalized. Journalized file operations can 
-                either be rolled back or committed automatically, restoring or removing the backupped file(s), 
-                respectively. Whenever any type <see cref="System.Exception"/> occurs all journalized operations
-                are rolled back, otherwise they are all committed.
+                This is an operation that modifies one or more files, hence it is journalized. 
+                Journalized file operations can either be rolled back or committed automatically, 
+                restoring or removing the backup file(s), respectively. Whenever an <see 
+                  cref="System.Exception"/> of any kind occurs, all journalized operations are 
+                rolled back, resulting in the original state to be restored.
+              </para>
+              <para>
+                If no <see cref="System.Exception"/> any kind occurs and the <see 
+                cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
+                operations are committed. Any modifications made are then preserved and the backup file(s)
+                are then removed.
               </para>
               <see href="https://txfilesystem.io/docs/FileOperation" />
             </remarks>
-            
-      </Operation>
-      
-    </Operations>
-    
-  </Extensions>
-  
+         </Operation>      
+         <Operation type="FileOperation" modifying="false">
+            <remarks>
+              <para>
+                This is an operation that doesn't modify any files, hence it is not journalized. As there
+                is no need to rollback any modifications whenever an <see cref="System.Exception"/> of any
+                kind occurs inside a <see cref="System.Transactions.TransactionScope" />.
+              </para>
+              <see href="https://txfilesystem.io/docs/FileOperation" />
+            </remarks>
+         </Operation>
+      </Operations>
+   </Extensions>
 </TxFileSystem.BaseDocs>
