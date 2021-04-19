@@ -1,0 +1,73 @@
+<!--
+***********************************************************************************************
+Documentation.Common.props
+ 
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+ 
+Copyright (C) EQX Media B.V. All rights reserved.
+***********************************************************************************************
+-->
+
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Language>en-US</Language>
+    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
+    <SyntaxFilters>C#</SyntaxFilters>
+    <PresentationStyle>VS2013</PresentationStyle>
+    <CleanIntermediates>True</CleanIntermediates>
+    <KeepLogFile>True</KeepLogFile>
+    <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
+    <IndentHtml>False</IndentHtml>
+    <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
+    <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
+    <HelpTitle>TxFileSystem</HelpTitle>
+    <HelpFileVersion>1.3.0.0</HelpFileVersion>
+    <NamingMethod>Guid</NamingMethod>
+    <ContentPlacement>AboveNamespaces</ContentPlacement>
+    <RootNamespaceContainer>False</RootNamespaceContainer>
+    <NamespaceGrouping>False</NamespaceGrouping>
+    <MaximumGroupParts>2</MaximumGroupParts>
+    <Preliminary>False</Preliminary>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
+    <SourceCodeBasePath>..\TxFileSystem\</SourceCodeBasePath>
+    <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
+    <CopyrightHref>https://raw.githubusercontent.com/eqxmedianl/EQXMedia.TxFileSystem/main/License.md</CopyrightHref>
+    <CopyrightText>Copyright %28c%29 2021, EQX Media B.V. - All rights reserved.</CopyrightText>
+    <FeedbackEMailAddress>txfilesystem%40eqx-media.nl</FeedbackEMailAddress>
+    <FeedbackEMailLinkText>the TxFileSystem Development Team</FeedbackEMailLinkText>
+    <PlugInConfigurations />
+    <TransformComponentArguments>
+      <Argument Key="logoFile" Value="" />
+      <Argument Key="logoHeight" Value="" />
+      <Argument Key="logoWidth" Value="" />
+      <Argument Key="logoAltText" Value="" />
+      <Argument Key="logoPlacement" Value="left" />
+      <Argument Key="logoAlignment" Value="left" />
+      <Argument Key="maxVersionParts" Value="" />
+      <Argument Key="defaultLanguage" Value="cs" />
+      <Argument Key="includeEnumValues" Value="true" />
+      <Argument Key="baseSourceCodeUrl" Value="https://github.com/eqxmedianl/EQXMedia.TxFileSystem/blob/main/TxFileSystem/" />
+      <Argument Key="requestExampleUrl" Value="" />
+    </TransformComponentArguments>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <ApiFilter>
+      <Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Abstractions" isExposed="False" xmlns="" />
+      <Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Journaling" isExposed="False" xmlns="" />
+      <Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.NativeMethods.Win32" isExposed="False" xmlns="" />
+      <Filter entryType="Namespace" fullName="EQXMedia.TxFileSystem.Operations" isExposed="False" xmlns="" />
+    </ApiFilter>
+    <CatalogProductId>VS</CatalogProductId>
+    <CatalogVersion>100</CatalogVersion>
+    <VendorName>EQX Media BV</VendorName>
+    <ProductTitle>TxFileSystem</ProductTitle>
+    <TocOrder>-1</TocOrder>
+    <TocParentId>-1</TocParentId>
+    <TocParentVersion>100</TocParentVersion>
+    <TopicVersion>100</TopicVersion>
+    <MSHelpViewerSdkLinkType>Msdn</MSHelpViewerSdkLinkType>
+    <HeaderText>Version $(FrameworkName)</HeaderText>
+    <FooterText>&amp;lt%3bp&amp;gt%3bTxFileSystem is an OpenSource .NET Library designed and implemented by &amp;lt%3ba href=&amp;quot%3bhttps://www.linkedin.com/in/jarnokamminga/&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bJarno Kamminga&amp;lt%3b/a&amp;gt%3b.&amp;lt%3b/p&amp;gt%3b</FooterText>
+  </PropertyGroup>
+</Project>
