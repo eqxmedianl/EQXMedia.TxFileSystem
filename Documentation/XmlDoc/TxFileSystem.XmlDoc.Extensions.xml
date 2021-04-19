@@ -12,18 +12,6 @@
                 respectively. Whenever any type <see cref="System.Exception"/> occurs all journalized operations
                 are rolled back, otherwise they are all committed.
               </para>
-              <para>
-                By creating the instance of <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> inside the 
-                <see cref="System.Transactions.TransactionScope" />, the journal providing the rollback 
-                functionality becomes active, resulting in data integrity to be preserved.
-              </para>
-              <para>
-                Creating the instance of <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> outside the
-                <see cref="System.Transactions.TransactionScope" />, results in the journal providing the rollback
-                functionality not being used. In this case the <see cref="EQXMedia.TxFileSystem.TxFileSystem" />
-                instance will function as the regular <see cref="System.IO.Abstractions.IFileSystem" /> 
-                implementation instance it wraps.
-              </para>
               <see href="https://txfilesystem.io/docs/FileOperation" />
             </remarks>
             
