@@ -22,11 +22,11 @@
     ///   be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
     /// </remarks>
     [Serializable]
-    internal sealed class TxFile : IFile, ITxFile
+    public sealed class TxFile : IFile, ITxFile
     {
         internal readonly TxFileSystem _txFileSystem;
 
-        public TxFile(TxFileSystem fileSystem)
+        internal TxFile(TxFileSystem fileSystem)
         {
             _txFileSystem = fileSystem;
         }
@@ -167,6 +167,8 @@
             new EncryptOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.Exists(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public bool Exists(string path)
         {
             return new ExistsOperation(this, path).Execute();
@@ -174,6 +176,12 @@
 
 #if NET5_0
         [SupportedOSPlatform("windows")]
+#endif
+#if NET461 || NET5_0
+        /// <inheritdoc cref="System.IO.File.GetAccessControl(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
+#else
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
 #endif
         public FileSecurity GetAccessControl(string path)
         {
@@ -183,41 +191,61 @@
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
+#if NET461 || NET5_0
+        /// <inheritdoc cref="System.IO.File.GetAccessControl(string, AccessControlSections)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
+#else
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
+#endif
         public FileSecurity GetAccessControl(string path, AccessControlSections includeSections)
         {
             return new GetAccessControlOperation(this, path, includeSections).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.GetAttributes(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public FileAttributes GetAttributes(string path)
         {
             return new GetAttributesOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.GetCreationTime(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public DateTime GetCreationTime(string path)
         {
             return new GetCreationTimeOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.GetCreationTimeUtc(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public DateTime GetCreationTimeUtc(string path)
         {
             return new GetCreationTimeOperation(this, path, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.GetLastAccessTime(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public DateTime GetLastAccessTime(string path)
         {
             return new GetLastAccessTimeOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.GetLastAccessTimeUtc(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public DateTime GetLastAccessTimeUtc(string path)
         {
             return new GetLastAccessTimeOperation(this, path, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.GetLastWriteTime(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public DateTime GetLastWriteTime(string path)
         {
             return new GetLastWriteTimeOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.GetLastAccessTimeUtc(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public DateTime GetLastWriteTimeUtc(string path)
         {
             return new GetLastWriteTimeOperation(this, path, asUtc: true).Execute();
@@ -238,24 +266,37 @@
             new MoveOperation(this, sourceFileName, destFileName, overwrite).Execute();
         }
 #endif
+
+        /// <inheritdoc cref="System.IO.File.Open(string, FileMode)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Stream Open(string path, FileMode mode)
         {
             return new OpenOperation(this, path, mode).Execute();
         }
+
+        /// <inheritdoc cref="System.IO.File.Open(string, FileMode, FileAccess)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Stream Open(string path, FileMode mode, FileAccess access)
         {
             return new OpenOperation(this, path, mode, access).Execute();
         }
+
+        /// <inheritdoc cref="System.IO.File.Open(string, FileMode, FileAccess, FileShare)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Stream Open(string path, FileMode mode, FileAccess access, FileShare share)
         {
             return new OpenOperation(this, path, mode, access, share).Execute();
         }
-        
+
+        /// <inheritdoc cref="System.IO.File.OpenRead(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public Stream OpenRead(string path)
         {
             return new OpenReadOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.OpenText(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public StreamReader OpenText(string path)
         {
             return new OpenTextOperation(this, path).Execute();
@@ -268,23 +309,31 @@
             return new OpenWriteOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.ReadAllBytes(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public byte[] ReadAllBytes(string path)
         {
             return new ReadAllBytesOperation(this, path).Execute();
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.File.ReadAllBytesAsync(string, CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public Task<byte[]> ReadAllBytesAsync(string path, CancellationToken cancellationToken = default)
         {
             return new ReadAllBytesOperation(this, path).ExecuteAsync(cancellationToken);
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.File.ReadAllLines(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public string[] ReadAllLines(string path)
         {
             return new ReadAllLinesOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.ReadAllLines(string, Encoding)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public string[] ReadAllLines(string path, Encoding encoding)
         {
             return new ReadAllLinesOperation(this, path, encoding).Execute();
@@ -303,22 +352,30 @@
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.File.ReadAllText(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public string ReadAllText(string path)
         {
             return new ReadAllTextOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.ReadAllText(string, Encoding)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public string ReadAllText(string path, Encoding encoding)
         {
             return new ReadAllTextOperation(this, path, encoding).Execute();
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.File.ReadAllTextAsync(string, CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public Task<string> ReadAllTextAsync(string path, CancellationToken cancellationToken = default)
         {
             return new ReadAllTextOperation(this, path).ExecuteAsync(cancellationToken);
         }
 
+        /// <inheritdoc cref="System.IO.File.ReadAllTextAsync(string, Encoding, CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public Task<string> ReadAllTextAsync(string path, Encoding encoding,
             CancellationToken cancellationToken = default)
         {
@@ -326,17 +383,21 @@
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.File.ReadLines(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public IEnumerable<string> ReadLines(string path)
         {
             return new ReadLinesOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.ReadLines(string, Encoding)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="false"]/*' />
         public IEnumerable<string> ReadLines(string path, Encoding encoding)
         {
             return new ReadLinesOperation(this, path, encoding).Execute();
         }
 
-        /// <inheritdoc cref="System.IO.File.Replace(string, string, string?)"/>
+        /// <inheritdoc cref="System.IO.File.Replace(string, string, string)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName)
         {
@@ -344,7 +405,7 @@
                 .Execute();
         }
 
-        /// <inheritdoc cref="System.IO.File.Replace(string, string, string?, bool)"/>
+        /// <inheritdoc cref="System.IO.File.Replace(string, string, string, bool)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName,
             bool ignoreMetadataErrors)
@@ -354,6 +415,8 @@
                 .Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.SetAccessControl(string, FileSecurity)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
@@ -362,92 +425,128 @@
             new SetAccessControlOperation(this, path, fileSecurity).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.SetAttributes(string, FileAttributes)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void SetAttributes(string path, FileAttributes fileAttributes)
         {
             new SetAttributesOperation(this, path, fileAttributes).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.SetCreationTime(string, DateTime)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void SetCreationTime(string path, DateTime creationTime)
         {
             new SetCreationTimeOperation(this, path, creationTime).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.SetCreationTimeUtc(string, DateTime)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void SetCreationTimeUtc(string path, DateTime creationTimeUtc)
         {
             new SetCreationTimeOperation(this, path, creationTimeUtc, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.SetLastAccessTime(string, DateTime)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void SetLastAccessTime(string path, DateTime lastAccessTime)
         {
             new SetLastAccessTimeOperation(this, path, lastAccessTime).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.SetLastAccessTimeUtc(string, DateTime)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc)
         {
             new SetLastAccessTimeOperation(this, path, lastAccessTimeUtc, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.SetLastWriteTime(string, DateTime)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void SetLastWriteTime(string path, DateTime lastWriteTime)
         {
             new SetLastWriteTimeOperation(this, path, lastWriteTime).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.SetLastWriteTimeUtc(string, DateTime)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc)
         {
             new SetLastWriteTimeOperation(this, path, lastWriteTimeUtc, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.WriteAllBytes(string, byte[])" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void WriteAllBytes(string path, byte[] bytes)
         {
             new WriteAllBytesOperation(this, path, bytes).Execute();
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.File.WriteAllBytesAsync(string, byte[], CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task WriteAllBytesAsync(string path, byte[] bytes, CancellationToken cancellationToken = default)
         {
             return new WriteAllBytesOperation(this, path, bytes).ExecuteAsync(cancellationToken);
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.File.WriteAllLines(string, IEnumerable{string})" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void WriteAllLines(string path, IEnumerable<string> contents)
         {
             new WriteAllLinesOperation(this, path, contents).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.WriteAllLines(string, IEnumerable{string}, Encoding)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void WriteAllLines(string path, IEnumerable<string> contents, Encoding encoding)
         {
             new WriteAllLinesOperation(this, path, contents, encoding).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.WriteAllLines(string, string[])" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void WriteAllLines(string path, string[] contents)
         {
             new WriteAllLinesOperation(this, path, contents).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.WriteAllLines(string, string[], Encoding)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void WriteAllLines(string path, string[] contents, Encoding encoding)
         {
             new WriteAllLinesOperation(this, path, contents, encoding).Execute();
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.File.WriteAllLinesAsync(string, IEnumerable{string}, CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task WriteAllLinesAsync(string path, IEnumerable<string> contents,
             CancellationToken cancellationToken = default)
         {
             return new WriteAllLinesOperation(this, path, contents).ExecuteAsync(cancellationToken);
         }
 
+        /// <inheritdoc cref="System.IO.File.WriteAllLinesAsync(string, IEnumerable{string}, Encoding, CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task WriteAllLinesAsync(string path, IEnumerable<string> contents, Encoding encoding,
             CancellationToken cancellationToken = default)
         {
             return new WriteAllLinesOperation(this, path, contents, encoding).ExecuteAsync(cancellationToken);
         }
 
+        // TODO: check if the below `inheritdoc` results in proper documentation, as no `string[]` variant exists on `System.IO.File`.
+        /// <inheritdoc cref="System.IO.File.WriteAllLinesAsync(string, IEnumerable{string}, CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task WriteAllLinesAsync(string path, string[] contents,
             CancellationToken cancellationToken = default)
         {
             return new WriteAllLinesOperation(this, path, contents).ExecuteAsync(cancellationToken);
         }
 
+        // TODO: check if the below `inheritdoc` results in proper documentation, as no `string[]` variant exists on `System.IO.File`.
+        /// <inheritdoc cref="System.IO.File.WriteAllLinesAsync(string, IEnumerable{string}, Encoding, CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task WriteAllLinesAsync(string path, string[] contents, Encoding encoding,
             CancellationToken cancellationToken = default)
         {
@@ -455,22 +554,30 @@
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.File.WriteAllText(string, string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void WriteAllText(string path, string contents)
         {
             new WriteAllTextOperation(this, path, contents).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.WriteAllText(string, string, Encoding)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public void WriteAllText(string path, string contents, Encoding encoding)
         {
             new WriteAllTextOperation(this, path, contents, encoding).Execute();
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.File.WriteAllTextAsync(string, string, CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task WriteAllTextAsync(string path, string contents, CancellationToken cancellationToken = default)
         {
             return new WriteAllTextOperation(this, path, contents).ExecuteAsync(cancellationToken);
         }
 
+        /// <inheritdoc cref="System.IO.File.WriteAllTextAsync(string, string, Encoding, CancellationToken)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />
         public Task WriteAllTextAsync(string path, string contents, Encoding encoding,
             CancellationToken cancellationToken = default)
         {
