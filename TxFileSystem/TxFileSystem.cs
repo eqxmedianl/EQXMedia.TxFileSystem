@@ -7,7 +7,7 @@
     /// <summary>
     ///   Transactional file system is actually a wrapper around file systems that implement the 
     ///   <see cref="System.IO.Abstractions.IFileSystem" /> interface. Proving transactional operations on files,
-    ///   directories and file streams using the file system it wraps.    ///   
+    ///   directories and file streams using the file system it wraps.
     /// </summary>
     /// <remarks>
     ///   <para>
