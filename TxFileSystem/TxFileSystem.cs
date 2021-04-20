@@ -10,7 +10,7 @@
     ///   
     ///   <para>
     ///     File, directory and file stream operations performed through <see cref="EQXMedia.TxFileSystem.TxFileSystem" />,
-    ///     will be rolled back whenever an exception occurs inside the transaction scope, when they altered a file 
+    ///     will be rolled back whenever an exception occurs inside the transaction scope, if they altered a file 
     ///     or directory.
     ///   </para>
     ///   
