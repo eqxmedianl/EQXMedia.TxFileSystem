@@ -46,14 +46,14 @@
             <list class="bullet">
               <listItem>
                 <para>
-                  Operations that make modifications to one or more files or directories ensure 
-                  backups are created.
+                  Operations that make modifications to one or more files or directories result in 
+                  backups being created.
                 </para>
               </listItem>
               <listItem>
                 <para>
                   When an exception occurs inside the <codeInline>TransactionScope</codeInline>, the
-                  journal takes care of all modifications to be rolled back by restoring the backups
+                  journal takes care of rolling back all modifications. By restoring the backups
                   created earlier.
                 </para>
               </listItem>
@@ -68,7 +68,7 @@
 
 					<listItem>
 						<para>
-              Supports several .NET framework versions:
+              Supports multiple .NET framework versions:
             </para>
             <list class="bullet">
               <listItem>
