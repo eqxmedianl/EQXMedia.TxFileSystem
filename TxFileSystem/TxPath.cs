@@ -26,6 +26,9 @@
         ///     it is implemented in this library, ensures that all operations performed through this property,
         ///     are transactional too. Whenever required.
         ///   </para>
+        ///   <para>
+        ///     This is useful for implementing extension methods.
+        ///   </para>
         /// </remarks>
         public IFileSystem FileSystem => this.TxFileSystem;
 
