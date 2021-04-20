@@ -9,7 +9,7 @@
     /// <see cref="EQXMedia.TxFileSystem.Operations.Files.FileBackupOperation" />
     /// <see cref="EQXMedia.TxFileSystem.Operations.Directories.DirectoryBackupOperation" />
     /// <see cref="EQXMedia.TxFileSystem.Operations.FileStreams.FileStreamOperation" />
-    public interface IBackupOperation
+    internal interface IBackupOperation
     {
         /// <inheritdoc cref="EQXMedia.TxFileSystem.Operations.OperationType" />
         OperationType OperationType { get; }
