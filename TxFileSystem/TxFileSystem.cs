@@ -1,7 +1,4 @@
-﻿/// <summary>
-///   JSlKFJKJFLKFL
-/// </summary>
-namespace EQXMedia.TxFileSystem
+﻿namespace EQXMedia.TxFileSystem
 {
     using global::EQXMedia.TxFileSystem.Journaling;
     using System;
@@ -9,8 +6,10 @@ namespace EQXMedia.TxFileSystem
 
     /// <summary>
     ///   Transactional file system is actually a wrapper around file systems that implement the 
-    ///   <see cref="System.IO.Abstractions.IFileSystem" /> interface.
-    ///   
+    ///   <see cref="System.IO.Abstractions.IFileSystem" /> interface. Proving transactional operations on files,
+    ///   directories and file streams using the file system it wraps.    ///   
+    /// </summary>
+    /// <remarks>
     ///   <para>
     ///     File, directory and file stream operations performed through <see cref="EQXMedia.TxFileSystem.TxFileSystem" />,
     ///     will be rolled back whenever an exception occurs inside the transaction scope, if they altered a file 
@@ -34,8 +33,7 @@ namespace EQXMedia.TxFileSystem
     ///     The journaling ensures data integrity is maintained when exceptions occur after files and directories
     ///     have been modified.
     ///   </para>
-    /// </summary>
-    /// <remarks>
+    ///   
     ///   <para>
     ///     By creating the instance of<see cref="EQXMedia.TxFileSystem.TxFileSystem" /> inside the
     ///     <see cref="System.Transactions.TransactionScope" />, the journal providing the rollback
@@ -74,8 +72,40 @@ namespace EQXMedia.TxFileSystem
         ///     will simply not be used.
         /// </para>
         /// </remarks>
+        /// <example>
+        /// The first sample shows how to create an instance by passing it the default file system implementation. 
+        /// Resulting in that implementation to be used internally.
+        ///     
+        /// <code>
+        /// using System.IO.Abstractions;
+        /// using EQXMedia.TxFileSystem;
+        /// 
+        /// var fileSystem = new FileSystem();
+        /// var txFileSystem = new TxFileSystem(fileSystem);
+        /// </code>
+        /// 
+        /// The second sample shows how to create an instance without passing it a file system implementation. 
+        /// Resulting in the default implementation to be used internally.
+        ///     
+        /// <code>
+        /// using EQXMedia.TxFileSystem;
+        /// 
+        /// var txFileSystem = new TxFileSystem();
+        /// </code>
+        /// 
+        /// The third sample shows how to create an instance by passing it a mock file system implementation. 
+        /// This way the application logic can be Unit Tested without touching the actual file system.
+        ///     
+        /// <code>
+        /// using System.IO.Abstractions.TestingHelpers;
+        /// using EQXMedia.TxFileSystem;
+        /// 
+        /// var mockFileSystem = new MockFileSystem();
+        /// var txFileSystem = new TxFileSystem(mockFileSystem);
+        /// </code>
+        /// </example>
         /// <param name="fileSystem">
-        ///   A file system on which transactional operations should be performed (optional).
+        ///   A file system on which transactional operations should be performed.
         /// </param>
         /// <seealso cref="System.Transactions.TransactionScope"/>
         public TxFileSystem(IFileSystem fileSystem = null)
