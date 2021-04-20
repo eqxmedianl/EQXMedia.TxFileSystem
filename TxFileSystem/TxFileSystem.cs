@@ -130,7 +130,7 @@
         }
 
         /// <summary>
-        ///   Provides methods for the creation, copying, deletion, moving, and opening of a single file,
+        ///   Exposes methods for the creation, copying, deletion, moving, and opening of a single file,
         ///   and aids in the creation of <see cref="System.IO.FileStream" /> objects.
         /// </summary>
         /// <example>
