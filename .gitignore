@@ -7,8 +7,7 @@ obj/
 GeneratedFiles/
 /TxFileSystem/EQXMedia.TxFileSystem.xml
 
-/Documentation/Help/
-/Help
+/Documentation/Generated/
 
 Debug/
 Release/
