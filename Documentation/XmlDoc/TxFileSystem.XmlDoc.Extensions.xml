@@ -92,6 +92,25 @@
               <see href="https://txfilesystem.io/docs/DirectoryOperation" />
             </remarks>
          </Operation>
+         <Operation kind="DirectoryOperation" type="modify">
+            <remarks>
+              <para>
+                This is an operation that modifies a directory and/or its contents, hence it is 
+                journalized. Journalized file operations can either be rolled back or committed 
+                automatically, restoring or removing the backup directory and its contents,
+                respectively. Whenever an <see cref="System.Exception"/> of any kind occurs, all 
+                journalized operations are rolled back, resulting in the original state to be 
+                restored.
+              </para>
+              <para>
+                If no <see cref="System.Exception"/> any kind occurs and the <see
+                cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
+                operations are committed. Any modifications made are then preserved and the backup 
+                directory and its contents is then removed.
+              </para>
+              <see href="https://txfilesystem.io/docs/DirectoryOperation" />
+            </remarks>
+         </Operation>
          <Operation kind="FileSystemOperation" type="info">
             <remarks>
               <para>

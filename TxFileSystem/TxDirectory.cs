@@ -334,6 +334,7 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.Move(string, string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="modify"]/*' />
         public void Move(string sourceDirName, string destDirName)
         {
             new MoveOperation(this, sourceDirName, destDirName).Execute();
@@ -348,12 +349,14 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.SetCreationTime(string, DateTime)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="modify"]/*' />
         public void SetCreationTime(string path, DateTime creationTime)
         {
             new SetCreationTimeOperation(this, path, creationTime).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.SetCreationTimeUtc(string, DateTime)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="modify"]/*' />
         public void SetCreationTimeUtc(string path, DateTime creationTimeUtc)
         {
             new SetCreationTimeOperation(this, path, creationTimeUtc, asUtc: true).Execute();
@@ -366,24 +369,28 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.SetLastAccessTime(string, DateTime)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="modify"]/*' />
         public void SetLastAccessTime(string path, DateTime lastAccessTime)
         {
             new SetLastAccessTimeOperation(this, path, lastAccessTime).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.SetLastAccessTimeUtc(string, DateTime)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="modify"]/*' />
         public void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc)
         {
             new SetLastAccessTimeOperation(this, path, lastAccessTimeUtc, asUtc: true).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.SetLastWriteTime(string, DateTime)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="modify"]/*' />
         public void SetLastWriteTime(string path, DateTime lastWriteTime)
         {
             new SetLastWriteTimeOperation(this, path, lastWriteTime).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.SetLastWriteTimeUtc(string, DateTime)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="modify"]/*' />
         public void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc)
         {
             new SetLastWriteTimeOperation(this, path, lastWriteTimeUtc, asUtc: true).Execute();
