@@ -21,7 +21,7 @@
          </FileSystemProperty>
       </FileSystemProperties>
       <Operations>      
-         <Operation type="FileOperation" modifying="true">
+         <Operation kind="FileOperation" type="modify">
             <remarks>
               <para>
                 This is an operation that modifies one or more files, hence it is journalized. 
@@ -39,7 +39,7 @@
               <see href="https://txfilesystem.io/docs/FileOperation" />
             </remarks>
          </Operation>      
-         <Operation type="FileOperation" modifying="false">
+         <Operation kind="FileOperation" type="info">
             <remarks>
               <para>
                 This is an operation that doesn't modify any files, hence it is not journalized. As there
@@ -49,6 +49,40 @@
               <see href="https://txfilesystem.io/docs/FileOperation" />
             </remarks>
          </Operation>
+         <Operation kind="DirectoryOperation" type="create">
+            <remarks>
+              <para>
+                This is an operation that creates a directory, hence it is journalized. Journalized file 
+                operations can either be rolled back or committed automatically, removing or keeping the
+                created directory, respectively. Whenever an <see cref="System.Exception"/> of any kind 
+                occurs, all journalized operations are rolled back, resulting in the original state to 
+                be restored.
+              </para>
+              <para>
+                If no <see cref="System.Exception"/> any kind occurs and the <see 
+                cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
+                operations are committed. Any modifications made are then preserved.
+              </para>
+              <see href="https://txfilesystem.io/docs/DirectoryOperation" />
+            </remarks>
+         </Operation>     
+         <Operation kind="DirectoryOperation" type="delete">
+            <remarks>
+              <para>
+                This is an operation that deletes a directory, hence it is journalized. Journalized file 
+                operations can either be rolled back or committed automatically, restoring or keeping the
+                directory deleted, respectively. Whenever an <see cref="System.Exception"/> of any kind 
+                occurs, all journalized operations are rolled back, resulting in the original state to 
+                be restored.
+              </para>
+              <para>
+                If no <see cref="System.Exception"/> any kind occurs and the <see 
+                cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
+                operations are committed. Any modifications made are then preserved.
+              </para>
+              <see href="https://txfilesystem.io/docs/DirectoryOperation" />
+            </remarks>
+         </Operation>   
       </Operations>
    </Extensions>
 </TxFileSystem.BaseDocs>
