@@ -4,7 +4,7 @@
 
     internal sealed class GetDirectoryRootOperation : DirectoryOperation, IReturningOperation<string>
     {
-        public GetDirectoryRootOperation(ITxDirectory directory, string path)
+        public GetDirectoryRootOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            return _directory.FileSystem.Directory.GetDirectoryRoot(_path);
+            return _directory.TxFileSystem.FileSystem.Directory.GetDirectoryRoot(_path);
         }
     }
 }

@@ -6,7 +6,7 @@
     {
         private readonly string _destPath;
 
-        public MoveOperation(ITxDirectory directory, string path, string destPath)
+        public MoveOperation(TxDirectory directory, string path, string destPath)
             : base(directory, path)
         {
             _destPath = destPath;
@@ -18,7 +18,7 @@
         {
             Journalize(this);
 
-            _directory.FileSystem.Directory.Move(_path, _destPath);
+            _directory.TxFileSystem.FileSystem.Directory.Move(_path, _destPath);
         }
 
         public override void Restore()

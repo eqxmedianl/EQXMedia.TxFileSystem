@@ -8,12 +8,12 @@
     {
         private readonly Encoding _encoding = null;
 
-        public ReadLinesOperation(ITxFile file, string path)
+        public ReadLinesOperation(TxFile file, string path)
             : base(file, path)
         {
         }
 
-        public ReadLinesOperation(ITxFile file, string path, Encoding encoding)
+        public ReadLinesOperation(TxFile file, string path, Encoding encoding)
             : this(file, path)
         {
             _encoding = encoding;
@@ -27,10 +27,10 @@
 
             if (_encoding != null)
             {
-                return _file.FileSystem.File.ReadLines(_path, _encoding);
+                return _file.TxFileSystem.FileSystem.File.ReadLines(_path, _encoding);
             }
 
-            return _file.FileSystem.File.ReadLines(_path);
+            return _file.TxFileSystem.FileSystem.File.ReadLines(_path);
         }
     }
 }

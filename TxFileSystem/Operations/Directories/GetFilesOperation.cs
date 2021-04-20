@@ -11,18 +11,18 @@
         private readonly EnumerationOptions _enumerationOptions = null;
 #endif
 
-        public GetFilesOperation(ITxDirectory directory, string path)
+        public GetFilesOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
 
-        public GetFilesOperation(ITxDirectory directory, string path, string searchPattern)
+        public GetFilesOperation(TxDirectory directory, string path, string searchPattern)
             : this(directory, path)
         {
             _searchPattern = searchPattern;
         }
 
-        public GetFilesOperation(ITxDirectory directory, string path, string searchPattern,
+        public GetFilesOperation(TxDirectory directory, string path, string searchPattern,
             SearchOption searchOption)
             : this(directory, path, searchPattern)
         {
@@ -30,7 +30,7 @@
         }
 
 #if !NETSTANDARD2_0 && !NET461
-        public GetFilesOperation(ITxDirectory directory, string path, string searchPattern,
+        public GetFilesOperation(TxDirectory directory, string path, string searchPattern,
             EnumerationOptions enumerationOptions)
             : this(directory, path, searchPattern)
         {
@@ -46,22 +46,22 @@
 
             if (_searchOption.HasValue)
             {
-                return _directory.FileSystem.Directory.GetFiles(_path, _searchPattern, _searchOption.Value);
+                return _directory.TxFileSystem.FileSystem.Directory.GetFiles(_path, _searchPattern, _searchOption.Value);
             }
 
 #if !NETSTANDARD2_0 && !NET461
             if (_enumerationOptions != null)
             {
-                return _directory.FileSystem.Directory.GetFiles(_path, _searchPattern, _enumerationOptions);
+                return _directory.TxFileSystem.FileSystem.Directory.GetFiles(_path, _searchPattern, _enumerationOptions);
             }
 #endif
 
             if (_searchPattern != null)
             {
-                return _directory.FileSystem.Directory.GetFiles(_path, _searchPattern);
+                return _directory.TxFileSystem.FileSystem.Directory.GetFiles(_path, _searchPattern);
             }
 
-            return _directory.FileSystem.Directory.GetFiles(_path);
+            return _directory.TxFileSystem.FileSystem.Directory.GetFiles(_path);
         }
     }
 }

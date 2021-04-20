@@ -8,13 +8,13 @@
         private readonly string _destPath = null;
         private readonly bool? _overwrite = null;
 
-        public CopyOperation(ITxFile file, string path, string destPath)
+        public CopyOperation(TxFile file, string path, string destPath)
             : base(file, path)
         {
             _destPath = destPath;
         }
 
-        public CopyOperation(ITxFile file, string path, string destPath, bool overwrite)
+        public CopyOperation(TxFile file, string path, string destPath, bool overwrite)
             : base(file, path)
         {
             _destPath = destPath;
@@ -29,9 +29,9 @@
         {
             base.Backup();
 
-            if (_overwrite.HasValue && _overwrite.Value && _file.FileSystem.File.Exists(_destPath))
+            if (_overwrite.HasValue && _overwrite.Value && _file.TxFileSystem.FileSystem.File.Exists(_destPath))
             {
-                _file.FileSystem.File.Copy(_destPath, ((TxFile)_file).GetBackupPath(_destPath, _tempFileUuid));
+                _file.TxFileSystem.FileSystem.File.Copy(_destPath, ((TxFile)_file).GetBackupPath(_destPath, _tempFileUuid));
             }
         }
 
@@ -41,11 +41,11 @@
 
             if (!_overwrite.HasValue)
             {
-                _file.FileSystem.File.Copy(_path, _destPath);
+                _file.TxFileSystem.FileSystem.File.Copy(_path, _destPath);
             }
             else
             {
-                _file.FileSystem.File.Copy(_path, _destPath, _overwrite.Value);
+                _file.TxFileSystem.FileSystem.File.Copy(_path, _destPath, _overwrite.Value);
             }
         }
 
@@ -59,10 +59,10 @@
         private void RestoreOverwrittenDestinationFile()
         {
             var backupFile = ((TxFile)_file).GetBackupPath(_destPath, _tempFileUuid);
-            if (_overwrite.HasValue && _overwrite.Value && _file.FileSystem.File.Exists(backupFile))
+            if (_overwrite.HasValue && _overwrite.Value && _file.TxFileSystem.FileSystem.File.Exists(backupFile))
             {
-                _file.FileSystem.File.Copy(backupFile, _destPath);
-                _file.FileSystem.File.Delete(backupFile);
+                _file.TxFileSystem.FileSystem.File.Copy(backupFile, _destPath);
+                _file.TxFileSystem.FileSystem.File.Delete(backupFile);
             }
         }
     }

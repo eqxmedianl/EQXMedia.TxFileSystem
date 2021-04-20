@@ -15,7 +15,18 @@
             this.TxFileSystem = txFileSystem;
         }
 
-        public TxFileSystem TxFileSystem { get; }
+        /// <summary>
+        ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this <see 
+        ///     cref="EQXMedia.TxFileSystem.TxFileInfo" /> instance belongs to. Thus not the actual file 
+        ///     system being wrapped.
+        /// </summary>
+        /// <remarks>
+        ///   <para>
+        ///      Use <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystem" /> to perform operations on 
+        ///      the wrapped file system.
+        ///   </para>
+        /// </remarks>
+        internal TxFileSystem TxFileSystem { get; set; }
 
         public IFileInfo FromFileName(string fileName)
         {

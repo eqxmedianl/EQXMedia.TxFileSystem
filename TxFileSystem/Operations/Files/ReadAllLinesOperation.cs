@@ -14,12 +14,12 @@
     {
         private readonly Encoding _encoding = null;
 
-        public ReadAllLinesOperation(ITxFile file, string path)
+        public ReadAllLinesOperation(TxFile file, string path)
             : base(file, path)
         {
         }
 
-        public ReadAllLinesOperation(ITxFile file, string path, Encoding encoding)
+        public ReadAllLinesOperation(TxFile file, string path, Encoding encoding)
             : this(file, path)
         {
             _encoding = encoding;
@@ -33,10 +33,10 @@
 
             if (_encoding != null)
             {
-                return _file.FileSystem.File.ReadAllLines(_path, _encoding);
+                return _file.TxFileSystem.FileSystem.File.ReadAllLines(_path, _encoding);
             }
 
-            return _file.FileSystem.File.ReadAllLines(_path);
+            return _file.TxFileSystem.FileSystem.File.ReadAllLines(_path);
         }
 
 #if !NETSTANDARD2_0 && !NET461
@@ -46,10 +46,10 @@
 
             if (_encoding != null)
             {
-                return _file.FileSystem.File.ReadAllLinesAsync(_path, _encoding, cancellationToken);
+                return _file.TxFileSystem.FileSystem.File.ReadAllLinesAsync(_path, _encoding, cancellationToken);
             }
 
-            return _file.FileSystem.File.ReadAllLinesAsync(_path, cancellationToken);
+            return _file.TxFileSystem.FileSystem.File.ReadAllLinesAsync(_path, cancellationToken);
         }
 #endif
     }

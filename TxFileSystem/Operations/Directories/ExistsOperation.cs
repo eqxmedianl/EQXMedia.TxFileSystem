@@ -4,7 +4,7 @@
 
     internal sealed class ExistsOperation : DirectoryOperation, IReturningOperation<bool>
     {
-        public ExistsOperation(ITxDirectory directory, string path)
+        public ExistsOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            return _directory.FileSystem.Directory.Exists(_path);
+            return _directory.TxFileSystem.FileSystem.Directory.Exists(_path);
         }
     }
 }

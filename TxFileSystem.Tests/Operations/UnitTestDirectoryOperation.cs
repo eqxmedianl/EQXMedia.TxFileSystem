@@ -7,9 +7,9 @@
 
     internal sealed class UnitTestDirectoryOperation : DirectoryBackupOperation, IEnlistmentOperation, IOperation
     {
-        private readonly ITxDirectory _txDirectory;
+        private readonly TxDirectory _txDirectory;
 
-        public UnitTestDirectoryOperation(ITxDirectory txDirectory, string path)
+        public UnitTestDirectoryOperation(TxDirectory txDirectory, string path)
             : base(txDirectory, path)
         {
             _txDirectory = txDirectory;
@@ -24,7 +24,7 @@
 
         public void Journalize(IOperation operation)
         {
-            ((TxDirectory)_txDirectory)._txFileSystem.Journal.Add(operation);
+            _txDirectory.TxFileSystem.Journal.Add(operation);
         }
 
         public void Rollback()

@@ -12,7 +12,7 @@
     {
         private readonly FileSecurity _fileSecurity;
 
-        public SetAccessControlOperation(ITxFile file, string path, FileSecurity fileSecurity)
+        public SetAccessControlOperation(TxFile file, string path, FileSecurity fileSecurity)
             : base(file, path)
         {
             _fileSecurity = fileSecurity;
@@ -24,7 +24,7 @@
         {
             Journalize(this);
 
-            _file.FileSystem.File.SetAccessControl(_path, _fileSecurity);
+            _file.TxFileSystem.FileSystem.File.SetAccessControl(_path, _fileSecurity);
         }
     }
 }

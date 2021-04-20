@@ -4,7 +4,7 @@
 
     internal sealed class ExistsOperation : FileOperation, IReturningOperation<bool>
     {
-        public ExistsOperation(ITxFile file, string path)
+        public ExistsOperation(TxFile file, string path)
             : base(file, path)
         {
         }
@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            return _file.FileSystem.File.Exists(_path);
+            return _file.TxFileSystem.FileSystem.File.Exists(_path);
         }
     }
 }

@@ -9,31 +9,40 @@
     ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
     /// </remarks>
     [Serializable]
-    public sealed class TxFileSystemWatcher : ITxFileSystemWatcher
+    public sealed class TxFileSystemWatcher : IFileSystemWatcherFactory
     {
-        private readonly TxFileSystem _txFileSystem;
-
         internal TxFileSystemWatcher(TxFileSystem txFileSystem)
         {
-            _txFileSystem = txFileSystem;
+            this.TxFileSystem = txFileSystem;
         }
 
-        public IFileSystem FileSystem => _txFileSystem.FileSystem;
+        /// <summary>
+        ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this <see 
+        ///     cref="EQXMedia.TxFileSystem.TxFileSystemWatcher" /> instance belongs to. Thus not the actual 
+        ///     file system being wrapped.
+        /// </summary>
+        /// <remarks>
+        ///   <para>
+        ///      Use <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystem" /> to perform operations on 
+        ///      the wrapped file system.
+        ///   </para>
+        /// </remarks>
+        internal TxFileSystem TxFileSystem { get; set; }
 
         public IFileSystemWatcher CreateNew()
         {
-            return this.FileSystem.FileSystemWatcher.CreateNew();
+            return this.TxFileSystem.FileSystem.FileSystemWatcher.CreateNew();
         }
 
         public IFileSystemWatcher CreateNew(string path)
         {
-            return this.FileSystem.FileSystemWatcher.CreateNew(path);
+            return this.TxFileSystem.FileSystem.FileSystemWatcher.CreateNew(path);
 
         }
 
         public IFileSystemWatcher CreateNew(string path, string filter)
         {
-            return this.FileSystem.FileSystemWatcher.CreateNew(path, filter);
+            return this.TxFileSystem.FileSystem.FileSystemWatcher.CreateNew(path, filter);
         }
     }
 }

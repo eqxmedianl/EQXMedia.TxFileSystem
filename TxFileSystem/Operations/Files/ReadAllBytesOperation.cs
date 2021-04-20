@@ -11,7 +11,7 @@
         , IAsyncReturningOperation<byte[]>
 #endif
     {
-        public ReadAllBytesOperation(ITxFile file, string path)
+        public ReadAllBytesOperation(TxFile file, string path)
             : base(file, path)
         {
         }
@@ -22,7 +22,7 @@
         {
             Journalize(this);
 
-            return _file.FileSystem.File.ReadAllBytes(_path);
+            return _file.TxFileSystem.FileSystem.File.ReadAllBytes(_path);
         }
 
 #if !NETSTANDARD2_0 && !NET461
@@ -30,7 +30,7 @@
         {
             Journalize(this);
 
-            return _file.FileSystem.File.ReadAllBytesAsync(_path, cancellationToken);
+            return _file.TxFileSystem.FileSystem.File.ReadAllBytesAsync(_path, cancellationToken);
         }
 #endif
     }

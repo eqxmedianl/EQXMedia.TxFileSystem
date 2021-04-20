@@ -16,13 +16,13 @@
         private readonly IEnumerable<string> _contents = null;
         private readonly Encoding _encoding = null;
 
-        public AppendAllLinesOperation(ITxFile file, string path, IEnumerable<string> contents)
+        public AppendAllLinesOperation(TxFile file, string path, IEnumerable<string> contents)
             : base(file, path)
         {
             _contents = contents;
         }
 
-        public AppendAllLinesOperation(ITxFile file, string path, IEnumerable<string> contents, Encoding encoding)
+        public AppendAllLinesOperation(TxFile file, string path, IEnumerable<string> contents, Encoding encoding)
             : this(file, path, contents)
         {
             _encoding = encoding;
@@ -36,11 +36,11 @@
 
             if (_encoding == null)
             {
-                _file.FileSystem.File.AppendAllLines(_path, _contents);
+                _file.TxFileSystem.FileSystem.File.AppendAllLines(_path, _contents);
             }
             else
             {
-                _file.FileSystem.File.AppendAllLines(_path, _contents, _encoding);
+                _file.TxFileSystem.FileSystem.File.AppendAllLines(_path, _contents, _encoding);
             }
         }
 
@@ -51,11 +51,11 @@
 
             if (_encoding == null)
             {
-                return _file.FileSystem.File.AppendAllLinesAsync(_path, _contents, cancellationToken);
+                return _file.TxFileSystem.FileSystem.File.AppendAllLinesAsync(_path, _contents, cancellationToken);
             }
             else
             {
-                return _file.FileSystem.File.AppendAllLinesAsync(_path, _contents, _encoding, cancellationToken);
+                return _file.TxFileSystem.FileSystem.File.AppendAllLinesAsync(_path, _contents, _encoding, cancellationToken);
             }
         }
 #endif

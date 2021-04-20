@@ -5,7 +5,7 @@
 
     internal sealed class CreateTextOperation : FileOperation, IReturningOperation<StreamWriter>
     {
-        public CreateTextOperation(ITxFile file, string path)
+        public CreateTextOperation(TxFile file, string path)
             : base(file, path)
         {
         }
@@ -16,7 +16,7 @@
         {
             Journalize(this);
 
-            return _file.FileSystem.File.CreateText(_path);
+            return _file.TxFileSystem.FileSystem.File.CreateText(_path);
         }
 
         public override void Rollback()

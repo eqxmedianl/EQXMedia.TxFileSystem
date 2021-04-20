@@ -7,12 +7,12 @@
     {
         private readonly bool _asUtc = false;
 
-        public GetLastAccessTimeOperation(ITxFile file, string path)
+        public GetLastAccessTimeOperation(TxFile file, string path)
             : base(file, path)
         {
         }
 
-        public GetLastAccessTimeOperation(ITxFile file, string path, bool asUtc)
+        public GetLastAccessTimeOperation(TxFile file, string path, bool asUtc)
             : this(file, path)
         {
             _asUtc = asUtc;
@@ -26,10 +26,10 @@
 
             if (_asUtc)
             {
-                return _file.FileSystem.File.GetLastAccessTimeUtc(_path);
+                return _file.TxFileSystem.FileSystem.File.GetLastAccessTimeUtc(_path);
             }
 
-            return _file.FileSystem.File.GetLastAccessTime(_path);
+            return _file.TxFileSystem.FileSystem.File.GetLastAccessTime(_path);
         }
     }
 }

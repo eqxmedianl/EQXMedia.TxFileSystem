@@ -1,6 +1,5 @@
 ﻿namespace EQXMedia.TxFileSystem
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using global::EQXMedia.TxFileSystem.Operations.Directories;
     using System;
     using System.Collections.Generic;
@@ -17,16 +16,38 @@
     ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
     /// </remarks>
     [Serializable]
-    public sealed class TxDirectory : ITxDirectory, IDirectory
+    public sealed class TxDirectory : IDirectory
     {
-        internal readonly TxFileSystem _txFileSystem;
-
         internal TxDirectory(TxFileSystem txFileSystem)
         {
-            _txFileSystem = txFileSystem;
+            this.TxFileSystem = txFileSystem;
         }
 
-        public IFileSystem FileSystem => _txFileSystem.FileSystem;
+        /// <summary>
+        ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" />, which actually is an 
+        ///   implementation of <see cref="System.IO.Abstractions.IFileSystem" /> itself too.
+        /// </summary>
+        /// <remarks>
+        ///   <para>
+        ///     This property is exposed by the <see cref="System.IO.Abstractions.IDirectory" /> interface. The 
+        ///     way it is implemented in this library, ensures that all operations performed through this 
+        ///     property, are transactional too. Whenever required.
+        ///   </para>
+        /// </remarks>
+        public IFileSystem FileSystem => this.TxFileSystem;
+
+        /// <summary>
+        ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this <see 
+        ///     cref="EQXMedia.TxFileSystem.TxDirectory" /> instance belongs to. Thus not the actual file system 
+        ///     being wrapped.
+        /// </summary>
+        /// <remarks>
+        ///   <para>
+        ///      Use <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystem" /> to perform operations on the 
+        ///      wrapped file system.
+        ///   </para>
+        /// </remarks>
+        internal TxFileSystem TxFileSystem { get; set; }
 
         public IDirectoryInfo CreateDirectory(string path)
         {

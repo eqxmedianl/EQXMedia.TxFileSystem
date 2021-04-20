@@ -7,7 +7,7 @@
     {
         private readonly bool _asUtc;
 
-        public GetCreationTimeOperation(ITxFile file, string path, bool asUtc = false)
+        public GetCreationTimeOperation(TxFile file, string path, bool asUtc = false)
             : base(file, path)
         {
             _asUtc = asUtc;
@@ -21,10 +21,10 @@
 
             if (_asUtc)
             {
-                return _file.FileSystem.File.GetCreationTimeUtc(_path);
+                return _file.TxFileSystem.FileSystem.File.GetCreationTimeUtc(_path);
             }
 
-            return _file.FileSystem.File.GetCreationTime(_path);
+            return _file.TxFileSystem.FileSystem.File.GetCreationTime(_path);
         }
     }
 }

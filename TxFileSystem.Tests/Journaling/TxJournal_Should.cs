@@ -20,7 +20,7 @@
             {
                 var txFileSystem = new TxFileSystem(mockFileSystem);
                 var txJournal = txFileSystem.Journal;
-                txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                txJournal.Add(new UnitTestDirectoryOperation(txFileSystem.Directory,
                     "/var/journaltestdir"));
 
                 Assert.Single(txFileSystem.Journal._txJournalEntries);
@@ -38,7 +38,7 @@
             {
                 var txFileSystem = new TxFileSystem(mockFileSystem);
                 var txJournal = txFileSystem.Journal;
-                txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                txJournal.Add(new UnitTestDirectoryOperation(txFileSystem.Directory,
                     "/var/journaltestdir"));
 
                 firstJournalEntry = txJournal._txJournalEntries.First();

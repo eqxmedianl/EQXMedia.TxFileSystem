@@ -1,4 +1,7 @@
-﻿namespace EQXMedia.TxFileSystem
+﻿/// <summary>
+///   JSlKFJKJFLKFL
+/// </summary>
+namespace EQXMedia.TxFileSystem
 {
     using global::EQXMedia.TxFileSystem.Journaling;
     using System;
@@ -49,7 +52,7 @@
     /// </remarks>
     /// <seealso href="https://txfilesystem.io/docs/TxFileSystem" />
     [Serializable]
-    public sealed class TxFileSystem
+    public sealed class TxFileSystem : IFileSystem
     {
         /// <summary>
         ///   Creates a <see cref="TxFileSystem"/> instance.
@@ -131,6 +134,12 @@
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
         public TxFileStream FileStream { get; }
 
+        /// <summary>
+        ///   The actual file system being wrapped which is used to perform the operations on.
+        /// </summary>
+        /// <remarks>
+        ///   This is only to be used internally by this library.
+        /// </remarks>
         internal IFileSystem FileSystem { get; set; }
 
         internal TxJournal Journal { get; } = new TxJournal();
@@ -179,5 +188,21 @@
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
         public TxFileSystemWatcher FileSystemWatcher { get; }
+
+        IFile IFileSystem.File => this.File;
+
+        IDirectory IFileSystem.Directory => this.Directory;
+
+        IFileInfoFactory IFileSystem.FileInfo => this.FileInfo;
+
+        IFileStreamFactory IFileSystem.FileStream => this.FileStream;
+
+        IPath IFileSystem.Path => this.Path;
+
+        IDirectoryInfoFactory IFileSystem.DirectoryInfo => this.DirectoryInfo;
+
+        IDriveInfoFactory IFileSystem.DriveInfo => this.DriveInfo;
+
+        IFileSystemWatcherFactory IFileSystem.FileSystemWatcher => this.FileSystemWatcher;
     }
 }

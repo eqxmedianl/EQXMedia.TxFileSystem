@@ -14,7 +14,7 @@
         {
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
-            var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+            var unitTestOperation = new UnitTestDirectoryOperation(txFileSystem.Directory,
                 "/var/journaltestdir");
 
             var txJournalEntry = new TxJournalEntry(unitTestOperation);

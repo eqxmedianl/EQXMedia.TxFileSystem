@@ -7,17 +7,17 @@
 
     internal abstract class FileStreamOperation : FileStreamBackupOperation, IEnlistmentOperation
     {
-        protected FileStreamOperation(ITxFileStream fileStream, string path)
+        protected FileStreamOperation(TxFileStream fileStream, string path)
             : base(fileStream, path)
         {
         }
 
-        protected FileStreamOperation(ITxFileStream fileStream, IntPtr handle, string path)
+        protected FileStreamOperation(TxFileStream fileStream, IntPtr handle, string path)
             : base(fileStream, handle, path)
         {
         }
 
-        protected FileStreamOperation(ITxFileStream fileStream, SafeFileHandle safeFileHandle)
+        protected FileStreamOperation(TxFileStream fileStream, SafeFileHandle safeFileHandle)
             : base(fileStream, safeFileHandle)
         {
         }
@@ -31,7 +31,7 @@
 
         public virtual void Rollback()
         {
-            if (OperationRollbackGuard.ShouldRollback(this.OperationType, ((TxFileStream)_fileStream)._txFileSystem.Journal.State))
+            if (OperationRollbackGuard.ShouldRollback(this.OperationType, _fileStream.TxFileSystem.Journal.State))
             {
                 Restore();
             }
@@ -39,7 +39,7 @@
 
         public void Journalize(IOperation operation)
         {
-            ((TxFileStream)_fileStream)._txFileSystem.Journal.Add(operation);
+            _fileStream.TxFileSystem.Journal.Add(operation);
         }
     }
 }

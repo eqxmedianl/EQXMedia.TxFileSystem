@@ -15,13 +15,13 @@
         private readonly string _contents = null;
         private readonly Encoding _encoding = null;
 
-        public WriteAllTextOperation(ITxFile file, string path, string contents)
+        public WriteAllTextOperation(TxFile file, string path, string contents)
             : base(file, path)
         {
             _contents = contents;
         }
 
-        public WriteAllTextOperation(ITxFile file, string path, string contents, Encoding encoding)
+        public WriteAllTextOperation(TxFile file, string path, string contents, Encoding encoding)
             : this(file, path, contents)
         {
             _encoding = encoding;
@@ -35,11 +35,11 @@
 
             if (_encoding == null)
             {
-                _file.FileSystem.File.WriteAllText(_path, _contents);
+                _file.TxFileSystem.FileSystem.File.WriteAllText(_path, _contents);
             }
             else
             {
-                _file.FileSystem.File.WriteAllText(_path, _contents, _encoding);
+                _file.TxFileSystem.FileSystem.File.WriteAllText(_path, _contents, _encoding);
             }
         }
 
@@ -50,11 +50,11 @@
 
             if (_encoding == null)
             {
-                return _file.FileSystem.File.WriteAllTextAsync(_path, _contents, cancellationToken);
+                return _file.TxFileSystem.FileSystem.File.WriteAllTextAsync(_path, _contents, cancellationToken);
             }
             else
             {
-                return _file.FileSystem.File.WriteAllTextAsync(_path, _contents, _encoding, cancellationToken);
+                return _file.TxFileSystem.FileSystem.File.WriteAllTextAsync(_path, _contents, _encoding, cancellationToken);
             }
         }
 #endif

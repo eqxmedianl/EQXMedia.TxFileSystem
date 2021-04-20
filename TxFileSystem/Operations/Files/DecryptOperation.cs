@@ -4,7 +4,7 @@
 
     internal sealed class DecryptOperation : FileOperation, IExecutingOperation
     {
-        public DecryptOperation(ITxFile file, string path)
+        public DecryptOperation(TxFile file, string path)
             : base(file, path)
         {
         }
@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            _file.FileSystem.File.Decrypt(_path);
+            _file.TxFileSystem.FileSystem.File.Decrypt(_path);
         }
 
         public override void Rollback()

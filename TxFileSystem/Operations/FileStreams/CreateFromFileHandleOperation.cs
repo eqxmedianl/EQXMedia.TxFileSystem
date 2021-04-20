@@ -18,28 +18,28 @@
         private readonly int? _bufferSize;
         private readonly bool? _isAsync;
 
-        public CreateFromFileHandleOperation(ITxFileStream fileStream, IntPtr handle, FileAccess access)
+        public CreateFromFileHandleOperation(TxFileStream fileStream, IntPtr handle, FileAccess access)
             : base(fileStream, handle, NativeMethods.GetFinalPathNameByHandle(handle))
         {
             _handle = handle;
             _access = access;
         }
 
-        public CreateFromFileHandleOperation(ITxFileStream fileStream, IntPtr handle, FileAccess access,
+        public CreateFromFileHandleOperation(TxFileStream fileStream, IntPtr handle, FileAccess access,
             bool ownsHandle)
             : this(fileStream, handle, access)
         {
             _ownsHandle = ownsHandle;
         }
 
-        public CreateFromFileHandleOperation(ITxFileStream fileStream, IntPtr handle, FileAccess access,
+        public CreateFromFileHandleOperation(TxFileStream fileStream, IntPtr handle, FileAccess access,
             bool ownsHandle, int bufferSize)
             : this(fileStream, handle, access, ownsHandle)
         {
             _bufferSize = bufferSize;
         }
 
-        public CreateFromFileHandleOperation(ITxFileStream fileStream, IntPtr handle, FileAccess access,
+        public CreateFromFileHandleOperation(TxFileStream fileStream, IntPtr handle, FileAccess access,
             bool ownsHandle, int bufferSize, bool isAsync)
             : this(fileStream, handle, access, ownsHandle, bufferSize)
         {
@@ -54,22 +54,22 @@
 
             if (_ownsHandle.HasValue && _bufferSize.HasValue && _isAsync.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_handle, _access,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_handle, _access,
                     _ownsHandle.Value, _bufferSize.Value, _isAsync.Value);
             }
             else if (_ownsHandle.HasValue && _bufferSize.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_handle, _access,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_handle, _access,
                     _ownsHandle.Value, _bufferSize.Value);
             }
             else if (_ownsHandle.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_handle, _access,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_handle, _access,
                     _ownsHandle.Value);
             }
             else
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_handle, _access);
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_handle, _access);
             }
 
             Backup();

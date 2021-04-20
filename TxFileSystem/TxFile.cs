@@ -22,16 +22,38 @@
     ///   be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
     /// </remarks>
     [Serializable]
-    public sealed class TxFile : IFile, ITxFile
+    public sealed class TxFile : IFile
     {
-        internal readonly TxFileSystem _txFileSystem;
-
         internal TxFile(TxFileSystem fileSystem)
         {
-            _txFileSystem = fileSystem;
+            this.TxFileSystem = fileSystem;
         }
 
-        public IFileSystem FileSystem => _txFileSystem.FileSystem;
+        /// <summary>
+        ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" />, which actually is an 
+        ///   implementation of <see cref="System.IO.Abstractions.IFileSystem" /> itself too.
+        /// </summary>
+        /// <remarks>
+        ///   <para>
+        ///     This property is exposed by the <see cref="System.IO.Abstractions.IFile" /> interface. The way 
+        ///     it is implemented in this library, ensures that all operations performed through this property,
+        ///     are transactional too. Whenever required.
+        ///   </para>
+        /// </remarks>
+        public IFileSystem FileSystem => this.TxFileSystem;
+
+        /// <summary>
+        ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this <see 
+        ///     cref="EQXMedia.TxFileSystem.TxFile" /> instance belongs to. Thus not the actual file system 
+        ///     being wrapped.
+        /// </summary>
+        /// <remarks>
+        ///   <para>
+        ///      Use <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystem" /> to perform operations on the 
+        ///      wrapped file system.
+        ///   </para>
+        /// </remarks>
+        internal TxFileSystem TxFileSystem { get; set; }
 
         /// <inheritdoc cref="System.IO.File.AppendAllLines(string, IEnumerable{string})"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@type="FileOperation" and @modifying="true"]/*' />

@@ -12,12 +12,12 @@
     {
         private readonly AccessControlSections? _includeSections;
 
-        public GetAccessControlOperation(ITxDirectory directory, string path)
+        public GetAccessControlOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
 
-        public GetAccessControlOperation(ITxDirectory directory, string path,
+        public GetAccessControlOperation(TxDirectory directory, string path,
             AccessControlSections includeSections)
             : this(directory, path)
         {
@@ -32,10 +32,10 @@
 
             if (_includeSections.HasValue)
             {
-                return _directory.FileSystem.Directory.GetAccessControl(_path, _includeSections.Value);
+                return _directory.TxFileSystem.FileSystem.Directory.GetAccessControl(_path, _includeSections.Value);
             }
 
-            return _directory.FileSystem.Directory.GetAccessControl(_path);
+            return _directory.TxFileSystem.FileSystem.Directory.GetAccessControl(_path);
         }
     }
 }

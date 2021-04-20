@@ -7,12 +7,12 @@
     {
         private readonly bool _asUtc = false;
 
-        public GetCreationTimeOperation(ITxDirectory directory, string path)
+        public GetCreationTimeOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
 
-        public GetCreationTimeOperation(ITxDirectory directory, string path, bool asUtc)
+        public GetCreationTimeOperation(TxDirectory directory, string path, bool asUtc)
             : this(directory, path)
         {
             _asUtc = asUtc;
@@ -26,10 +26,10 @@
 
             if (_asUtc)
             {
-                return _directory.FileSystem.Directory.GetCreationTimeUtc(_path);
+                return _directory.TxFileSystem.FileSystem.Directory.GetCreationTimeUtc(_path);
             }
 
-            return _directory.FileSystem.Directory.GetCreationTime(_path);
+            return _directory.TxFileSystem.FileSystem.Directory.GetCreationTime(_path);
         }
     }
 }

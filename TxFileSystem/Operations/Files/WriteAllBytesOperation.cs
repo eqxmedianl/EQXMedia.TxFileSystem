@@ -13,7 +13,7 @@
     {
         private readonly byte[] _bytes = null;
 
-        public WriteAllBytesOperation(ITxFile file, string path, byte[] bytes)
+        public WriteAllBytesOperation(TxFile file, string path, byte[] bytes)
             : base(file, path)
         {
             _bytes = bytes;
@@ -25,7 +25,7 @@
         {
             Journalize(this);
 
-            _file.FileSystem.File.WriteAllBytes(_path, _bytes);
+            _file.TxFileSystem.FileSystem.File.WriteAllBytes(_path, _bytes);
         }
 
 #if !NETSTANDARD2_0 && !NET461
@@ -33,7 +33,7 @@
         {
             Journalize(this);
 
-            return _file.FileSystem.File.WriteAllBytesAsync(_path, _bytes, cancellationToken);
+            return _file.TxFileSystem.FileSystem.File.WriteAllBytesAsync(_path, _bytes, cancellationToken);
         }
 #endif
     }

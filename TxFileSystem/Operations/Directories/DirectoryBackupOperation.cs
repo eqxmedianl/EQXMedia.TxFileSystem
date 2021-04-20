@@ -6,10 +6,10 @@
 
     internal abstract class DirectoryBackupOperation : IBackupOperation
     {
-        private readonly ITxDirectory _directory;
+        protected TxDirectory _directory;
         private readonly Guid _tempFileUuid;
 
-        protected DirectoryBackupOperation(ITxDirectory directory, string path)
+        protected DirectoryBackupOperation(TxDirectory directory, string path)
         {
             _directory = directory;
             _tempFileUuid = Guid.NewGuid();
@@ -38,14 +38,14 @@
 
         public virtual void Backup()
         {
-            if (!OperationBackupGuard.ShouldBackup(((TxDirectory)_directory)._txFileSystem.Journal, this.OperationType))
+            if (!OperationBackupGuard.ShouldBackup(_directory.TxFileSystem.Journal, this.OperationType))
             {
                 return;
             }
 
-            if (_directory.FileSystem.Directory.Exists(this.Path))
+            if (_directory.TxFileSystem.FileSystem.Directory.Exists(this.Path))
             {
-                ((TxDirectory)_directory).CopyRecursive(this.Path, this.BackupPath);
+                _directory.CopyRecursive(this.Path, this.BackupPath);
             }
 
             this.IsBackedUp = true;
@@ -53,20 +53,20 @@
 
         public virtual void Delete()
         {
-            if (!OperationBackupGuard.ShouldRestore(((TxDirectory)_directory)._txFileSystem.Journal, this.OperationType))
+            if (!OperationBackupGuard.ShouldRestore(_directory.TxFileSystem.Journal, this.OperationType))
             {
                 return;
             }
 
-            if (_directory.FileSystem.Directory.Exists(this.BackupPath))
+            if (_directory.TxFileSystem.FileSystem.Directory.Exists(this.BackupPath))
             {
-                _directory.FileSystem.Directory.Delete(this.BackupPath, recursive: true);
+                _directory.TxFileSystem.FileSystem.Directory.Delete(this.BackupPath, recursive: true);
             }
         }
 
         public virtual void Restore()
         {
-            ((TxDirectory)_directory).CopyRecursive(this.BackupPath, this.Path);
+            _directory.CopyRecursive(this.BackupPath, this.Path);
 
             Delete();
         }

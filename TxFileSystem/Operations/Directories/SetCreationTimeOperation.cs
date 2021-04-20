@@ -10,13 +10,13 @@
         private DateTime _oldCreationTimeUtc;
         private DateTime _oldCreationTime;
 
-        public SetCreationTimeOperation(ITxDirectory directory, string path, DateTime creationTime)
+        public SetCreationTimeOperation(TxDirectory directory, string path, DateTime creationTime)
             : base(directory, path)
         {
             _creationTime = creationTime;
         }
 
-        public SetCreationTimeOperation(ITxDirectory directory, string path, DateTime creationTime, bool asUtc)
+        public SetCreationTimeOperation(TxDirectory directory, string path, DateTime creationTime, bool asUtc)
             : this(directory, path, creationTime)
         {
             _asUtc = asUtc;
@@ -26,8 +26,8 @@
 
         public override void Backup()
         {
-            _oldCreationTimeUtc = _directory.FileSystem.Directory.GetCreationTimeUtc(this.Path);
-            _oldCreationTime = _directory.FileSystem.Directory.GetCreationTime(this.Path);
+            _oldCreationTimeUtc = _directory.TxFileSystem.FileSystem.Directory.GetCreationTimeUtc(this.Path);
+            _oldCreationTime = _directory.TxFileSystem.FileSystem.Directory.GetCreationTime(this.Path);
         }
 
         public void Execute()
@@ -36,21 +36,21 @@
 
             if (_asUtc)
             {
-                _directory.FileSystem.Directory.SetCreationTimeUtc(_path, _creationTime);
+                _directory.TxFileSystem.FileSystem.Directory.SetCreationTimeUtc(_path, _creationTime);
             }
 
-            _directory.FileSystem.Directory.SetCreationTime(_path, _creationTime);
+            _directory.TxFileSystem.FileSystem.Directory.SetCreationTime(_path, _creationTime);
         }
 
         public override void Restore()
         {
             if (_asUtc)
             {
-                _directory.FileSystem.Directory.SetCreationTimeUtc(_path, _oldCreationTimeUtc);
+                _directory.TxFileSystem.FileSystem.Directory.SetCreationTimeUtc(_path, _oldCreationTimeUtc);
             }
             else
             {
-                _directory.FileSystem.Directory.SetCreationTime(_path, _oldCreationTime);
+                _directory.TxFileSystem.FileSystem.Directory.SetCreationTime(_path, _oldCreationTime);
             }
 
             Delete();

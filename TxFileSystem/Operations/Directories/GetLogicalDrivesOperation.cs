@@ -4,7 +4,7 @@
 
     internal sealed class GetLogicalDrivesOperation : DirectoryOperation, IReturningOperation<string[]>
     {
-        public GetLogicalDrivesOperation(ITxDirectory directory)
+        public GetLogicalDrivesOperation(TxDirectory directory)
             : base(directory)
         {
         }
@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            return _directory.FileSystem.Directory.GetLogicalDrives();
+            return _directory.TxFileSystem.FileSystem.Directory.GetLogicalDrives();
         }
     }
 }

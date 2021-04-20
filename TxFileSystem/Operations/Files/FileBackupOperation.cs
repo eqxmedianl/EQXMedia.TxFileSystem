@@ -6,10 +6,10 @@
 
     internal abstract class FileBackupOperation : IBackupOperation
     {
-        private readonly ITxFile _file = null;
+        protected readonly TxFile _file = null;
         protected readonly Guid _tempFileUuid;
 
-        protected FileBackupOperation(ITxFile file, string path)
+        protected FileBackupOperation(TxFile file, string path)
         {
             _file = file;
             _tempFileUuid = Guid.NewGuid();
@@ -21,7 +21,7 @@
         {
             get
             {
-                return ((TxFile)_file).GetBackupPath(this.Path, _tempFileUuid);
+                return _file.GetBackupPath(this.Path, _tempFileUuid);
             }
         }
 
@@ -31,30 +31,30 @@
 
         public virtual void Backup()
         {
-            if (!OperationBackupGuard.ShouldBackup(((TxFile)_file)._txFileSystem.Journal, this.OperationType))
+            if (!OperationBackupGuard.ShouldBackup(_file.TxFileSystem.Journal, this.OperationType))
             {
                 return;
             }
 
-            if (!_file.FileSystem.File.Exists(this.BackupPath))
+            if (!_file.TxFileSystem.FileSystem.File.Exists(this.BackupPath))
             {
-                _file.FileSystem.File.Copy(this.Path, this.BackupPath);
+                _file.TxFileSystem.FileSystem.File.Copy(this.Path, this.BackupPath);
             }
         }
 
         public void Delete()
         {
-            if (_file.FileSystem.File.Exists(this.BackupPath))
+            if (_file.TxFileSystem.FileSystem.File.Exists(this.BackupPath))
             {
-                _file.FileSystem.File.Delete(this.BackupPath);
+                _file.TxFileSystem.FileSystem.File.Delete(this.BackupPath);
             }
         }
 
         public void Restore()
         {
-            if (_file.FileSystem.File.Exists(this.BackupPath))
+            if (_file.TxFileSystem.FileSystem.File.Exists(this.BackupPath))
             {
-                _file.FileSystem.File.Copy(this.BackupPath, this.Path, overwrite: true);
+                _file.TxFileSystem.FileSystem.File.Copy(this.BackupPath, this.Path, overwrite: true);
             }
             Delete();
         }

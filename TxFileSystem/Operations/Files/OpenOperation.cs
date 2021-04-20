@@ -9,19 +9,19 @@
         private readonly FileAccess? _access;
         private readonly FileShare? _share;
 
-        public OpenOperation(ITxFile file, string path, FileMode mode)
+        public OpenOperation(TxFile file, string path, FileMode mode)
             : base(file, path)
         {
             _mode = mode;
         }
 
-        public OpenOperation(ITxFile file, string path, FileMode mode, FileAccess access)
+        public OpenOperation(TxFile file, string path, FileMode mode, FileAccess access)
             : this(file, path, mode)
         {
             _access = access;
         }
 
-        public OpenOperation(ITxFile file, string path, FileMode mode, FileAccess access, FileShare share)
+        public OpenOperation(TxFile file, string path, FileMode mode, FileAccess access, FileShare share)
             : this(file, path, mode, access)
         {
             _share = share;
@@ -35,15 +35,15 @@
 
             if (_access.HasValue && _share.HasValue)
             {
-                return _file.FileSystem.File.Open(_path, _mode, _access.Value, _share.Value);
+                return _file.TxFileSystem.FileSystem.File.Open(_path, _mode, _access.Value, _share.Value);
             }
 
             if (_access.HasValue)
             {
-                return _file.FileSystem.File.Open(_path, _mode, _access.Value);
+                return _file.TxFileSystem.FileSystem.File.Open(_path, _mode, _access.Value);
             }
 
-            return _file.FileSystem.File.Open(_path, _mode);
+            return _file.TxFileSystem.FileSystem.File.Open(_path, _mode);
         }
     }
 }
