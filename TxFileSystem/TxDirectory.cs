@@ -49,21 +49,32 @@
         /// </remarks>
         internal TxFileSystem TxFileSystem { get; set; }
 
+        /// <inheritdoc cref="System.IO.Directory.CreateDirectory(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="create"]/*' />
         public IDirectoryInfo CreateDirectory(string path)
         {
             return new CreateDirectoryOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.CreateDirectory(string)"/>
+        /// <param name="directorySecurity">The permissions that should be applied to created directory.</param>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="create"]/*' />
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
         public IDirectoryInfo CreateDirectory(string path, DirectorySecurity directorySecurity)
+#pragma warning restore CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
         {
             return new CreateDirectoryOperation(this, path, directorySecurity).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.Delete(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="delete"]/*' />
         public void Delete(string path)
         {
             new DeleteOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.Delete(string, bool)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="delete"]/*' />
         public void Delete(string path, bool recursive)
         {
             new DeleteOperation(this, path, recursive).Execute();
