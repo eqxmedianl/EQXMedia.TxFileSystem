@@ -2,6 +2,9 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <FrameworkName>.NET Framework 4.6.1</FrameworkName>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="EQXMedia.TxFileSystem" isDocumented="True" xmlns="">All classes of the TxFileSystem library that provide the transactional support for file system operations reside in this namespace.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="System.IO.Abstractions" isDocumented="False" xmlns="" /></NamespaceSummaries>
   </PropertyGroup>
   <!-- Import the common properties of the documentation projects for all supported framework versions -->
   <Import Project="..\Common\Documentation.Common.props" Condition="Exists('..\Documentation.Common.props')" />
