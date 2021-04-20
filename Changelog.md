@@ -2,6 +2,12 @@ TxFileSystem
 =================
 `TxFileSystem` is a transactional filesystem wrapper using the .NET filesystem abstraction from `System.IO.Abstractions`.
 
+Version 2.0.0
+-----------------
+
+* `TxFileSystem` class is now a `IFileSystem` implementation too.
+* Exposing the `TxFileSystem` on property instances too to maintain data integrity.
+
 Version 1.3.0
 -----------------
 
