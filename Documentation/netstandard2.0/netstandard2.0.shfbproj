@@ -87,9 +87,8 @@
     <HeaderText>Version $(FrameworkName)</HeaderText>
     <FooterText>&amp;lt%3bp&amp;gt%3bTxFileSystem is an OpenSource .NET Library designed and implemented by &amp;lt%3ba href=&amp;quot%3bhttps://www.linkedin.com/in/jarnokamminga/&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bJarno Kamminga&amp;lt%3b/a&amp;gt%3b.&amp;lt%3b/p&amp;gt%3b</FooterText>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Release\netstandard2.0\EQXMedia.TxFileSystem.dll" xmlns="" />
-      <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Release\netstandard2.0\EQXMedia.TxFileSystem.xml" xmlns="" />
-      <DocumentationSource sourceFile="..\..\..\..\.nuget\packages\system.io.abstractions\13.2.9\lib\netstandard2.0\System.IO.Abstractions.dll" />
+      <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Documentation\netstandard2.0\EQXMedia.TxFileSystem.dll" xmlns="" />
+      <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Documentation\netstandard2.0\EQXMedia.TxFileSystem.xml" xmlns="" />
     </DocumentationSources>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
