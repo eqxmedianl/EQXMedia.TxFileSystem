@@ -60,7 +60,7 @@
         ///   Creates a <see cref="TxFileSystem"/> instance.
         ///   
         ///   When no file system is passed using <paramref name="fileSystem" /> an instance of 
-        ///   <see cref="System.IO.Abstractions.FileSystem" /> is used instead.
+        ///   <c>System.IO.Abstractions.FileSystem</c> is used instead.
         /// </summary>
         /// <remarks>
         ///   <para>
