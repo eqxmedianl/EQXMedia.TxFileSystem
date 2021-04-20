@@ -79,16 +79,19 @@
             new DeleteOperation(this, path, recursive).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.EnumerateDirectories(string)"/>
         public IEnumerable<string> EnumerateDirectories(string path)
         {
             return new EnumerateDirectoriesOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.EnumerateDirectories(string, string)"/>
         public IEnumerable<string> EnumerateDirectories(string path, string searchPattern)
         {
             return new EnumerateDirectoriesOperation(this, path, searchPattern).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.EnumerateDirectories(string, string, SearchOption)"/>
         public IEnumerable<string> EnumerateDirectories(string path, string searchPattern,
             SearchOption searchOption)
         {
@@ -103,16 +106,19 @@
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.Directory.EnumerateFiles(string)"/>
         public IEnumerable<string> EnumerateFiles(string path)
         {
             return new EnumerateFilesOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.EnumerateFiles(string, string)"/>
         public IEnumerable<string> EnumerateFiles(string path, string searchPattern)
         {
             return new EnumerateFilesOperation(this, path, searchPattern).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.EnumerateFiles(string, string, SearchOption)"/>
         public IEnumerable<string> EnumerateFiles(string path, string searchPattern, SearchOption searchOption)
         {
             return new EnumerateFilesOperation(this, path, searchPattern, searchOption).Execute();
@@ -126,16 +132,19 @@
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.Directory.EnumerateFileSystemEntries(string)"/>
         public IEnumerable<string> EnumerateFileSystemEntries(string path)
         {
             return new EnumerateFileSystemEntriesOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.EnumerateFileSystemEntries(string, string)"/>
         public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern)
         {
             return new EnumerateFileSystemEntriesOperation(this, path, searchPattern).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.EnumerateFileSystemEntries(string, string, SearchOption)"/>
         public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern,
             SearchOption searchOption)
         {
@@ -151,6 +160,7 @@
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.Directory.Exists(string)"/>
         public bool Exists(string path)
         {
             return new ExistsOperation(this, path).Execute();
@@ -172,31 +182,37 @@
             return new GetAccessControlOperation(this, path, includeSections).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetCreationTime(string)"/>
         public DateTime GetCreationTime(string path)
         {
             return new GetCreationTimeOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetCreationTimeUtc(string)"/>
         public DateTime GetCreationTimeUtc(string path)
         {
             return new GetCreationTimeOperation(this, path, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetCurrentDirectory()"/>
         public string GetCurrentDirectory()
         {
             return new GetCurrentDirectoryOperation(this).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetDirectories(string)"/>
         public string[] GetDirectories(string path)
         {
             return new GetDirectoriesOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetDirectories(string, string)"/>
         public string[] GetDirectories(string path, string searchPattern)
         {
             return new GetDirectoriesOperation(this, path, searchPattern).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetDirectories(string, string, SearchOption)"/>
         public string[] GetDirectories(string path, string searchPattern, SearchOption searchOption)
         {
             return new GetDirectoriesOperation(this, path, searchPattern, searchOption).Execute();
@@ -210,21 +226,25 @@
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.Directory.GetDirectoryRoot(string)"/>
         public string GetDirectoryRoot(string path)
         {
             return new GetDirectoryRootOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetFiles(string)"/>
         public string[] GetFiles(string path)
         {
             return new GetFilesOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetFiles(string, string)"/>
         public string[] GetFiles(string path, string searchPattern)
         {
             return new GetFilesOperation(this, path, searchPattern).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetFiles(string, string, SearchOption)"/>
         public string[] GetFiles(string path, string searchPattern, SearchOption searchOption)
         {
             return new GetFilesOperation(this, path, searchPattern, searchOption).Execute();
@@ -237,46 +257,55 @@
         }
 #endif
 
+        /// <inheritdoc cref="System.IO.Directory.GetFileSystemEntries(string)"/>
         public string[] GetFileSystemEntries(string path)
         {
             return new GetFileSystemEntriesOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetFileSystemEntries(string, string)"/>
         public string[] GetFileSystemEntries(string path, string searchPattern)
         {
             return new GetFileSystemEntriesOperation(this, path, searchPattern).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetLastAccessTime(string)"/>
         public DateTime GetLastAccessTime(string path)
         {
             return new GetLastAccessTimeOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetLastAccessTimeUtc(string)"/>
         public DateTime GetLastAccessTimeUtc(string path)
         {
             return new GetLastAccessTimeOperation(this, path, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetLastWriteTime(string)"/>
         public DateTime GetLastWriteTime(string path)
         {
             return new GetLastWriteTimeOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetLastWriteTimeUtc(string)"/>
         public DateTime GetLastWriteTimeUtc(string path)
         {
             return new GetLastWriteTimeOperation(this, path, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetLogicalDrives()"/>
         public string[] GetLogicalDrives()
         {
             return new GetLogicalDrivesOperation(this).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetParent(string)"/>
         public IDirectoryInfo GetParent(string path)
         {
             return new GetParentOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.Move(string, string)"/>
         public void Move(string sourceDirName, string destDirName)
         {
             new MoveOperation(this, sourceDirName, destDirName).Execute();
@@ -290,36 +319,43 @@
             new SetAccessControlOperation(this, path, directorySecurity).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.SetCreationTime(string, DateTime)"/>
         public void SetCreationTime(string path, DateTime creationTime)
         {
             new SetCreationTimeOperation(this, path, creationTime).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.SetCreationTimeUtc(string, DateTime)"/>
         public void SetCreationTimeUtc(string path, DateTime creationTimeUtc)
         {
             new SetCreationTimeOperation(this, path, creationTimeUtc, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.SetCurrentDirectory(string)"/>
         public void SetCurrentDirectory(string path)
         {
             new SetCurrentDirectoryOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.SetLastAccessTime(string, DateTime)"/>
         public void SetLastAccessTime(string path, DateTime lastAccessTime)
         {
             new SetLastAccessTimeOperation(this, path, lastAccessTime).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.SetLastAccessTimeUtc(string, DateTime)"/>
         public void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc)
         {
             new SetLastAccessTimeOperation(this, path, lastAccessTimeUtc, asUtc: true).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.SetLastWriteTime(string, DateTime)"/>
         public void SetLastWriteTime(string path, DateTime lastWriteTime)
         {
             new SetLastWriteTimeOperation(this, path, lastWriteTime).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.SetLastWriteTimeUtc(string, DateTime)"/>
         public void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc)
         {
             new SetLastWriteTimeOperation(this, path, lastWriteTimeUtc, asUtc: true).Execute();
