@@ -80,18 +80,21 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.EnumerateDirectories(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IEnumerable<string> EnumerateDirectories(string path)
         {
             return new EnumerateDirectoriesOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.EnumerateDirectories(string, string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IEnumerable<string> EnumerateDirectories(string path, string searchPattern)
         {
             return new EnumerateDirectoriesOperation(this, path, searchPattern).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.EnumerateDirectories(string, string, SearchOption)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IEnumerable<string> EnumerateDirectories(string path, string searchPattern,
             SearchOption searchOption)
         {
@@ -107,18 +110,21 @@
 #endif
 
         /// <inheritdoc cref="System.IO.Directory.EnumerateFiles(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IEnumerable<string> EnumerateFiles(string path)
         {
             return new EnumerateFilesOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.EnumerateFiles(string, string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IEnumerable<string> EnumerateFiles(string path, string searchPattern)
         {
             return new EnumerateFilesOperation(this, path, searchPattern).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.EnumerateFiles(string, string, SearchOption)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IEnumerable<string> EnumerateFiles(string path, string searchPattern, SearchOption searchOption)
         {
             return new EnumerateFilesOperation(this, path, searchPattern, searchOption).Execute();
@@ -133,18 +139,21 @@
 #endif
 
         /// <inheritdoc cref="System.IO.Directory.EnumerateFileSystemEntries(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IEnumerable<string> EnumerateFileSystemEntries(string path)
         {
             return new EnumerateFileSystemEntriesOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.EnumerateFileSystemEntries(string, string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern)
         {
             return new EnumerateFileSystemEntriesOperation(this, path, searchPattern).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.EnumerateFileSystemEntries(string, string, SearchOption)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern,
             SearchOption searchOption)
         {
@@ -161,6 +170,7 @@
 #endif
 
         /// <inheritdoc cref="System.IO.Directory.Exists(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public bool Exists(string path)
         {
             return new ExistsOperation(this, path).Execute();
@@ -183,12 +193,14 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetCreationTime(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public DateTime GetCreationTime(string path)
         {
             return new GetCreationTimeOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetCreationTimeUtc(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public DateTime GetCreationTimeUtc(string path)
         {
             return new GetCreationTimeOperation(this, path, asUtc: true).Execute();
@@ -201,18 +213,21 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetDirectories(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public string[] GetDirectories(string path)
         {
             return new GetDirectoriesOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetDirectories(string, string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public string[] GetDirectories(string path, string searchPattern)
         {
             return new GetDirectoriesOperation(this, path, searchPattern).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetDirectories(string, string, SearchOption)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public string[] GetDirectories(string path, string searchPattern, SearchOption searchOption)
         {
             return new GetDirectoriesOperation(this, path, searchPattern, searchOption).Execute();
@@ -227,24 +242,28 @@
 #endif
 
         /// <inheritdoc cref="System.IO.Directory.GetDirectoryRoot(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public string GetDirectoryRoot(string path)
         {
             return new GetDirectoryRootOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetFiles(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public string[] GetFiles(string path)
         {
             return new GetFilesOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetFiles(string, string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public string[] GetFiles(string path, string searchPattern)
         {
             return new GetFilesOperation(this, path, searchPattern).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetFiles(string, string, SearchOption)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public string[] GetFiles(string path, string searchPattern, SearchOption searchOption)
         {
             return new GetFilesOperation(this, path, searchPattern, searchOption).Execute();
@@ -258,36 +277,42 @@
 #endif
 
         /// <inheritdoc cref="System.IO.Directory.GetFileSystemEntries(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public string[] GetFileSystemEntries(string path)
         {
             return new GetFileSystemEntriesOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetFileSystemEntries(string, string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public string[] GetFileSystemEntries(string path, string searchPattern)
         {
             return new GetFileSystemEntriesOperation(this, path, searchPattern).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetLastAccessTime(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public DateTime GetLastAccessTime(string path)
         {
             return new GetLastAccessTimeOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetLastAccessTimeUtc(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public DateTime GetLastAccessTimeUtc(string path)
         {
             return new GetLastAccessTimeOperation(this, path, asUtc: true).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetLastWriteTime(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public DateTime GetLastWriteTime(string path)
         {
             return new GetLastWriteTimeOperation(this, path).Execute();
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetLastWriteTimeUtc(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public DateTime GetLastWriteTimeUtc(string path)
         {
             return new GetLastWriteTimeOperation(this, path, asUtc: true).Execute();
@@ -300,6 +325,7 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetParent(string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public IDirectoryInfo GetParent(string path)
         {
             return new GetParentOperation(this, path).Execute();
