@@ -6,7 +6,7 @@
 
     /// <summary>
     ///   Transactional file system is actually a wrapper around file systems that implement the 
-    ///   <see cref="System.IO.Abstractions.IFileSystem" /> interface. Proving transactional operations on files,
+    ///   <c>System.IO.Abstractions.IFileSystem</c> interface. Proving transactional operations on files,
     ///   directories and file streams using the file system it wraps.
     /// </summary>
     /// <remarks>
@@ -35,20 +35,24 @@
     ///   </para>
     ///   
     ///   <para>
-    ///     By creating the instance of<see cref="EQXMedia.TxFileSystem.TxFileSystem" /> inside the
+    ///     By creating the instance of <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> inside the
     ///     <see cref="System.Transactions.TransactionScope" />, the journal providing the rollback
     ///     functionality becomes active, resulting in data integrity to be preserved.
     ///   </para>
     ///
     ///   <para>
-    ///     Creating the instance of <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> outside the
-    ///     <see cref = "System.Transactions.TransactionScope" />, results in the journal providing the rollback
+    ///     Creating the instance of <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> outside the <see 
+    ///     cref="System.Transactions.TransactionScope" />, results in the journal providing the rollback
     ///     functionality not being used. In this case the<see cref="EQXMedia.TxFileSystem.TxFileSystem" />
-    ///     instance will function as the regular <see cref = "System.IO.Abstractions.IFileSystem" />
+    ///     instance will function as the regular <c>System.IO.Abstractions.IFileSystem</c>
     ///     implementation instance it wraps.
     ///   </para>
     /// </remarks>
     /// <seealso href="https://txfilesystem.io/docs/TxFileSystem" />
+    /// <seealso href="https://github.com/System-IO-Abstractions/System.IO.Abstractions" 
+    ///   alt="System.IO.Abstractions on NuGet"/>
+    /// <seealso href="https://www.nuget.org/packages/System.IO.Abstractions/" 
+    ///   alt="System.IO.Abstractions on GitHub"/>
     [Serializable]
     public sealed class TxFileSystem : IFileSystem
     {
@@ -108,6 +112,10 @@
         ///   A file system on which transactional operations should be performed.
         /// </param>
         /// <seealso cref="System.Transactions.TransactionScope"/>
+        /// <seealso href="https://github.com/System-IO-Abstractions/System.IO.Abstractions" 
+        ///   alt="System.IO.Abstractions on NuGet"/>
+        /// <seealso href="https://www.nuget.org/packages/System.IO.Abstractions/" 
+        ///   alt="System.IO.Abstractions on GitHub"/>
         public TxFileSystem(IFileSystem fileSystem = null)
         {
             this.FileSystem = fileSystem ?? new FileSystem();
