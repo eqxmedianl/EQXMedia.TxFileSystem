@@ -48,7 +48,7 @@
     <MaximumGroupParts>2</MaximumGroupParts>
     <Preliminary>False</Preliminary>
     <SdkLinkTarget>Blank</SdkLinkTarget>
-    <SourceCodeBasePath>..\TxFileSystem\</SourceCodeBasePath>
+    <SourceCodeBasePath>..\..\TxFileSystem\</SourceCodeBasePath>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <CopyrightHref>https://raw.githubusercontent.com/eqxmedianl/EQXMedia.TxFileSystem/main/License.md</CopyrightHref>
     <CopyrightText>Copyright %28c%29 2021, EQX Media B.V. - All rights reserved.</CopyrightText>
@@ -131,6 +131,6 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Documentation' ">
-    <OutputPath>bin\Documentation\</OutputPath>
+    <OutputPath>..\..\Help\</OutputPath>
   </PropertyGroup>
 </Project>
