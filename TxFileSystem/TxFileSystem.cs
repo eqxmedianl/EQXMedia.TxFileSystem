@@ -231,9 +231,6 @@
         ///     Provides properties and methods for the creation, copying, deletion, moving, and opening files, 
         ///     and aids in the creation of <see cref="System.IO.FileStream" /> objects.
         ///   </para>
-        ///   <para>
-        ///     This class cannot be inherited.
-        ///   </para>
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
         public TxFileInfo FileInfo { get; }
@@ -242,9 +239,6 @@
         ///   <para>
         ///     Provides a <see cref="System.IO.Stream" /> for a file, supporting both synchronous and asynchronous 
         ///     read and write operations.
-        ///   </para>
-        ///   <para>
-        ///     This class cannot be inherited.
         ///   </para>
         /// </summary>        
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
@@ -265,18 +259,12 @@
         ///     Performs operations on <see cref="System.String"/> instances that contain file or directory path 
         ///     information. These operations are performed in a cross-platform manner.
         ///   </para>
-        ///   <para>
-        ///     This class cannot be inherited.
-        ///   </para>
         /// </summary>
         public TxPath Path { get; }
 
         /// <summary>
         ///   <para>
         ///     Exposes methods for creating, moving, and enumerating through directories and subdirectories. 
-        ///   </para>
-        ///   <para>
-        ///     This class cannot be inherited.
         ///   </para>
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
@@ -286,9 +274,6 @@
         ///   <para>
         ///     Provides access to information on a drive.
         ///   </para>
-        ///   <para>
-        ///     This class cannot be inherited.
-        ///   </para>
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
         public TxDriveInfo DriveInfo { get; }
@@ -297,9 +282,6 @@
         ///   <para>
         ///     Listens to the file system change notifications and raises events when a directory, or file 
         ///     in a directory, changes.
-        ///   </para>
-        ///   <para>
-        ///     This class cannot be inherited.
         ///   </para>
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
