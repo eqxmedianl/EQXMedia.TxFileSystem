@@ -57,11 +57,10 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.CreateDirectory(string)"/>
+        /// <param name="path">The directory to create.</param>
         /// <param name="directorySecurity">The permissions that should be applied to created directory.</param>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="create"]/*' />
-#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
         public IDirectoryInfo CreateDirectory(string path, DirectorySecurity directorySecurity)
-#pragma warning restore CS1573 // Parameter has no matching param tag in the XML comment (but other parameters do)
         {
             return new CreateDirectoryOperation(this, path, directorySecurity).Execute();
         }
