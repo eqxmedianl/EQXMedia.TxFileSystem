@@ -43,6 +43,7 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <AssemblyName>EQXMedia.TxFileSystem</AssemblyName>
     <RootNamespace>EQXMedia.TxFileSystem</RootNamespace>
+    <Configurations>Debug;Release;Documentation</Configurations>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">

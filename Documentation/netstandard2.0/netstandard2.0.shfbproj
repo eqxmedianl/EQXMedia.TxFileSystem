@@ -142,4 +142,7 @@
     </PostBuildEvent>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Documentation' ">
+    <OutputPath>bin\Documentation\</OutputPath>
+  </PropertyGroup>
 </Project>
