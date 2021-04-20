@@ -2,18 +2,23 @@
    <Extensions>
       <FileSystemProperties>
          <FileSystemProperty modifying="true">
-            <remarks>
-              <para>
-                This object contains methods that modify file system resources, and those that don't
-                modify those. Dependant on the method being invoked journalizing and, backup and
-                restore, might take place or not.
-              </para>
-            </remarks>
+           <remarks>
+             <para>
+               Depending on the method of this object's instance being invoked the journal is used or 
+               not. Backup and restore takes place depending on the state of the journal.
+             </para>
+           </remarks>
+           <value>
+             <para>
+               This object instance contains both methods that modify file system resources and methods 
+               that don't modify any of them.
+             </para>
+           </value>
          </FileSystemProperty>
          <FileSystemProperty modifying="false">
             <remarks>
               <para>
-                This object only contains methods that don't modify any file system resources.
+                This object instance only contains methods that don't modify any file system resources.
                 Regardless of which of this object's methods is being invoked journalizing and, backup 
                 and restore, never take place.
               </para>

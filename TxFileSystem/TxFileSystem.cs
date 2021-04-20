@@ -84,8 +84,7 @@
         /// using System.IO.Abstractions;
         /// using EQXMedia.TxFileSystem;
         /// 
-        /// var fileSystem = new FileSystem();
-        /// var txFileSystem = new TxFileSystem(fileSystem);
+        /// var txFileSystem = new TxFileSystem(new FileSystem());
         /// </code>
         /// 
         /// The second sample shows how to create an instance without passing it a file system implementation. 
@@ -131,20 +130,99 @@
         }
 
         /// <summary>
-        ///   Provides operations for the creation, copying, deletion, moving, and opening of a single file,
-        ///   and aids in the creation of <see cref="FileStream" /> objects.
+        ///   Provides methods for the creation, copying, deletion, moving, and opening of a single file,
+        ///   and aids in the creation of <see cref="System.IO.FileStream" /> objects.
         /// </summary>
+        /// <example>
+        /// The first sample shows a method being used that creates a file. Thus, underlying the journal 
+        /// is used providing rollback functionality in case of exceptions.
+        /// 
+        /// If the transaction scope completes successfully the created file is kept, otherwise the 
+        /// file will be removed upon rolling back the journalized operations.
+        ///     
+        /// <code>
+        /// using System.Transactions;
+        /// using System.IO.Abstractions;
+        /// using EQXMedia.TxFileSystem;
+        /// 
+        /// using (var transactionScope = new TransactionScope())
+        /// {
+        ///     var txFileSystem = new TxFileSystem(new FileSystem());
+        ///     txFileSystem.File.Create("/tmp/somefile.txt");
+        ///     transactionScope.Complete();
+        /// }
+        /// </code>
+        /// 
+        /// The second sample shows both a journalizing operation being used and one that is not 
+        /// journalized.
+        /// 
+        /// Only creating the file will be rolled back if an exception occurs. The check to
+        /// see whether the file exists or not doesn't have to be rolled back. Simply because 
+        /// it doesn't modify any file system resources.
+        ///     
+        /// <code>
+        /// using System.Transactions;
+        /// using System.IO.Abstractions;
+        /// using EQXMedia.TxFileSystem;
+        /// 
+        /// using (var transactionScope = new TransactionScope())
+        /// {
+        ///     var txFileSystem = new TxFileSystem(new FileSystem());
+        ///     if (!txFileSystem.File.Exists("/tmp/somefile.txt") {
+        ///         txFileSystem.File.Create("/tmp/somefile.txt");
+        ///     }
+        ///     transactionScope.Complete();
+        /// }
+        /// </code>
+        /// </example>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
         public TxFile File { get; }
 
         /// <summary>
-        ///   <para>
-        ///     Exposes operations for creating, moving, and enumerating through directories and subdirectories.
-        ///   </para>
-        ///   <para>
-        ///     This class cannot be inherited.
-        ///   </para>
+        ///   Exposes methods for creating, moving, and enumerating through directories and subdirectories.
         /// </summary>
+        /// <example>
+        /// The first sample shows a method being used that creates a directory. Thus, underlying the journal 
+        /// is used providing rollback functionality in case of exceptions.
+        /// 
+        /// If the transaction scope completes successfully the created directory is kept, otherwise the 
+        /// directory will be removed upon rolling back the journalized operations.
+        ///     
+        /// <code>
+        /// using System.Transactions;
+        /// using System.IO.Abstractions;
+        /// using EQXMedia.TxFileSystem;
+        /// 
+        /// using (var transactionScope = new TransactionScope())
+        /// {
+        ///     var txFileSystem = new TxFileSystem(new FileSystem());
+        ///     txFileSystem.Directory.Create("/data/downloads/audiobooks");
+        ///     transactionScope.Complete();
+        /// }
+        /// </code>
+        /// 
+        /// The second sample shows both a journalizing operation being used and one that is not 
+        /// journalized.
+        /// 
+        /// Only creating the directory will be rolled back if an exception occurs. The check to
+        /// see whether the directory exists or not doesn't have to be rolled back. Simply 
+        /// because it doesn't modify any file system resources.
+        ///     
+        /// <code>
+        /// using System.Transactions;
+        /// using System.IO.Abstractions;
+        /// using EQXMedia.TxFileSystem;
+        /// 
+        /// using (var transactionScope = new TransactionScope())
+        /// {
+        ///     var txFileSystem = new TxFileSystem(new FileSystem());
+        ///     if (!txFileSystem.Directory.Exists("/data/downloads/audiobooks") {
+        ///         txFileSystem.Directory.Create("/data/downloads/audiobooks");
+        ///     }
+        ///     transactionScope.Complete();
+        /// }
+        /// </code>
+        /// </example>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
         public TxDirectory Directory { get; }
 
