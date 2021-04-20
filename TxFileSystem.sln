@@ -34,6 +34,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{449E83
 		Documentation.Common.props = Documentation.Common.props
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XmlDoc", "XmlDoc", "{16E99C74-6414-4C8D-A981-BC8BB3961CB1}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\XmlDoc\TxFileSystem.XmlDoc.Extensions.xml = Documentation\XmlDoc\TxFileSystem.XmlDoc.Extensions.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +72,7 @@ Global
 		{33A7DEA9-E2A5-4D1F-A536-23A9131CC7AE} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 		{523DB749-C7DE-4414-88C4-8C0E41D38A37} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 		{449E8367-A3C9-4455-BC02-3F41EA1898C8} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
+		{16E99C74-6414-4C8D-A981-BC8BB3961CB1} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7076B68C-14D6-4D20-A715-F5FB506D15CF}
