@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Topics>
-  <Topic id="1d8dab58-4f19-485f-af72-1382f2a74874" visible="True" isDefault="true" isSelected="true" title="Welcome to the [TODO: Add project name]">
+  <Topic id="1d8dab58-4f19-485f-af72-1382f2a74874" visible="True" isDefault="true" isSelected="true" title="TxFileSystem Documentation">
     <HelpKeywords>
       <HelpKeyword index="K" term="Welcome" />
     </HelpKeywords>
