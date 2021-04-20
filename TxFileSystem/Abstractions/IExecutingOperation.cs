@@ -1,6 +1,6 @@
 ﻿namespace EQXMedia.TxFileSystem.Abstractions
 {
-    public interface IExecutingOperation : IOperation
+    internal interface IExecutingOperation : IOperation
     {
     }
 }

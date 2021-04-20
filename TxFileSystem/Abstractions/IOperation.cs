@@ -2,7 +2,7 @@
 {
     using global::EQXMedia.TxFileSystem.Operations;
 
-    public interface IOperation
+    internal interface IOperation
     {
         OperationType OperationType { get; }
 

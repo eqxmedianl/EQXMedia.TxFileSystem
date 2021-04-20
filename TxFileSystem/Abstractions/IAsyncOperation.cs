@@ -3,7 +3,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public interface IAsyncOperation
+    internal interface IAsyncOperation
     {
         Task ExecuteAsync(CancellationToken cancellationToken = default);
     }
