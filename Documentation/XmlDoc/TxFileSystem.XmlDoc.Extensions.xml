@@ -1,11 +1,42 @@
 <TxFileSystem.BaseDocs>
    <Extensions>
+      <Classes>
+         <Class modifying="true">
+           <summary>
+             <para>
+               Instances of this object contain both methods that modify file system resources and
+               methods that don't modify any of them.
+             </para>
+           </summary>
+           <remarks>
+             <para>
+               Depending on the method of this object's instances being invoked the journal is used or
+               not. Backup and restore takes place depending on the usage of the journal.
+             </para>
+           </remarks>
+         </Class>
+        <Class modifying="false">
+           <summary>
+             <para>
+               Instances of this object only contain methods that don't modify file system resources.
+               Its methods are simply passed to the wrapped file system.
+             </para>
+           </summary>
+            <remarks>
+              <para>
+                Instances of this object only contain methods that don't modify any file system resources.
+                Regardless of which of this object's methods is being invoked journalizing and, backup 
+                and restore, never take place.
+              </para>
+            </remarks>
+         </Class>
+      </Classes>
       <FileSystemProperties>
          <FileSystemProperty modifying="true">
            <remarks>
              <para>
                Depending on the method of this object's instance being invoked the journal is used or 
-               not. Backup and restore takes place depending on the state of the journal.
+               not. Backup and restore takes place depending on usage of the journal.
              </para>
            </remarks>
            <value>

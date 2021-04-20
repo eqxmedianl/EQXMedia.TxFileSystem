@@ -11,9 +11,18 @@
     using System.Runtime.Versioning;
 #endif
 
+    /// <summary>
+    ///   Transactional file stream exposes a factory to create a <see cref="System.IO.Stream" /> for a file, 
+    ///   supporting both synchronous and asynchronous read and write operations.
+    ///   
+    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="true"]/summary/*' />
+    /// </summary>
     /// <remarks>
-    ///   <c>TxFileStream</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileStream" />. 
-    ///   It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
+    ///   <para>
+    ///     <c>TxFileStream</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileStream" />. 
+    ///     It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
+    ///   </para>
+    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="true"]/remarks/*' />
     /// </remarks>
     [Serializable]
     public class TxFileStream : IFileStreamFactory
