@@ -228,8 +228,8 @@
 
         /// <summary>
         ///   <para>
-        ///     Provides properties and methods for the creation, copying, deletion, moving, and opening files, 
-        ///     and aids in the creation of <see cref="System.IO.FileStream" /> objects.
+        ///     Exposes methods to aid in the creation of <see cref="System.IO.FileInfo" /> objects.
+        ///     Which can be used to get information about files.
         ///   </para>
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
@@ -237,8 +237,8 @@
 
         /// <summary>
         ///   <para>
-        ///     Provides a <see cref="System.IO.Stream" /> for a file, supporting both synchronous and asynchronous 
-        ///     read and write operations.
+        ///     Exposes a factory to create a <see cref="System.IO.Stream" /> for a file, supporting 
+        ///     both synchronous and asynchronous read and write operations.
         ///   </para>
         /// </summary>        
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
@@ -252,19 +252,27 @@
         /// </remarks>
         internal IFileSystem FileSystem { get; set; }
 
+        /// <summary>
+        ///   The journal which stores the transactional operations that might have to be rolled back.
+        /// </summary>
+        /// <remarks>
+        ///   This is only to be used internally by this library.
+        /// </remarks>
         internal TxJournal Journal { get; } = new TxJournal();
 
         /// <summary>
         ///   <para>
-        ///     Performs operations on <see cref="System.String"/> instances that contain file or directory path 
-        ///     information. These operations are performed in a cross-platform manner.
+        ///     Exposes methods to perform operations on <see cref="System.String"/> instances that 
+        ///     contain file or directory path information. These operations are performed in a 
+        ///     cross-platform manner.
         ///   </para>
         /// </summary>
         public TxPath Path { get; }
 
         /// <summary>
         ///   <para>
-        ///     Exposes methods for creating, moving, and enumerating through directories and subdirectories. 
+        ///     Exposes methods to aid in the creation of <see cref="System.IO.DirectoryInfo" /> 
+        ///     objects. Which can be used to get information about directories.
         ///   </para>
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
@@ -272,7 +280,8 @@
 
         /// <summary>
         ///   <para>
-        ///     Provides access to information on a drive.
+        ///     Exposes methods to aid in the creation of <see cref="System.IO.DriveInfo" /> 
+        ///     objects. Which can be used to get information about drives.
         ///   </para>
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
@@ -280,8 +289,9 @@
 
         /// <summary>
         ///   <para>
-        ///     Listens to the file system change notifications and raises events when a directory, or file 
-        ///     in a directory, changes.
+        ///     Exposes a factory to aid in the creation of <see cref="System.IO.FileSystemWatcher" /> 
+        ///     objects. Which enables listening to file system change notifications and raise events 
+        ///     when a directory, or file in a directory, changes.
         ///   </para>
         /// </summary>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="false"]/*' />
