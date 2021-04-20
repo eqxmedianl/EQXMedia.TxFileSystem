@@ -48,28 +48,28 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
     <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
     <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
     <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net461'">
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DocumentationFile>EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
     <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
