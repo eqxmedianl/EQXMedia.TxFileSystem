@@ -64,7 +64,7 @@
         Info,
 
         /// <summary>
-        ///   Used to specify that an operation navigates the <see cref="System.IO.Abstractions.IFileSystem" />.
+        ///   Used to specify that an operation navigates the <c>System.IO.Abstractions.IFileSystem</c>.
         /// </summary>
         /// <remarks>
         ///   This is a journalizing operation, even though no modifications are made to file system

@@ -31,12 +31,12 @@
 
         /// <summary>
         ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" />, which actually is an 
-        ///   implementation of <see cref="System.IO.Abstractions.IFileSystem" /> itself too.
+        ///   implementation of <c>System.IO.Abstractions.IFileSystem</c> itself too.
         /// </summary>
         /// <remarks>
         ///   <para>
-        ///     This property is exposed by the <see cref="System.IO.Abstractions.IFile" /> interface. The way 
-        ///     it is implemented in this library, ensures that all operations performed through this property,
+        ///     This property is exposed by the <c>System.IO.Abstractions.IFile</c> interface. The way it is 
+        ///     implemented in this library, ensures that all operations performed through this property,
         ///     are transactional too. Whenever required.
         ///   </para>
         ///   <para>
