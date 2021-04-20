@@ -93,6 +93,17 @@
               </listItem>
             </list>
 					</listItem>
+          
+          <listItem>
+            <para>
+              Published on as a NuGet package on <externalLink>
+                <linkText>NuGet.org</linkText>
+                <linkUri>https://www.nuget.org/packages/EQXMedia.TxFileSystem/</linkUri>
+                <linkTarget>_blank</linkTarget>
+              </externalLink>.
+            </para>
+          </listItem>
+          
 				</list>
 
 				<para>
