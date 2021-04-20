@@ -92,6 +92,15 @@
               <see href="https://txfilesystem.io/docs/DirectoryOperation" />
             </remarks>
          </Operation>
+         <Operation kind="FileSystemOperation" type="info">
+            <remarks>
+              <para>
+                This is an operation that returns information about the file system, hence it is not 
+                journalized. There is no need for the operation to be rolled back.
+              </para>
+              <see href="https://txfilesystem.io/docs/DirectoryOperation" />
+            </remarks>
+         </Operation>
       </Operations>
    </Extensions>
 </TxFileSystem.BaseDocs>

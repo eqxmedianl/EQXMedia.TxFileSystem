@@ -207,6 +207,7 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetCurrentDirectory()"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileSystemOperation" and @type="info"]/*' />
         public string GetCurrentDirectory()
         {
             return new GetCurrentDirectoryOperation(this).Execute();
@@ -319,6 +320,7 @@
         }
 
         /// <inheritdoc cref="System.IO.Directory.GetLogicalDrives()"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileSystemOperation" and @type="info"]/*' />
         public string[] GetLogicalDrives()
         {
             return new GetLogicalDrivesOperation(this).Execute();
