@@ -146,6 +146,6 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Documentation' ">
-    <OutputPath>..\..\Help\</OutputPath>
+    <OutputPath>..\GeneratedHelp\netstandard2.0\</OutputPath>
   </PropertyGroup>
 </Project>

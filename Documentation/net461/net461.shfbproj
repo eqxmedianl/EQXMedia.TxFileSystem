@@ -131,6 +131,6 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Documentation' ">
-    <OutputPath>..\..\Help\</OutputPath>
+    <OutputPath>..\Generated\net461\</OutputPath>
   </PropertyGroup>
 </Project>
