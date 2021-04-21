@@ -24,33 +24,10 @@
             this.TxFileSystem = txFileSystem;
         }
 
-        /// <summary>
-        ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" />, which actually is an 
-        ///   implementation of <c>System.IO.Abstractions.IFileSystem</c> itself too.
-        /// </summary>
-        /// <remarks>
-        ///   <para>
-        ///     This property is exposed by the <c>System.IO.Abstractions.IPath</c> interface. The way it is 
-        ///     implemented in this library, ensures that all operations performed through this property, are 
-        ///     transactional too. Whenever required.
-        ///   </para>
-        ///   <para>
-        ///     This is useful for implementing extension methods.
-        ///   </para>
-        /// </remarks>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@property="FileSystem"]/*' />
         public IFileSystem FileSystem => this.TxFileSystem;
 
-        /// <summary>
-        ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this <see 
-        ///     cref="EQXMedia.TxFileSystem.TxFileSystemWatcher" /> instance belongs to. Thus not the actual 
-        ///     file system being wrapped.
-        /// </summary>
-        /// <remarks>
-        ///   <para>
-        ///      Use <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystem" /> to perform operations on 
-        ///      the wrapped file system.
-        ///   </para>
-        /// </remarks>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@property="TxFileSystem"]/*' />
         internal TxFileSystem TxFileSystem { get; set; }
 
         public char AltDirectorySeparatorChar => this.TxFileSystem.FileSystem.Path.AltDirectorySeparatorChar;

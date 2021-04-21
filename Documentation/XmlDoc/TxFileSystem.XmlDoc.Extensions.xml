@@ -30,6 +30,45 @@
               </para>
             </remarks>
          </Class>
+         <Class property="FileSystem">
+           <summary>
+             Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" />, which actually is an
+             implementation of <c>System.IO.Abstractions.IFileSystem</c> itself too.
+           </summary>
+           <value>
+             This read-only value contains the instance of the <see
+               cref="EQXMedia.TxFileSystem.TxFileSystem" /> you created.
+           </value>
+           <remarks>
+             <para>
+               This property is exposed by the <c>System.IO.Abstractions.IDirectory</c> interface. The
+               way it is implemented in this library, ensures that all operations performed through this
+               property, are transactional too. Whenever required.
+             </para>
+             <para>
+               Everywhere a <c>System.IO.Abstractions.IFileSystem</c> interface implementation is returned,
+               the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance you created is returned.
+               Instead of exposing the wrapped file system. This is done to make the transactional operations
+               the default. Ensuring data integrity is kept intact.
+             </para>
+             <para>
+               This property is useful for implementing extension methods.
+             </para>
+           </remarks>
+         </Class>
+         <Class property="TxFileSystem">
+           <summary>
+             Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this <see
+               cref="EQXMedia.TxFileSystem.TxFileSystemWatcher" /> instance belongs to. Thus not the actual
+             file system being wrapped.
+           </summary>
+           <remarks>
+             <para>
+               Use <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystem" /> to perform operations on
+               the wrapped file system.
+             </para>
+           </remarks>
+         </Class>
       </Classes>
       <FileSystemProperties>
          <FileSystemProperty modifying="true">

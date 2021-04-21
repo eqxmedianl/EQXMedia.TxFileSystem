@@ -24,17 +24,7 @@
             this.TxFileSystem = fileSystem;
         }
 
-        /// <summary>
-        ///   Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this <see 
-        ///     cref="EQXMedia.TxFileSystem.TxDirectoryInfo" /> instance belongs to. Thus not the actual file 
-        ///     system being wrapped.
-        /// </summary>
-        /// <remarks>
-        ///   <para>
-        ///      Use <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystem" /> to perform operations on the 
-        ///      wrapped file system.
-        ///   </para>
-        /// </remarks>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@property="TxFileSystem"]/*' />
         internal TxFileSystem TxFileSystem { get; set; }
 
         /// <summary>
