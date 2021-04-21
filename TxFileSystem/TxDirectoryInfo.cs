@@ -19,9 +19,10 @@
     [Serializable]
     public sealed class TxDirectoryInfo : IDirectoryInfoFactory
     {
-        internal TxDirectoryInfo(TxFileSystem fileSystem)
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@context="constructor" and @param="TxFileSystem"]/*' />
+        internal TxDirectoryInfo(TxFileSystem txFileSystem)
         {
-            this.TxFileSystem = fileSystem;
+            this.TxFileSystem = txFileSystem;
         }
 
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@property="TxFileSystem"]/*' />

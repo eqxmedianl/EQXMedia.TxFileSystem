@@ -33,9 +33,10 @@
     [Serializable]
     public sealed class TxFile : IFile
     {
-        internal TxFile(TxFileSystem fileSystem)
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@context="constructor" and @param="TxFileSystem"]/*' />
+        internal TxFile(TxFileSystem txFileSystem)
         {
-            this.TxFileSystem = fileSystem;
+            this.TxFileSystem = txFileSystem;
         }
 
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@property="FileSystem"]/*' />

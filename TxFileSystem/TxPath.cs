@@ -19,6 +19,7 @@
     [Serializable]
     public sealed class TxPath : IPath
     {
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@context="constructor" and @param="TxFileSystem"]/*' />
         internal TxPath(TxFileSystem txFileSystem)
         {
             this.TxFileSystem = txFileSystem;

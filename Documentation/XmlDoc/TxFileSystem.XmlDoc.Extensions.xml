@@ -30,7 +30,7 @@
               </para>
             </remarks>
          </Class>
-         <Class property="FileSystem">
+         <Class context="property" property="FileSystem">
            <summary>
              Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" />, which actually is an
              implementation of <c>System.IO.Abstractions.IFileSystem</c> itself too.
@@ -56,7 +56,7 @@
              </para>
            </remarks>
          </Class>
-         <Class property="TxFileSystem">
+         <Class context="property" property="TxFileSystem">
            <summary>
              Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this <see
                cref="EQXMedia.TxFileSystem.TxFileSystemWatcher" /> instance belongs to. Thus not the actual
@@ -68,6 +68,14 @@
                the wrapped file system.
              </para>
            </remarks>
+         </Class>
+         <Class context="constructor" param="TxFileSystem">
+           <remarks>
+             This is an internal constructor and thus not exposed to developers using this library.
+             The class is constructed only by the library itself, as a child of <see
+               cref="EQXMedia.TxFileSystem.TxFileSystem" /> instances developers can create.
+           </remarks>
+           <param name="txFileSystem">The transactional file system wrapper that creates an instance of this class.</param>
          </Class>
       </Classes>
       <FileSystemProperties>

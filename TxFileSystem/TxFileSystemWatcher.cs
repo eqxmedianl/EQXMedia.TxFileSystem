@@ -20,6 +20,7 @@
     [Serializable]
     public sealed class TxFileSystemWatcher : IFileSystemWatcherFactory
     {
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@context="constructor" and @param="TxFileSystem"]/*' />
         internal TxFileSystemWatcher(TxFileSystem txFileSystem)
         {
             this.TxFileSystem = txFileSystem;
