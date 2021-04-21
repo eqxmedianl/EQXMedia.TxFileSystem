@@ -32,7 +32,7 @@
         ///   Returns information about the drive with the specified name.
         /// </summary>
         /// <param name="driveName">The name of the drive to retrieve information from.</param>
-        /// <returns>The information about the specified drive.</returns>
+        /// <returns>The information about the drive with the specified name.</returns>
         /// <seealso cref="System.IO.DriveInfo" alt="Resembles System.IO.Abstractions.IDriveInfo" target="_blank"/>
         public IDriveInfo FromDriveName(string driveName)
         {
