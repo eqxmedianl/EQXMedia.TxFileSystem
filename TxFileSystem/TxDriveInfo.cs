@@ -27,6 +27,12 @@
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@property="TxFileSystem"]/*' />
         internal TxFileSystem TxFileSystem { get; set; }
 
+        /// <summary>
+        ///   Returns information about the drive with the specified name.
+        /// </summary>
+        /// <param name="driveName">The name of the drive to retrieve information from.</param>
+        /// <returns>The information about the specified drive.</returns>
+        /// <seealso cref="System.IO.DriveInfo" alt="Resembles System.IO.Abstractions.IDriveInfo" target="_blank"/>
         public IDriveInfo FromDriveName(string driveName)
         {
             return this.TxFileSystem.FileSystem.DriveInfo.FromDriveName(driveName);
@@ -36,6 +42,7 @@
         ///   Returns information about the drives.
         /// </summary>
         /// <returns>The information about the drives.</returns>
+        /// <seealso cref="System.IO.DriveInfo" alt="Resembles System.IO.Abstractions.IDriveInfo" target="_blank"/>
         public IDriveInfo[] GetDrives()
         {
             return this.TxFileSystem.FileSystem.DriveInfo.GetDrives();
