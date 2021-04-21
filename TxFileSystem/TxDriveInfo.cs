@@ -32,6 +32,10 @@
             return this.TxFileSystem.FileSystem.DriveInfo.FromDriveName(driveName);
         }
 
+        /// <summary>
+        ///   Returns information about the drives.
+        /// </summary>
+        /// <returns>The information about the drives.</returns>
         public IDriveInfo[] GetDrives()
         {
             return this.TxFileSystem.FileSystem.DriveInfo.GetDrives();

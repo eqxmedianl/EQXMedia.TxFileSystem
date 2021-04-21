@@ -28,10 +28,10 @@
         internal TxFileSystem TxFileSystem { get; set; }
 
         /// <summary>
-        ///   Returns directory info of the directory at the specified path.
+        ///   Returns information about the directory at the specified path.
         /// </summary>
-        /// <param name="directoryName">The path of the directory to get directory info from.</param>
-        /// <returns>The directory info for the directory.</returns>
+        /// <param name="directoryName">The path of the directory to get information from.</param>
+        /// <returns>The information about the directory.</returns>
         public IDirectoryInfo FromDirectoryName(string directoryName)
         {
             return this.TxFileSystem.FileSystem.DirectoryInfo.FromDirectoryName(directoryName);
