@@ -37,7 +37,6 @@
         public IFileSystemWatcher CreateNew(string path)
         {
             return this.TxFileSystem.FileSystem.FileSystemWatcher.CreateNew(path);
-
         }
 
         public IFileSystemWatcher CreateNew(string path, string filter)
