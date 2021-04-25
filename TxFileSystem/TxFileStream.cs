@@ -39,32 +39,38 @@
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@property="TxFileSystem"]/*' />
         internal TxFileSystem TxFileSystem { get; set; }
 
+        /// <inheritdoc cref="System.IO.FileStream(string, FileMode)"/>
         public Stream Create(string path, FileMode mode)
         {
             return new CreateFromPathOperation(this, path, mode).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess)"/>
         public Stream Create(string path, FileMode mode, FileAccess access)
         {
             return new CreateFromPathOperation(this, path, mode, access).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess, FileShare)"/>
         public Stream Create(string path, FileMode mode, FileAccess access, FileShare share)
         {
             return new CreateFromPathOperation(this, path, mode, access, share).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess, FileShare, int)"/>
         public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize)
         {
             return new CreateFromPathOperation(this, path, mode, access, share, bufferSize).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess, FileShare, int, FileOptions)"/>
         public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize,
             FileOptions options)
         {
             return new CreateFromPathOperation(this, path, mode, access, share, bufferSize, options).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess, FileShare, int)"/>
         public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize,
             bool useAsync)
         {
@@ -72,21 +78,25 @@
                 .Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(SafeFileHandle, FileAccess)"/>
         public Stream Create(SafeFileHandle handle, FileAccess access)
         {
             return new CreateFromSafeFileHandleOperation(this, handle, access).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(SafeFileHandle, FileAccess, int)"/>
         public Stream Create(SafeFileHandle handle, FileAccess access, int bufferSize)
         {
             return new CreateFromSafeFileHandleOperation(this, handle, access, bufferSize).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(SafeFileHandle, FileAccess, int, bool)"/>
         public Stream Create(SafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
         {
             return new CreateFromSafeFileHandleOperation(this, handle, access, bufferSize, isAsync: isAsync).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess)"/>
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
@@ -96,6 +106,7 @@
             return new CreateFromFileHandleOperation(this, handle, access).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess, bool)"/>
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
@@ -105,6 +116,7 @@
             return new CreateFromFileHandleOperation(this, handle, access, ownsHandle).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess, bool, int)"/>
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
@@ -114,6 +126,7 @@
             return new CreateFromFileHandleOperation(this, handle, access, ownsHandle, bufferSize).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess, bool, int, bool)"/>
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
