@@ -2,13 +2,13 @@
 {
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Text;
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
     using System.Threading;
     using System.Threading.Tasks;
 #endif
 
     internal sealed class ReadAllLinesOperation : FileOperation, IReturningOperation<string[]>
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         , IAsyncReturningOperation<string[]>
 #endif
     {
@@ -39,7 +39,7 @@
             return _file.TxFileSystem.FileSystem.File.ReadAllLines(_path);
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         public Task<string[]> ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);

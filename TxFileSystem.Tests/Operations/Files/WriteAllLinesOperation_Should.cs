@@ -82,7 +82,7 @@
                 It.IsAny<Encoding>()), Times.Once);
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if ASYNC_IO
         [Fact, FsFact]
         public void WriteAllLinesOperationAsync_ContentsArray_CalledOnce()
         {

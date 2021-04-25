@@ -51,7 +51,7 @@
                 It.Is<string>((s) => s == contents), It.Is<Encoding>((e) => e == Encoding.ASCII)), Times.Once);
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if ASYNC_IO
         [Fact, FsFact]
         public void WriteAllTextOperationAsync_ContentsOnly_CalledOnce()
         {

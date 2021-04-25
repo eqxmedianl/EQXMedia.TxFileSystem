@@ -29,6 +29,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' OR '$(TargetFramework)'=='net5.0'">
+    <DefineConstants>ASYNC_IO</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
   </ItemGroup>

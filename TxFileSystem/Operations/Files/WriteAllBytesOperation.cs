@@ -1,13 +1,13 @@
 ﻿namespace EQXMedia.TxFileSystem.Operations.Files
 {
     using global::EQXMedia.TxFileSystem.Abstractions;
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
     using System.Threading;
     using System.Threading.Tasks;
 #endif
 
     internal sealed class WriteAllBytesOperation : FileOperation, IExecutingOperation
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         , IAsyncOperation
 #endif
     {
@@ -28,7 +28,7 @@
             _file.TxFileSystem.FileSystem.File.WriteAllBytes(_path, _bytes);
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         public Task ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);

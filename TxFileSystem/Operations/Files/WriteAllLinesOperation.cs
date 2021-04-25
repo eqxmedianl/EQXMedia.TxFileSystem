@@ -3,13 +3,13 @@
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Collections.Generic;
     using System.Text;
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
     using System.Threading;
     using System.Threading.Tasks;
 #endif
 
     internal sealed class WriteAllLinesOperation : FileOperation, IExecutingOperation
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         , IAsyncOperation
 #endif
     {
@@ -71,7 +71,7 @@
             }
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         public Task ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);

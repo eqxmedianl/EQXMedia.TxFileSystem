@@ -10,7 +10,7 @@
 
     public sealed class ReadAllBytesOperation_Should
     {
-#if NETCOREAPP3_1_OR_GREATER
+#if ASYNC_IO
         [Fact, FsFact]
         public void ReadAllBytesOperationAsync_CalledOnce()
         {

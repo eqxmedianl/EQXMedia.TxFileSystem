@@ -37,7 +37,7 @@
             Assert.Equal(text, textReturned);
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if ASYNC_IO
         [Fact, FsFact]
         public void ReadAllTextOperationAsync_CalledOnce_ReturnsSameStringTask()
         {
