@@ -75,7 +75,12 @@
              The class is constructed only by the library itself, as a child of <see
                cref="EQXMedia.TxFileSystem.TxFileSystem" /> instances developers can create.
            </remarks>
-           <param name="txFileSystem">The transactional file system wrapper that creates an instance of this class.</param>
+           <param name="txFileSystem">The transactional file system wrapper that creates an instance of this class (see remarks).</param>
+         </Class>
+         <Class type="TxFileSystemWatcher" method="CreateNew">
+           <returns>The new instance of the <c>IFileSystemWatcher</c> implementation part of the wrapped file system.</returns>
+           <remarks>The instance of the <c>IFileSystemWatcher</c> implementation returned abstracts the <see cref="System.IO.FileSystemWatcher" />.</remarks>
+           <seealso href="https://github.com/System-IO-Abstractions/System.IO.Abstractions/blob/main/src/System.IO.Abstractions/IFileSystemWatcher.cs" />
          </Class>
       </Classes>
       <FileSystemProperties>

@@ -30,18 +30,21 @@
         internal TxFileSystem TxFileSystem { get; set; }
 
         /// <inheritdoc cref="System.IO.FileSystemWatcher()" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@type="TxFileSystemWatcher" and @method="CreateNew"]/*' />
         public IFileSystemWatcher CreateNew()
         {
             return this.TxFileSystem.FileSystem.FileSystemWatcher.CreateNew();
         }
 
         /// <inheritdoc cref="System.IO.FileSystemWatcher(string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@type="TxFileSystemWatcher" and @method="CreateNew"]/*' />
         public IFileSystemWatcher CreateNew(string path)
         {
             return this.TxFileSystem.FileSystem.FileSystemWatcher.CreateNew(path);
         }
 
         /// <inheritdoc cref="System.IO.FileSystemWatcher(string, string)" />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@type="TxFileSystemWatcher" and @method="CreateNew"]/*' />
         public IFileSystemWatcher CreateNew(string path, string filter)
         {
             return this.TxFileSystem.FileSystem.FileSystemWatcher.CreateNew(path, filter);
