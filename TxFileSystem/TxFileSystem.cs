@@ -1,5 +1,6 @@
 ﻿namespace EQXMedia.TxFileSystem
 {
+    using global::EQXMedia.TxFileSystem.Exceptions;
     using global::EQXMedia.TxFileSystem.Journaling;
     using System;
     using System.IO.Abstractions;
@@ -110,6 +111,7 @@
         /// <param name="fileSystem">
         ///   A file system on which transactional operations should be performed.
         /// </param>
+        /// <exception cref="UnsupportedFileSystemImplementationException">This exception is thrown when the specified <paramref>fileSytem</paramref> is actually a <c>TxFileSystem</c> itself.</exception>
         /// <seealso cref="System.Transactions.TransactionScope"/>
         /// <seealso href="https://github.com/System-IO-Abstractions/System.IO.Abstractions" 
         ///   alt="System.IO.Abstractions on NuGet"/>
@@ -117,7 +119,10 @@
         ///   alt="System.IO.Abstractions on GitHub"/>
         public TxFileSystem(IFileSystem fileSystem = null)
         {
-            // TODO: guard against TxFileSystem wrapping itself, by throwing an exception in that case.
+            if (fileSystem is TxFileSystem)
+            {
+                throw new UnsupportedFileSystemImplementationException(fileSystem);
+            }
 
             this.FileSystem = fileSystem ?? new FileSystem();
 
