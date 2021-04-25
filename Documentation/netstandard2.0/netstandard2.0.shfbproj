@@ -4,7 +4,9 @@
     <FrameworkName>.NET Standard 2.0</FrameworkName>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="EQXMedia.TxFileSystem" isDocumented="True" xmlns="">All classes of the TxFileSystem library that provide the transactional support for file system operations reside in this namespace.</NamespaceSummaryItem>
-<NamespaceSummaryItem name="System.IO.Abstractions" isDocumented="False" xmlns="" /></NamespaceSummaries>
+      <NamespaceSummaryItem name="System.IO.Abstractions" isDocumented="False" xmlns="" />
+    </NamespaceSummaries>
+    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, Namespace, TypeParameter, AutoDocumentDispose</MissingTags>
   </PropertyGroup>
   <!-- Import the common properties of the documentation projects for all supported framework versions -->
   <Import Project="..\Common\Documentation.Common.props" Condition="Exists('..\Documentation.Common.props')" />
@@ -54,7 +56,17 @@
     <CopyrightText>Copyright %28c%29 2021, EQX Media B.V. - All rights reserved.</CopyrightText>
     <FeedbackEMailAddress>txfilesystem%40eqx-media.nl</FeedbackEMailAddress>
     <FeedbackEMailLinkText>the TxFileSystem Development Team</FeedbackEMailLinkText>
-    <PlugInConfigurations />
+    <PlugInConfigurations>
+      <PlugInConfig id="Version Builder" enabled="True">
+        <configuration>
+          <currentProject label=".NET Standard" version="2.0" ripOldApis="False" />
+          <versions>
+            <version label=".NET" version="5.0" helpFileProject="..\net5.0\net5.0.shfbproj" />
+            <version label=".NET Framework" version="4.6.1" helpFileProject="..\net461\net461.shfbproj" />
+          </versions>
+        </configuration>
+      </PlugInConfig>
+    </PlugInConfigurations>
     <TransformComponentArguments>
       <Argument Key="logoFile" Value="" />
       <Argument Key="logoHeight" Value="" />
