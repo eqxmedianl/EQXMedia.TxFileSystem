@@ -5,7 +5,8 @@
     using System.Runtime.Serialization;
 
     /// <summary>
-    ///   The <see cref="UnsupportedFileSystemImplementationException" /> is thrown whenever an implementation of 
+    ///   The <see cref="UnsupportedFileSystemImplementationException" /> is thrown whenever an unsupported 
+    ///   implementation of 
     ///   <see href="https://github.com/System-IO-Abstractions/System.IO.Abstractions/blob/main/src/System.IO.Abstractions/IFileSystem.cs">System.IO.Abstractions.IFileSystem</see>
     ///   is trying to be wrapped inside the <see cref="TxFileSystem" />.
     /// </summary>
