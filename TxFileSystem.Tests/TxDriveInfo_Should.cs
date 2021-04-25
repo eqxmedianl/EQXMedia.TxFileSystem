@@ -1,6 +1,5 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using global::EQXMedia.TxFileSystem.Tests.Attributes;
     using Moq;
     using System;
