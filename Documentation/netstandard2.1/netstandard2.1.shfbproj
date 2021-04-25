@@ -7,14 +7,14 @@
       <NamespaceSummaryItem name="System.IO.Abstractions" isDocumented="False" xmlns="" />
     </NamespaceSummaries>
     <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, Namespace, TypeParameter, AutoDocumentDispose</MissingTags>
+    <ProjectGuid>{b7959812-1bae-496d-b727-567b6e582e03}</ProjectGuid>
   </PropertyGroup>
   <!-- Import the common properties of the documentation projects for all supported framework versions -->
   <Import Project="..\Common\Documentation.Common.props" Condition="Exists('..\Documentation.Common.props')" />
   <!-- Import the common properties to support NuGet restore -->
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <!-- A framework version is required for NuGet restore.  This can be any valid version -->
-    <TargetFrameworkVersion>v2.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <!-- The configuration and platform will be used to determine which assemblies to include from solution and
 				 project documentation sources -->
     <FrameworkVersion Condition=" '$(FrameworkVersion)' == '' ">netstandard2.1</FrameworkVersion>
