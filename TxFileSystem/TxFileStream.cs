@@ -1,6 +1,5 @@
 ﻿namespace EQXMedia.TxFileSystem
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using global::EQXMedia.TxFileSystem.Operations.FileStreams;
     using Microsoft.Win32.SafeHandles;
     using System;
