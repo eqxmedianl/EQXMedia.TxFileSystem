@@ -203,6 +203,26 @@
               <see href="https://txfilesystem.io/docs/DirectoryOperation" />
             </remarks>
          </Operation>
+         <Operation kind="FileStreamOperation" type="create" only_obsolete="true">
+            <remarks>
+              <para>
+                Even though the underlying method of <see cref="FileStream" /> is <c>obsolete</c>, it is still 
+                part of the <see href="https://github.com/System-IO-Abstractions/System.IO.Abstractions/blob/main/src/System.IO.Abstractions/IFileStreamFactory.cs">System.IO.Abstractions.IFileStreamFactory</see> 
+                interface. Hence, it had to be implemented here too. Therefor it is marked as being <c>obsolete</c> 
+                inside this library since the first time it was released.
+              </para>
+            </remarks>
+         </Operation>
+         <Operation kind="FileStreamOperation" type="create" from="handle">
+           <returns>
+             The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.
+           </returns>
+         </Operation>
+         <Operation kind="FileStreamOperation" type="create" from="path">
+           <returns>
+             The newly created instance of the <see cref="FileStream" /> class for the specified file <c>path</c>.
+           </returns>
+         </Operation>
       </Operations>
    </Extensions>
 </TxFileSystem.BaseDocs>

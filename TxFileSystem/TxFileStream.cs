@@ -38,35 +38,35 @@
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@property="TxFileSystem"]/*' />
         internal TxFileSystem TxFileSystem { get; set; }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>path</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="path"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(string, FileMode)"/>
         public Stream Create(string path, FileMode mode)
         {
             return new CreateFromPathOperation(this, path, mode).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>path</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="path"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess)"/>
         public Stream Create(string path, FileMode mode, FileAccess access)
         {
             return new CreateFromPathOperation(this, path, mode, access).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>path</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="path"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess, FileShare)"/>
         public Stream Create(string path, FileMode mode, FileAccess access, FileShare share)
         {
             return new CreateFromPathOperation(this, path, mode, access, share).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>path</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="path"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess, FileShare, int)"/>
         public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize)
         {
             return new CreateFromPathOperation(this, path, mode, access, share, bufferSize).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>path</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="path"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess, FileShare, int, FileOptions)"/>
         public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize,
             FileOptions options)
@@ -74,7 +74,7 @@
             return new CreateFromPathOperation(this, path, mode, access, share, bufferSize, options).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>path</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="path"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(string, FileMode, FileAccess, FileShare, int)"/>
         public Stream Create(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize,
             bool useAsync)
@@ -83,29 +83,30 @@
                 .Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(SafeFileHandle, FileAccess)"/>
         public Stream Create(SafeFileHandle handle, FileAccess access)
         {
             return new CreateFromSafeFileHandleOperation(this, handle, access).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(SafeFileHandle, FileAccess, int)"/>
         public Stream Create(SafeFileHandle handle, FileAccess access, int bufferSize)
         {
             return new CreateFromSafeFileHandleOperation(this, handle, access, bufferSize).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(SafeFileHandle, FileAccess, int, bool)"/>
         public Stream Create(SafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
         {
             return new CreateFromSafeFileHandleOperation(this, handle, access, bufferSize, isAsync: isAsync).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.</returns>
         /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @only_obsolete="true"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
@@ -115,8 +116,9 @@
             return new CreateFromFileHandleOperation(this, handle, access).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.</returns>
         /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess, bool)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @only_obsolete="true"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
@@ -126,8 +128,9 @@
             return new CreateFromFileHandleOperation(this, handle, access, ownsHandle).Execute();
         }
 
-        /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.</returns>
         /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess, bool, int)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @only_obsolete="true"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
@@ -138,6 +141,7 @@
         }
 
         /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.</returns>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess, bool, int, bool)"/>
 #if NET5_0
         [SupportedOSPlatform("windows")]
