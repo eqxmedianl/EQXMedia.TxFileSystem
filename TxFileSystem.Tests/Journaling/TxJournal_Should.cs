@@ -1,10 +1,11 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Journaling
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using global::EQXMedia.TxFileSystem.Journaling;
     using global::EQXMedia.TxFileSystem.Operations;
     using global::EQXMedia.TxFileSystem.Tests.Operations;
+#if NETCOREAPP3_1_OR_GREATER
     using System.Diagnostics.CodeAnalysis;
+#endif
     using System.IO.Abstractions.TestingHelpers;
     using System.Linq;
     using System.Transactions;

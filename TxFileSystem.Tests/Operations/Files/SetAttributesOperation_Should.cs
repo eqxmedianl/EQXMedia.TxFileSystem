@@ -1,7 +1,9 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.Files
 {
     using System;
+#if NETCOREAPP3_1_OR_GREATER
     using System.Diagnostics.CodeAnalysis;
+#endif
     using System.IO;
     using System.IO.Abstractions.TestingHelpers;
     using System.Transactions;

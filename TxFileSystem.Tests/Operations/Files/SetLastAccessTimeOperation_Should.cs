@@ -3,7 +3,9 @@
     using global::EQXMedia.TxFileSystem.Tests.Attributes;
     using Moq;
     using System;
+#if NETCOREAPP3_1_OR_GREATER
     using System.Diagnostics.CodeAnalysis;
+#endif
     using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
     using System.Reflection;
