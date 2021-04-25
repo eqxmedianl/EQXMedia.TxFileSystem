@@ -117,6 +117,8 @@
         ///   alt="System.IO.Abstractions on GitHub"/>
         public TxFileSystem(IFileSystem fileSystem = null)
         {
+            // TODO: guard against TxFileSystem wrapping itself, by throwing an exception in that case.
+
             this.FileSystem = fileSystem ?? new FileSystem();
 
             this.File = new TxFile(this);
