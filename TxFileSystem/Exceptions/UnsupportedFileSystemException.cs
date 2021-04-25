@@ -14,7 +14,7 @@
 
         private static string CreateErrorMessage(IFileSystem fileSystem)
         {
-            return string.Format("The IFileSystem implementation is {0} which is not supported to be wrapped by TxFileSystem.",
+            return string.Format("The IFileSystem implementation is a {0} which is not supposed to be wrapped by TxFileSystem.",
                 fileSystem.GetType().Name);
         }
 
