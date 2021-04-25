@@ -4,6 +4,7 @@
     using global::EQXMedia.TxFileSystem.Tests.Attributes;
     using Moq;
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
     using System.Reflection;
@@ -13,6 +14,10 @@
     public sealed class TxDriveInfo_Should
     {
         [Fact]
+#if NETCOREAPP3_1_OR_GREATER
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void TxDriveInfo_ReturnsDriveInfo()
         {
             var mockFileSystem = new MockFileSystem();
@@ -57,6 +62,10 @@
         }
 
         [Fact]
+#if NETCOREAPP3_1_OR_GREATER
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void TxDriveInfo_ReturnsDrives()
         {
             var mockFileSystem = new MockFileSystem();
@@ -106,6 +115,10 @@
         }
 
         [Fact]
+#if NETCOREAPP3_1_OR_GREATER
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void TxDriveInfo_NotAddedToJournal()
         {
             var mockFileSystem = new MockFileSystem();

@@ -4,6 +4,7 @@
     using global::EQXMedia.TxFileSystem.Journaling;
     using global::EQXMedia.TxFileSystem.Operations;
     using global::EQXMedia.TxFileSystem.Tests.Operations;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO.Abstractions.TestingHelpers;
     using System.Linq;
     using System.Transactions;
@@ -12,6 +13,10 @@
     public sealed class TxJournal_Should
     {
         [Fact]
+#if NETCOREAPP3_1_OR_GREATER
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void TxJournal_Add_Results_JournalEntriesCountsOne()
         {
             var mockFileSystem = new MockFileSystem();

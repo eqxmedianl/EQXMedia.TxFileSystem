@@ -1,6 +1,7 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.Files
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.IO.Abstractions.TestingHelpers;
     using System.Transactions;
@@ -9,6 +10,10 @@
     public sealed class SetAttributesOperation_Should
     {
         [Fact]
+#if NETCOREAPP3_1_OR_GREATER
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void SetAttributesOperation_AttributesChanged()
         {
             var fileName = "/tmp/filetochangeattributesof.txt";
@@ -33,6 +38,10 @@
         }
 
         [Fact]
+#if NETCOREAPP3_1_OR_GREATER
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void SetAttributesOperation_ExceptionThrown_AttributesUnchanged()
         {
             var fileName = "/tmp/filetochangeattributesof.txt";

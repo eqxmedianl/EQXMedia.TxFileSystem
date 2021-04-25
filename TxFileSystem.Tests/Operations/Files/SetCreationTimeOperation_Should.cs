@@ -3,6 +3,7 @@
     using global::EQXMedia.TxFileSystem.Tests.Attributes;
     using Moq;
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
     using System.Reflection;
@@ -36,6 +37,10 @@
         }
 
         [Fact]
+#if NETCOREAPP3_1_OR_GREATER
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void SetCreationTimeOperation_ExceptionThrown_CreationTimeUnchanged()
         {
             var fileName = "/tmp/filetochangecreationtimeof.txt";
