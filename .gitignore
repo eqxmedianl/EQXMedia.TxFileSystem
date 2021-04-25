@@ -5,6 +5,7 @@ bin/
 obj/
 
 GeneratedFiles/
+Help/
 /TxFileSystem/EQXMedia.TxFileSystem.xml
 
 /Documentation/Generated/
