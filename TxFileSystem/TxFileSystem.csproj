@@ -96,6 +96,11 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <Reference Include="System.IO" />
     <Reference Include="System.Transactions" />
   </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
+  </ItemGroup>
   
   <ItemGroup>
     <None Include="..\eqxmedia-logo.png">

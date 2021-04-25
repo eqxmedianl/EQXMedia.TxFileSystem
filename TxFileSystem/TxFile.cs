@@ -185,6 +185,7 @@
             return new ExistsOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.GetAccessControl(string)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
@@ -194,6 +195,7 @@
             return new GetAccessControlOperation(this, path).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.GetAccessControl(string, AccessControlSections)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
@@ -418,6 +420,7 @@
                 .Execute();
         }
 
+        /// <inheritdoc cref="System.IO.File.SetAccessControl(string, FileSecurity)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
