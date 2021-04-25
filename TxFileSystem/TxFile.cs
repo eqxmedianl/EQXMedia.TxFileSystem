@@ -538,7 +538,6 @@
             return new WriteAllLinesOperation(this, path, contents, encoding).ExecuteAsync(cancellationToken);
         }
 
-        // TODO: check if the below `inheritdoc` results in proper documentation, as no `string[]` variant exists on `System.IO.File`.
         /// <inheritdoc cref="System.IO.File.WriteAllLinesAsync(string, IEnumerable{string}, CancellationToken)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
         public Task WriteAllLinesAsync(string path, string[] contents,
@@ -547,7 +546,6 @@
             return new WriteAllLinesOperation(this, path, contents).ExecuteAsync(cancellationToken);
         }
 
-        // TODO: check if the below `inheritdoc` results in proper documentation, as no `string[]` variant exists on `System.IO.File`.
         /// <inheritdoc cref="System.IO.File.WriteAllLinesAsync(string, IEnumerable{string}, Encoding, CancellationToken)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
         public Task WriteAllLinesAsync(string path, string[] contents, Encoding encoding,
