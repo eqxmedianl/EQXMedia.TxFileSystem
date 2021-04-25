@@ -107,6 +107,7 @@
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.Path.GetFullPath(string, string)" />
         public string GetFullPath(string path, string basePath)
         {
             return this.TxFileSystem.FileSystem.Path.GetFullPath(path, basePath);
@@ -138,6 +139,7 @@
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.Path.GetRelativePath(string, string)" />
         public string GetRelativePath(string relativeTo, string path)
         {
             return this.TxFileSystem.FileSystem.Path.GetRelativePath(relativeTo, path);
@@ -163,6 +165,7 @@
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.Path.IsPathFullyQualified(string)" />
         public bool IsPathFullyQualified(string path)
         {
             return this.TxFileSystem.FileSystem.Path.IsPathFullyQualified(path);
@@ -176,22 +179,26 @@
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.Path.Join(ReadOnlySpan{char}, ReadOnlySpan{char})" />
         public string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2)
         {
             return this.TxFileSystem.FileSystem.Path.Join(path1, path2);
         }
 
+        /// <inheritdoc cref="System.IO.Path.Join(ReadOnlySpan{char}, ReadOnlySpan{char}, ReadOnlySpan{char})" />
         public string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3)
         {
             return this.TxFileSystem.FileSystem.Path.Join(path1, path2, path3);
         }
 
+        /// <inheritdoc cref="System.IO.Path.TryJoin(ReadOnlySpan{char}, ReadOnlySpan{char}, ReadOnlySpan{char}, Span{char}, out int)" />
         public bool TryJoin(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3,
             Span<char> destination, out int charsWritten)
         {
             return this.TxFileSystem.FileSystem.Path.TryJoin(path1, path2, path3, destination, out charsWritten);
         }
 
+        /// <inheritdoc cref="System.IO.Path.TryJoin(ReadOnlySpan{char}, ReadOnlySpan{char}, Span{char}, out int)" />
         public bool TryJoin(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, Span<char> destination,
             out int charsWritten)
         {

@@ -186,28 +186,18 @@
             return new ExistsOperation(this, path).Execute();
         }
 
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
-#endif
-#if NET461 || NET5_0
-        /// <inheritdoc cref="System.IO.File.GetAccessControl(string)" />
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
-#else
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
 #endif
         public FileSecurity GetAccessControl(string path)
         {
             return new GetAccessControlOperation(this, path).Execute();
         }
 
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
-#endif
-#if NET461 || NET5_0
-        /// <inheritdoc cref="System.IO.File.GetAccessControl(string, AccessControlSections)" />
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
-#else
-        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
 #endif
         public FileSecurity GetAccessControl(string path, AccessControlSections includeSections)
         {
@@ -352,11 +342,13 @@
         }
 
 #if !NETSTANDARD2_0 && !NET461
+        /// <inheritdoc cref="System.IO.File.ReadAllLinesAsync(string, CancellationToken)" />
         public Task<string[]> ReadAllLinesAsync(string path, CancellationToken cancellationToken = default)
         {
             return new ReadAllLinesOperation(this, path).ExecuteAsync(cancellationToken);
         }
 
+        /// <inheritdoc cref="System.IO.File.ReadAllLinesAsync(string, Encoding, CancellationToken)" />
         public Task<string[]> ReadAllLinesAsync(string path, Encoding encoding,
             CancellationToken cancellationToken = default)
         {
@@ -428,7 +420,6 @@
         }
 
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
-        /// <inheritdoc cref="System.IO.File.SetAccessControl(string, FileSecurity)" />
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
