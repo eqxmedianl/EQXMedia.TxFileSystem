@@ -8,7 +8,7 @@
     {
         private readonly string _searchPattern = null;
         private readonly SearchOption? _searchOption;
-#if !NETSTANDARD2_0 && !NET461
+#if ENUMERATING_IO
         private readonly EnumerationOptions _enumerationOptions = null;
 #endif
 
@@ -30,7 +30,7 @@
             _searchOption = searchOption;
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ENUMERATING_IO
         public EnumerateFileSystemEntriesOperation(TxDirectory directory, string path, string searchPattern,
             EnumerationOptions enumerationOptions)
             : this(directory, path, searchPattern)
@@ -50,7 +50,7 @@
                 return _directory.TxFileSystem.FileSystem.Directory.EnumerateFileSystemEntries(_path, _searchPattern, _searchOption.Value);
             }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ENUMERATING_IO
             if (_enumerationOptions != null)
             {
                 return _directory.TxFileSystem.FileSystem.Directory.EnumerateFileSystemEntries(_path, _searchPattern, _enumerationOptions);

@@ -59,7 +59,7 @@
             new AppendAllLinesOperation(this, path, contents, encoding).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         /// <inheritdoc cref="System.IO.File.AppendAllLinesAsync(string, IEnumerable{string}, CancellationToken)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
         public Task AppendAllLinesAsync(string path, IEnumerable<string> contents,
@@ -91,7 +91,7 @@
             new AppendAllTextOperation(this, path, contents, encoding).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         /// <inheritdoc cref="System.IO.File.AppendAllTextAsync(string, string?, CancellationToken)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
         public Task AppendAllTextAsync(string path, string contents,
@@ -318,7 +318,7 @@
             return new ReadAllBytesOperation(this, path).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         /// <inheritdoc cref="System.IO.File.ReadAllBytesAsync(string, CancellationToken)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
         public Task<byte[]> ReadAllBytesAsync(string path, CancellationToken cancellationToken = default)
@@ -341,7 +341,7 @@
             return new ReadAllLinesOperation(this, path, encoding).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         /// <inheritdoc cref="System.IO.File.ReadAllLinesAsync(string, CancellationToken)" />
         public Task<string[]> ReadAllLinesAsync(string path, CancellationToken cancellationToken = default)
         {
@@ -370,7 +370,7 @@
             return new ReadAllTextOperation(this, path, encoding).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         /// <inheritdoc cref="System.IO.File.ReadAllTextAsync(string, CancellationToken)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
         public Task<string> ReadAllTextAsync(string path, CancellationToken cancellationToken = default)
@@ -484,7 +484,7 @@
             new WriteAllBytesOperation(this, path, bytes).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         /// <inheritdoc cref="System.IO.File.WriteAllBytesAsync(string, byte[], CancellationToken)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
         public Task WriteAllBytesAsync(string path, byte[] bytes, CancellationToken cancellationToken = default)
@@ -521,7 +521,7 @@
             new WriteAllLinesOperation(this, path, contents, encoding).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         /// <inheritdoc cref="System.IO.File.WriteAllLinesAsync(string, IEnumerable{string}, CancellationToken)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
         public Task WriteAllLinesAsync(string path, IEnumerable<string> contents,
@@ -569,7 +569,7 @@
             new WriteAllTextOperation(this, path, contents, encoding).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ASYNC_IO
         /// <inheritdoc cref="System.IO.File.WriteAllTextAsync(string, string, CancellationToken)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
         public Task WriteAllTextAsync(string path, string contents, CancellationToken cancellationToken = default)

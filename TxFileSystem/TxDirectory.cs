@@ -91,7 +91,7 @@
             return new EnumerateDirectoriesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ENUMERATING_IO
         /// <inheritdoc cref="System.IO.Directory.EnumerateDirectories(string, string, EnumerationOptions)" />
         public IEnumerable<string> EnumerateDirectories(string path, string searchPattern,
             EnumerationOptions enumerationOptions)
@@ -121,7 +121,7 @@
             return new EnumerateFilesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ENUMERATING_IO
         /// <inheritdoc cref="System.IO.Directory.EnumerateFiles(string, string, EnumerationOptions)" />
         public IEnumerable<string> EnumerateFiles(string path, string searchPattern,
             EnumerationOptions enumerationOptions)
@@ -152,7 +152,7 @@
             return new EnumerateFileSystemEntriesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ENUMERATING_IO
         /// <inheritdoc cref="System.IO.Directory.EnumerateFileSystemEntries(string, string, EnumerationOptions)" />
         public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern,
         EnumerationOptions enumerationOptions)
@@ -295,7 +295,7 @@
         }
 
 
-#if !NETSTANDARD2_0 && !NET461
+#if ENUMERATING_IO
         /// <inheritdoc cref="System.IO.Directory.GetDirectories(string, string, EnumerationOptions)"/>
         public string[] GetDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
@@ -331,7 +331,7 @@
             return new GetFilesOperation(this, path, searchPattern, searchOption).Execute();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if ENUMERATING_IO
         /// <inheritdoc cref="System.IO.Directory.GetFiles(string, string, EnumerationOptions)"/>
         public string[] GetFiles(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {

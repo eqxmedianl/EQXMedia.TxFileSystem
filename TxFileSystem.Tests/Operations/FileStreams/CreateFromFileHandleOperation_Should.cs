@@ -5,7 +5,7 @@
     using global::EQXMedia.TxFileSystem.Tests.Operations.FileStreams.Utils;
     using Moq;
     using System;
-#if NETCOREAPP3_1_OR_GREATER
+#if SUPPRESS_SIMPLE_USING
     using System.Diagnostics.CodeAnalysis;
 #endif
     using System.IO;
@@ -65,7 +65,7 @@
 
         [Fact]
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access) is deprecated it is still part of the interface")]
-#if NETCOREAPP3_1_OR_GREATER
+#if SUPPRESS_SIMPLE_USING
         [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
             Justification = "This library is supporting framework versions relying on older language versions")]
 #endif
@@ -159,7 +159,7 @@
 
         [Fact]
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
-#if NETCOREAPP3_1_OR_GREATER
+#if SUPPRESS_SIMPLE_USING
         [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
             Justification = "This library is supporting framework versions relying on older language versions")]
 #endif

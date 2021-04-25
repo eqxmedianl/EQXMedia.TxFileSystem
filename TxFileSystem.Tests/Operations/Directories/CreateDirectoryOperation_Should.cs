@@ -3,7 +3,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
     using global::EQXMedia.TxFileSystem.Journaling;
     using Moq;
     using System;
-#if NETCOREAPP3_1_OR_GREATER
+#if SUPPRESS_SIMPLE_USING
     using System.Diagnostics.CodeAnalysis;
 #endif
     using System.IO.Abstractions;
@@ -20,7 +20,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
     public sealed class CreateDirectoryOperation_Should
     {
         [Fact]
-#if NETCOREAPP3_1_OR_GREATER
+#if SUPPRESS_SIMPLE_USING
         [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
             Justification = "This library is supporting framework versions relying on older language versions")]
 #endif
@@ -51,7 +51,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
         }
 
         [Fact]
-#if NETCOREAPP3_1_OR_GREATER
+#if SUPPRESS_SIMPLE_USING
         [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
             Justification = "This library is supporting framework versions relying on older language versions")]
 #endif

@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' OR '$(TargetFramework)'=='net5.0'">
-    <DefineConstants>ASYNC_IO</DefineConstants>
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
