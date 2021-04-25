@@ -212,9 +212,11 @@
             <remarks>
               <para>
                 Even though the underlying method of <see cref="FileStream" /> is <c>obsolete</c>, it is still 
-                part of the <see href="https://github.com/System-IO-Abstractions/System.IO.Abstractions/blob/main/src/System.IO.Abstractions/IFileStreamFactory.cs">System.IO.Abstractions.IFileStreamFactory</see> 
-                interface. Hence, it had to be implemented here too. Therefor it is marked as being <c>obsolete</c> 
-                inside this library since the first time it was released.
+                part of the <see href="https://github.com/System-IO-Abstractions/System.IO.Abstractions/blob/main/src/System.IO.Abstractions/IFileStreamFactory.cs"
+                  alt="System.IO.Abstractions/IFileStreamFactory.cs at main - System-IO-Abstractions/System.IO.Abstractions"
+                  target="_blank">System.IO.Abstractions.IFileStreamFactory</see> interface. Hence, it had to be implemented 
+                here too. Therefor it is marked as being <c>obsolete</c> inside this library since the first time it was 
+                released.
               </para>
             </remarks>
          </Operation>

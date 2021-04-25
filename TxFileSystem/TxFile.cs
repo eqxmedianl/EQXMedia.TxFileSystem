@@ -185,7 +185,25 @@
             return new ExistsOperation(this, path).Execute();
         }
 
-        /// <inheritdoc cref="System.IO.File.GetAccessControl(string)" />
+        /// <summary>
+        ///   Gets a <see cref="FileSecurity" /> object that encapsulates the access control list (ACL) entries for a specified file.
+        /// </summary>
+        /// <param name="path">The <c>path</c> to a file containing a FileSecurity object that describes the file's access control list (ACL) information.</param>
+        /// <returns>A <see cref="FileSecurity" /> object that encapsulates the access control rules for the file described by the <c>path</c> parameter.</returns>
+        /// <exception cref="IOException">An I/O error occurred while opening the file.</exception>
+        /// <exception cref="System.Runtime.InteropServices.SEHException">The <c>path</c> parameter is <c>null</c>.</exception>
+        /// <exception cref="SystemException">The file could not be found.</exception>
+        /// <exception cref="UnauthorizedAccessException">
+        ///   <para>The <c>path</c> parameter specified a file that is read-only.</para>
+        ///   <para>-or-</para>
+        ///   <para>This operation is not supported on the current platform.</para>
+        ///   <para>-or-</para>
+        ///   <para>The path parameter specified a directory.</para>
+        ///   <para>-or-</para>
+        ///   <para>The caller does not have the required permission.</para>
+        /// </exception>
+        /// <see href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.getaccesscontrol"
+        ///   alt="File.GetAccessControl Method (System.IO) | Microsoft Docs" target="_blank" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
@@ -195,7 +213,26 @@
             return new GetAccessControlOperation(this, path).Execute();
         }
 
-        /// <inheritdoc cref="System.IO.File.GetAccessControl(string, AccessControlSections)" />
+        /// <summary>
+        ///   Gets a <see cref="FileSecurity" /> object that encapsulates the access control list (ACL) entries for a specified file.
+        /// </summary>
+        /// <param name="path">The <c>path</c> to a file containing a FileSecurity object that describes the file's access control list (ACL) information.</param>
+        /// <param name="includeSections">One of the <see cref="AccessControlSections" /> values that specifies the type of access control list (ACL) information to receive.</param>
+        /// <returns>A <see cref="FileSecurity" /> object that encapsulates the access control rules for the file described by the <c>path</c> parameter.</returns>
+        /// <exception cref="IOException">An I/O error occurred while opening the file.</exception>
+        /// <exception cref="System.Runtime.InteropServices.SEHException">The <c>path</c> parameter is <c>null</c>.</exception>
+        /// <exception cref="SystemException">The file could not be found.</exception>
+        /// <exception cref="UnauthorizedAccessException">
+        ///   <para>The <c>path</c> parameter specified a file that is read-only.</para>
+        ///   <para>-or-</para>
+        ///   <para>This operation is not supported on the current platform.</para>
+        ///   <para>-or-</para>
+        ///   <para>The path parameter specified a directory.</para>
+        ///   <para>-or-</para>
+        ///   <para>The caller does not have the required permission.</para>
+        /// </exception>
+        /// <see href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.getaccesscontrol"
+        ///   alt="File.GetAccessControl Method (System.IO) | Microsoft Docs" target="_blank" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
@@ -420,7 +457,26 @@
                 .Execute();
         }
 
-        /// <inheritdoc cref="System.IO.File.SetAccessControl(string, FileSecurity)" />
+        /// <summary>
+        ///   Applies access control list (ACL) entries described by a <see cref="FileSecurity" /> object to the specified file.
+        /// </summary>
+        /// <param name="path">A file to add or remove access control list (ACL) entries from.</param>
+        /// <param name="fileSecurity">A <see cref="FileSecurity" /> object that describes an ACL entry to apply to the file described by the <c>path</c> parameter.</param>
+        /// <exception cref="IOException">An I/O error occurred while opening the file.</exception>
+        /// <exception cref="System.Runtime.InteropServices.SEHException">The <c>path</c> parameter is <c>null</c>.</exception>
+        /// <exception cref="SystemException">The file could not be found.</exception>
+        /// <exception cref="UnauthorizedAccessException">
+        ///   <para>The <c>path</c> parameter specified a file that is read-only.</para>
+        ///   <para>-or-</para>
+        ///   <para>This operation is not supported on the current platform.</para>
+        ///   <para>-or-</para>
+        ///   <para>The path parameter specified a directory.</para>
+        ///   <para>-or-</para>
+        ///   <para>The caller does not have the required permission.</para>
+        /// </exception>
+        /// <exception cref="ArgumentNullException">The <c>fileSecurity</c> parameter is <c>null</c>.</exception>
+        /// <see href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.setaccesscontrol"
+        ///   alt="File.SetAccessControl(String, FileSecurity) Method (System.IO) | Microsoft Docs" target="_blank" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
 #if NET5_0
         [SupportedOSPlatform("windows")]
