@@ -41,6 +41,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XmlDoc", "XmlDoc", "{16E99C
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "net5.0", "Documentation\net5.0\net5.0.shfbproj", "{30EAD1F5-B804-458F-8B77-5EBA48AF5FF7}"
 EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "netstandard2.1", "Documentation\netstandard2.1\netstandard2.1.shfbproj", "{B7959812-1BAE-496D-B727-567B6E582E03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,12 @@ Global
 		{30EAD1F5-B804-458F-8B77-5EBA48AF5FF7}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
 		{30EAD1F5-B804-458F-8B77-5EBA48AF5FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30EAD1F5-B804-458F-8B77-5EBA48AF5FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7959812-1BAE-496D-B727-567B6E582E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7959812-1BAE-496D-B727-567B6E582E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7959812-1BAE-496D-B727-567B6E582E03}.Documentation|Any CPU.ActiveCfg = Documentation|Any CPU
+		{B7959812-1BAE-496D-B727-567B6E582E03}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
+		{B7959812-1BAE-496D-B727-567B6E582E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7959812-1BAE-496D-B727-567B6E582E03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +88,7 @@ Global
 		{449E8367-A3C9-4455-BC02-3F41EA1898C8} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 		{16E99C74-6414-4C8D-A981-BC8BB3961CB1} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 		{30EAD1F5-B804-458F-8B77-5EBA48AF5FF7} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
+		{B7959812-1BAE-496D-B727-567B6E582E03} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7076B68C-14D6-4D20-A715-F5FB506D15CF}

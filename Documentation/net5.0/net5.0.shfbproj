@@ -61,6 +61,7 @@
         <configuration>
           <currentProject label=".NET" version="5.0" ripOldApis="False" />
           <versions>
+            <version label=".NET Standard" version="2.1" helpFileProject="..\netstandard2.1\netstandard2.1.shfbproj" />
             <version label=".NET Framework" version="4.6.1" helpFileProject="..\net461\net461.shfbproj" />
             <version label=".NET Standard" version="2.0" helpFileProject="..\netstandard2.0\netstandard2.0.shfbproj" />
           </versions>
