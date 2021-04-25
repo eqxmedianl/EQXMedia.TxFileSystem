@@ -8,7 +8,7 @@
     using System.IO.Abstractions;
     using System.Security.AccessControl;
     using System.Text;
-#if !NETSTANDARD2_0
+#if ASYNC_IO
     using System.Threading;
     using System.Threading.Tasks;
 #endif
