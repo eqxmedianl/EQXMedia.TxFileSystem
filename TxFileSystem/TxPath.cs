@@ -106,7 +106,7 @@
             return this.TxFileSystem.FileSystem.Path.GetFullPath(path);
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if PATH_NG
         /// <inheritdoc cref="System.IO.Path.GetFullPath(string, string)" />
         public string GetFullPath(string path, string basePath)
         {
@@ -138,7 +138,7 @@
             return this.TxFileSystem.FileSystem.Path.GetRandomFileName();
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if PATH_NG
         /// <inheritdoc cref="System.IO.Path.GetRelativePath(string, string)" />
         public string GetRelativePath(string relativeTo, string path)
         {
@@ -164,7 +164,7 @@
             return this.TxFileSystem.FileSystem.Path.HasExtension(path);
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if PATH_NG
         /// <inheritdoc cref="System.IO.Path.IsPathFullyQualified(string)" />
         public bool IsPathFullyQualified(string path)
         {
@@ -178,7 +178,7 @@
             return this.TxFileSystem.FileSystem.Path.IsPathRooted(path);
         }
 
-#if !NETSTANDARD2_0 && !NET461
+#if PATH_NG
         /// <inheritdoc cref="System.IO.Path.Join(ReadOnlySpan{char}, ReadOnlySpan{char})" />
         public string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2)
         {
