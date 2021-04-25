@@ -168,7 +168,40 @@
         {
             return new ExistsOperation(this, path).Execute();
         }
-        
+
+        /// <summary>
+        ///   Returns the Windows access control list (ACL) for a directory.
+        /// </summary>
+        /// <param name="path">The path to a directory containing a <see cref="System.Security.AccessControl.DirectorySecurity">DirectorySecurity</see> object that describes the file's access control list (ACL) information.</param>
+        /// <returns>An object that encapsulates the access control rules for the file described by the <c>path</c> parameter.</returns>
+        /// <remarks>
+        ///   <para>
+        ///     Use the GetAccessControl method to retrieve the access control list (ACL) entries for a directory.
+        ///   </para>
+        ///   
+        ///   <para>
+        ///     An ACL describes individuals and/or groups who have, or do not have, rights to specific actions on the 
+        ///     given file or directory.For more information, see How to: Add or Remove Access Control List Entries.
+        ///   </para>
+        ///   
+        ///   <para>
+        ///     In NTFS environments, ReadAttributes and ReadExtendedAttributes are granted to the user if the user has 
+        ///     ListDirectory rights on the parent folder. To deny ReadAttributes and ReadExtendedAttributes, deny 
+        ///     ListDirectory on the parent directory.
+        ///   </para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">The <c>path</c> parameter is <c>null</c>.</exception>
+        /// <exception cref="IOException">An I/O error occurred while opening the directory.</exception>
+        /// <exception cref="SystemException">A system-level error occurred, such as the directory could not be found. 
+        ///   The specific exception may be a subclass of <see cref="SystemException" />.</exception>
+        /// <exception cref="UnauthorizedAccessException">
+        ///   <para>The path parameter specified a directory that is read-only.</para>
+        ///   <para>-or-</para>
+        ///   <para>This operation is not supported on the current platform.</para>
+        ///   <para>-or-</para>
+        ///   <para>The caller does not have the required permission.</para>
+        /// </exception>
+        /// <seealso href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.GetAccessControl" />
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
@@ -177,6 +210,40 @@
             return new GetAccessControlOperation(this, path).Execute();
         }
 
+        /// <summary>
+        ///   Returns the Windows access control list (ACL) for a directory.
+        /// </summary>
+        /// <param name="path">The path to a directory containing a <see cref="System.Security.AccessControl.DirectorySecurity">DirectorySecurity</see> object that describes the file's access control list (ACL) information.</param>
+        /// <param name="includeSections">One of the <see cref="System.Security.AccessControl.AccessControlSections">AccessControlSections</see> values that specifies the type of access control list (ACL) information to receive.</param>
+        /// <returns>An object that encapsulates the access control rules for the file described by the <c>path</c> parameter.</returns>
+        /// <remarks>
+        ///   <para>
+        ///     Use the GetAccessControl method to retrieve the access control list (ACL) entries for a directory.
+        ///   </para>
+        ///   
+        ///   <para>
+        ///     An ACL describes individuals and/or groups who have, or do not have, rights to specific actions on the 
+        ///     given file or directory.For more information, see How to: Add or Remove Access Control List Entries.
+        ///   </para>
+        ///   
+        ///   <para>
+        ///     In NTFS environments, ReadAttributes and ReadExtendedAttributes are granted to the user if the user has 
+        ///     ListDirectory rights on the parent folder. To deny ReadAttributes and ReadExtendedAttributes, deny 
+        ///     ListDirectory on the parent directory.
+        ///   </para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">The <c>path</c> parameter is <c>null</c>.</exception>
+        /// <exception cref="IOException">An I/O error occurred while opening the directory.</exception>
+        /// <exception cref="SystemException">A system-level error occurred, such as the directory could not be found. 
+        ///   The specific exception may be a subclass of <see cref="SystemException" />.</exception>
+        /// <exception cref="UnauthorizedAccessException">
+        ///   <para>The path parameter specified a directory that is read-only.</para>
+        ///   <para>-or-</para>
+        ///   <para>This operation is not supported on the current platform.</para>
+        ///   <para>-or-</para>
+        ///   <para>The caller does not have the required permission.</para>
+        /// </exception>
+        /// <seealso href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.GetAccessControl" />
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
@@ -335,6 +402,20 @@
             new MoveOperation(this, sourceDirName, destDirName).Execute();
         }
 
+        /// <summary>
+        ///   Applies access control list (ACL) entries described by a <see cref="DirectorySecurity">DirectorySecurity</see> object to the specified directory.
+        /// </summary>
+        /// <param name="path">A directory to add or remove access control list (ACL) entries from.</param>
+        /// <param name="directorySecurity">A <see cref="DirectorySecurity">DirectorySecurity</see> object that describes an ACL entry to apply to the directory described by the <c>path</c> parameter.</param>
+        /// <exception cref="ArgumentNullException">The <c>directorySecurity</c> parameter is <c>null</c>.</exception>
+        /// <exception cref="DirectoryNotFoundException">The directory could not be found.</exception>
+        /// <exception cref="ArgumentException">The <c>path</c> was invalid.</exception>
+        /// <exception cref="UnauthorizedAccessException">
+        ///   <para>The current process does not have access to the directory specified by <c>path</c>.</para>
+        ///   <para>-or-</para>
+        ///   <para>The current process does not have sufficient privilege to set the ACL entry.</para>
+        /// </exception>
+        /// <seealso href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.SetAccessControl" />
 #if NET5_0
         [SupportedOSPlatform("windows")]
 #endif
