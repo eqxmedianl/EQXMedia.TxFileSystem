@@ -9,6 +9,8 @@
     using System.Security;
     using System.Text;
 
+    // TODO: Move this to the Unit Test project, because it is only used there. This will minimize the binary size of this library.
+
     [SuppressUnmanagedCodeSecurity()]
     internal static class NativeMethods
     {
