@@ -16,7 +16,7 @@
     public sealed class CreateFromFileHandleOperation_Should
     {
         [Fact]
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access) is deprecated it is still part of the interface")]
         public void CreateFromFileHandleOperation_ContentsChanged()
         {
             var fileSystem = new FileSystem();
@@ -57,7 +57,7 @@
         }
 
         [Fact]
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access) is deprecated it is still part of the interface")]
         public void CreateFromFileHandleOperation_ExceptionThrown_ContentsUnchanged()
         {
             var fileSystem = new FileSystem();
@@ -100,7 +100,7 @@
         }
 
         [Fact]
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
         public void CreateFromFileHandleOperation_OwnsHandle_ContentsChanged()
         {
             var fileSystem = new FileSystem();
@@ -141,7 +141,7 @@
         }
 
         [Fact]
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
         public void CreateFromFileHandleOperation_OwnsHandle_ExceptionThrown_ContentsUnchanged()
         {
             var fileSystem = new FileSystem();
@@ -184,7 +184,7 @@
         }
 
         [Fact, FsFact]
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
         public void CreateFromFileHandleOperation_OwnsHandle_CalledOnce()
         {
             var attr = (FsFactAttribute)Attribute.GetCustomAttribute(MethodBase.GetCurrentMethod(),
@@ -217,7 +217,7 @@
         }
 
         [Fact, FsFact]
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize) is deprecated it is still part of the interface")]
         public void CreateFromFileHandleOperation_OwnsHandleAndBufferSize_CalledOnce()
         {
             var attr = (FsFactAttribute)Attribute.GetCustomAttribute(MethodBase.GetCurrentMethod(),
@@ -253,7 +253,7 @@
         }
 
         [Fact, FsFact]
-        [Obsolete("Eventhough FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync) is deprecated it is still part of the interface")]
+        [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync) is deprecated it is still part of the interface")]
         public void CreateFromFileHandleOperation_OwnsHandleAndBufferSizeAndIsAsync_CalledOnce()
         {
             var attr = (FsFactAttribute)Attribute.GetCustomAttribute(MethodBase.GetCurrentMethod(),

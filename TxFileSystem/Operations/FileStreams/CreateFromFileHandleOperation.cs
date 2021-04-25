@@ -10,7 +10,7 @@
 
     [SupportedOSPlatform("windows")]
 #endif
-    [Obsolete("Eventhough the underlying FileStream.Create() methods are deprecated they are still part of the interface")]
+    [Obsolete("Even though the underlying FileStream.Create() methods are deprecated they are still part of the interface")]
     internal sealed class CreateFromFileHandleOperation : FileStreamOperation, IReturningOperation<Stream>
     {
         private readonly FileAccess _access;
