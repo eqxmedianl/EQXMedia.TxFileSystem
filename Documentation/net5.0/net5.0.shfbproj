@@ -97,7 +97,7 @@
     <TocParentVersion>100</TocParentVersion>
     <TopicVersion>100</TopicVersion>
     <MSHelpViewerSdkLinkType>Msdn</MSHelpViewerSdkLinkType>
-    <HeaderText>Version %24%28FrameworkName%29</HeaderText>
+    <HeaderText>TxFileSystem is a file system wrapper that provides transactional operations on files, directories and file streams</HeaderText>
     <FooterText>&amp;lt%3bp&amp;gt%3bTxFileSystem is an OpenSource .NET Library designed and implemented by &amp;lt%3ba href=&amp;quot%3bhttps://www.linkedin.com/in/jarnokamminga/&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bJarno Kamminga&amp;lt%3b/a&amp;gt%3b.&amp;lt%3b/p&amp;gt%3b</FooterText>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Documentation\net5.0\EQXMedia.TxFileSystem.dll" />
@@ -141,6 +141,19 @@
       <HintPath>..\..\packages\system.io.abstractions\13.2.9\lib\net5.0\System.IO.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content" />
+    <Folder Include="Content\Concepts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\About.aml" />
+    <None Include="Content\Concepts.aml" />
+    <None Include="Content\Concepts\TransactionalOperations.aml" />
+    <None Include="Content\Welcome.aml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ContentLayout Include="ContentLayout.content" />
   </ItemGroup>
   <!-- Import the common build targets during NuGet restore because before the packages are being installed, $(SHFBROOT) is not set yet -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="'$(MSBuildRestoreSessionId)' != ''" />

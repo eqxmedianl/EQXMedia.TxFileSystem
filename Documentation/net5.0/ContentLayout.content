@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="97e03a4f-80a7-408a-af39-524129cf7ea6" visible="True" isExpanded="true" title="About TxFileSystem" tocTitle="About TxFileSystem" linkText="About TxFileSystem">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="welcome, start, introduction, txfilesystem" />
+    </HelpKeywords>
+    <Topic id="1c2662b4-182f-4dec-a93d-84a08c011a34" visible="True" isExpanded="true" apiParentMode="InsertAfter" title="Library Concepts" tocTitle="Library Concepts" linkText="Library  Concepts">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="library, concepts, concept" />
+      </HelpKeywords>
+      <Topic id="bc9e348b-8de7-44aa-aea1-458dad83e9a1" visible="True" isSelected="true" title="Transactional Operations" tocTitle="Transactional Operations" linkText="Transactional Operations">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="transactional, transactions, transaction scope, data integrity" />
+        </HelpKeywords>
+      </Topic>
+    </Topic>
+  </Topic>
+</Topics>
