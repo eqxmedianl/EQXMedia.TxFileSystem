@@ -49,12 +49,14 @@
         <linkText>Jarno Kamminga on LinkedIn</linkText>
         <linkAlternateText>Go to profile of Jarno Kamminga on LinkedIn</linkAlternateText>
         <linkUri>https://www.eqx-media.nl/</linkUri>
+        <linkTarget>_blank</linkTarget>
       </externalLink>
 
       <externalLink>
         <linkText>Website of EQX Media B.V.</linkText>
         <linkAlternateText>Go to the website of EQX Media B.V.</linkAlternateText>
         <linkUri>https://www.eqx-media.nl/</linkUri>
+        <linkTarget>_blank</linkTarget>
       </externalLink>
       
     </relatedTopics>

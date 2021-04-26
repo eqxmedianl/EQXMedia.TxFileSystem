@@ -47,10 +47,21 @@
     </section>
 
     <relatedTopics>
-      
-      <link xlink:href="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1">Operations Journal</link>
 
-      <link xlink:href="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operations</link>
+      <link xlink:href="1c2662b4-182f-4dec-a93d-84a08c011a34"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
+      
+      <link xlink:href="f12b5927-89c0-436a-b1b1-ebfffc0d836e"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">File System Abstraction</link>
+      
+      <link xlink:href="1289c31e-70f5-4f23-9193-e52469690ccb"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Transactions</link>
+      
+      <link xlink:href="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Operations Journal</link>
+
+      <link xlink:href="bc9e348b-8de7-44aa-aea1-458dad83e9a1"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Transactional Operations</link>
       
     </relatedTopics>
   </developerConceptualDocument>

@@ -52,12 +52,14 @@
         <linkText>Project Website of TxFileSystem</linkText>
         <linkAlternateText>Go to the project website of TxFileSystem</linkAlternateText>
         <linkUri>https://txfilesystem.io/</linkUri>
+        <linkTarget>_blank</linkTarget>
       </externalLink>
 
       <externalLink>
         <linkText>Website of EQX Media B.V. - Publisher of this library</linkText>
         <linkAlternateText>Go to the website of EQX Media B.V.</linkAlternateText>
         <linkUri>https://www.eqx-media.nl/</linkUri>
+        <linkTarget>_blank</linkTarget>
       </externalLink>
       
     </relatedTopics>
