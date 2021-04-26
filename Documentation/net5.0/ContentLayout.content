@@ -8,7 +8,17 @@
       <HelpKeywords>
         <HelpKeyword index="K" term="library, concepts, concept" />
       </HelpKeywords>
-      <Topic id="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" visible="True" isSelected="true" title="Operations Journal" tocTitle="Operations Journal" linkText="Operations Journal">
+      <Topic id="f12b5927-89c0-436a-b1b1-ebfffc0d836e" visible="True" title="File System Abstractions" tocTitle="File System Abstractions" linkText="File System Abstractions">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="file system, abstraction, io, library" />
+        </HelpKeywords>
+      </Topic>
+      <Topic id="1289c31e-70f5-4f23-9193-e52469690ccb" visible="True" title="Transactions" tocTitle="Transactions" linkText="Transactions">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="transactions, transactionscope, transaction scope, commit, rollback, indoubt, prepare" />
+        </HelpKeywords>
+      </Topic>
+      <Topic id="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" visible="True" title="Operations Journal" tocTitle="Operations Journal" linkText="Operations Journal">
         <HelpKeywords>
           <HelpKeyword index="K" term="journal, journalize, journalizing, prepare, rollback, commit" />
         </HelpKeywords>
@@ -18,7 +28,11 @@
           <HelpKeyword index="K" term="transactional, transactions, transaction scope, data integrity" />
         </HelpKeywords>
       </Topic>
-      <Topic id="e960b0a4-0eca-455f-91ef-d759b42928be" visible="True" title="Non-Transactional Operations " tocTitle="Non-Transactional Operations " linkText="Non-Transactional Operations " />
+      <Topic id="e960b0a4-0eca-455f-91ef-d759b42928be" visible="True" isSelected="true" title="Non-Transactional Operations " tocTitle="Non-Transactional Operations " linkText="Non-Transactional Operations ">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="operations, non-transactional" />
+        </HelpKeywords>
+      </Topic>
     </Topic>
     <Topic id="b59b2f1b-623e-46d4-91e2-c57921ba3313" visible="True" title="TxFileSystem Copyright" tocTitle="Copyright" linkText="Copyright">
       <HelpKeywords>
