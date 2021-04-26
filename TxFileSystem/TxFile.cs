@@ -306,7 +306,6 @@
         ///     Fixed broken rollback functionality.
         ///   </revision>
         /// </revisionHistory>
-        /// <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
         public void Move(string sourceFileName, string destFileName, bool overwrite)
         {
             new MoveOperation(this, sourceFileName, destFileName, overwrite).Execute();
@@ -625,7 +624,6 @@
         {
             new WriteAllTextOperation(this, path, contents).Execute();
         }
-
         /// <inheritdoc cref="System.IO.File.WriteAllText(string, string, Encoding)" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
         public void WriteAllText(string path, string contents, Encoding encoding)

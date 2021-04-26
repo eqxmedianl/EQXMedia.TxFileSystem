@@ -14,6 +14,8 @@
                not. Backup and restore takes place depending on the usage of the journal.
              </para>
            </remarks>
+           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+           <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
          </Class>
         <Class modifying="false">
            <summary>
@@ -22,13 +24,14 @@
                Its methods are simply passed to the wrapped file system.
              </para>
            </summary>
-            <remarks>
-              <para>
-                Instances of this object only contain methods that don't modify any file system resources.
-                Regardless of which of this object's methods is being invoked journalizing and, backup 
-                and restore, never take place.
-              </para>
-            </remarks>
+           <remarks>
+             <para>
+               Instances of this object only contain methods that don't modify any file system resources.
+               Regardless of which of this object's methods is being invoked journalizing and, backup 
+               and restore, never take place.
+             </para>
+           </remarks>
+           <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
          </Class>
          <Class context="property" property="FileSystem">
            <summary>
@@ -105,6 +108,8 @@
                that don't modify any of them.
              </para>
            </value>
+           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+           <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
          </FileSystemProperty>
          <FileSystemProperty modifying="false">
             <remarks>
@@ -114,6 +119,7 @@
                 and restore, never take place.
               </para>
             </remarks>
+            <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
          </FileSystemProperty>
       </FileSystemProperties>
       <Operations>      
@@ -133,6 +139,8 @@
                 are then removed.
               </para>
             </remarks>
+            <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+            <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
          </Operation>      
          <Operation kind="FileOperation" type="info">
             <remarks>
@@ -142,6 +150,7 @@
                 kind occurs inside a <see cref="System.Transactions.TransactionScope" />.
               </para>
             </remarks>
+            <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
          </Operation>
          <Operation kind="DirectoryOperation" type="create">
             <remarks>
@@ -157,7 +166,8 @@
                 cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
                 operations are committed. Any modifications made are then preserved.
               </para>
-              <see href="https://txfilesystem.io/docs/DirectoryOperation" />
+              <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+              <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
             </remarks>
          </Operation>
          <Operation kind="DirectoryOperation" type="delete">
@@ -174,7 +184,8 @@
                 cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
                 operations are committed. Any modifications made are then preserved.
               </para>
-              <see href="https://txfilesystem.io/docs/DirectoryOperation" />
+              <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+              <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
             </remarks>
          </Operation>
          <Operation kind="DirectoryOperation" type="info">
@@ -183,7 +194,7 @@
                 This is an operation that returns information about the directory or its contents, hence 
                 it is not journalized. There is no need for the operation to be rolled back.
               </para>
-              <see href="https://txfilesystem.io/docs/DirectoryOperation" />
+              <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
             </remarks>
          </Operation>
          <Operation kind="DirectoryOperation" type="modify">
@@ -202,7 +213,8 @@
                 operations are committed. Any modifications made are then preserved and the backup 
                 directory and its contents is then removed.
               </para>
-              <see href="https://txfilesystem.io/docs/DirectoryOperation" />
+              <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+              <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
             </remarks>
          </Operation>
          <Operation kind="FileSystemOperation" type="info">
@@ -211,7 +223,7 @@
                 This is an operation that returns information about the file system, hence it is not 
                 journalized. There is no need for the operation to be rolled back.
               </para>
-              <see href="https://txfilesystem.io/docs/DirectoryOperation" />
+              <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
             </remarks>
          </Operation>
          <Operation kind="FileStreamOperation" type="create" only_obsolete="true">
@@ -225,16 +237,21 @@
                 released.
               </para>
             </remarks>
+           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+           <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
          </Operation>
          <Operation kind="FileStreamOperation" type="create" from="handle">
            <returns>
              The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.
            </returns>
+           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
          </Operation>
          <Operation kind="FileStreamOperation" type="create" from="path">
            <returns>
              The newly created instance of the <see cref="FileStream" /> class for the specified file <c>path</c>.
            </returns>
+           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+           <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
          </Operation>
       </Operations>
    </Extensions>
