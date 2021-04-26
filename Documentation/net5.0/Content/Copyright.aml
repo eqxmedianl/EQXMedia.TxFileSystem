@@ -11,8 +11,6 @@
     -->
 
     <introduction>
-      <autoOutline />
-
       <para>
         This OpenSource .NET library is published under the BSD license. The development is 
         funded by a Dutch company, and designed and implemented by the company's owner, who
@@ -23,7 +21,6 @@
     <section address="Section_Publisher">
       <title>Publisher</title>
       <content>
-        <autoOutline />
         <para>
           EQX Media B.V. is a software development house and marketing agency from The Netherlands. All 
           copyrights of this library is strictly reserved by them. Yet, the library is published and 
@@ -35,7 +32,6 @@
     <section address="Section_Developer">
       <title>Developer</title>
       <content>
-        <autoOutline />
         <para>
           Jarno Kamminga is the architect who designed this library and also the developer that implemented
           it. 
