@@ -7,6 +7,9 @@ Version 2.0.0
 
 * `TxFileSystem` class is now a `IFileSystem` implementation too.
 * Exposing the `TxFileSystem` on property instances too to maintain data integrity.
+* Added documentation for all supported framework versions:
+  * Generated **HTML Documentation**.
+  * Generated **Windows Help File**.
 
 Version 1.3.0
 -----------------
