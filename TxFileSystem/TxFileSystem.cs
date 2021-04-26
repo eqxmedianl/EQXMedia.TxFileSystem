@@ -108,7 +108,7 @@
         ///   
         /// </example>
         /// <param name="fileSystem">
-        ///   A file system on which transactional operations should be performed.
+        ///   A file system on which transactional operations should be performed. The default value is <c>null</c>.
         /// </param>
         /// <exception cref="UnsupportedFileSystemImplementationException">This exception is thrown when the specified <c>fileSytem</c> is actually a <c>TxFileSystem</c> itself too.</exception>
         /// <seealso cref="System.Transactions.TransactionScope"/>
