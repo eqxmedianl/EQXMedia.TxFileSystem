@@ -8,7 +8,7 @@
       <para>
         The transactional journal provides the prepare, rollback, and commit functionality for the 
         transactional operations of this library. It is internally fully automatically used by
-        <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
+        <codeEntityReference qualifyHint="false">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
         and activates itself once it detects that it is part of a transaction.
       </para>
     </summary>
@@ -17,7 +17,7 @@
 
       <para>
         As said the journal activates itself once it detects that it is part of a transaction. If an instance of 
-        <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
+        <codeEntityReference qualifyHint="false">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
         is incorrectly created, the support for transactional operations does not become active. Meaning data 
         integrity is not guaranteed in that case.
       </para>
