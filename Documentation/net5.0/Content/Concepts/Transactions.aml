@@ -52,6 +52,20 @@
 
       <link xlink:href="1c2662b4-182f-4dec-a93d-84a08c011a34"
             topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
+
+      <externalLink>
+        <linkText>Writing a Transactional Application | Microsoft Docs</linkText>
+        <linkAlternateText>Read about Writing a Transactional Application at Microsoft.com</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/framework/data/transactions/writing-a-transactional-application</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>Features Provided by System.Transactions | Microsoft Docs</linkText>
+        <linkAlternateText>Read about Features Provided by System.Transactions at Microsoft.com</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/framework/data/transactions/features-provided-by-system-transactions</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
       
     </relatedTopics>
   </developerConceptualDocument>
