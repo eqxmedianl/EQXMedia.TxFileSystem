@@ -40,6 +40,24 @@
       </alert>
       
     </introduction>
+
+    <section address="Section_Activating">
+      <title>Activating Transactional Support</title>
+      <content>
+
+        <para>
+          The code sample below demonstrates how to correctly create an instance of
+          <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
+          thereby activating its support for transactional operations. As said it will automatically use the journal
+          internally than.
+        </para>
+
+        <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleFour" language="cs"
+          title="Creating an instance inside a transaction scope, enabling support for transactional operations" />
+
+      </content>
+
+    </section>
         
     <section address="Section_Functionality">    
       <title>Rollback and Commit Functionality</title>
@@ -83,24 +101,6 @@
       
       </content>
       
-    </section>
-
-    <section address="Section_Activating">
-      <title>Activating Transactional Support</title>
-      <content>
-
-        <para>
-          The code sample below demonstrates how to correctly create an instance of
-          <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
-          thereby activating its support for transactional operations. As said it will automatically use the journal
-          internally than.
-        </para>
-
-        <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleFour" language="cs"
-          title="Creating an instance inside a transaction scope, enabling support for transactional operations" />
-
-      </content>
-
     </section>
     
     <relatedTopics>
