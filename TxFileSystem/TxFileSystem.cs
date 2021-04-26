@@ -95,6 +95,13 @@
         ///     
         /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleThree" lang="C#" 
         ///   title="Create an instance using a mock file system implementation" />
+        /// 
+        /// The third sample shows how to create an instance inside a transaction scope, enabling support for 
+        /// transactional operations. This is the only way to activate the journal and make use of the backup
+        /// and rollback functionality TxFileSystem provides automatically.
+        ///     
+        /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleFour" lang="C#" 
+        ///   title="Create an instance inside a transaction scope, enabling support for transactional operations" />
         ///   
         /// </example>
         /// <param name="fileSystem">

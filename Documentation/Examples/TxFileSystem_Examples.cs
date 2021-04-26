@@ -9,6 +9,12 @@ namespace EQXMedia.TxFileSystem.Examples
             using System.IO.Abstractions;
             using EQXMedia.TxFileSystem;
 
+            // Because the below TxFileSystem is not created inside a transaction scope,
+            // it will not make use of the operation journal that provides backup and rollback
+            // functionality.
+            //
+            // NOTE: Hence all operations performed on the TxFileSystem this way will NOT
+            //       be transactional, and thus not maintain data integrity.
             var txFileSystem = new TxFileSystem(new FileSystem());
 
             #endregion
@@ -20,6 +26,12 @@ namespace EQXMedia.TxFileSystem.Examples
 
             using EQXMedia.TxFileSystem;
 
+            // Because the below TxFileSystem is not created inside a transaction scope,
+            // it will not make use of the operation journal that provides backup and rollback
+            // functionality.
+            //
+            // NOTE: Hence all operations performed on the TxFileSystem this way will NOT
+            //       be transactional, and thus not maintain data integrity.
             var txFileSystem = new TxFileSystem();
 
             #endregion
@@ -33,7 +45,41 @@ namespace EQXMedia.TxFileSystem.Examples
             using EQXMedia.TxFileSystem;
             
             var mockFileSystem = new MockFileSystem();
+
+            // Because the below TxFileSystem is not created inside a transaction scope,
+            // it will not make use of the operation journal that provides backup and rollback
+            // functionality.
+            //
+            // NOTE: Hence all operations performed on the TxFileSystem this way will NOT
+            //       be transactional, and thus not maintain data integrity.
             var txFileSystem = new TxFileSystem(mockFileSystem);
+
+            #endregion
+        }
+
+        public void Property_File_ExampleFour()
+        {
+            #region Property_File_ExampleOne
+
+            using System.Transactions;
+            using System.IO.Abstractions;
+            using EQXMedia.TxFileSystem;
+
+            using (var transactionScope = new TransactionScope())
+            {
+                // Because the below TxFileSystem is created inside a transaction scope, it will
+                // make use of the operation journal that provides backup and rollback
+                // functionality.
+                //
+                // NOTE: Hence all operations performed on the TxFileSystem this way WILL
+                //       be transactional, if required, and thus maintain data integrity.
+                var txFileSystem = new TxFileSystem(new FileSystem());
+                
+                // Here you perform any operation on the wrapped file system by using the
+                // properties TxFileSystem exposes.
+
+                transactionScope.Complete();
+            }
 
             #endregion
         }
