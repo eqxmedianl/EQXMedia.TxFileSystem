@@ -133,6 +133,10 @@
             this.FileSystemWatcher = new TxFileSystemWatcher(this);
         }
 
+        /// <summary>
+        ///   This constructor exists to ensure that deserialization of this class happens without any exceptions.
+        /// </summary>
+        /// <seealso cref="EQXMedia.TxFileSystem.TxFileSystem.GetObjectData(SerializationInfo, StreamingContext)" />
         private TxFileSystem(SerializationInfo info, StreamingContext context)
         {
             var tmpFileSytem = (IFileSystem)info.GetValue("fileSystem", typeof(IFileSystem));
@@ -157,6 +161,10 @@
         }
 
         /// <exclude />
+        /// <seealso cref="EQXMedia.TxFileSystem.TxFileSystem(SerializationInfo, StreamingContext)" />
+        /// <remarks>
+        ///   Exists in order for the deserialization constructor to function properly.
+        /// </remarks>
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             info.AddValue("fileSystem", this.FileSystem);
