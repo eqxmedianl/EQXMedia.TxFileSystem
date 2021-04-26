@@ -301,6 +301,11 @@
 #if NET5_0
         /// <inheritdoc cref="System.IO.File.Move(string, string, bool)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
+        /// <revisionHistory visible="true">
+        ///   <revision date="04/08/2021" version="1.1.1" author="Jarno Kamminga" visible="true">
+        ///     Fixed broken rollback functionality.
+        ///   </revision>
+        /// </revisionHistory>
         public void Move(string sourceFileName, string destFileName, bool overwrite)
         {
             new MoveOperation(this, sourceFileName, destFileName, overwrite).Execute();
