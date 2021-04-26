@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Topics>
-  <Topic id="97e03a4f-80a7-408a-af39-524129cf7ea6" visible="True" isExpanded="true" isSelected="true" title="About TxFileSystem" tocTitle="About TxFileSystem" linkText="About TxFileSystem">
+  <Topic id="97e03a4f-80a7-408a-af39-524129cf7ea6" visible="True" isExpanded="true" title="About TxFileSystem" tocTitle="About TxFileSystem" linkText="About TxFileSystem">
     <HelpKeywords>
       <HelpKeyword index="K" term="welcome, start, introduction, txfilesystem" />
     </HelpKeywords>
@@ -13,6 +13,7 @@
           <HelpKeyword index="K" term="transactional, transactions, transaction scope, data integrity" />
         </HelpKeywords>
       </Topic>
+      <Topic id="e960b0a4-0eca-455f-91ef-d759b42928be" visible="True" isSelected="true" title="Non-Transactional Operations " tocTitle="Non-Transactional Operations " linkText="Non-Transactional Operations " />
     </Topic>
     <Topic id="b59b2f1b-623e-46d4-91e2-c57921ba3313" visible="True" title="TxFileSystem Copyright" tocTitle="Copyright" linkText="Copyright">
       <HelpKeywords>

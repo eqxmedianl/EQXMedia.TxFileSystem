@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="e960b0a4-0eca-455f-91ef-d759b42928be" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <summary>
+      
+      <para>
+        Non-transactional operations don't need to ensure data integrity is maintained by applications
+        explicitly. These kind of operations simply don't modify any file system resources.
+      </para>
+      
+    </summary>
+
+    <introduction>
+      
+      <para>
+        On this page non-transactional operations being part of
+        <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
+        are being explained.
+      </para>
+      
+    </introduction>
+
+    <section address="Section_OperationsJournal">
+      
+      <title>Operations Journal</title>
+      
+      <content>
+        <para>
+          In order to able to make use of the backup and restore mechanism used internally by this library,
+          an operations journal is used.
+        </para>
+        <para>
+          All non-transactional operations performed using the methods of the properties exposed by
+          <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
+          will never be listed inside the operations journal.
+        </para>
+        <para>
+          As said earlier in this topic so that these kind of operations simply don't modify any file system 
+          resources. The result of not listing them inside the journal that is used for transactional operations, 
+          is maximum performance and minimal overhead caused by using the library.
+        </para>
+      </content>
+      
+    </section>
+
+    <relatedTopics>
+
+      <link xlink:href="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operations</link>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>
