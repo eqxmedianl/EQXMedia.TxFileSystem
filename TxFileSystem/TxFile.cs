@@ -306,6 +306,7 @@
         ///     Fixed broken rollback functionality.
         ///   </revision>
         /// </revisionHistory>
+        /// <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
         public void Move(string sourceFileName, string destFileName, bool overwrite)
         {
             new MoveOperation(this, sourceFileName, destFileName, overwrite).Execute();
