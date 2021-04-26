@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="b59b2f1b-623e-46d4-91e2-c57921ba3313" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <autoOutline />
+
+      <para>
+        This OpenSource .NET library is published under the BSD license. The development is 
+        funded by a Dutch company, and designed and implemented by the company's owner, who
+        also is a Senior Software Consultant.
+      </para>
+    </introduction>
+
+    <section address="Section_Publisher">
+      <title>Publisher</title>
+      <content>
+        <autoOutline />
+        <para>
+          EQX Media B.V. is a software development house and marketing agency from The Netherlands. All 
+          copyrights of this library is strictly reserved by them. Yet, the library is published and 
+          licensed under the BSD license.
+        </para>
+      </content>
+    </section>
+    
+    <section address="Section_Developer">
+      <title>Developer</title>
+      <content>
+        <autoOutline />
+        <para>
+          Jarno Kamminga is the architect who designed this library and also the developer that implemented
+          it. 
+        </para>
+      </content>
+    </section>
+    
+    <relatedTopics>
+      
+      <externalLink>
+        <linkText>Jarno Kamminga on LinkedIn</linkText>
+        <linkAlternateText>Go to profile of Jarno Kamminga on LinkedIn</linkAlternateText>
+        <linkUri>https://www.eqx-media.nl/</linkUri>
+      </externalLink>
+
+      <externalLink>
+        <linkText>Website of EQX Media B.V.</linkText>
+        <linkAlternateText>Go to the website of EQX Media B.V.</linkAlternateText>
+        <linkUri>https://www.eqx-media.nl/</linkUri>
+      </externalLink>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>
