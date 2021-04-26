@@ -124,7 +124,6 @@
                 operations are committed. Any modifications made are then preserved and the backup file(s)
                 are then removed.
               </para>
-              <see href="https://txfilesystem.io/docs/FileOperation" />
             </remarks>
          </Operation>      
          <Operation kind="FileOperation" type="info">
@@ -134,7 +133,6 @@
                 is no need to rollback any modifications whenever an <see cref="System.Exception"/> of any
                 kind occurs inside a <see cref="System.Transactions.TransactionScope" />.
               </para>
-              <see href="https://txfilesystem.io/docs/FileOperation" />
             </remarks>
          </Operation>
          <Operation kind="DirectoryOperation" type="create">
