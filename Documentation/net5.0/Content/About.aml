@@ -4,6 +4,7 @@
     xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
     xmlns:xlink="http://www.w3.org/1999/xlink">
 
+    <!-- TODO: do add a summary  -->
     <!--
     <summary>
       <para>Optional summary abstract</para>
@@ -11,50 +12,53 @@
     -->
 
     <introduction>
-      <!-- Uncomment this to generate an outline of the section and sub-section
-           titles.  Specify a numeric value as the inner text to limit it to
-           a specific number of sub-topics when creating the outline.  Specify
-           zero (0) to limit it to top-level sections only.  -->
-      <!-- <autoOutline /> -->
-
+      <!-- TODO: write the introduction  -->
       <para>Required introduction</para>
     </introduction>
 
-    <!-- Add one or more top-level section elements.  These are collapsible.
-         If using <autoOutline />, add an address attribute to identify it
-         and specify a title so that it can be jumped to with a hyperlink. -->
-    <section address="Section1">
-      <title>Optional section title</title>
+    <section address="Section_Topics">
+      <title>Conceptual Topics</title>
       <content>
-        <!-- Uncomment this to create a sub-section outline
-        <autoOutline /> -->
-        <para>Add one or more sections with content</para>
+      
+        <para>
+          This library uses a few concepts to provide transactional operations on
+          files, directories and file streams. Some extra help topics have been 
+          added to the library documentation, in order to give developers using,
+          or planning to use, the library a better understanding of the concepts
+          and inner workings of this library.
+        </para>
+        
+        <para>
+          The list of topics below can be used to navigate to these extra topics
+          in a convenient manner:
+        </para>
+          
+        <list class="bullet">
+        
+          <listItem><para><link xlink:href="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1">Operations Journal</link></para></listItem>
+          
+          <listItem><para><link xlink:href="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operations</link></para></listItem>
+          
+          <listItem><para><link xlink:href="e960b0a4-0eca-455f-91ef-d759b42928be">Non-Transactional Operations</link></para></listItem>
+        
+        </list>
+
       </content>
-      <!-- If a section contains a sections element, its content creates
-           sub-sections.  These are not collapsible.
-      <sections>
-          <section address="SubSection1">
-              <title>Sub-section 1</title>
-              <content>
-                  <para>Sub-section content.</para>
-              </content>
-          </section>
-          <section address="SubSection2">
-              <title>Sub-section 2</title>
-              <content>
-                  <para>Sub-section content.</para>
-              </content>
-          </section>
-      </sections> -->
     </section>
 
     <relatedTopics>
 
-      <link xlink:href="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1">Operations Journal</link>
-      
-      <link xlink:href="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operations</link>
-      
-      <link xlink:href="e960b0a4-0eca-455f-91ef-d759b42928be">Non-Transactional Operations</link>
+      <externalLink>
+        <linkText>Project Website of TxFileSystem</linkText>
+        <linkAlternateText>Go to the project website of TxFileSystem</linkAlternateText>
+        <linkUri>https://txfilesystem.io/</linkUri>
+      </externalLink>
+
+      <externalLink>
+        <linkText>Website of EQX Media B.V. - Publisher of this library</linkText>
+        <linkAlternateText>Go to the website of EQX Media B.V.</linkAlternateText>
+        <linkUri>https://www.eqx-media.nl/</linkUri>
+      </externalLink>
       
     </relatedTopics>
   </developerConceptualDocument>
