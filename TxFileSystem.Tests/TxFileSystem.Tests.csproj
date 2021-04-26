@@ -34,7 +34,11 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' OR '$(TargetFramework)'=='net5.0'">
     <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING</DefineConstants>
   </PropertyGroup>
-
+  
+  <PropertyGroup Condition="'$(IsWindows)'=='true'">
+    <DefineConstants>TESTRUN_ON_WINDOWS</DefineConstants>
+  </PropertyGroup>
+  
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
   </ItemGroup>

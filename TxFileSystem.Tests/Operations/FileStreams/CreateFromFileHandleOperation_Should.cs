@@ -1,7 +1,7 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.FileStreams
 {
-    using global::EQXMedia.TxFileSystem.NativeMethods.Win32;
     using global::EQXMedia.TxFileSystem.Tests.Attributes;
+    using global::EQXMedia.TxFileSystem.Tests.NativeMethods.Win32;
     using global::EQXMedia.TxFileSystem.Tests.Operations.FileStreams.Utils;
     using Moq;
     using System;
@@ -15,7 +15,7 @@
     using System.Text;
     using System.Transactions;
     using Xunit;
-    using FileAttributes = global::EQXMedia.TxFileSystem.NativeMethods.Win32.FileAttributes;
+    using FileAttributes = NativeMethods.Win32.FileAttributes;
 
     public sealed class CreateFromFileHandleOperation_Should
     {
@@ -63,6 +63,7 @@
             }
         }
 
+#if TESTRUN_ON_WINDOWS
         [Fact]
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access) is deprecated it is still part of the interface")]
 #if SUPPRESS_SIMPLE_USING
@@ -112,6 +113,7 @@
                 txFileSystem.File.Delete(fileName);
             }
         }
+#endif
 
         [Fact]
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
@@ -157,6 +159,7 @@
             }
         }
 
+#if TESTRUN_ON_WINDOWS
         [Fact]
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
 #if SUPPRESS_SIMPLE_USING
@@ -206,6 +209,7 @@
                 txFileSystem.File.Delete(fileName);
             }
         }
+#endif
 
         [Fact, FsFact]
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]

@@ -1,7 +1,6 @@
 ﻿namespace EQXMedia.TxFileSystem.Operations.FileStreams
 {
     using global::EQXMedia.TxFileSystem.Abstractions;
-    using global::EQXMedia.TxFileSystem.NativeMethods.Win32;
     using System;
     using System.IO;
 
@@ -19,7 +18,7 @@
         private readonly bool? _isAsync;
 
         public CreateFromFileHandleOperation(TxFileStream fileStream, IntPtr handle, FileAccess access)
-            : base(fileStream, handle, NativeMethods.GetFinalPathNameByHandle(handle))
+            : base(fileStream, handle)
         {
             _handle = handle;
             _access = access;

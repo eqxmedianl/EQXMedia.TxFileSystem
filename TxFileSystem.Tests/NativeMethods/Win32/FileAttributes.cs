@@ -1,8 +1,6 @@
-﻿namespace EQXMedia.TxFileSystem.NativeMethods.Win32
+﻿namespace EQXMedia.TxFileSystem.Tests.NativeMethods.Win32
 {
     using System;
-
-    // TODO: Move this to the Unit Test project, because it is only used there. This will minimize the binary size of this library.
 
     [Flags]
     internal enum FileAttributes : uint

@@ -12,8 +12,8 @@
         {
         }
 
-        protected FileStreamOperation(TxFileStream fileStream, IntPtr handle, string path)
-            : base(fileStream, handle, path)
+        protected FileStreamOperation(TxFileStream fileStream, IntPtr handle)
+            : base(fileStream, handle)
         {
         }
 
