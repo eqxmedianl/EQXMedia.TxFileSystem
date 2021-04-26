@@ -82,18 +82,18 @@
         <table>
   	      <tableHeader>
             <row>
-              <entry><para><c>Complete()</c></para></entry>
+              <entry><para><codeInline>Complete()</codeInline></para></entry>
               <entry><para>TxFileSystem Result</para></entry>
             </row>
           </tableHeader>
           <row>
-            <entry><para><c>Completes</c></para></entry>
-            <entry><para>All changes made by transactional operations are preserved. 
+            <entry><para><codeInline>Completes</codeInline></para></entry>
+            <entry><para>All changes made by transactional operations are preserved.<lineBreak />
               The backups that were created automatically are removed.</para></entry>
           </row>
           <row>
-            <entry><para><c>Fails</c></para></entry>
-            <entry><para>All changes made by transactional operations are rolled back.
+            <entry><para><codeInline>Fails</codeInline></para></entry>
+            <entry><para>All changes made by transactional operations are rolled back.<lineBreak />
               Meaning the backups that were created are automatically restored, and 
               removed afterwards.</para></entry>
           </row>
