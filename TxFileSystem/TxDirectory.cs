@@ -41,6 +41,12 @@
 
         /// <inheritdoc cref="System.IO.Directory.CreateDirectory(string)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="create"]/*' />
+        /// <example>
+        /// 
+        /// <code source="..\..\TxFileSystem.Tests\Operations\Directories\CreateDirectoryOperation_Should.cs" region="CodeExample_CreateDirectory" lang="C#" 
+        ///   title="Creating two directories transitionally (example extracted from Unit Tests, hence using the MockFileSystem)" />
+        ///   
+        /// </example>
         public IDirectoryInfo CreateDirectory(string path)
         {
             return new CreateDirectoryOperation(this, path).Execute();
@@ -57,6 +63,12 @@
 
         /// <inheritdoc cref="System.IO.Directory.Delete(string)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="delete"]/*' />
+        /// <example>
+        /// 
+        /// <code source="..\..\TxFileSystem.Tests\Operations\Directories\DeleteOperation_Should.cs" region="CodeExample_DeleteDirectory" lang="C#" 
+        ///   title="Deleting a directory transitionally (example extracted from Unit Tests, hence using the MockFileSystem)" />
+        ///   
+        /// </example>
         public void Delete(string path)
         {
             new DeleteOperation(this, path).Execute();
@@ -64,6 +76,12 @@
 
         /// <inheritdoc cref="System.IO.Directory.Delete(string, bool)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="delete"]/*' />
+        /// <example>
+        /// 
+        /// <code source="..\..\TxFileSystem.Tests\Operations\Directories\DeleteOperation_Should.cs" region="CodeExample_DeleteDirectory_Recursive" lang="C#" 
+        ///   title="Deleting a directory recursively and transitionally (example extracted from Unit Tests, hence using the MockFileSystem)" />
+        ///   
+        /// </example>
         public void Delete(string path, bool recursive)
         {
             new DeleteOperation(this, path, recursive).Execute();
@@ -426,6 +444,15 @@
 
         /// <inheritdoc cref="System.IO.Directory.SetCreationTime(string, DateTime)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="modify"]/*' />
+        /// <example>
+        /// 
+        /// <code source="..\..\TxFileSystem.Tests\Operations\Directories\SetCreationTimeOperation_Should.cs" region="CodeExample_Directory_SetCreationTime_Changed" lang="C#" 
+        ///   title="Changing the creation time transitionally with success (example extracted from Unit Tests, hence using the MockFileSystem)" />
+        ///   
+        /// <code source="..\..\TxFileSystem.Tests\Operations\Directories\SetCreationTimeOperation_Should.cs" region="CodeExample_Directory_SetCreationTime_Unchanged" lang="C#" 
+        ///   title="Changing the creation time transitionally being rolled back (example extracted from Unit Tests, hence using the MockFileSystem)" />
+        ///   
+        /// </example>
         public void SetCreationTime(string path, DateTime creationTime)
         {
             new SetCreationTimeOperation(this, path, creationTime).Execute();

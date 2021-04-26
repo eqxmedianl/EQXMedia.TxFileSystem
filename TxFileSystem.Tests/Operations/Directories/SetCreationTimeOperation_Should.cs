@@ -14,6 +14,8 @@
         [Fact]
         public void SetCreationTimeOperation_CreationTimeChanged()
         {
+            #region CodeExample_Directory_SetCreationTime_Changed
+
             var dirName = "/tmp/dirtochangecreationtimeof";
 
             var mockFileSystem = new MockFileSystem();
@@ -32,11 +34,15 @@
 
                 Assert.Equal(modifiedCreationTime, txFileSystem.Directory.GetCreationTime(dirName));
             }
+
+            #endregion
         }
 
         [Fact]
         public void SetCreationTimeOperation_ExceptionThrown_CreationTimeUnchanged()
         {
+            #region CodeExample_Directory_SetCreationTime_Unchanged
+
             var dirName = "/tmp/dirtochangecreationtimeof";
 
             var mockFileSystem = new MockFileSystem();
@@ -59,6 +65,8 @@
 
             Assert.NotEqual(modifiedCreationTime, txFileSystem.Directory.GetCreationTime(dirName));
             Assert.Equal(originalCreationTime, txFileSystem.Directory.GetCreationTime(dirName));
+
+            #endregion
         }
 
         [Fact, FsFact]

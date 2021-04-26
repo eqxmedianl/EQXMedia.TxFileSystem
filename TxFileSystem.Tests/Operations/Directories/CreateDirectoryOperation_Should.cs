@@ -61,6 +61,8 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
 
             void CreateDirectories()
             {
+                #region CodeExample_CreateDirectory
+
                 var mockFileSystem = new MockFileSystem();
                 using (var transactionScope = new TransactionScope())
                 {
@@ -69,6 +71,8 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
                     txFileSystem.Directory.CreateDirectory("/var/nonfailingdirectory");
                     transactionScope.Complete();
                 }
+
+                #endregion
             }
 
             CreateDirectories();
