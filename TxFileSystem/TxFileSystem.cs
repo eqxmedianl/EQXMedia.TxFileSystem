@@ -81,32 +81,21 @@
         /// The first sample shows how to create an instance by passing it the default file system implementation. 
         /// Resulting in that implementation to be used internally.
         ///     
-        /// <code>
-        /// using System.IO.Abstractions;
-        /// using EQXMedia.TxFileSystem;
-        /// 
-        /// var txFileSystem = new TxFileSystem(new FileSystem());
-        /// </code>
+        /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleOne" lang="C#" 
+        ///   title="Create an instance using specified file system implementation" />
         /// 
         /// The second sample shows how to create an instance without passing it a file system implementation. 
         /// Resulting in the default implementation to be used internally.
         ///     
-        /// <code>
-        /// using EQXMedia.TxFileSystem;
-        /// 
-        /// var txFileSystem = new TxFileSystem();
-        /// </code>
+        /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleTwo" lang="C#" 
+        ///   title="Create an instance using the default file system implementation" />
         /// 
         /// The third sample shows how to create an instance by passing it a mock file system implementation. 
         /// This way the application logic can be Unit Tested without touching the actual file system.
         ///     
-        /// <code>
-        /// using System.IO.Abstractions.TestingHelpers;
-        /// using EQXMedia.TxFileSystem;
-        /// 
-        /// var mockFileSystem = new MockFileSystem();
-        /// var txFileSystem = new TxFileSystem(mockFileSystem);
-        /// </code>
+        /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleThree" lang="C#" 
+        ///   title="Create an instance using a mock file system implementation" />
+        ///   
         /// </example>
         /// <param name="fileSystem">
         ///   A file system on which transactional operations should be performed.
@@ -147,18 +136,8 @@
         /// If the transaction scope completes successfully the created file is kept, otherwise the 
         /// file will be removed upon rolling back the journalized operations.
         ///     
-        /// <code>
-        /// using System.Transactions;
-        /// using System.IO.Abstractions;
-        /// using EQXMedia.TxFileSystem;
-        /// 
-        /// using (var transactionScope = new TransactionScope())
-        /// {
-        ///     var txFileSystem = new TxFileSystem(new FileSystem());
-        ///     txFileSystem.File.Create("/tmp/somefile.txt");
-        ///     transactionScope.Complete();
-        /// }
-        /// </code>
+        /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Property_File_ExampleOne" lang="C#" 
+        ///   title="Using a transactional operation inside a transaction scope" />
         /// 
         /// The second sample shows both a journalizing operation being used and one that is not 
         /// journalized.
@@ -167,20 +146,9 @@
         /// see whether the file exists or not doesn't have to be rolled back. Simply because 
         /// it doesn't modify any file system resources.
         ///     
-        /// <code>
-        /// using System.Transactions;
-        /// using System.IO.Abstractions;
-        /// using EQXMedia.TxFileSystem;
-        /// 
-        /// using (var transactionScope = new TransactionScope())
-        /// {
-        ///     var txFileSystem = new TxFileSystem(new FileSystem());
-        ///     if (!txFileSystem.File.Exists("/tmp/somefile.txt") {
-        ///         txFileSystem.File.Create("/tmp/somefile.txt");
-        ///     }
-        ///     transactionScope.Complete();
-        /// }
-        /// </code>
+        /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Property_File_ExampleTwo" lang="C#" 
+        ///   title="Using both a transactional operation and a non-transactional operation" />
+        ///   
         /// </example>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
         public TxFile File { get; }
@@ -195,18 +163,8 @@
         /// If the transaction scope completes successfully the created directory is kept, otherwise the 
         /// directory will be removed upon rolling back the journalized operations.
         ///     
-        /// <code>
-        /// using System.Transactions;
-        /// using System.IO.Abstractions;
-        /// using EQXMedia.TxFileSystem;
-        /// 
-        /// using (var transactionScope = new TransactionScope())
-        /// {
-        ///     var txFileSystem = new TxFileSystem(new FileSystem());
-        ///     txFileSystem.Directory.Create("/data/downloads/audiobooks");
-        ///     transactionScope.Complete();
-        /// }
-        /// </code>
+        /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Property_Directory_ExampleOne" lang="C#" 
+        ///   title="Using a transactional operation inside a transaction scope" />
         /// 
         /// The second sample shows both a journalizing operation being used and one that is not 
         /// journalized.
@@ -215,20 +173,9 @@
         /// see whether the directory exists or not doesn't have to be rolled back. Simply 
         /// because it doesn't modify any file system resources.
         ///     
-        /// <code>
-        /// using System.Transactions;
-        /// using System.IO.Abstractions;
-        /// using EQXMedia.TxFileSystem;
-        /// 
-        /// using (var transactionScope = new TransactionScope())
-        /// {
-        ///     var txFileSystem = new TxFileSystem(new FileSystem());
-        ///     if (!txFileSystem.Directory.Exists("/data/downloads/audiobooks") {
-        ///         txFileSystem.Directory.Create("/data/downloads/audiobooks");
-        ///     }
-        ///     transactionScope.Complete();
-        /// }
-        /// </code>
+        /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Property_Directory_ExampleOne" lang="C#" 
+        ///   title="Using both a transactional operation and a non-transactional operation" />
+        ///   
         /// </example>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/FileSystemProperties/FileSystemProperty[@modifying="true"]/*' />
         public TxDirectory Directory { get; }

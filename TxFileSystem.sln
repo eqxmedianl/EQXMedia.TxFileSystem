@@ -38,6 +38,11 @@ Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "net5.0", "Documentation\net
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "netstandard2.1", "Documentation\netstandard2.1\netstandard2.1.shfbproj", "{B7959812-1BAE-496D-B727-567B6E582E03}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{8234BD58-60CC-4633-BD9C-A99BDF8F0E10}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Examples\TxFileSystem_Examples.cs = Documentation\Examples\TxFileSystem_Examples.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +84,7 @@ Global
 		{16E99C74-6414-4C8D-A981-BC8BB3961CB1} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 		{30EAD1F5-B804-458F-8B77-5EBA48AF5FF7} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 		{B7959812-1BAE-496D-B727-567B6E582E03} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
+		{8234BD58-60CC-4633-BD9C-A99BDF8F0E10} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7076B68C-14D6-4D20-A715-F5FB506D15CF}
