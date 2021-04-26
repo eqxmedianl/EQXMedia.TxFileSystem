@@ -57,9 +57,9 @@ namespace EQXMedia.TxFileSystem.Examples
             #endregion
         }
 
-        public void Property_File_ExampleFour()
+        public void Constructor_ExampleFour()
         {
-            #region Property_File_ExampleOne
+            #region Constructor_ExampleFour
 
             using System.Transactions;
             using System.IO.Abstractions;
