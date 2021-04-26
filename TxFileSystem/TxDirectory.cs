@@ -14,15 +14,13 @@
     /// <summary>
     ///   Transactional directory exposes methods for creating, moving, enumerating through directories 
     ///   and subdirectories and so on.
-    ///   
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="true"]/summary/*' />
     /// </summary>
     /// <remarks>
-    ///   <para>
+    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="true"]/remarks/*' />
+    ///   <note type="note">
     ///     <c>TxDirectory</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.Directory" />. 
     ///     It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
-    ///   </para>
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="true"]/remarks/*' />
+    ///   </note>
     /// </remarks>
     [Serializable]
     public sealed class TxDirectory : IDirectory

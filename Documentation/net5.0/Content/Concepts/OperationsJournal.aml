@@ -41,7 +41,7 @@
       
     </introduction>
 
-    <section address="Section_Activating">
+    <section address="JournalActivation">
       <title>Activating Transactional Support</title>
       <content>
 
@@ -59,7 +59,7 @@
 
     </section>
         
-    <section address="Section_Functionality">    
+    <section address="RollbackAndCommit">    
       <title>Rollback and Commit Functionality</title>
       <content>
       

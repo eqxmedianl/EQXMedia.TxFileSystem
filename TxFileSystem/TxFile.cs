@@ -19,15 +19,13 @@
     /// <summary>
     ///   Transactional file exposes methods for the creation, copying, deletion, moving, and opening of a single file,
     ///   aids in the creation of <see cref="System.IO.FileStream" /> objects and so on.
-    ///   
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="true"]/summary/*' />
     /// </summary>
     /// <remarks>
-    ///   <para>
+    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="true"]/remarks/*' />
+    ///   <note type="note">
     ///     <c>TxFile</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.File" />. It can't 
     ///     be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
-    ///   </para>
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="true"]/remarks/*' />
+    ///   </note>
     /// </remarks>
     [Serializable]
     public sealed class TxFile : IFile

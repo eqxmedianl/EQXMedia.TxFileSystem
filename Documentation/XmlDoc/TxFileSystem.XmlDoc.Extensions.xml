@@ -2,20 +2,28 @@
    <Extensions>
       <Classes>
          <Class modifying="true">
-           <summary>
-             <para>
-               Instances of this object contain both methods that modify file system resources and
-               methods that don't modify any of them.
-             </para>
-           </summary>
            <remarks>
              <para>
-               Depending on the method of this object's instances being invoked the journal is used or
-               not. Backup and restore takes place depending on the usage of the journal.
-             </para>
+               Depending on the method being invoked on instances of this object the <conceptualLink 
+                 target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1">Operation Journal</conceptualLink> is used 
+               to journalize the operation or not. <conceptualLink 
+                 target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operations</conceptualLink> 
+               are journalized and <conceptualLink
+                 target="e960b0a4-0eca-455f-91ef-d759b42928be">Non-Transactional Operations</conceptualLink>
+               are not.
+             </para>             
+             <note type="caution">
+               <conceptualLink 
+                 target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#RollbackAndCommit">Backup and/or
+                 restore</conceptualLink> only take place for operations journalized by an active <conceptualLink 
+                 target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#JournalActivation">Operation Journal
+               </conceptualLink>. Ensure that it <conceptualLink 
+                 target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#JournalActivation">gets activated</conceptualLink>.
+             </note>
            </remarks>
-           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
            <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
+           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+           <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
          </Class>
         <Class modifying="false">
            <summary>
