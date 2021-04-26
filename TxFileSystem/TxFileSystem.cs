@@ -67,39 +67,41 @@
         /// <remarks>
         ///   <para>
         ///     Always ensure that you create an instance of <see cref="TxFileSystem"/> inside the 
-        ///     <see cref="System.Transactions.TransactionScope"/> to activate the operations journal. Without doing so,
-        ///     operations on files and directories are not transactional. Having created a <see cref="TxFileSystem"/> 
-        ///     instance outside a <see cref="System.Transactions.TransactionScope"/> and still performing the 
-        ///     operations using it inside the scope, the operations are simply not transactional.
+        ///     <see cref="System.Transactions.TransactionScope"/> to activate the transactional journal. 
+        ///     Without doing so, operations on files and directories are not transactional. Having 
+        ///     created a <see cref="TxFileSystem" /> instance outside a <see 
+        ///       cref="System.Transactions.TransactionScope"/> and still performing the operations using 
+        ///     it inside the scope, the operations are simply not transactional.
         ///   </para>
         ///   <para>
-        ///     Also, when you perform operations directory a file system you pass to the constructor, you loose data 
-        ///     integrity in case of exceptions. Because doing that the journal providing the rollback functionality 
-        ///     will simply not be used.
+        ///     Also, when you perform operations directory a file system you pass to the constructor, 
+        ///     you loose data integrity in case of exceptions. Because doing that the journal providing 
+        ///     the rollback functionality will simply not be used.
         /// </para>
         /// </remarks>
         /// <example>
-        /// The first sample shows how to create an instance by passing it the default file system implementation. 
-        /// Resulting in that implementation to be used internally.
+        /// The first sample shows how to create an instance by passing it the default file system 
+        /// implementation. Resulting in that implementation to be used internally.
         ///     
         /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleOne" lang="C#" 
         ///   title="Create an instance using specified file system implementation" />
         /// 
-        /// The second sample shows how to create an instance without passing it a file system implementation. 
-        /// Resulting in the default implementation to be used internally.
+        /// The second sample shows how to create an instance without passing it a file system 
+        /// implementation. Resulting in the default implementation to be used internally.
         ///     
         /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleTwo" lang="C#" 
         ///   title="Create an instance using the default file system implementation" />
         /// 
-        /// The third sample shows how to create an instance by passing it a mock file system implementation. 
-        /// This way the application logic can be Unit Tested without touching the actual file system.
+        /// The third sample shows how to create an instance by passing it a mock file system 
+        /// implementation. This way the application logic can be Unit Tested without touching the 
+        /// actual file system.
         ///     
         /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleThree" lang="C#" 
         ///   title="Create an instance using a mock file system implementation" />
         /// 
-        /// The third sample shows how to create an instance inside a transaction scope, enabling support for 
-        /// transactional operations. This is the only way to activate the journal and make use of the backup
-        /// and rollback functionality TxFileSystem provides automatically.
+        /// The third sample shows how to create an instance inside a transaction scope, enabling support 
+        /// for transactional operations. This is the only way to activate the journal and make use of 
+        /// the backup and rollback functionality TxFileSystem provides automatically.
         ///     
         /// <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleFour" lang="C#" 
         ///   title="Create an instance inside a transaction scope, enabling support for transactional operations" />
@@ -134,7 +136,8 @@
         }
 
         /// <summary>
-        ///   This constructor exists to ensure that deserialization of this class happens without any exceptions.
+        ///   This constructor exists to ensure that deserialization of this class happens without 
+        ///   any exceptions.
         /// </summary>
         /// <seealso cref="EQXMedia.TxFileSystem.TxFileSystem.GetObjectData(SerializationInfo, StreamingContext)" />
         private TxFileSystem(SerializationInfo info, StreamingContext context)
