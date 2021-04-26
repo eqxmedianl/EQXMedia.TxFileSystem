@@ -72,30 +72,47 @@
         
         <para>
           The table below goes a bit more into detail, and might make this easier
-          to understand, what happens when the <externalLink>
+          to understand, what the state of the journal is depending on the state of the current 
+          transaction enlisted inside the <externalLink>
             <linkText>TransactionScope</linkText>
             <linkAlternateText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkAlternateText>
             <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
-          </externalLink> completes successfully.
+          </externalLink>.
         </para>
         
         <table>
   	      <tableHeader>
             <row>
-              <entry><para><codeInline>Complete()</codeInline></para></entry>
-              <entry><para>TxFileSystem Result</para></entry>
+              <entry><para>TransactionScope&#160;Operation</para></entry>
+              <entry><para>Transaction&#160;Status</para></entry>
+              <entry><para>Journal&#160;State</para></entry>
             </row>
           </tableHeader>
           <row>
-            <entry><para><codeInline>Completes</codeInline></para></entry>
+            <entry><para><codeInline>Complete()</codeInline></para></entry>
+            <entry><para><literal>Aborted</literal></para></entry>
+            <entry><para>All changes made by transactional operations are rolled back.<lineBreak />
+              Meaning the backups that were created are automatically restored, and 
+              removed afterwards.</para></entry>
+          </row>
+          <row>
+            <entry><para><codeInline>Complete()</codeInline></para></entry>
+            <entry><para><literal>Active</literal></para></entry>
+            <entry><para>All transactional operations, that might need to be rolled back, are 
+              still journalized.<lineBreak />
+              Backups that were created exist until the transaction status changes.</para></entry>
+          </row>
+          <row>
+            <entry><para><codeInline>Complete()</codeInline></para></entry>
+            <entry><para><literal>Committed</literal></para></entry>
             <entry><para>All changes made by transactional operations are preserved.<lineBreak />
               The backups that were created automatically are removed.</para></entry>
           </row>
           <row>
-            <entry><para><codeInline>Fails</codeInline></para></entry>
-            <entry><para>All changes made by transactional operations are rolled back.<lineBreak />
-              Meaning the backups that were created are automatically restored, and 
-              removed afterwards.</para></entry>
+            <entry><para><codeInline>Complete()</codeInline></para></entry>
+            <entry><para><literal>InDoubt</literal></para></entry>
+            <entry><para>This will have the same result as the <literal>Aborted</literal>
+              transaction status.</para></entry>
           </row>
         </table>
       
@@ -118,6 +135,18 @@
         <linkText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkText>
         <linkAlternateText>Read more about the TransactionScope class</linkAlternateText>
         <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
+      </externalLink>
+
+      <externalLink>
+        <linkText>TransactionScope.Complete Method | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the TransactionScope.Complete method</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope.complete</linkUri>
+      </externalLink>
+
+      <externalLink>
+        <linkText>TransactionStatus Enum | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the TransactionStatus Enum</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionstatus</linkUri>
       </externalLink>
       
     </relatedTopics>
