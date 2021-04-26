@@ -18,7 +18,7 @@
           <HelpKeyword index="K" term="transactions, transactionscope, transaction scope, commit, rollback, indoubt, prepare" />
         </HelpKeywords>
       </Topic>
-      <Topic id="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" visible="True" title="Operations Journal" tocTitle="Operations Journal" linkText="Operations Journal">
+      <Topic id="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" visible="True" isSelected="true" title="Transactional Journal" tocTitle="Transactional Journal" linkText="Transactional Journal">
         <HelpKeywords>
           <HelpKeyword index="K" term="journal, journalize, journalizing, prepare, rollback, commit" />
         </HelpKeywords>
@@ -28,7 +28,7 @@
           <HelpKeyword index="K" term="transactional, transactions, transaction scope, data integrity" />
         </HelpKeywords>
       </Topic>
-      <Topic id="e960b0a4-0eca-455f-91ef-d759b42928be" visible="True" isSelected="true" title="Non-Transactional Operations " tocTitle="Non-Transactional Operations " linkText="Non-Transactional Operations ">
+      <Topic id="e960b0a4-0eca-455f-91ef-d759b42928be" visible="True" title="Non-Transactional Operations " tocTitle="Non-Transactional Operations " linkText="Non-Transactional Operations ">
         <HelpKeywords>
           <HelpKeyword index="K" term="operations, non-transactional" />
         </HelpKeywords>

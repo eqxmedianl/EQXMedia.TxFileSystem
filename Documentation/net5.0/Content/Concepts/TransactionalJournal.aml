@@ -8,25 +8,24 @@
       <para>
         The transactional journal provides the prepare, rollback, and commit functionality for the 
         transactional operations of this library. It is internally fully automatically used by
-        <codeEntityReference qualifyHint="false">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
-        and activates itself once it detects that it is part of a transaction.
+        <codeInline>TxFileSystem</codeInline>, and activates itself once it detects that it is part 
+        of a transaction.
       </para>
     </summary>
 
     <introduction>
 
       <para>
-        As said the journal activates itself once it detects that it is part of a transaction. If an instance of 
-        <codeEntityReference qualifyHint="false">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
-        is incorrectly created, the support for transactional operations does not become active. Meaning data 
-        integrity is not guaranteed in that case.
+        As said the journal activates itself once it detects that it is part of a transaction. If an 
+        instance of <codeInline>TxFileSystem</codeInline> is incorrectly created, the support for 
+        transactional operations does not become active. Meaning data integrity is not guaranteed in 
+        that case.
       </para>
       
       <alert class="caution">
         <para>
-          The journal only becomes active when the 
-          <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
-          instance is constructed inside a <externalLink>
+          The journal only becomes active when the <codeInline>TxFileSystem</codeInline> instance is 
+          constructed inside a <externalLink>
             <linkText>TransactionScope</linkText>
             <linkAlternateText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkAlternateText>
             <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
@@ -34,9 +33,9 @@
           </externalLink>.
         </para>
         <para>
-          Without doing so the <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
-          will function exactly the same as the file system implementation it wraps. Hence you will not take advantage
-          of transactional operations on files, directories and file streams.
+          Without doing so the <codeInline>TxFileSystem</codeInline> will function exactly the same as 
+          the file system implementation it wraps. Hence you will not take advantage of transactional 
+          operations on files, directories and file streams.
         </para>
       </alert>
       
@@ -48,9 +47,8 @@
 
         <para>
           The code sample below demonstrates how to correctly create an instance of
-          <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
-          thereby activating its support for transactional operations. As said it will automatically use the journal
-          internally than.
+          <codeInline>TxFileSystem</codeInline>, thereby activating its support for transactional 
+          operations. As said it will automatically use the journal internally than.
         </para>
 
         <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleFour" language="cs"

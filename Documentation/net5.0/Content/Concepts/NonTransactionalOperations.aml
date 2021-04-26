@@ -16,16 +16,15 @@
     <introduction>
       
       <para>
-        On this page non-transactional operations being part of
-        <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
+        On this page non-transactional operations being part of <codeInline>TxFileSystem</codeInline>
         are being explained.
       </para>
       
     </introduction>
 
-    <section address="Section_OperationsJournal">
+    <section address="TransactionalJournal">
       
-      <title>Operations Journal</title>
+      <title>Transactional Journal</title>
       
       <content>
         <para>
@@ -34,8 +33,7 @@
         </para>
         <para>
           All non-transactional operations performed using the methods of the properties exposed by
-          <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
-          will never be listed inside the transactional journal.
+          <codeInline>TxFileSystem</codeInline>, will never be listed inside the transactional journal.
         </para>
         <para>
           As said earlier in this topic so that these kind of operations simply don't modify any file system 

@@ -5,22 +5,24 @@
     xmlns:xlink="http://www.w3.org/1999/xlink">
 
     <summary>
-      <para>Transactional operations ensure data integrity is maintained by applications using this library.</para>
+      <para>
+        Transactional operations ensure data integrity is maintained by applications using 
+        this library.
+      </para>
     </summary>
 
     <introduction>
       
       <para>
-        On this page transactional operations being part of 
-        <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference> 
+        On this page transactional operations being part of <codeInline>TxFileSystem</codeInline> 
         are being explained.
       </para>
       
     </introduction>
     
-    <section address="Section_OperationsJournal">
+    <section address="TransactionalJournal">
       
-      <title>Operations Journal</title>
+      <title>Transactional Journal</title>
       
       <content>
         
@@ -30,10 +32,9 @@
         </para>
         <para>
           All operations performed using the methods of the properties exposed by
-          <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
-          that should be performed transitionally, so that these operations can be rolled back in case of 
-          exceptions inside the transaction scope, are journalized internally by the transactional file system
-          class.
+          <codeInline>TxFileSystem</codeInline> that should be performed transitionally, so that these 
+          operations can be rolled back in case of exceptions inside the transaction scope, are journalized 
+          internally by the transactional file system class.
         </para>
         
       </content>

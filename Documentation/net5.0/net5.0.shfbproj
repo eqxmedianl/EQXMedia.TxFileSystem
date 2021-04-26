@@ -67,7 +67,12 @@
           </versions>
         </configuration>
       </PlugInConfig>
-<PlugInConfig id="Bibliography Support" enabled="True"><configuration><bibliography path="Bibliography.xml" /></configuration></PlugInConfig></PlugInConfigurations>
+      <PlugInConfig id="Bibliography Support" enabled="True">
+        <configuration>
+          <bibliography path="Bibliography.xml" />
+        </configuration>
+      </PlugInConfig>
+    </PlugInConfigurations>
     <TransformComponentArguments>
       <Argument Key="logoFile" Value="" />
       <Argument Key="logoHeight" Value="" />
@@ -152,7 +157,7 @@
     <None Include="Content\Concepts.aml" />
     <None Include="Content\Concepts\FileSystemAbstraction.aml" />
     <None Include="Content\Concepts\NonTransactionalOperations.aml" />
-    <None Include="Content\Concepts\OperationsJournal.aml" />
+    <None Include="Content\Concepts\TransactionalJournal.aml" />
     <None Include="Content\Concepts\TransactionalOperations.aml" />
     <None Include="Content\Concepts\Transactions.aml" />
     <None Include="Content\Copyright.aml" />
