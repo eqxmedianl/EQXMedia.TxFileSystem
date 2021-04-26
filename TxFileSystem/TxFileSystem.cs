@@ -111,7 +111,7 @@
         /// <param name="fileSystem">
         ///   A file system on which transactional operations should be performed.
         /// </param>
-        /// <exception cref="UnsupportedFileSystemImplementationException">This exception is thrown when the specified <c>fileSytem</c> is actually a <c>TxFileSystem</c> itself.</exception>
+        /// <exception cref="UnsupportedFileSystemImplementationException">This exception is thrown when the specified <c>fileSytem</c> is actually a <c>TxFileSystem</c> itself too.</exception>
         /// <seealso cref="System.Transactions.TransactionScope"/>
         /// <seealso href="https://github.com/System-IO-Abstractions/System.IO.Abstractions" 
         ///   alt="System.IO.Abstractions on NuGet"/>
