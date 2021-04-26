@@ -42,7 +42,7 @@
     </introduction>
         
     <section address="Section_Functionality">    
-      <title>Functionality</title>
+      <title>Rollback and Commit Functionality</title>
       <content>
       
         <para>
@@ -85,8 +85,8 @@
       
     </section>
 
-    <section address="Section_Example">
-      <title>Example</title>
+    <section address="Section_Activating">
+      <title>Activating Transactional Support</title>
       <content>
 
         <para>
