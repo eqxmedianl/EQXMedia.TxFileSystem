@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <summary>
+      <para>
+        The operations journal provides the prepare, rollback, and commit functionality for the transactional
+        operations of this library. It is internally fully automatically used by
+        <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
+        and activates itself once it detects that it is part of a transaction.
+      </para>
+    </summary>
+
+    <introduction>
+
+      <para>
+        As said the journal activates itself once it detects that it is part of a transaction. If an instance of 
+        <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
+        is incorrectly created, the support for transactional operations does not become active. Meaning data 
+        integrity is not guaranteed in that case.
+      </para>
+      
+      <alert class="caution">
+        <para>
+          The journal only becomes active when the 
+          <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
+          instance is constructed inside a <externalLink>
+            <linkText>TransactionScope</linkText>
+            <linkAlternateText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkAlternateText>
+            <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
+          </externalLink>.
+        </para>
+        <para>
+          Without doing so the <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>
+          will function exactly the same as the file system implementation it wraps. Hence you will not take advantage
+          of transactional operations on files, directories and file streams.
+        </para>
+      </alert>
+      
+    </introduction>
+        
+    <section address="Section_Functionality">    
+      <title>Functionality</title>
+      <content>
+      
+        <para>
+          The journal takes care of maintaining data integrity. Depending on 
+          exceptions occuring while completing the transaction scope, or not, 
+          any changes made to the files, directories and file streams using the
+          wrapped filesystem, are rolled back or persisted.
+        </para>
+        
+        <para>
+          The table below goes a bit more into detail, and might make this easier
+          to understand.
+        </para>
+        
+        <table>
+  	      <tableHeader>
+            <row>
+              <entry><para><c>Complete()</c></para></entry>
+              <entry><para>TxFileSystem Result</para></entry>
+            </row>
+          </tableHeader>
+          <row>
+            <entry><para><c>Completes</c></para></entry>
+            <entry><para>All changes made by transactional operations are preserved. 
+              The backups that were created automatically are removed.</para></entry>
+          </row>
+          <row>
+            <entry><para><c>Fails</c></para></entry>
+            <entry><para>All changes made by transactional operations are rolled back.
+              Meaning the backups that were created are automatically restored, and 
+              removed afterwards.</para></entry>
+          </row>
+        </table>
+      
+        <section address="Section_Example">
+          <title>Example</title>
+          <content>
+
+            <para>
+              The code sample below demonstrates how to correctly create an instance of
+              <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
+              thereby activating its support for transactional operations. As said it will automatically use the journal 
+              internally than.
+            </para>
+
+            <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleFour" language="C#" 
+              title="Creating an instance inside a transaction scope, enabling support for transactional operations" />
+
+          </content>
+      
+        </section>
+      
+      </content>
+    </section>
+
+    <relatedTopics>
+
+      <link xlink:href="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operations</link>
+      <link xlink:href="e960b0a4-0eca-455f-91ef-d759b42928be">Non-Transactional Operations</link>
+      
+      <externalLink>
+        <linkText>System.Transactions Namespace | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the System.Transactions namespace</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions</linkUri>
+      </externalLink>
+      
+      <externalLink>
+        <linkText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the TransactionScope class</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
+      </externalLink>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>
