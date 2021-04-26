@@ -56,6 +56,20 @@
       
       <link xlink:href="e960b0a4-0eca-455f-91ef-d759b42928be"
             topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Non-Transactional Operations</link>
+            
+      <externalLink>
+        <linkText>System.Transactions Namespace | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the System.Transactions namespace</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the TransactionScope class</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
 
     </relatedTopics>
   </developerConceptualDocument>
