@@ -150,7 +150,6 @@
     <None Include="Content\About.aml" />
     <None Include="Content\Concepts.aml" />
     <None Include="Content\Concepts\TransactionalOperations.aml" />
-    <None Include="Content\Welcome.aml" />
   </ItemGroup>
   <ItemGroup>
     <ContentLayout Include="ContentLayout.content" />
