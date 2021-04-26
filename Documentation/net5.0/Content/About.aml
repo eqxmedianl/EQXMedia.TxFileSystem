@@ -46,6 +46,12 @@
       </content>
     </section>
 
+    <bibliography>
+      <cite>Writing a Transactional Application</cite>
+      <cite>Features Provided by System.Transactions</cite>
+      <cite>System.IO.Abstractions</cite>   
+    </bibliography>
+
     <relatedTopics>
 
       <externalLink>
