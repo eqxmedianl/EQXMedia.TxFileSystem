@@ -13,7 +13,7 @@
     /// </summary>
     /// <remarks>Currently this exception is only thrown when one <see cref="TxFileSystem" /> instance is tried to be wrapped inside another.</remarks>
     [Serializable]
-    public class UnsupportedFileSystemImplementationException : Exception
+    public sealed class UnsupportedFileSystemImplementationException : Exception
     {
         /// <summary>
         ///   Creates a new instance of the <see cref="UnsupportedFileSystemImplementationException" /> class.
