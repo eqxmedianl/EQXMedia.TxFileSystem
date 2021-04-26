@@ -4,6 +4,7 @@
     using global::EQXMedia.TxFileSystem.Journaling;
     using System;
     using System.IO.Abstractions;
+    using System.Runtime.Serialization;
 
     /// <summary>
     ///   Transactional file system is actually a wrapper around file systems that implement the 
@@ -55,7 +56,7 @@
     /// <seealso href="https://www.nuget.org/packages/System.IO.Abstractions/" 
     ///   alt="System.IO.Abstractions on GitHub"/>
     [Serializable]
-    public sealed class TxFileSystem : IFileSystem
+    public sealed class TxFileSystem : IFileSystem, ISerializable
     {
         /// <summary>
         ///   Creates a <see cref="TxFileSystem"/> instance.
@@ -130,6 +131,35 @@
             this.DirectoryInfo = new TxDirectoryInfo(this);
             this.DriveInfo = new TxDriveInfo(this);
             this.FileSystemWatcher = new TxFileSystemWatcher(this);
+        }
+
+        private TxFileSystem(SerializationInfo info, StreamingContext context)
+        {
+            var tmpFileSytem = (IFileSystem)info.GetValue("fileSystem", typeof(IFileSystem));
+
+            if (tmpFileSytem is TxFileSystem)
+            {
+                this.FileSystem = new FileSystem();
+            }
+            else
+            {
+                this.FileSystem = tmpFileSytem;
+            }
+
+            this.File = new TxFile(this);
+            this.Directory = new TxDirectory(this);
+            this.FileInfo = new TxFileInfo(this);
+            this.FileStream = new TxFileStream(this);
+            this.Path = new TxPath(this);
+            this.DirectoryInfo = new TxDirectoryInfo(this);
+            this.DriveInfo = new TxDriveInfo(this);
+            this.FileSystemWatcher = new TxFileSystemWatcher(this);
+        }
+
+        /// <exclude />
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("fileSystem", this.FileSystem);
         }
 
         /// <summary>
