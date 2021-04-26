@@ -1,4 +1,6 @@
-﻿/.sonarqube
+﻿/packages
+
+/.sonarqube
 /.vs
 
 bin/
