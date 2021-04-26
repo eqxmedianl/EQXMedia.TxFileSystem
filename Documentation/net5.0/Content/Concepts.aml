@@ -87,21 +87,6 @@
     
     <relatedTopics>
       
-      <link xlink:href="f12b5927-89c0-436a-b1b1-ebfffc0d836e"
-            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">File System Abstraction</link>
-      
-      <link xlink:href="1289c31e-70f5-4f23-9193-e52469690ccb"
-            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Transactions</link>
-      
-      <link xlink:href="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1"
-            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Operations Journal</link>
-
-      <link xlink:href="bc9e348b-8de7-44aa-aea1-458dad83e9a1"
-            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Transactional Operations</link>
-      
-      <link xlink:href="e960b0a4-0eca-455f-91ef-d759b42928be"
-            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Non-Transactional Operations</link>
-      
     </relatedTopics>
   </developerConceptualDocument>
 </topic>
