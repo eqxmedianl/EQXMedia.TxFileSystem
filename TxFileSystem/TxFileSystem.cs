@@ -113,9 +113,9 @@
         /// <exception cref="UnsupportedFileSystemImplementationException">This exception is thrown when the specified <c>fileSytem</c> is actually a <c>TxFileSystem</c> itself too.</exception>
         /// <seealso cref="System.Transactions.TransactionScope"/>
         /// <seealso href="https://github.com/System-IO-Abstractions/System.IO.Abstractions" 
-        ///   alt="System.IO.Abstractions on NuGet"/>
-        /// <seealso href="https://www.nuget.org/packages/System.IO.Abstractions/" 
         ///   alt="System.IO.Abstractions on GitHub"/>
+        /// <seealso href="https://www.nuget.org/packages/System.IO.Abstractions/" 
+        ///   alt="System.IO.Abstractions on NuGet"/>
         public TxFileSystem(IFileSystem fileSystem = null)
         {
             if (fileSystem is TxFileSystem)
