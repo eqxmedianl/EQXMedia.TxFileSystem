@@ -36,7 +36,7 @@
         /// <param name="info">The serialization information object holding the serialized object data in the name-value form.</param>
         /// <param name="context">The contextual information about the source or destination of the exception.</param>
         /// <exception cref="ArgumentNullException">The <c>info</c> parameter is <c>null</c>.</exception>
-        protected UnsupportedFileSystemImplementationException(SerializationInfo info, StreamingContext context)
+        private UnsupportedFileSystemImplementationException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
