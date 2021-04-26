@@ -26,7 +26,7 @@
         
         <para>
           In order to able to make use of the backup and restore mechanism used internally by this library,
-          an operations journal is used.
+          a transactional journal is used.
         </para>
         <para>
           All operations performed using the methods of the properties exposed by

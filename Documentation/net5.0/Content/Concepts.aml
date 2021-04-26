@@ -30,8 +30,8 @@
       </content>
       
       <sections>
-          <section address="Abstractions">
-              <title>Abstractions</title>
+          <section address="FileSystemAbstractions">
+              <title>File System Abstractions</title>
               <content>
                   <para>
                     The base on which this library is implemented is an abstraction library.

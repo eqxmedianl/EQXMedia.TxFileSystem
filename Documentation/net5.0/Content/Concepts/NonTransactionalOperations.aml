@@ -30,12 +30,12 @@
       <content>
         <para>
           In order to able to make use of the backup and restore mechanism used internally by this library,
-          an operations journal is used.
+          a transactional journal is used.
         </para>
         <para>
           All non-transactional operations performed using the methods of the properties exposed by
           <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
-          will never be listed inside the operations journal.
+          will never be listed inside the transactional journal.
         </para>
         <para>
           As said earlier in this topic so that these kind of operations simply don't modify any file system 

@@ -15,9 +15,9 @@
              <note type="caution">
                <conceptualLink 
                  target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#RollbackAndCommit">Backup and/or
-                 restore</conceptualLink> only take place for operations journalized by an active <conceptualLink 
-                 target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#JournalActivation">Operation Journal
-               </conceptualLink>. Ensure that it <conceptualLink 
+                 restore</conceptualLink> only take place for transactional operations journalized by an 
+                 active <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#JournalActivation">
+                   Operation Journal</conceptualLink>. Ensure that it <conceptualLink 
                  target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#JournalActivation">gets activated</conceptualLink>.
              </note>
            </remarks>

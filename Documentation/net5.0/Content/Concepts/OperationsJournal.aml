@@ -6,8 +6,8 @@
 
     <summary>
       <para>
-        The operations journal provides the prepare, rollback, and commit functionality for the transactional
-        operations of this library. It is internally fully automatically used by
+        The transactional journal provides the prepare, rollback, and commit functionality for the 
+        transactional operations of this library. It is internally fully automatically used by
         <codeEntityReference linkText="TxFileSystem">T:EQXMedia.TxFileSystem.TxFileSystem"</codeEntityReference>,
         and activates itself once it detects that it is part of a transaction.
       </para>
