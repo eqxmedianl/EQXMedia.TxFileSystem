@@ -6,15 +6,13 @@
     /// <summary>
     ///   Transactional drive info exposes methods to aid in the creation of <see cref="System.IO.DriveInfo" /> 
     ///   objects. Which can be used to get information about drives.
-    ///   
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="false"]/summary/*' />
     /// </summary>
     /// <remarks>
-    ///   <para>
+    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="false"]/remarks/*' />
+    ///   <note type="note">
     ///     <c>TxDriveInfo</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.DriveInfo" />. 
     ///     It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
-    ///   </para>
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="false"]/remarks/*' />
+    ///   </note>
     /// </remarks>
     [Serializable]
     public sealed class TxDriveInfo : IDriveInfoFactory

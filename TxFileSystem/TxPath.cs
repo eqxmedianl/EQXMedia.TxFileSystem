@@ -6,15 +6,13 @@
     /// <summary>
     ///   Transactional path exposes methods to perform operations on <see cref="System.String"/> instances that 
     ///   contain file or directory path information. These operations are performed in a cross-platform manner.
-    ///   
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="false"]/summary/*' />
     /// </summary>
     /// <remarks>
-    ///   <para>
+    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="false"]/remarks/*' />
+    ///   <note type="note">
     ///     <c>TxPath</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.Path" />. 
     ///     It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
-    ///   </para>
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="false"]/remarks/*' />
+    ///   </note>
     /// </remarks>
     [Serializable]
     public sealed class TxPath : IPath

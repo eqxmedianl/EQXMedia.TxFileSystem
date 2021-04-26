@@ -7,15 +7,13 @@
     ///   Transactional file system watcher exposes a factory to aid in the creation of <see 
     ///     cref="System.IO.FileSystemWatcher" /> objects. Which enables listening to file system change 
     ///   notifications and raise events when a directory, or file in a directory, changes.
-    ///   
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="false"]/summary/*' />
     /// </summary>
     /// <remarks>
-    ///   <para>
+    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="false"]/remarks/*' />
+    ///   <note type="note">
     ///     <c>TxFileSystemWatcher</c> is used underlying at <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystemWatcher" />. 
     ///     It can't be used without a <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance.
-    ///   </para>
-    ///   <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Classes/Class[@modifying="false"]/remarks/*' />
+    ///   </note>
     /// </remarks>
     [Serializable]
     public sealed class TxFileSystemWatcher : IFileSystemWatcherFactory
