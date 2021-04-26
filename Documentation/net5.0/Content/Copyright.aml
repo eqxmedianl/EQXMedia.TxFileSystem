@@ -18,23 +18,23 @@
       </para>
     </introduction>
 
-    <section address="Section_Publisher">
+    <section address="Developer">
+      <title>Developer</title>
+      <content>
+        <para>
+          Jarno Kamminga is the architect who designed this library and also the developer that implemented
+          it.
+        </para>
+      </content>
+    </section>
+
+    <section address="Publisher">
       <title>Publisher</title>
       <content>
         <para>
           EQX Media B.V. is a software development house and marketing agency from The Netherlands. All 
           copyrights of this library is strictly reserved by them. Yet, the library is published and 
           licensed under the BSD license.
-        </para>
-      </content>
-    </section>
-    
-    <section address="Section_Developer">
-      <title>Developer</title>
-      <content>
-        <para>
-          Jarno Kamminga is the architect who designed this library and also the developer that implemented
-          it. 
         </para>
       </content>
     </section>
