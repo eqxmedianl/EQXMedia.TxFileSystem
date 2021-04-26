@@ -67,7 +67,7 @@
           </versions>
         </configuration>
       </PlugInConfig>
-    </PlugInConfigurations>
+<PlugInConfig id="Bibliography Support" enabled="True"><configuration><bibliography path="Bibliography.xml" /></configuration></PlugInConfig></PlugInConfigurations>
     <TransformComponentArguments>
       <Argument Key="logoFile" Value="" />
       <Argument Key="logoHeight" Value="" />
@@ -147,6 +147,7 @@
     <Folder Include="Content\Concepts" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Bibliography.xml" />
     <None Include="Content\About.aml" />
     <None Include="Content\Concepts.aml" />
     <None Include="Content\Concepts\FileSystemAbstraction.aml" />
