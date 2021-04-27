@@ -32,8 +32,8 @@
         <para>
           The design of the <codeInline>TxFileSystem</codeInline> class brings the added 
           functionality of <link xlink:href="Transactional_Operations">
-            Transactional Operations</link> on files, directories and file streams, using 
-          a file system that exactly resembles the default implementation 
+            Transactional Operations</link> on files, directories and file streams. By
+          providing a file system that exactly resembles the default implementation 
           <literal>System.IO.Abstractions</literal> provides with its
           <codeInline>FileSystem</codeInline> class.
         </para>
