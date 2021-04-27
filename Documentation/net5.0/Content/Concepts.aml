@@ -57,8 +57,8 @@
                     xlink:href="Transactions">Transactions</link></para>
               </content>
           </section>
-          <section address="OperationsJournal">
-              <title>Operation Journal</title>
+          <section address="TransactionalJournal">
+              <title>Transactional Journal</title>
               <content>
                   <!-- FIXME: add more section content -->
                   <para>Get to know more about this <link 

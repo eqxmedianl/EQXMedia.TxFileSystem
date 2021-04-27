@@ -5,7 +5,7 @@
            <remarks>
              <para>
                Depending on the method being invoked on instances of this object the <conceptualLink 
-                 target="Transactional_Journal">Operation Journal</conceptualLink> is used 
+                 target="Transactional_Journal">Transactional Journal</conceptualLink> is used 
                to journalize the operation or not. <conceptualLink 
                  target="Transactional_Operations">Transactional Operations</conceptualLink> 
                are journalized and <conceptualLink
@@ -17,7 +17,7 @@
                  target="Transactional_Journal#RollbackAndCommit">Backup and/or
                  restore</conceptualLink> only take place for transactional operations journalized by an 
                  active <conceptualLink target="Transactional_Journal#JournalActivation">
-                   Operation Journal</conceptualLink>. Ensure that it <conceptualLink 
+                   Transactional Journal</conceptualLink>. Ensure that it <conceptualLink 
                  target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
              </note>
            </remarks>
