@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="Donate" revisionNumber="1">
+  <developerHowToDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <para>
+        If you would like to support this project and/or the development of other OpenSource
+        projects by <legacyBold>EQX Media B.V.</legacyBold>, you can make a donation using the
+        <externalLink>
+          <linkText>Donate</linkText>
+          <linkAlternateText>Go to the donation page at the project website</linkAlternateText>
+          <linkUri>https://txfilesystem.io/donate</linkUri>
+          <linkTarget>_blank</linkTarget>
+        </externalLink> page on the project website.
+      </para>
+    </introduction>
+
+    <!-- Optional procedures followed by optional code example but must have
+         at least one procedure or code example -->
+    <procedure>
+      <title>Making a Donation</title>
+      <steps class="ordered">
+        <step>
+          <content>
+            <para>Navigate to the
+              <externalLink>
+                <linkText>Donate</linkText>
+                <linkAlternateText>Go to the donation page at the project website</linkAlternateText>
+                <linkUri>https://txfilesystem.io/donate</linkUri>
+                <linkTarget>_blank</linkTarget>
+              </externalLink> page.
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Choose the amount you would like to donate.</para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>
+              Fill in details about you or your company (<legacyBold>optional</legacyBold>).
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>
+              Use our payment page at <externalLink>
+                <linkText>Mollie</linkText>
+                <linkAlternateText>Go to the website of Mollie</linkAlternateText>
+                <linkUri>https://www.mollie.com/</linkUri>
+                <linkTarget>_blank</linkTarget>
+              </externalLink> to make the donation.
+            </para>
+          </content>
+        </step>
+      </steps>
+      <conclusion>
+        <content>
+          <para>
+            If you entered details about you or your company, during the donation process, those
+            details will be listed on the donation page at the <literal>TxFileSystem</literal>
+            project website.
+          </para>
+        </content>
+      </conclusion>
+    </procedure>
+
+    <relatedTopics>
+
+      <externalLink>
+        <linkText>Donate page</linkText>
+        <linkAlternateText>Go to the donation page at the project website</linkAlternateText>
+        <linkUri>https://txfilesystem.io/donate</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+      
+      <externalLink>
+        <linkText>Project Website</linkText>
+        <linkAlternateText>Go to the project website</linkAlternateText>
+        <linkUri>https://txfilesystem.io/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+    </relatedTopics>
+  </developerHowToDocument>
+</topic>

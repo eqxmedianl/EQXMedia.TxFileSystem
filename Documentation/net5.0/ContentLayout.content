@@ -4,7 +4,7 @@
     <HelpKeywords>
       <HelpKeyword index="K" term="welcome, start, introduction, txfilesystem" />
     </HelpKeywords>
-    <Topic id="Library_Concepts" visible="True" isExpanded="true" isSelected="true" apiParentMode="InsertAfter" title="Library Concepts" tocTitle="Library Concepts" linkText="Library  Concepts">
+    <Topic id="Library_Concepts" visible="True" isExpanded="true" apiParentMode="InsertAfter" title="Library Concepts" tocTitle="Library Concepts" linkText="Library  Concepts">
       <HelpKeywords>
         <HelpKeyword index="K" term="library, concepts, concept" />
       </HelpKeywords>
@@ -33,6 +33,11 @@
           <HelpKeyword index="K" term="operations, non-transactional" />
         </HelpKeywords>
       </Topic>
+    </Topic>
+    <Topic id="Donate" visible="True" isSelected="true" title="Making a Donation" tocTitle="Making a Donation" linkText="Making a Donation">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="donate, donations, support, opensource, development" />
+      </HelpKeywords>
     </Topic>
     <Topic id="Copyright" visible="True" title="TxFileSystem Copyright" tocTitle="Copyright" linkText="Copyright">
       <HelpKeywords>

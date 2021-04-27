@@ -166,6 +166,7 @@
     <None Include="Content\Concepts\TransactionalOperations.aml" />
     <None Include="Content\Concepts\Transactions.aml" />
     <None Include="Content\Copyright.aml" />
+    <None Include="Content\Donations.aml" />
   </ItemGroup>
   <ItemGroup>
     <ContentLayout Include="ContentLayout.content" />
