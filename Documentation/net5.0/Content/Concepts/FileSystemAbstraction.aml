@@ -67,8 +67,8 @@
           the <codeInline>FileSystem</codeInline> class, it can be Unit Tested the same way. 
           As it can be used as a drop-in replacement. Simply pass a 
           <codeInline>MockableFileSystem</codeInline> instance from 
-          <literal>System.IO.Abstractions.TestingHelpers</literal> using the 
-          <codeInline>fileSystem</codeInline> parameter to the constructor of
+          <literal>System.IO.Abstractions.TestingHelpers</literal>, using the 
+          <codeInline>fileSystem</codeInline> parameter, to the constructor of
           <codeInline>TxFileSystem</codeInline> inside Unit Tests.
         </para>
       </content>
