@@ -16,13 +16,10 @@
       </para>
     </introduction>
 
-    <section address="Developer">
-      <title>Developer</title>
+    <section address="License">
+      <title>License</title>
       <content>
-        <para>
-          Jarno Kamminga is the architect who designed this library and also the developer that 
-          implemented it.
-        </para>
+        <code source="..\..\License.md" title="BSD-4-Clause License" language="none" />
       </content>
     </section>
 
@@ -30,22 +27,25 @@
       <title>Publisher</title>
       <content>
         <para>
-          <corporation>EQX Media B.V.</corporation> is a software development house and marketing 
-          agency from The Netherlands. All copyrights of this library is strictly reserved by them. Yet, the library is published and 
+          <corporation>EQX Media B.V.</corporation> is a software development house and marketing
+          agency from The Netherlands. All copyrights of this library is strictly reserved by them. Yet, the library is published and
           licensed under the <externalLink>
-          <linkText>BSD-4-Clause License</linkText>
-          <linkAlternateText>Skip to the BSD-4-Clause License</linkAlternateText>
-          <linkUri>#License</linkUri>
-          <linkTarget>_self</linkTarget>
-        </externalLink>.
-      </para>
+            <linkText>BSD-4-Clause License</linkText>
+            <linkAlternateText>Skip to the BSD-4-Clause License</linkAlternateText>
+            <linkUri>#License</linkUri>
+            <linkTarget>_self</linkTarget>
+          </externalLink>.
+        </para>
       </content>
     </section>
 
-    <section address="License">
-      <title>License</title>
+    <section address="Developer">
+      <title>Developer</title>
       <content>
-        <code source="..\..\License.md" title="BSD-4-Clause License" language="none" />
+        <para>
+          Jarno Kamminga is the architect who designed this library and also the developer that
+          implemented it.
+        </para>
       </content>
     </section>
     
