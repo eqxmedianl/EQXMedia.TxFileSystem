@@ -95,7 +95,10 @@ namespace EQXMedia.TxFileSystem.Examples
             using (var transactionScope = new TransactionScope())
             {
                 var txFileSystem = new TxFileSystem(new FileSystem());
+                
+                // The transactional file operation.
                 txFileSystem.File.Create("/tmp/somefile.txt");
+                
                 transactionScope.Complete();
             }
 
@@ -113,8 +116,13 @@ namespace EQXMedia.TxFileSystem.Examples
             using (var transactionScope = new TransactionScope())
             {
                 var txFileSystem = new TxFileSystem(new FileSystem());
+
+                // The non-transactional file operation.
                 if (!txFileSystem.File.Exists("/tmp/somefile.txt") {
+
+                    // The transactional file operation.
                     txFileSystem.File.Create("/tmp/somefile.txt");
+
                 }
                 transactionScope.Complete();
             }
@@ -133,7 +141,10 @@ namespace EQXMedia.TxFileSystem.Examples
             using (var transactionScope = new TransactionScope())
             {
                 var txFileSystem = new TxFileSystem(new FileSystem());
+
+                // The transactional directory operation.
                 txFileSystem.Directory.Create("/data/downloads/audiobooks");
+
                 transactionScope.Complete();
             }
 
@@ -151,8 +162,13 @@ namespace EQXMedia.TxFileSystem.Examples
             using (var transactionScope = new TransactionScope())
             {
                 var txFileSystem = new TxFileSystem(new FileSystem());
+
+                // The non-transactional directory operation.
                 if (!txFileSystem.Directory.Exists("/data/downloads/audiobooks") {
+
+                    // The transactional directory operation.
                     txFileSystem.Directory.Create("/data/downloads/audiobooks");
+
                 }
                 transactionScope.Complete();
             }
