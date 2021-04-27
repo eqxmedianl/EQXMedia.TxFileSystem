@@ -69,8 +69,12 @@
         <content>
           <para>
             If you entered details about you or your company, during the donation process, those
-            details will be listed on the donation page at the <literal>TxFileSystem</literal>
-            project website.
+            details will be listed on the <externalLink>
+              <linkText>donation page</linkText>
+              <linkAlternateText>Go to the donation page at the project website</linkAlternateText>
+              <linkUri>https://txfilesystem.io/donate</linkUri>
+              <linkTarget>_blank</linkTarget>
+            </externalLink> at the <literal>TxFileSystem</literal> project website.
           </para>
         </content>
       </conclusion>
