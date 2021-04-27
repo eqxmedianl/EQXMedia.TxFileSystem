@@ -11,7 +11,11 @@
     ///     alt="System.IO.Abstractions/IFileSystem.cs at main - System-IO-Abstractions/System.IO.Abstractions" target="_blank">
     ///     System.IO.Abstractions.IFileSystem</see> is trying to be wrapped inside the <see cref="TxFileSystem" />.
     /// </summary>
-    /// <remarks>Currently this exception is only thrown when one <see cref="TxFileSystem" /> instance is tried to be wrapped inside another.</remarks>
+    /// <remarks>
+    ///   <note type="important">
+    ///     Currently this exception is only thrown when one <see cref="TxFileSystem" /> instance is tried to be wrapped inside another.
+    ///   </note>
+    /// </remarks>
     [Serializable]
     public sealed class UnsupportedFileSystemImplementationException : Exception
     {
