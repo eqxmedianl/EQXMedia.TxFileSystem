@@ -3,10 +3,13 @@
   <PropertyGroup>
     <FrameworkName>.NET 5.0</FrameworkName>
     <NamespaceSummaries>
-      <NamespaceSummaryItem name="EQXMedia.TxFileSystem" isDocumented="True" xmlns="">All classes of the TxFileSystem library that provide the transactional support for file system operations reside in this namespace.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="System.IO.Abstractions" isDocumented="False" xmlns="" />
-    </NamespaceSummaries>
+      <NamespaceSummaryItem name="EQXMedia.TxFileSystem" isDocumented="True">All classes of this library that provide the transactional support for file system operations reside in this namespace.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="System.IO.Abstractions" isDocumented="False" />
+<NamespaceSummaryItem name="(global)" isDocumented="False">All classes of this library that provide the transactional support for file system operations reside in this namespace.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="EQXMedia.TxFileSystem.Exceptions" isDocumented="True">All classes of exceptions thrown by this library reside in this namespace.</NamespaceSummaryItem></NamespaceSummaries>
     <ComponentConfigurations />
+    <ProjectSummary>
+    </ProjectSummary>
   </PropertyGroup>
   <!-- Import the common properties of the documentation projects for all supported framework versions -->
   <Import Project="..\Common\Documentation.Common.props" Condition="Exists('..\Documentation.Common.props')" />
