@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<topic id="97e03a4f-80a7-408a-af39-524129cf7ea6" revisionNumber="1">
+<topic id="About" revisionNumber="1">
   <developerConceptualDocument
     xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -60,7 +60,7 @@
 
     <relatedTopics>
 
-      <link xlink:href="1c2662b4-182f-4dec-a93d-84a08c011a34"
+      <link xlink:href="Library_Concepts"
             topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
 
       <externalLink>

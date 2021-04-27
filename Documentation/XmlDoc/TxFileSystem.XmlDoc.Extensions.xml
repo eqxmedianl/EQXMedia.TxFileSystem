@@ -5,25 +5,25 @@
            <remarks>
              <para>
                Depending on the method being invoked on instances of this object the <conceptualLink 
-                 target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1">Operation Journal</conceptualLink> is used 
+                 target="Transactional_Journal">Operation Journal</conceptualLink> is used 
                to journalize the operation or not. <conceptualLink 
-                 target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operations</conceptualLink> 
+                 target="Transactional_Operations">Transactional Operations</conceptualLink> 
                are journalized and <conceptualLink
-                 target="e960b0a4-0eca-455f-91ef-d759b42928be">Non-Transactional Operations</conceptualLink>
+                 target="Non_Transactional_Operations">Non-Transactional Operations</conceptualLink>
                are not.
              </para>             
              <note type="caution">
                <conceptualLink 
-                 target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#RollbackAndCommit">Backup and/or
+                 target="Transactional_Journal#RollbackAndCommit">Backup and/or
                  restore</conceptualLink> only take place for transactional operations journalized by an 
-                 active <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#JournalActivation">
+                 active <conceptualLink target="Transactional_Journal#JournalActivation">
                    Operation Journal</conceptualLink>. Ensure that it <conceptualLink 
-                 target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1#JournalActivation">gets activated</conceptualLink>.
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
              </note>
            </remarks>
-           <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
-           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
-           <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
+           <conceptualLink target="Transactional_Journal" />
+           <conceptualLink target="Transactional_Operations" />
+           <conceptualLink target="Non_Transactional_Operations" />
          </Class>
         <Class modifying="false">
            <summary>
@@ -39,7 +39,7 @@
                restore, never take place.
              </para>
            </remarks>
-           <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
+           <conceptualLink target="Non_Transactional_Operations" />
          </Class>
          <Class context="property" property="FileSystem">
            <summary>
@@ -116,8 +116,8 @@
                that don't modify any of them.
              </para>
            </value>
-           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
-           <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
+           <conceptualLink target="Transactional_Operations" />
+           <conceptualLink target="Transactional_Journal" />
          </FileSystemProperty>
          <FileSystemProperty modifying="false">
             <remarks>
@@ -127,7 +127,7 @@
                 and restore, never take place.
               </para>
             </remarks>
-            <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
+            <conceptualLink target="Non_Transactional_Operations" />
          </FileSystemProperty>
       </FileSystemProperties>
       <Operations>      
@@ -135,7 +135,7 @@
             <remarks>
               <para>
                 This is a <conceptualLink
-                  target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operation</conceptualLink>,
+                  target="Transactional_Operations">Transactional Operation</conceptualLink>,
                 hence it is journalized. Journalized operations can either be rolled back or committed 
                 automatically, restoring or removing the backup file(s), respectively. In case an <see 
                   cref="System.Exception"/> of any kind occurs, all journalized operations are rolled 
@@ -148,8 +148,8 @@
                 backup file(s) are removed.
               </note>
             </remarks>
-            <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
-            <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
+            <conceptualLink target="Transactional_Operations" />
+            <conceptualLink target="Transactional_Journal" />
          </Operation>      
          <Operation kind="FileOperation" type="info">
             <remarks>
@@ -159,13 +159,13 @@
                 kind occurs inside the <see cref="System.Transactions.TransactionScope" />.
               </para>
             </remarks>
-            <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
+            <conceptualLink target="Non_Transactional_Operations" />
          </Operation>
          <Operation kind="DirectoryOperation" type="create">
             <remarks>
               <para>
                 This is a <conceptualLink
-                  target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operation</conceptualLink>,
+                  target="Transactional_Operations">Transactional Operation</conceptualLink>,
                 that creates a directory, hence it is journalized. Journalized operations can either be 
                 rolled back or committed automatically, removing or keeping the created directory, 
                 respectively. In case an <see cref="System.Exception" /> of any kind occurs, all 
@@ -176,15 +176,15 @@
                 cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
                 operations are committed. Any modifications made are then preserved.
               </note>
-              <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
-              <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
+              <conceptualLink target="Transactional_Operations" />
+              <conceptualLink target="Transactional_Journal" />
             </remarks>
          </Operation>
          <Operation kind="DirectoryOperation" type="delete">
             <remarks>
               <para>
                 This is a <conceptualLink
-                  target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operation</conceptualLink>,
+                  target="Transactional_Operations">Transactional Operation</conceptualLink>,
                 that deletes a directory, hence it is journalized. Journalized operations can either be 
                 rolled back or committed automatically, restoring or keeping the directory deleted, 
                 respectively. In case an <see cref="System.Exception"/> of any kind occurs, all 
@@ -195,8 +195,8 @@
                   cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
                 operations are committed. Any modifications made are then preserved.
               </note>
-              <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
-              <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
+              <conceptualLink target="Transactional_Operations" />
+              <conceptualLink target="Transactional_Journal" />
             </remarks>
          </Operation>
          <Operation kind="DirectoryOperation" type="info">
@@ -205,14 +205,14 @@
                 This is an operation that returns information about the directory or its contents, hence 
                 it is not journalized. There is no need for the operation to be rolled back.
               </para>
-              <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
+              <conceptualLink target="Non_Transactional_Operations" />
             </remarks>
          </Operation>
          <Operation kind="DirectoryOperation" type="modify">
             <remarks>
               <para>
                 This is a <conceptualLink
-                  target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operation</conceptualLink>,
+                  target="Transactional_Operations">Transactional Operation</conceptualLink>,
                 that modifies a directory and/or its contents, hence it is journalized. Journalized 
                 operations can either be rolled back or committed automatically, restoring or removing 
                 the backup directory and its contents, respectively. In case an <see 
@@ -225,8 +225,8 @@
                 operations are committed. Any modifications made are then preserved and the backup 
                 directory and its contents (if any) is then removed.
               </note>
-              <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
-              <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
+              <conceptualLink target="Transactional_Operations" />
+              <conceptualLink target="Transactional_Journal" />
             </remarks>
          </Operation>
          <Operation kind="FileSystemOperation" type="info">
@@ -235,7 +235,7 @@
                 This is a Non-Transactional Operation, that returns information about the file system, 
                 hence it is not journalized. There is no need for the operation to be rolled back.
               </para>
-              <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
+              <conceptualLink target="Non_Transactional_Operations" />
             </remarks>
          </Operation>
          <Operation kind="FileStreamOperation" type="create" only_obsolete="true">
@@ -250,23 +250,23 @@
                 this library since the first time it was released.
               </para>
             </remarks>
-           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
-           <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
+           <conceptualLink target="Transactional_Operations" />
+           <conceptualLink target="Transactional_Journal" />
          </Operation>
          <Operation kind="FileStreamOperation" type="create" from="handle">
            <returns>
              The newly created instance of the <see cref="FileStream" /> class for the specified file 
              <c>handle</c>.
            </returns>
-           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
+           <conceptualLink target="Transactional_Operations" />
          </Operation>
          <Operation kind="FileStreamOperation" type="create" from="path">
            <returns>
              The newly created instance of the <see cref="FileStream" /> class for the specified file 
              <c>path</c>.
            </returns>
-           <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
-           <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
+           <conceptualLink target="Transactional_Operations" />
+           <conceptualLink target="Transactional_Journal" />
          </Operation>
       </Operations>
    </Extensions>

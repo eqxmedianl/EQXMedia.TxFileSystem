@@ -1,40 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Topics>
-  <Topic id="97e03a4f-80a7-408a-af39-524129cf7ea6" visible="True" isExpanded="true" title="About TxFileSystem" tocTitle="About TxFileSystem" linkText="About TxFileSystem">
+  <Topic id="About" visible="True" isExpanded="true" title="About TxFileSystem" tocTitle="About TxFileSystem" linkText="About TxFileSystem">
     <HelpKeywords>
       <HelpKeyword index="K" term="welcome, start, introduction, txfilesystem" />
     </HelpKeywords>
-    <Topic id="1c2662b4-182f-4dec-a93d-84a08c011a34" visible="True" isExpanded="true" apiParentMode="InsertAfter" title="Library Concepts" tocTitle="Library Concepts" linkText="Library  Concepts">
+    <Topic id="Library_Concepts" visible="True" isExpanded="true" isSelected="true" apiParentMode="InsertAfter" title="Library Concepts" tocTitle="Library Concepts" linkText="Library  Concepts">
       <HelpKeywords>
         <HelpKeyword index="K" term="library, concepts, concept" />
       </HelpKeywords>
-      <Topic id="f12b5927-89c0-436a-b1b1-ebfffc0d836e" visible="True" title="File System Abstractions" tocTitle="File System Abstractions" linkText="File System Abstractions">
+      <Topic id="FileSystem_Abstraction" visible="True" title="File System Abstractions" tocTitle="File System Abstractions" linkText="File System Abstractions">
         <HelpKeywords>
           <HelpKeyword index="K" term="file system, abstraction, io, library" />
         </HelpKeywords>
       </Topic>
-      <Topic id="1289c31e-70f5-4f23-9193-e52469690ccb" visible="True" title="Transactions" tocTitle="Transactions" linkText="Transactions">
+      <Topic id="Transactions" visible="True" title="Transactions" tocTitle="Transactions" linkText="Transactions">
         <HelpKeywords>
           <HelpKeyword index="K" term="transactions, transactionscope, transaction scope, commit, rollback, indoubt, prepare" />
         </HelpKeywords>
       </Topic>
-      <Topic id="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" visible="True" isSelected="true" title="Transactional Journal" tocTitle="Transactional Journal" linkText="Transactional Journal">
+      <Topic id="Transactional_Journal" visible="True" title="Transactional Journal" tocTitle="Transactional Journal" linkText="Transactional Journal">
         <HelpKeywords>
           <HelpKeyword index="K" term="journal, journalize, journalizing, prepare, rollback, commit" />
         </HelpKeywords>
       </Topic>
-      <Topic id="bc9e348b-8de7-44aa-aea1-458dad83e9a1" visible="True" title="Transactional Operations " tocTitle="Transactional Operations" linkText="Transactional Operations">
+      <Topic id="Transactional_Operations" visible="True" title="Transactional Operations " tocTitle="Transactional Operations" linkText="Transactional Operations">
         <HelpKeywords>
           <HelpKeyword index="K" term="transactional, transactions, transaction scope, data integrity" />
         </HelpKeywords>
       </Topic>
-      <Topic id="e960b0a4-0eca-455f-91ef-d759b42928be" visible="True" title="Non-Transactional Operations " tocTitle="Non-Transactional Operations " linkText="Non-Transactional Operations ">
+      <Topic id="Non_Transactional_Operations" visible="True" title="Non-Transactional Operations " tocTitle="Non-Transactional Operations " linkText="Non-Transactional Operations ">
         <HelpKeywords>
           <HelpKeyword index="K" term="operations, non-transactional" />
         </HelpKeywords>
       </Topic>
     </Topic>
-    <Topic id="b59b2f1b-623e-46d4-91e2-c57921ba3313" visible="True" title="TxFileSystem Copyright" tocTitle="Copyright" linkText="Copyright">
+    <Topic id="Copyright" visible="True" title="TxFileSystem Copyright" tocTitle="Copyright" linkText="Copyright">
       <HelpKeywords>
         <HelpKeyword index="K" term="copyright, company, software development house, marketing agency, eqx media, jarno kamminga, license" />
       </HelpKeywords>

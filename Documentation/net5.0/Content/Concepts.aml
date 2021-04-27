@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<topic id="1c2662b4-182f-4dec-a93d-84a08c011a34" revisionNumber="1">
+<topic id="Library_Concepts" revisionNumber="1">
   <developerConceptualDocument
     xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -45,7 +45,7 @@
                   </para>
                   <para>
                     Get to know more about this <link 
-                      xlink:href="f12b5927-89c0-436a-b1b1-ebfffc0d836e">File System Abstraction</link>.
+                      xlink:href="FileSystem_Abstraction">File System Abstraction</link>.
                   </para>
               </content>
           </section>
@@ -54,7 +54,7 @@
               <content>
                   <!-- FIXME: add more section content -->
                   <para>Get to know more about these <link 
-                    xlink:href="1289c31e-70f5-4f23-9193-e52469690ccb">Transactions</link></para>
+                    xlink:href="Transactions">Transactions</link></para>
               </content>
           </section>
           <section address="OperationsJournal">
@@ -62,7 +62,7 @@
               <content>
                   <!-- FIXME: add more section content -->
                   <para>Get to know more about this <link 
-                    xlink:href="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1">Transactional Journal</link></para>
+                    xlink:href="Transactional_Journal">Transactional Journal</link></para>
               </content>
           </section>
           <section address="TransactionalOperations">
@@ -70,7 +70,7 @@
               <content>
                   <!-- FIXME: add more section content -->
                   <para>Get to know more about these <link 
-                    xlink:href="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operations</link></para>
+                    xlink:href="Transactional_Operations">Transactional Operations</link></para>
               </content>
           </section>
           <section address="NonTransactionalOperations">
@@ -78,7 +78,7 @@
               <content>
                   <!-- FIXME: add more section content -->
                   <para>Get to know more about these <link 
-                    xlink:href="e960b0a4-0eca-455f-91ef-d759b42928be">Non-Transactional Operations</link></para>
+                    xlink:href="Non_Transactional_Operations">Non-Transactional Operations</link></para>
               </content>
           </section>
       </sections>
