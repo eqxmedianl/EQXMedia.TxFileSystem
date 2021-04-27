@@ -12,18 +12,6 @@
         file system resources.
       </para>
     </summary>
-
-    <introduction>
-      
-      <para>
-        In order to maintain data integrity and consistency, the
-        <codeInline>TxFileSystem</codeInline> class inside this library uses
-        a <link xlink:href="Transactional_Journal">Transactional Journal</link>
-        in which <legacyItalic>Transactional Operations</legacyItalic> are 
-        enlisted.
-      </para>
-      
-    </introduction>
     
     <section address="OperationTypes">
       
