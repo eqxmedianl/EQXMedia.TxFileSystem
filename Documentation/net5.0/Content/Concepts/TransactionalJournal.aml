@@ -18,8 +18,9 @@
       <para>
         As said the journal activates itself once it detects that it is part of a transaction. If an 
         instance of <codeInline>TxFileSystem</codeInline> is incorrectly created, the support for 
-        transactional operations does not become active. Meaning data integrity is not guaranteed in 
-        that case.
+        transactional operations does not become active. Meaning <link
+          xlink:href="Transactions#DataIntegrity">Data Integrity</link> is not guaranteed in that 
+        case.
       </para>
       
       <alert class="caution">
@@ -60,7 +61,8 @@
       <content>
       
         <para>
-          The journal takes care of maintaining data integrity. Depending on 
+          The journal takes care of maintaining <link
+            xlink:href="Transactions#DataIntegrity">Data Integrity</link>. Depending on 
           exceptions occurring while completing the transaction scope, or not, 
           any changes made to the files, directories and file streams using the
           wrapped file system, are rolled back or persisted, respectively.

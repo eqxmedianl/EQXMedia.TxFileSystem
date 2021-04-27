@@ -7,9 +7,10 @@
     <summary>
       <para>
         <legacyItalic>Non-Transactional Operations</legacyItalic> don't need to ensure 
-        data integrity is maintained by applications using this library. This is a not
-        a requirement for these kind of operations, as they simply don't make any 
-        modifications to file system resources.
+        <link xlink:href="Transactions#DataIntegrity">Data Integrity</link> is 
+        maintained by applications using this library. This is a not a requirement for 
+        these kind of operations, as they simply don't make any modifications to file 
+        system resources.
       </para>      
     </summary>
 

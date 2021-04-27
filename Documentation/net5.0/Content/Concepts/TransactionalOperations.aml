@@ -6,10 +6,11 @@
 
     <summary>
       <para>
-        <legacyItalic>Transactional Operations</legacyItalic> ensure data 
-        integrity is maintained by applications using this library. This is a 
-        requirement for these kind of operations, as they make modifications to 
-        file system resources.
+        <legacyItalic>Transactional Operations</legacyItalic> ensure <link
+          xlink:href="Transactions#DataIntegrity">Data Integrity</link> is 
+        maintained by applications using this library. This is a requirement 
+        for these kind of operations, as they make modifications to file 
+        system resources.
       </para>
     </summary>
 
@@ -54,9 +55,10 @@
       <content>
         
         <para>
-          In order to maintain data integrity and consistency, the
-          <codeInline>TxFileSystem</codeInline> class inside this library uses
-          a <link xlink:href="Transactional_Journal">Transactional Journal</link>,
+          In order to maintain <link
+            xlink:href="Transactions#DataIntegrity">Data Integrity</link> , the 
+          <codeInline>TxFileSystem</codeInline> class inside this library uses a 
+          <link xlink:href="Transactional_Journal">Transactional Journal</link>,
           in which <legacyItalic>Transactional Operations</legacyItalic> are 
           enlisted.
         </para>

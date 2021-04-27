@@ -73,7 +73,8 @@
           </listItem>
           <listItem>
             <para>Exposing the <literal>TxFileSystem</literal> instance through
-              exposed properties too to maintain data integrity.</para>
+              exposed properties too to maintain <link 
+                xlink:href="Transactions#DataIntegrity">Data Integrity</link>.</para>
           </listItem>
           <listItem>
             <para>Plain proxy functionality for all remaining parts of the 

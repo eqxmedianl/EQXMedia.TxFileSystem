@@ -42,8 +42,9 @@
           <codeInline>TxFileSystem</codeInline> can be used as a drop-in replacement. 
           Requiring developers using <codeInline>TxFileSystem</codeInline> just to add a 
           few extra lines to their existing codebase. And take advantage of transaction
-          support, bringing them data integrity and consistency when their application
-          performs file system operations.
+          support, bringing them <link
+            xlink:href="Transactions#DataIntegrity">Data Integrity</link> to their 
+          applications performing file system operations.
         </para>
       </content>
     </section>
