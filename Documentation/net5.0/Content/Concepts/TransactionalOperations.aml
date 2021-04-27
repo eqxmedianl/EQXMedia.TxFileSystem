@@ -6,19 +6,54 @@
 
     <summary>
       <para>
-        Transactional operations ensure data integrity is maintained by applications using 
-        this library.
+        <legacyItalic>Transactional Operations</legacyItalic> ensure data 
+        integrity is maintained by applications using this library. This is a 
+        requirement for these kind of operations, as they make modifications to 
+        file system resources.
       </para>
     </summary>
 
     <introduction>
       
       <para>
-        On this page transactional operations being part of <codeInline>TxFileSystem</codeInline> 
-        are being explained.
+        In order to maintain data integrity and consistency, the
+        <codeInline>TxFileSystem</codeInline> class inside this library uses
+        a <link xlink:href="Transactional_Journal">Transactional Journal</link>
+        in which <legacyItalic>Transactional Operations</legacyItalic> are 
+        enlisted.
       </para>
       
     </introduction>
+    
+    <section address="OperationTypes">
+      
+      <title>Operation Types</title>
+      
+      <content>
+        
+        <para>
+          Three kind of <legacyItalic>Transactional Operations</legacyItalic> 
+          exist inside this library, being:
+        </para>
+        
+        <list class="ordered">
+          <listItem><para>File Operations,</para></listItem>
+          <listItem><para>Directory Operations,</para></listItem>
+          <listItem><para>File Stream Operations.</para></listItem>
+        </list>
+        
+        <para>
+          All operations using <link xlink:href="Transactions">Transactions</link>
+          function fully automatic. No extra code required, as long as you ensure 
+          <codeInline>TxFileSystem</codeInline> instances are created inside a 
+          <codeInline>TransactionScope</codeInline>, to activate the
+          <link xlink:href="Transactional_Journal#JournalActivation">Transaction 
+            Journal</link>.
+        </para>
+        
+      </content>
+      
+    </section>
     
     <section address="TransactionalJournal">
       
@@ -27,14 +62,19 @@
       <content>
         
         <para>
-          In order to able to make use of the backup and restore mechanism used internally by this library,
-          a transactional journal is used.
+          In order to maintain data integrity and consistency, the
+          <codeInline>TxFileSystem</codeInline> class inside this library uses
+          a <link xlink:href="Transactional_Journal">Transactional Journal</link>
+          in which <legacyItalic>Transactional Operations</legacyItalic> are 
+          enlisted.
         </para>
+        
         <para>
-          All operations performed using the methods of the properties exposed by
-          <codeInline>TxFileSystem</codeInline> that should be performed transitionally, so that these 
-          operations can be rolled back in case of exceptions inside the transaction scope, are journalized 
-          internally by the transactional file system class.
+          All <legacyItalic>Transactional Operations</legacyItalic> performed,
+          using the methods of the object instances exposed by properties of 
+          <codeInline>TxFileSystem</codeInline>, are performed transitionally.
+          This ensures these operations can be rolled back in case exceptions
+          occur inside the <codeInline>TransactionScope</codeInline>.
         </para>
         
       </content>
