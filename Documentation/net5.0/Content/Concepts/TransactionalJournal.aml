@@ -63,7 +63,7 @@
           The journal takes care of maintaining data integrity. Depending on 
           exceptions occurring while completing the transaction scope, or not, 
           any changes made to the files, directories and file streams using the
-          wrapped file system, are rolled back or persisted.
+          wrapped file system, are rolled back or persisted, respectively.
         </para>
         
         <para>
