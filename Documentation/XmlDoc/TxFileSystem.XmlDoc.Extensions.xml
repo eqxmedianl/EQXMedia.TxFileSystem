@@ -142,10 +142,12 @@
                 back, resulting in the original state to be restored.
               </para>
               <note type="info">
-                If no <see cref="System.Exception"/> any kind occurs and the <see 
-                cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
-                operations are committed. Any modifications made are then preserved and after which the 
-                backup file(s) are removed.
+                If no <see cref="System.Exception"/> occurs and the <see
+                  cref="System.Transactions.TransactionScope" /> completes successfully, all operations
+                enlisted inside the <conceptualLink
+                  target="Transactional_Journal">Transactional Journal</conceptualLink> are committed. 
+                Any modifications made are then preserved and after which the backup file(s) are 
+                removed.
               </note>
             </remarks>
             <conceptualLink target="Transactional_Operations" />
@@ -172,9 +174,11 @@
                 journalized operations are rolled back, resulting in the original state to be restored.
               </para>
               <note type="info">
-                If no <see cref="System.Exception"/> any kind occurs and the <see 
-                cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
-                operations are committed. Any modifications made are then preserved.
+                If no <see cref="System.Exception"/> occurs and the <see
+                  cref="System.Transactions.TransactionScope" /> completes successfully, all operations
+                enlisted inside the <conceptualLink
+                  target="Transactional_Journal">Transactional Journal</conceptualLink> are committed.
+                Any modifications made are then preserved.
               </note>
               <conceptualLink target="Transactional_Operations" />
               <conceptualLink target="Transactional_Journal" />
@@ -191,9 +195,11 @@
                 journalized operations are rolled back, resulting in the original state be restored.
               </para>
               <note type="info">
-                If no <see cref="System.Exception"/> any kind occurs and the <see 
-                  cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
-                operations are committed. Any modifications made are then preserved.
+                If no <see cref="System.Exception"/> occurs and the <see
+                  cref="System.Transactions.TransactionScope" /> completes successfully, all operations
+                enlisted inside the <conceptualLink
+                  target="Transactional_Journal">Transactional Journal</conceptualLink> are committed.
+                Any modifications made are then preserved.
               </note>
               <conceptualLink target="Transactional_Operations" />
               <conceptualLink target="Transactional_Journal" />
@@ -220,10 +226,12 @@
                 back, resulting in the original state to be restored.
               </para>
               <note type="info">
-                If no <see cref="System.Exception"/> any kind occurs and the <see
-                cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
-                operations are committed. Any modifications made are then preserved and the backup 
-                directory and its contents (if any) is then removed.
+                If no <see cref="System.Exception"/> occurs and the <see
+                  cref="System.Transactions.TransactionScope" /> completes successfully, all operations
+                enlisted inside the <conceptualLink
+                  target="Transactional_Journal">Transactional Journal</conceptualLink> are committed.
+                Any modifications made are then preserved and the backup directory and its contents
+                (if any) is then removed.
               </note>
               <conceptualLink target="Transactional_Operations" />
               <conceptualLink target="Transactional_Journal" />
