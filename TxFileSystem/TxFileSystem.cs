@@ -73,6 +73,14 @@
         ///       cref="System.Transactions.TransactionScope"/> and still performing the operations using 
         ///     it inside the scope, the operations are simply not transactional.
         ///   </para>
+        ///   <note type="caution">
+        ///     <conceptualLink target="Transactional_Journal#RollbackAndCommit">Backup and/or 
+        ///       restore</conceptualLink> only take place for transactional operations journalized 
+        ///     by an active <conceptualLink 
+        ///       target="Transactional_Journal#JournalActivation">Transactional Journal
+        ///     </conceptualLink>. Ensure that it <conceptualLink 
+        ///       target="Transactional_Journal#JournalActivation"> gets activated</conceptualLink>.
+        ///   </note>
         ///   <para>
         ///     Also, when you perform operations directory a file system you pass to the constructor, 
         ///     you loose data integrity in case of exceptions. Because doing that the journal providing 

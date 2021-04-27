@@ -3,6 +3,14 @@
       <Classes>
          <Class modifying="true">
            <remarks>
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
              <para>
                Depending on the method being invoked on instances of this object the <conceptualLink 
                  target="Transactional_Journal">Transactional Journal</conceptualLink> is used 
@@ -12,14 +20,6 @@
                  target="Non_Transactional_Operations">Non-Transactional Operations</conceptualLink>
                are not.
              </para>             
-             <note type="caution">
-               <conceptualLink 
-                 target="Transactional_Journal#RollbackAndCommit">Backup and/or
-                 restore</conceptualLink> only take place for transactional operations journalized by an 
-                 active <conceptualLink target="Transactional_Journal#JournalActivation">
-                   Transactional Journal</conceptualLink>. Ensure that it <conceptualLink 
-                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
-             </note>
            </remarks>
            <conceptualLink target="Transactional_Journal" />
            <conceptualLink target="Transactional_Operations" />
@@ -104,6 +104,16 @@
       </Classes>
       <FileSystemProperties>
          <FileSystemProperty modifying="true">
+           <note type="caution">
+             <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+               Backup and/or restore
+             </conceptualLink> only take place for transactional operations
+             journalized by an active <conceptualLink
+                 target="Transactional_Journal#JournalActivation">
+               Transactional Journal
+             </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+           </note>
            <remarks>
              <para>
                Depending on the method of this object's instance being invoked the journal is used or 
@@ -133,6 +143,14 @@
       <Operations>      
          <Operation kind="FileOperation" type="modify">
             <remarks>
+              <note type="caution">
+                <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                  Backup and/or restore</conceptualLink> only take place for transactional operations 
+                journalized by an active <conceptualLink 
+                  target="Transactional_Journal#JournalActivation">Transactional Journal
+                </conceptualLink>. Ensure that it <conceptualLink
+                  target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+              </note>
               <para>
                 This is a <conceptualLink
                   target="Transactional_Operations">Transactional Operation</conceptualLink>,
@@ -165,6 +183,14 @@
          </Operation>
          <Operation kind="DirectoryOperation" type="create">
             <remarks>
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
               <para>
                 This is a <conceptualLink
                   target="Transactional_Operations">Transactional Operation</conceptualLink>,
@@ -186,6 +212,14 @@
          </Operation>
          <Operation kind="DirectoryOperation" type="delete">
             <remarks>
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
               <para>
                 This is a <conceptualLink
                   target="Transactional_Operations">Transactional Operation</conceptualLink>,
@@ -247,7 +281,15 @@
             </remarks>
          </Operation>
          <Operation kind="FileStreamOperation" type="create" only_obsolete="true">
-            <remarks>
+            <remarks>     
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
               <para>
                 Even though the underlying method of <see cref="FileStream" /> is <c>obsolete</c>, it 
                 is still part of the <see 
@@ -262,6 +304,16 @@
            <conceptualLink target="Transactional_Journal" />
          </Operation>
          <Operation kind="FileStreamOperation" type="create" from="handle">
+           <remarks>             
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
+           </remarks>
            <returns>
              The newly created instance of the <see cref="FileStream" /> class for the specified file 
              <c>handle</c>.
