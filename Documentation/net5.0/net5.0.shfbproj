@@ -56,7 +56,7 @@
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <SourceCodeBasePath>..\..\TxFileSystem\</SourceCodeBasePath>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
-    <CopyrightHref>https://raw.githubusercontent.com/eqxmedianl/EQXMedia.TxFileSystem/main/License.md</CopyrightHref>
+    <CopyrightHref>Copyright.htm#License</CopyrightHref>
     <CopyrightText>Copyright %28c%29 2021, EQX Media B.V. - All rights reserved.</CopyrightText>
     <FeedbackEMailAddress>txfilesystem%40eqx-media.nl</FeedbackEMailAddress>
     <FeedbackEMailLinkText>the TxFileSystem Development Team</FeedbackEMailLinkText>
