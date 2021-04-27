@@ -4,85 +4,25 @@
     xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
     xmlns:xlink="http://www.w3.org/1999/xlink">
 
-    <!--
-    <summary>
-      <para>Optional summary abstract</para>
-    </summary>
-    -->
-
     <introduction>
       
       <para>
-        This OpenSource .NET library is designed according to a couple of fundamental 
-        concepts. These concepts are the cornerstones of the functionality this
-        library provides.
+        This OpenSource .NET library is designed and implemented after a couple 
+        of fundamental concepts. These concepts are the cornerstones of the 
+        functionality this library provides.
       </para>
       
     </introduction>
 
-    <section address="FundamentalConcepts">
-      <title>Fundamental Concepts</title>
+    <section address="Concepts">
+      <title>The Concepts</title>
       <content>
         <para>
-          The fundamental concepts used in the design and implementation of this library are
-          listed in the following sections.
+          The concepts used in the design and implementation of this library are
+          explained in the child topics of this topic. They can be read using 
+          the <legacyBold>Table of Contents</legacyBold> of this documentation.
         </para>
-      </content>
-      
-      <sections>
-          <section address="FileSystemAbstraction">
-              <title>File System Abstraction</title>
-              <content>
-                  <para>
-                    The base on which this library is implemented is an abstraction library.
-                    This library abstracts the file system interaction methods that reside inside 
-                    <externalLink>
-                      <linkText>System.IO</linkText>
-                      <linkAlternateText>System.IO Namespace | Microsoft Docs</linkAlternateText>
-                      <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.io</linkUri>
-                      <linkTarget>_blank</linkTarget>
-                    </externalLink>.
-                  </para>
-                  <para>
-                    Get to know more about this <link 
-                      xlink:href="FileSystem_Abstraction">File System Abstraction</link>.
-                  </para>
-              </content>
-          </section>
-          <section address="Transactions">
-              <title>Transactions</title>
-              <content>
-                  <!-- FIXME: add more section content -->
-                  <para>Get to know more about these <link 
-                    xlink:href="Transactions">Transactions</link></para>
-              </content>
-          </section>
-          <section address="TransactionalJournal">
-              <title>Transactional Journal</title>
-              <content>
-                  <!-- FIXME: add more section content -->
-                  <para>Get to know more about this <link 
-                    xlink:href="Transactional_Journal">Transactional Journal</link></para>
-              </content>
-          </section>
-          <section address="TransactionalOperations">
-              <title>Transactional Operations</title>
-              <content>
-                  <!-- FIXME: add more section content -->
-                  <para>Get to know more about these <link 
-                    xlink:href="Transactional_Operations">Transactional Operations</link></para>
-              </content>
-          </section>
-          <section address="NonTransactionalOperations">
-              <title>Non-Transactional Operations</title>
-              <content>
-                  <!-- FIXME: add more section content -->
-                  <para>Get to know more about these <link 
-                    xlink:href="Non_Transactional_Operations">Non-Transactional Operations</link></para>
-              </content>
-          </section>
-      </sections>
-    
+      </content>    
     </section>
     
     <relatedTopics>
