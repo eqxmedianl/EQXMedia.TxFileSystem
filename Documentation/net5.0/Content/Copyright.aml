@@ -27,9 +27,9 @@
       <title>Publisher</title>
       <content>
         <para>
-          <corporation>EQX Media B.V.</corporation> is a software development house and marketing
-          agency from The Netherlands. All copyrights of this library is strictly reserved by them. Yet, the library is published and
-          licensed under the <externalLink>
+          <legacyBold>EQX Media B.V.</legacyBold> is a software development house and marketing
+          agency from The Netherlands. All copyrights of this library is strictly reserved by them. 
+          Yet, the library is published and licensed under the <externalLink>
             <linkText>BSD-4-Clause License</linkText>
             <linkAlternateText>Skip to the BSD-4-Clause License</linkAlternateText>
             <linkUri>#License</linkUri>
@@ -43,8 +43,8 @@
       <title>Developer</title>
       <content>
         <para>
-          Jarno Kamminga is the architect who designed this library and also the developer that
-          implemented it.
+          <legacyBold>Jarno Kamminga</legacyBold> is the architect who designed this library 
+          and also the developer that implemented it.
         </para>
       </content>
     </section>
