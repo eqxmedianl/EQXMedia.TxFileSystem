@@ -72,9 +72,9 @@
         <para>
           All <legacyItalic>Transactional Operations</legacyItalic> performed,
           using the methods of the object instances exposed by properties of 
-          <codeInline>TxFileSystem</codeInline>, are performed transitionally.
-          This ensures these operations can be rolled back in case exceptions
-          occur inside the <codeInline>TransactionScope</codeInline>.
+          <codeInline>TxFileSystem</codeInline>, are journalized. This ensures these 
+          operations can be rolled back in case exceptions occur inside the 
+          <codeInline>TransactionScope</codeInline>.
         </para>
         
       </content>
