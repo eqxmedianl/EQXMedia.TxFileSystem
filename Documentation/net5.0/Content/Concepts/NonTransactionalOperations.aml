@@ -5,40 +5,33 @@
     xmlns:xlink="http://www.w3.org/1999/xlink">
 
     <summary>
-      
       <para>
-        Non-transactional operations don't need to ensure data integrity is maintained by applications
-        explicitly. These kind of operations simply don't modify any file system resources.
-      </para>
-      
+        <legacyItalic>Non-Transactional Operations</legacyItalic> don't need to ensure 
+        data integrity is maintained by applications using this library. This is a not
+        a requirement for these kind of operations, as they simply don't make any 
+        modifications to file system resources.
+      </para>      
     </summary>
 
     <introduction>
-      
-      <para>
-        On this page non-transactional operations being part of <codeInline>TxFileSystem</codeInline>
-        are being explained.
-      </para>
-      
+            
     </introduction>
 
-    <section address="TransactionalJournal">
+    <section address="NotJournalized">
       
-      <title>Transactional Journal</title>
+      <title>Not Journalized</title>
       
       <content>
         <para>
-          In order to able to make use of the backup and restore mechanism used internally by this library,
-          a transactional journal is used.
+          As <legacyItalic>Non-Transactional Operations</legacyItalic> don't make any 
+          changes to file system resources, the implementation of these methods simply
+          proxy to the same methods of the file system that is wrapped using the
+          <codeInline>TxFileSystem</codeInline> instance.
         </para>
         <para>
-          All non-transactional operations performed using the methods of the properties exposed by
-          <codeInline>TxFileSystem</codeInline>, will never be listed inside the transactional journal.
-        </para>
-        <para>
-          As said earlier in this topic so that these kind of operations simply don't modify any file system 
-          resources. The result of not listing them inside the journal that is used for transactional operations, 
-          is maximum performance and minimal overhead caused by using the library.
+          These kind of operations are also not enlisted inside the <link 
+            xlink:href="Transactional_Journal">Transactional Journal</link>, because they 
+          will never have to be rolled back.
         </para>
       </content>
       
