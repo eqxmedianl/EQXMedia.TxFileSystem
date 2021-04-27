@@ -4,9 +4,10 @@
     <FrameworkName>.NET 5.0</FrameworkName>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="EQXMedia.TxFileSystem" isDocumented="True">All classes of this library that provide the transactional support for file system operations reside in this namespace.</NamespaceSummaryItem>
-<NamespaceSummaryItem name="System.IO.Abstractions" isDocumented="False" />
-<NamespaceSummaryItem name="(global)" isDocumented="False">All classes of this library that provide the transactional support for file system operations reside in this namespace.</NamespaceSummaryItem>
-<NamespaceSummaryItem name="EQXMedia.TxFileSystem.Exceptions" isDocumented="True">All classes of exceptions thrown by this library reside in this namespace.</NamespaceSummaryItem></NamespaceSummaries>
+      <NamespaceSummaryItem name="System.IO.Abstractions" isDocumented="False" />
+      <NamespaceSummaryItem name="(global)" isDocumented="False">All classes of this library that provide the transactional support for file system operations reside in this namespace.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="EQXMedia.TxFileSystem.Exceptions" isDocumented="True">All classes of exceptions thrown by this library reside in this namespace.</NamespaceSummaryItem>
+    </NamespaceSummaries>
     <ComponentConfigurations />
     <ProjectSummary>
     </ProjectSummary>
@@ -105,7 +106,7 @@
     <TocParentVersion>100</TocParentVersion>
     <TopicVersion>100</TopicVersion>
     <MSHelpViewerSdkLinkType>Msdn</MSHelpViewerSdkLinkType>
-    <HeaderText>TxFileSystem is an OpenSource .NET library developed by &amp;lt%3ba href=&amp;quot%3bhttps://www.eqx-media.nl/&amp;quot%3b title=&amp;quot%3bGo to the website of EQX Media B.V.&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bEQX Media B.V.&amp;lt%3b/a&amp;gt%3b and licensed under the &amp;lt%3ba href=&amp;quot%3bb59b2f1b-623e-46d4-91e2-c57921ba3313.htm#License&amp;quot%3b title=&amp;quot%3bGo to the BSD-4-Clause License&amp;quot%3b target=&amp;quot%3b_self&amp;quot%3b&amp;gt%3bBSD-4-Clause License&amp;lt%3b/a&amp;gt%3b&amp;lt%3bbr /&amp;gt%3b
+    <HeaderText>TxFileSystem is an OpenSource .NET library developed by &amp;lt%3ba href=&amp;quot%3bhttps://www.eqx-media.nl/&amp;quot%3b title=&amp;quot%3bGo to the website of EQX Media B.V.&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bEQX Media B.V.&amp;lt%3b/a&amp;gt%3b and licensed under the &amp;lt%3ba href=&amp;quot%3bCopyright.htm#License&amp;quot%3b title=&amp;quot%3bRead the BSD-4-Clause License&amp;quot%3b target=&amp;quot%3b_self&amp;quot%3b&amp;gt%3bBSD-4-Clause License&amp;lt%3b/a&amp;gt%3b&amp;lt%3bbr /&amp;gt%3b
 &amp;lt%3bbr /&amp;gt%3b</HeaderText>
     <FooterText>&amp;lt%3bp&amp;gt%3bTxFileSystem is an OpenSource .NET Library designed and implemented by &amp;lt%3ba href=&amp;quot%3bhttps://www.linkedin.com/in/jarnokamminga/&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bJarno Kamminga&amp;lt%3b/a&amp;gt%3b.&amp;lt%3b/p&amp;gt%3b</FooterText>
     <DocumentationSources>
