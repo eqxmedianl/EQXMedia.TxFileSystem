@@ -46,7 +46,7 @@
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <HelpTitle>TxFileSystem</HelpTitle>
-    <HelpFileVersion>1.3.0.0</HelpFileVersion>
+    <HelpFileVersion>1.0.0.0</HelpFileVersion>
     <NamingMethod>MemberName</NamingMethod>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <RootNamespaceContainer>False</RootNamespaceContainer>
@@ -58,8 +58,10 @@
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <CopyrightHref>Copyright.htm#License</CopyrightHref>
     <CopyrightText>Copyright %28c%29 2021, EQX Media B.V. - All rights reserved.</CopyrightText>
-    <FeedbackEMailAddress>txfilesystem%40eqx-media.nl</FeedbackEMailAddress>
-    <FeedbackEMailLinkText>the TxFileSystem Development Team</FeedbackEMailLinkText>
+    <FeedbackEMailAddress>
+    </FeedbackEMailAddress>
+    <FeedbackEMailLinkText>
+    </FeedbackEMailLinkText>
     <PlugInConfigurations>
       <PlugInConfig id="Version Builder" enabled="True">
         <configuration>
@@ -108,7 +110,7 @@
     <MSHelpViewerSdkLinkType>Msdn</MSHelpViewerSdkLinkType>
     <HeaderText>TxFileSystem is an OpenSource .NET library developed by &amp;lt%3ba href=&amp;quot%3bhttps://www.eqx-media.nl/&amp;quot%3b title=&amp;quot%3bGo to the website of EQX Media B.V.&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bEQX Media B.V.&amp;lt%3b/a&amp;gt%3b and licensed under the &amp;lt%3ba href=&amp;quot%3bCopyright.htm#License&amp;quot%3b title=&amp;quot%3bRead the BSD-4-Clause License&amp;quot%3b target=&amp;quot%3b_self&amp;quot%3b&amp;gt%3bBSD-4-Clause License&amp;lt%3b/a&amp;gt%3b&amp;lt%3bbr /&amp;gt%3b
 &amp;lt%3bbr /&amp;gt%3b</HeaderText>
-    <FooterText>&amp;lt%3bp&amp;gt%3bTxFileSystem is an OpenSource .NET Library designed and implemented by &amp;lt%3ba href=&amp;quot%3bhttps://www.linkedin.com/in/jarnokamminga/&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bJarno Kamminga&amp;lt%3b/a&amp;gt%3b.&amp;lt%3b/p&amp;gt%3b</FooterText>
+    <FooterText>&amp;lt%3bp&amp;gt%3bTxFileSystem is an OpenSource .NET Library designed and implemented by &amp;lt%3ba href=&amp;quot%3bhttps://www.linkedin.com/in/jarnokamminga/&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bJarno Kamminga&amp;lt%3b/a&amp;gt%3b. Development is initially primarily funded by &amp;lt%3ba href=&amp;quot%3bhttps://www.eqx-media.nl/&amp;quot%3b title=&amp;quot%3bGo to the website of EQX Media B.V.&amp;quot%3b target=&amp;quot%3b_blank&amp;quot%3b&amp;gt%3bEQX Media B.V.&amp;lt%3b/a&amp;gt%3b&amp;lt%3b/p&amp;gt%3b</FooterText>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Documentation\net5.0\EQXMedia.TxFileSystem.dll" />
       <DocumentationSource sourceFile="..\..\TxFileSystem\bin\Documentation\net5.0\EQXMedia.TxFileSystem.xml" />
