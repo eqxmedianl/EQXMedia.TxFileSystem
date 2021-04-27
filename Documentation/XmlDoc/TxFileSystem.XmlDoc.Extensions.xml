@@ -28,8 +28,9 @@
         <Class modifying="false">
            <summary>
              <para>
-               Instances of this class only contain methods that don't modify file system resources.
-               Its methods are simply passed to the wrapped file system.
+               Instances of this class only contain <conceptualLink
+                 target="Non_Transactional_Operations">methods that don't modify file system resources
+               </conceptualLink>. Its methods are simply passed to the wrapped file system.
              </para>
            </summary>
            <remarks>
@@ -132,9 +133,10 @@
          <FileSystemProperty modifying="false">
             <remarks>
               <para>
-                This object instance only contains methods that don't modify any file system resources.
-                Regardless of which of this object's methods is being invoked journalizing and, backup 
-                and restore, never take place.
+                This object instance only contains <conceptualLink
+                 target="Non_Transactional_Operations">methods that don't modify file system resources
+               </conceptualLink>. Regardless of which of this object's methods is being invoked 
+               journalizing and, backup and restore, never take place.
               </para>
             </remarks>
             <conceptualLink target="Non_Transactional_Operations" />
@@ -174,9 +176,11 @@
          <Operation kind="FileOperation" type="info">
             <remarks>
               <para>
-                This is a Non-Transactional Operation, hence it is not journalized. As there is no need 
-                to rollback any modifications made, in case an <see cref="System.Exception"/> of any 
-                kind occurs inside the <see cref="System.Transactions.TransactionScope" />.
+                This is a <conceptualLink 
+                  target="Non_Transactional_Operations">Non-Transactional Operation</conceptualLink>,
+                hence it is not journalized. As there is no need to rollback any modifications made, 
+                in case an <see cref="System.Exception"/> of any kind occurs inside the <see 
+                  cref="System.Transactions.TransactionScope" />.
               </para>
             </remarks>
             <conceptualLink target="Non_Transactional_Operations" />
@@ -242,8 +246,10 @@
          <Operation kind="DirectoryOperation" type="info">
             <remarks>
               <para>
-                This is an operation that returns information about the directory or its contents, hence 
-                it is not journalized. There is no need for the operation to be rolled back.
+                This is a <conceptualLink 
+                  target="Non_Transactional_Operations">Non-Transactional Operation</conceptualLink> 
+                that returns information about the directory or its contents, hence it is not 
+                journalized. There is no need for the operation to be rolled back.
               </para>
               <conceptualLink target="Non_Transactional_Operations" />
             </remarks>
@@ -274,8 +280,10 @@
          <Operation kind="FileSystemOperation" type="info">
             <remarks>
               <para>
-                This is a Non-Transactional Operation, that returns information about the file system, 
-                hence it is not journalized. There is no need for the operation to be rolled back.
+                This is a <conceptualLink 
+                  target="Non_Transactional_Operations">Non-Transactional Operation</conceptualLink>, 
+                that returns information about the file system, hence it is not journalized. There is 
+                no need for the operation to be rolled back.
               </para>
               <conceptualLink target="Non_Transactional_Operations" />
             </remarks>
