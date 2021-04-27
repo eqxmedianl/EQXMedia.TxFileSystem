@@ -134,18 +134,19 @@
          <Operation kind="FileOperation" type="modify">
             <remarks>
               <para>
-                This is an operation that modifies one or more files, hence it is journalized. 
-                Journalized file operations can either be rolled back or committed automatically, 
-                restoring or removing the backup file(s), respectively. Whenever an <see 
-                  cref="System.Exception"/> of any kind occurs, all journalized operations are 
-                rolled back, resulting in the original state to be restored.
+                This is a <conceptualLink
+                  target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operation</conceptualLink>,
+                hence it is journalized. Journalized operations can either be rolled back or committed 
+                automatically, restoring or removing the backup file(s), respectively. In case an <see 
+                  cref="System.Exception"/> of any kind occurs, all journalized operations are rolled 
+                back, resulting in the original state to be restored.
               </para>
-              <para>
+              <note type="info">
                 If no <see cref="System.Exception"/> any kind occurs and the <see 
                 cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
-                operations are committed. Any modifications made are then preserved and the backup file(s)
-                are then removed.
-              </para>
+                operations are committed. Any modifications made are then preserved and after which the 
+                backup file(s) are removed.
+              </note>
             </remarks>
             <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
             <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
@@ -153,9 +154,9 @@
          <Operation kind="FileOperation" type="info">
             <remarks>
               <para>
-                This is an operation that doesn't modify any files, hence it is not journalized. As there
-                is no need to rollback any modifications whenever an <see cref="System.Exception"/> of any
-                kind occurs inside a <see cref="System.Transactions.TransactionScope" />.
+                This is a Non-Transactional Operation, hence it is not journalized. As there is no need 
+                to rollback any modifications made, in case an <see cref="System.Exception"/> of any 
+                kind occurs inside the <see cref="System.Transactions.TransactionScope" />.
               </para>
             </remarks>
             <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
@@ -163,17 +164,18 @@
          <Operation kind="DirectoryOperation" type="create">
             <remarks>
               <para>
-                This is an operation that creates a directory, hence it is journalized. Journalized file 
-                operations can either be rolled back or committed automatically, removing or keeping the
-                created directory, respectively. Whenever an <see cref="System.Exception"/> of any kind 
-                occurs, all journalized operations are rolled back, resulting in the original state to 
-                be restored.
+                This is a <conceptualLink
+                  target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operation</conceptualLink>,
+                that creates a directory, hence it is journalized. Journalized operations can either be 
+                rolled back or committed automatically, removing or keeping the created directory, 
+                respectively. In case an <see cref="System.Exception" /> of any kind occurs, all 
+                journalized operations are rolled back, resulting in the original state to be restored.
               </para>
-              <para>
+              <note type="info">
                 If no <see cref="System.Exception"/> any kind occurs and the <see 
                 cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
                 operations are committed. Any modifications made are then preserved.
-              </para>
+              </note>
               <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
               <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
             </remarks>
@@ -181,17 +183,18 @@
          <Operation kind="DirectoryOperation" type="delete">
             <remarks>
               <para>
-                This is an operation that deletes a directory, hence it is journalized. Journalized file 
-                operations can either be rolled back or committed automatically, restoring or keeping the
-                directory deleted, respectively. Whenever an <see cref="System.Exception"/> of any kind 
-                occurs, all journalized operations are rolled back, resulting in the original state to 
-                be restored.
+                This is a <conceptualLink
+                  target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operation</conceptualLink>,
+                that deletes a directory, hence it is journalized. Journalized operations can either be 
+                rolled back or committed automatically, restoring or keeping the directory deleted, 
+                respectively. In case an <see cref="System.Exception"/> of any kind occurs, all 
+                journalized operations are rolled back, resulting in the original state be restored.
               </para>
-              <para>
+              <note type="info">
                 If no <see cref="System.Exception"/> any kind occurs and the <see 
-                cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
+                  cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
                 operations are committed. Any modifications made are then preserved.
-              </para>
+              </note>
               <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
               <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
             </remarks>
@@ -208,19 +211,20 @@
          <Operation kind="DirectoryOperation" type="modify">
             <remarks>
               <para>
-                This is an operation that modifies a directory and/or its contents, hence it is 
-                journalized. Journalized file operations can either be rolled back or committed 
-                automatically, restoring or removing the backup directory and its contents,
-                respectively. Whenever an <see cref="System.Exception"/> of any kind occurs, all 
-                journalized operations are rolled back, resulting in the original state to be 
-                restored.
+                This is a <conceptualLink
+                  target="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operation</conceptualLink>,
+                that modifies a directory and/or its contents, hence it is journalized. Journalized 
+                operations can either be rolled back or committed automatically, restoring or removing 
+                the backup directory and its contents, respectively. In case an <see 
+                  cref="System.Exception"/> of any kind occurs, all journalized operations are rolled 
+                back, resulting in the original state to be restored.
               </para>
-              <para>
+              <note type="info">
                 If no <see cref="System.Exception"/> any kind occurs and the <see
                 cref="System.Transactions.TransactionScope" /> completes successfully, all journalized
                 operations are committed. Any modifications made are then preserved and the backup 
-                directory and its contents is then removed.
-              </para>
+                directory and its contents (if any) is then removed.
+              </note>
               <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
               <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
             </remarks>
@@ -228,8 +232,8 @@
          <Operation kind="FileSystemOperation" type="info">
             <remarks>
               <para>
-                This is an operation that returns information about the file system, hence it is not 
-                journalized. There is no need for the operation to be rolled back.
+                This is a Non-Transactional Operation, that returns information about the file system, 
+                hence it is not journalized. There is no need for the operation to be rolled back.
               </para>
               <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
             </remarks>
@@ -237,12 +241,13 @@
          <Operation kind="FileStreamOperation" type="create" only_obsolete="true">
             <remarks>
               <para>
-                Even though the underlying method of <see cref="FileStream" /> is <c>obsolete</c>, it is still 
-                part of the <see href="https://github.com/System-IO-Abstractions/System.IO.Abstractions/blob/main/src/System.IO.Abstractions/IFileStreamFactory.cs"
+                Even though the underlying method of <see cref="FileStream" /> is <c>obsolete</c>, it 
+                is still part of the <see 
+                  href="https://github.com/System-IO-Abstractions/System.IO.Abstractions/blob/main/src/System.IO.Abstractions/IFileStreamFactory.cs"
                   alt="System.IO.Abstractions/IFileStreamFactory.cs at main - System-IO-Abstractions/System.IO.Abstractions"
-                  target="_blank">System.IO.Abstractions.IFileStreamFactory</see> interface. Hence, it had to be implemented 
-                here too. Therefor it is marked as being <c>obsolete</c> inside this library since the first time it was 
-                released.
+                  target="_blank">System.IO.Abstractions.IFileStreamFactory</see> interface. Hence, it 
+                had to be implemented here too. Therefor it is marked as being <c>obsolete</c> inside 
+                this library since the first time it was released.
               </para>
             </remarks>
            <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
@@ -250,13 +255,15 @@
          </Operation>
          <Operation kind="FileStreamOperation" type="create" from="handle">
            <returns>
-             The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.
+             The newly created instance of the <see cref="FileStream" /> class for the specified file 
+             <c>handle</c>.
            </returns>
            <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
          </Operation>
          <Operation kind="FileStreamOperation" type="create" from="path">
            <returns>
-             The newly created instance of the <see cref="FileStream" /> class for the specified file <c>path</c>.
+             The newly created instance of the <see cref="FileStream" /> class for the specified file 
+             <c>path</c>.
            </returns>
            <conceptualLink target="bc9e348b-8de7-44aa-aea1-458dad83e9a1" />
            <conceptualLink target="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1" />
