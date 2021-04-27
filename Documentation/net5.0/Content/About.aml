@@ -13,36 +13,42 @@
 
     <introduction>
       <!-- TODO: write the introduction  -->
-      <para>Required introduction</para>
+      <para>
+        <literal>EQXMedia.TxFileSystem</literal> is a transactional file system 
+        wrapper using the .NET file system abstractions from 
+        <literal>System.IO.Abstractions</literal>.
+      </para>
+      <para>
+        This file system wrapper supports transactional operations on:
+      </para>
+      <list class="bullet">
+        <listItem><para>Files,</para></listItem>
+        <listItem><para>Directories,</para></listItem>
+        <listItem><para>File Streams.</para></listItem>
+      </list>
     </introduction>
 
-    <section address="Section_Topics">
-      <title>Conceptual Topics</title>
+    <section address="Features">
+      <title>Features</title>
       <content>
-      
-        <para>
-          This library uses a few concepts to provide transactional operations on
-          files, directories and file streams. Some extra help topics have been 
-          added to the library documentation, in order to give developers using,
-          or planning to use, the library a better understanding of the concepts
-          and inner workings of this library.
-        </para>
-        
-        <para>
-          The list of topics below can be used to navigate to these extra topics
-          in a convenient manner:
-        </para>
-          
-        <list class="bullet">
-        
-          <listItem><para><link xlink:href="c2ae6d22-7ebc-4b56-a4b0-f1f020697ae1">Operations Journal</link></para></listItem>
-          
-          <listItem><para><link xlink:href="bc9e348b-8de7-44aa-aea1-458dad83e9a1">Transactional Operations</link></para></listItem>
-          
-          <listItem><para><link xlink:href="e960b0a4-0eca-455f-91ef-d759b42928be">Non-Transactional Operations</link></para></listItem>
-        
-        </list>
 
+        <para>
+          <!-- TODO: write the actual list of features below -->
+          List of features will follow soon.
+        </para>
+
+      </content>
+    </section>
+
+    <section address="History">
+      <title>History</title>
+      <content>
+
+        <para>
+          <!-- TODO: write the actual contents below -->
+          Contents will follow soon.
+        </para>
+        
       </content>
     </section>
 
@@ -53,6 +59,9 @@
     </bibliography>
 
     <relatedTopics>
+
+      <link xlink:href="1c2662b4-182f-4dec-a93d-84a08c011a34"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
 
       <externalLink>
         <linkText>Project Website of TxFileSystem</linkText>
