@@ -8,7 +8,7 @@
       <HelpKeywords>
         <HelpKeyword index="K" term="library, concepts, concept" />
       </HelpKeywords>
-      <Topic id="FileSystem_Abstraction" visible="True" title="File System Abstractions" tocTitle="File System Abstractions" linkText="File System Abstractions">
+      <Topic id="FileSystem_Abstraction" visible="True" title="File System Abstraction" tocTitle="File System Abstraction" linkText="File System Abstraction">
         <HelpKeywords>
           <HelpKeyword index="K" term="file system, abstraction, io, library" />
         </HelpKeywords>
