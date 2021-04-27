@@ -76,6 +76,13 @@
         <linkUri>https://www.eqx-media.nl/</linkUri>
         <linkTarget>_blank</linkTarget>
       </externalLink>
+
+      <externalLink>
+        <linkText>NuGet Gallery | EQXMedia.TxFileSystem 2.0.0</linkText>
+        <linkAlternateText>Go to the package listing of TxFileSystem on NuGet Gallery</linkAlternateText>
+        <linkUri>https://www.nuget.org/packages/EQXMedia.TxFileSystem/2.0.0/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
       
     </relatedTopics>
   </developerConceptualDocument>
