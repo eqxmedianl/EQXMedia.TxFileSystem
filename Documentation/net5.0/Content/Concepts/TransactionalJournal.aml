@@ -44,8 +44,8 @@
 
         <para>
           The code sample below demonstrates how to correctly create an instance of
-          <codeInline>TxFileSystem</codeInline>, thereby activating its support for transactional 
-          operations. As said it will automatically use the journal internally than.
+          <codeInline>TxFileSystem</codeInline>, thereby activating its support for transactional
+          operations. As said it will then automatically use the journal internally.
         </para>
 
         <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleFour" language="cs"
