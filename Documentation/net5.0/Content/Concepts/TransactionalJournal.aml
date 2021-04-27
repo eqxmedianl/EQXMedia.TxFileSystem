@@ -30,12 +30,9 @@
             <linkAlternateText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkAlternateText>
             <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
             <linkTarget>_blank</linkTarget>
-          </externalLink>.
-        </para>
-        <para>
-          Without doing so the <codeInline>TxFileSystem</codeInline> will function exactly the same as 
-          the file system implementation it wraps. Hence you will not take advantage of transactional 
-          operations on files, directories and file streams.
+          </externalLink>. Without doing so the <codeInline>TxFileSystem</codeInline> will function 
+          exactly the same as the file system implementation it wraps. Causing you not take advantage 
+          of transactional operations on files, directories and file streams.
         </para>
       </alert>
       
