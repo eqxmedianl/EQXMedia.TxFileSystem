@@ -38,6 +38,10 @@
   <PropertyGroup Condition="'$(IsWindows)'=='true'">
     <DefineConstants>TESTRUN_ON_WINDOWS</DefineConstants>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
+    <DefineConstants>SUPPORTED_OS_PLATFORM</DefineConstants>
+  </PropertyGroup>
   
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />

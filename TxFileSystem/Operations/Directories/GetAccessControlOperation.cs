@@ -3,7 +3,7 @@
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Security.AccessControl;
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
     using System.Runtime.Versioning;
 
     [SupportedOSPlatform("windows")]

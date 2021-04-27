@@ -105,7 +105,7 @@
         /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @only_obsolete="true"]/*' />
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access) is deprecated it is still part of the interface")]
@@ -117,7 +117,7 @@
         /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess, bool)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @only_obsolete="true"]/*' />
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle) is deprecated it is still part of the interface")]
@@ -129,7 +129,7 @@
         /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess, bool, int)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @only_obsolete="true"]/*' />
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize) is deprecated it is still part of the interface")]
@@ -141,7 +141,7 @@
         /// <returns>The newly created instance of the <see cref="FileStream" /> class for the specified file <c>handle</c>.</returns>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileStreamOperation" and @type="create" and @from="handle"]/*' />
         /// <inheritdoc cref="System.IO.FileStream(IntPtr, FileAccess, bool, int, bool)"/>
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         [Obsolete("Even though FileStream.Create(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync) is deprecated it is still part of the interface")]

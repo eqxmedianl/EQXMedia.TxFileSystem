@@ -203,7 +203,7 @@
         /// <see href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.getaccesscontrol"
         ///   alt="File.GetAccessControl Method (System.IO) | Microsoft Docs" target="_blank" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         public FileSecurity GetAccessControl(string path)
@@ -232,7 +232,7 @@
         /// <see href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.getaccesscontrol"
         ///   alt="File.GetAccessControl Method (System.IO) | Microsoft Docs" target="_blank" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="info"]/*' />
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         public FileSecurity GetAccessControl(string path, AccessControlSections includeSections)
@@ -481,7 +481,7 @@
         /// <see href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.setaccesscontrol"
         ///   alt="File.SetAccessControl(String, FileSecurity) Method (System.IO) | Microsoft Docs" target="_blank" />
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         public void SetAccessControl(string path, FileSecurity fileSecurity)

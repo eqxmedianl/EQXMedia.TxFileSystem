@@ -218,7 +218,7 @@
         ///   <para>The caller does not have the required permission.</para>
         /// </exception>
         /// <seealso href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.GetAccessControl" />
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         public DirectorySecurity GetAccessControl(string path)
@@ -260,7 +260,7 @@
         ///   <para>The caller does not have the required permission.</para>
         /// </exception>
         /// <seealso href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.GetAccessControl" />
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         public DirectorySecurity GetAccessControl(string path, AccessControlSections includeSections)
@@ -432,7 +432,7 @@
         ///   <para>The current process does not have sufficient privilege to set the ACL entry.</para>
         /// </exception>
         /// <seealso href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directory.SetAccessControl" />
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         public void SetAccessControl(string path, DirectorySecurity directorySecurity)

@@ -85,7 +85,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
             Assert.True(txFileSystem.Directory.Exists("/var/nonfailingdirectory"));
         }
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         [Fact]
@@ -117,7 +117,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
             Assert.Equal(Environment.UserName, identityUserName);
         }
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         [Fact]

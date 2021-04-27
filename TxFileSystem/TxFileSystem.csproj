@@ -78,6 +78,10 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG</DefineConstants>
   </PropertyGroup>
   
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
+    <DefineConstants>SUPPORTED_OS_PLATFORM</DefineConstants>
+  </PropertyGroup>
+  
   <ItemGroup>
     <PackageReference Include="System.IO.Abstractions" Version="13.2.9" />
     <PackageReference Include="Vsxmd" Version="1.4.5">
