@@ -24,23 +24,23 @@
         </para>
         <para>
           This library makes use of this advantage at the base of its design by providing
-          an implementation of its own. The <literal>TxFileSystem</literal> class is an
-          implementation of a file system using the abstraction interfaces provided by
+          an implementation of its own. The <codeInline>TxFileSystem</codeInline> class is 
+          an implementation of a file system using the abstraction interfaces provided by
           <literal>System.IO.Abstractions</literal>.
         </para>
         <para>
-          The design of the <literal>TxFileSystem</literal> class brings the added 
+          The design of the <codeInline>TxFileSystem</codeInline> class brings the added 
           functionality of <link xlink:href="Transactional_Operations">
-            transactional operations</link> on files, directories and file streams, using 
+            Transactional Operations</link> on files, directories and file streams, using 
           a file system that exactly resembles the default implementation 
           <literal>System.IO.Abstractions</literal> provides with its
-          <literal>FileSystem</literal> class.
+          <codeInline>FileSystem</codeInline> class.
         </para>
         <para>
-          By exactly resembling the <literal>FileSystem</literal> class, 
-          <literal>TxFileSystem</literal> can be used as a drop-in replacement. Requiring 
-          developers using <literal>TxFileSystem</literal> just to add a few extra lines 
-          to their existing codebase.
+          By exactly resembling the <codeInline>FileSystem</codeInline> class, 
+          <codeInline>TxFileSystem</codeInline> can be used as a drop-in replacement. 
+          Requiring developers using <codeInline>TxFileSystem</codeInline> just to add a 
+          few extra lines to their existing codebase.
         </para>
       </content>
     </section>
@@ -62,13 +62,13 @@
           of their methods inside Unit Tests.
         </para>
         <para>
-          As said, because the <literal>TxFileSystem</literal> class exactly resembles the 
-          <literal>FileSystem</literal> class, it can be Unit Tested the same way. As it can
-          be used as a drop-in replacement. Simply pass a 
-          <literal>MockableFileSystem</literal> instance from 
+          As said, because the <codeInline>TxFileSystem</codeInline> class exactly resembles 
+          the <codeInline>FileSystem</codeInline> class, it can be Unit Tested the same way. 
+          As it can be used as a drop-in replacement. Simply pass a 
+          <codeInline>MockableFileSystem</codeInline> instance from 
           <literal>System.IO.Abstractions.TestingHelpers</literal> using the 
           <codeInline>fileSystem</codeInline> parameter to the constructor of
-          <literal>TxFileSystem</literal> inside Unit Tests.
+          <codeInline>TxFileSystem</codeInline> inside Unit Tests.
         </para>
       </content>
     </section>
