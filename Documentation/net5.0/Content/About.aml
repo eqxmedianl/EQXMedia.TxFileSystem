@@ -64,14 +64,14 @@
             topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
 
       <externalLink>
-        <linkText>Project Website of TxFileSystem</linkText>
+        <linkText>Project Website</linkText>
         <linkAlternateText>Go to the project website of TxFileSystem</linkAlternateText>
         <linkUri>https://txfilesystem.io/</linkUri>
         <linkTarget>_blank</linkTarget>
       </externalLink>
 
       <externalLink>
-        <linkText>Website of EQX Media B.V. - Publisher of this library</linkText>
+        <linkText>Website of EQX Media B.V.</linkText>
         <linkAlternateText>Go to the website of EQX Media B.V.</linkAlternateText>
         <linkUri>https://www.eqx-media.nl/</linkUri>
         <linkTarget>_blank</linkTarget>
