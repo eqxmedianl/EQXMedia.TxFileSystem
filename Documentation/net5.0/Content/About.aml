@@ -83,6 +83,13 @@
         <linkUri>https://www.nuget.org/packages/EQXMedia.TxFileSystem/2.0.0/</linkUri>
         <linkTarget>_blank</linkTarget>
       </externalLink>
+
+      <externalLink>
+        <linkText>GitHub.com | eqxmedianl/EQXMedia.TxFileSystem</linkText>
+        <linkAlternateText>Go to the repository of TxFileSystem on GitHub.com</linkAlternateText>
+        <linkUri>https://github.com/eqxmedianl/EQXMedia.TxFileSystem/tree/main</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
       
     </relatedTopics>
   </developerConceptualDocument>
