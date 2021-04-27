@@ -30,8 +30,9 @@
         </para>
         <para>
           The design of the <literal>TxFileSystem</literal> class brings the added 
-          functionality of transactional operations on files, directories and file streams,
-          using a file system that exactly resembles the default implementation 
+          functionality of <link xlink:href="Transactional_Operations">
+            transactional operations</link> on files, directories and file streams, using 
+          a file system that exactly resembles the default implementation 
           <literal>System.IO.Abstractions</literal> provides with its
           <literal>FileSystem</literal> class.
         </para>
