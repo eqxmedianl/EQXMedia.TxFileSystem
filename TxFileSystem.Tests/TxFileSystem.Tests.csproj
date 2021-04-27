@@ -31,16 +31,20 @@
     </PackageReference>
   </ItemGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' OR '$(TargetFramework)'=='net5.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' AND '$(IsWindows)'!='true'">
     <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING</DefineConstants>
   </PropertyGroup>
-  
-  <PropertyGroup Condition="'$(IsWindows)'=='true'">
-    <DefineConstants>TESTRUN_ON_WINDOWS</DefineConstants>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' AND '$(IsWindows)'=='true'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING;TESTRUN_ON_WINDOWS</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
-    <DefineConstants>SUPPORTED_OS_PLATFORM</DefineConstants>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0' AND '$(IsWindows)'!='true'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0' AND '$(IsWindows)'=='true'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM;TESTRUN_ON_WINDOWS</DefineConstants>
   </PropertyGroup>
   
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">

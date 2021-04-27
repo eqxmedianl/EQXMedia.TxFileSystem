@@ -74,12 +74,12 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='net5.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
     <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG</DefineConstants>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
-    <DefineConstants>SUPPORTED_OS_PLATFORM</DefineConstants>
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPORTED_OS_PLATFORM</DefineConstants>
   </PropertyGroup>
   
   <ItemGroup>
@@ -110,6 +110,12 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <None Include="..\eqxmedia-logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+      <Visible>False</Visible>
+    </None>
+    <None Include="..\License.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+      <Visible>False</Visible>
     </None>
   </ItemGroup>
 
