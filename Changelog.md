@@ -8,6 +8,7 @@
 * Exposing the `TxFileSystem` on property instances too to maintain data integrity.
 
 ### Features
+* Added support for *IntelliSense*.
 * Added documentation for all supported framework versions:
   * Generated **HTML Documentation**.
   * Generated **Windows Help File**.

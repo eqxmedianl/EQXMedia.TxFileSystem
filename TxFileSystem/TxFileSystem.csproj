@@ -16,9 +16,15 @@ Use this filesystem wrapper in combination with System.Transactions.TransactionS
 ● FileStreams.
 
 All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true filesystem being wrapped.</Description>
-    <PackageReleaseNotes>Version 1.3.0
+    <PackageReleaseNotes>Version 2.0.0
 -------------
 
+● TxFileSystem class is now a IFileSystem implementation too.
+● Exposing the TxFileSystem on property instances too to maintain data integrity.
+● Added support for IntelliSense.
+● Added documentation for all supported framework versions:
+  ○ Generated HTML Documentation.
+  ○ Generated Windows Help File.
 ● Providing a System.IO.Abstractions filesystem wrapper.
 ● Can be used to wrap any filesystem that implements the IFileSystem interface.
 ● Support transactional operations on:

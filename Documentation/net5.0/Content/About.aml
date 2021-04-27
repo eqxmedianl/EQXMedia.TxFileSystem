@@ -81,6 +81,11 @@
               <literal>System.IO.Abstractions</literal> interfaces.</para>
           </listItem>
           <listItem>
+            <para>
+              Supports <literal>IntelliSense</literal>.
+            </para>
+          </listItem>
+          <listItem>
             <para>Fully covered by Unit Tests (<legacyBold>100% code coverage
               </legacyBold>).</para>
           </listItem>
