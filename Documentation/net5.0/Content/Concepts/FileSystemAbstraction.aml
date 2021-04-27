@@ -20,7 +20,8 @@
         <para>
           By abstracting the file system interaction methods from
           <literal>System.IO</literal>, the <literal>System.IO.Abstractions</literal>
-          provided interfaces enable us to create our own implementations of file systems.
+          provided interfaces enable us to easily create our own implementations of file 
+          systems.
         </para>
         <para>
           This library makes use of this advantage at the base of its design by providing
