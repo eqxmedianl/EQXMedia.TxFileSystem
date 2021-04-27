@@ -28,15 +28,15 @@
         <Class modifying="false">
            <summary>
              <para>
-               Instances of this object only contain methods that don't modify file system resources.
+               Instances of this class only contain methods that don't modify file system resources.
                Its methods are simply passed to the wrapped file system.
              </para>
            </summary>
            <remarks>
              <para>
-               Instances of this object only contain methods that don't modify any file system resources.
-               Regardless of which of this object's methods is being invoked journalizing and, backup 
-               and restore, never take place.
+               Instances of this class only contain methods that don't modify any file system resources.
+               Regardless of the method of this class being invoked journalizing and, backup and 
+               restore, never take place.
              </para>
            </remarks>
            <conceptualLink target="e960b0a4-0eca-455f-91ef-d759b42928be" />
