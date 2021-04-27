@@ -4,54 +4,99 @@
     xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
     xmlns:xlink="http://www.w3.org/1999/xlink">
 
-    <!--
-    <summary>
-      <para>Optional summary abstract</para>
-    </summary>
-    -->
-
     <introduction>
-      <!-- Uncomment this to generate an outline of the section and sub-section
-           titles.  Specify a numeric value as the inner text to limit it to
-           a specific number of sub-topics when creating the outline.  Specify
-           zero (0) to limit it to top-level sections only.  -->
-      <!-- <autoOutline /> -->
-
-      <para>Required introduction</para>
+      
+      <para>
+        This library is built on top of interfaces that are provided by 
+        <literal>System.IO.Abstractions</literal>. That library abstracts file system
+        interaction methods from <literal>System.IO</literal>.
+      </para>
+    
     </introduction>
 
-    <!-- Add one or more top-level section elements.  These are collapsible.
-         If using <autoOutline />, add an address attribute to identify it
-         and specify a title so that it can be jumped to with a hyperlink. -->
-    <section address="Section1">
-      <title>Optional section title</title>
+    <section address="AbstractionInterfaces">
+      <title>Abstraction Interfaces</title>
       <content>
-        <!-- Uncomment this to create a sub-section outline
-        <autoOutline /> -->
-        <para>Add one or more sections with content</para>
+        <para>
+          By abstracting the file system interaction methods from
+          <literal>System.IO</literal>, the <literal>System.IO.Abstractions</literal>
+          provided interfaces enable us to create our own implementations of file systems.
+        </para>
+        <para>
+          This library makes use of this advantage at the base of its design by providing
+          an implementation of its own. The <literal>TxFileSystem</literal> class is an
+          implementation of a file system using the abstraction interfaces provided by
+          <literal>System.IO.Abstractions</literal>.
+        </para>
+        <para>
+          The design of the <literal>TxFileSystem</literal> class brings the added 
+          functionality of transactional operations on files, directories and file streams,
+          using a file system that exactly resembles the default implementation 
+          <literal>System.IO.Abstractions</literal> provides with its
+          <literal>FileSystem</literal> class.
+        </para>
+        <para>
+          By exactly resembling the <literal>FileSystem</literal> class, 
+          <literal>TxFileSystem</literal> can be used as a drop-in replacement. Requiring 
+          developers using <literal>TxFileSystem</literal> just to add a few extra lines 
+          to their existing codebase.
+        </para>
       </content>
-      <!-- If a section contains a sections element, its content creates
-           sub-sections.  These are not collapsible.
-      <sections>
-          <section address="SubSection1">
-              <title>Sub-section 1</title>
-              <content>
-                  <para>Sub-section content.</para>
-              </content>
-          </section>
-          <section address="SubSection2">
-              <title>Sub-section 2</title>
-              <content>
-                  <para>Sub-section content.</para>
-              </content>
-          </section>
-      </sections> -->
+    </section>
+
+    <section address="UnitTesting">
+      <title>Unit Testing</title>
+      <content>
+        <para>
+          By abstracting file system interaction methods from
+          <literal>System.IO</literal>, <literal>System.IO.Abstractions</literal>
+          provides interfaces for the normally <codeInline>static</codeInline>
+          classes inside <literal>System.IO</literal>.
+        </para>
+        <para>
+          This results in the abstracted implementations of these formerly
+          <codeInline>static</codeInline> classes to become
+          <legacyItalic>mockable</legacyItalic>. Being
+          <legacyItalic>mockable</legacyItalic> we are capable to replace the functionality
+          of their methods inside Unit Tests.
+        </para>
+        <para>
+          As said, because the <literal>TxFileSystem</literal> class exactly resembles the 
+          <literal>FileSystem</literal> class, it can be Unit Tested the same way. As it can
+          be used as a drop-in replacement. Simply pass a 
+          <literal>MockableFileSystem</literal> instance from 
+          <literal>System.IO.Abstractions.TestingHelpers</literal> using the 
+          <codeInline>fileSystem</codeInline> parameter to the constructor of
+          <literal>TxFileSystem</literal> inside Unit Tests.
+        </para>
+      </content>
     </section>
     
     <relatedTopics>
 
       <link xlink:href="Library_Concepts"
             topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
+
+      <externalLink>
+        <linkText>NuGet Gallery | EQXMedia.TxFileSystem</linkText>
+        <linkAlternateText>Go to the package listing of EQXMedia.TxFileSystem on NuGet</linkAlternateText>
+        <linkUri>https://www.nuget.org/packages/EQXMedia.TxFileSystem/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>NuGet Gallery | System.IO.Abstractions</linkText>
+        <linkAlternateText>Go to the package listing of System.IO.Abstractions on NuGet</linkAlternateText>
+        <linkUri>https://www.nuget.org/packages/System.IO.Abstractions/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>NuGet Gallery | System.IO.Abstractions.TestingHelpers</linkText>
+        <linkAlternateText>Go to the package listing of System.IO.Abstractions.TestingHelpers on NuGet</linkAlternateText>
+        <linkUri>https://www.nuget.org/packages/System.IO.Abstractions.TestingHelpers/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
       
     </relatedTopics>
   </developerConceptualDocument>
