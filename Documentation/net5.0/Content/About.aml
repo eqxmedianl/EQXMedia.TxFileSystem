@@ -12,7 +12,6 @@
     -->
 
     <introduction>
-      <!-- TODO: write the introduction  -->
       <para>
         <literal>EQXMedia.TxFileSystem</literal> is a transactional file system 
         wrapper using the .NET file system abstractions from
