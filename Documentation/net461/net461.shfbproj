@@ -29,7 +29,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
-    <OutputPath>..\Help\net461\</OutputPath>
+    <OutputPath>..\Generated\net461\</OutputPath>
     <HtmlHelpName>TxFileSystem Documentation - .NET Framework 4.6.1</HtmlHelpName>
     <Language>en-US</Language>
     <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>

@@ -29,7 +29,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>Cross-platform (.NET Core/.NET Standard)</FrameworkVersion>
-    <OutputPath>..\Help\netstandard2.1\</OutputPath>
+    <OutputPath>..\Generated\netstandard2.1\</OutputPath>
     <HtmlHelpName>TxFileSystem Documentation - .NET Standard 2.1</HtmlHelpName>
     <Language>en-US</Language>
     <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
