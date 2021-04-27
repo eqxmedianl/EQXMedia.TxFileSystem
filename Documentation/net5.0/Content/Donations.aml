@@ -4,12 +4,6 @@
     xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
     xmlns:xlink="http://www.w3.org/1999/xlink">
 
-    <!--
-    <summary>
-      <para>Optional summary abstract</para>
-    </summary>
-    -->
-
     <introduction>
       <para>
         If you would like to support this project and/or the development of other OpenSource
@@ -23,8 +17,6 @@
       </para>
     </introduction>
 
-    <!-- Optional procedures followed by optional code example but must have
-         at least one procedure or code example -->
     <procedure>
       <title>Making a Donation</title>
       <steps class="ordered">
