@@ -2,7 +2,7 @@
 {
     using global::EQXMedia.TxFileSystem.Abstractions;
     using global::EQXMedia.TxFileSystem.Journaling;
-    using global::EQXMedia.TxFileSystem.Tests.Attributes;
+    using global::EQXMedia.TxFileSystem.TestingHelpers.Attributes;
     using global::EQXMedia.TxFileSystem.Tests.Operations;
     using System;
     using System.IO.Abstractions;

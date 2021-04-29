@@ -61,6 +61,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\TxFileSystem.TestingHelpers\TxFileSystem.TestingHelpers.csproj" />
     <ProjectReference Include="..\TxFileSystem\TxFileSystem.csproj" />
   </ItemGroup>
 

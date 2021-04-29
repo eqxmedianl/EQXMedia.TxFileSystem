@@ -1,5 +1,6 @@
-﻿namespace EQXMedia.TxFileSystem.Tests.Attributes
+﻿namespace EQXMedia.TxFileSystem.TestingHelpers.Attributes
 {
+    using EQXMedia.TestingHelpers.Attributes;
     using Moq;
     using System.IO.Abstractions;
     using System.Reflection;

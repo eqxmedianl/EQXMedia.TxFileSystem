@@ -1,6 +1,6 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.Files
 {
-    using global::EQXMedia.TxFileSystem.Tests.Attributes;
+    using global::EQXMedia.TxFileSystem.TestingHelpers.Attributes;
     using Moq;
     using System;
     using System.Collections.Generic;
