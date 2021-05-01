@@ -1,6 +1,7 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
 {
-    using global::EQXMedia.TxFileSystem.Tests.Attributes;
+    using EQXMedia.TestingHelpers.Attributes;
+    using global::EQXMedia.TxFileSystem.TestingHelpers.Attributes;
     using Moq;
     using System;
     using System.IO.Abstractions;
