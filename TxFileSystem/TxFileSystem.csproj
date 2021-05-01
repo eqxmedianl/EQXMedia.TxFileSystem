@@ -7,39 +7,40 @@
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageId>EQXMedia.TxFileSystem</PackageId>
-    <Version>2.0.0</Version>
-    <Description>TxFileSystem is a transactional filesystem wrapper using the .NET filesystem abstraction from System.IO.Abstractions. 
+    <Version>2.0.1</Version>
+    <Description>TxFileSystem is a transactional file system wrapper using the .NET file system abstraction from System.IO.Abstractions. 
 
-Use this filesystem wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
+Use this file system wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
 ● Files,
 ● Directories,
 ● FileStreams.
 
-All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true filesystem being wrapped.</Description>
-    <PackageReleaseNotes>Version 2.0.0
+All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true file system being wrapped.</Description>
+    <PackageReleaseNotes>Version 2.0.1
 -------------
 
-● TxFileSystem class is now a IFileSystem implementation too.
-● Exposing the TxFileSystem on property instances too to maintain data integrity.
-● Added support for IntelliSense.
-● Added documentation for all supported framework versions:
-  ○ Generated HTML Documentation.
-  ○ Generated Windows Help File.
-● Providing a System.IO.Abstractions filesystem wrapper.
-● Can be used to wrap any filesystem that implements the IFileSystem interface.
+● Providing a System.IO.Abstractions file system wrapper.
 ● Support transactional operations on:
   ○ Files,
   ○ Directories,
-  ○ Filestreams.
+  ○ File Streams.
+● Can be used to wrap any files system that implements the IFileSystem interface.
+● TxFileSystem class is now a IFileSystem implementation too.
+● Exposing the TxFileSystem on property instances too to maintain data integrity.
 ● Plain proxy functionality for all remaining parts of the System.IO.Abstractions interfaces.
-● Fully covered by Unit Tests (100% code coverage).
-● Added support for .NET Framework 4.6.1, as per System.IO.Abstractions.
+● Added support for IntelliSense.
+● Added support for Symbol files (.pdb).
+● Added testing helpers to aid projects in Unit Testing.
+● Added documentation for all supported framework versions:
+  ○ Generated HTML Documentation.
+  ○ Generated Windows Help File.
 ● Now supports multiple framework versions:
+  ○ .NET Framework 4.6.1,
   ○ .NET Standard 2.0,
   ○ .NET Standard 2.1,
   ○ .NET 5.0.
-  ○ .NET Framework 4.6.1.
-● Unit Testing all supported framework versions.</PackageReleaseNotes>
+● Unit Testing all supported framework versions.
+● Fully covered by Unit Tests (100% code coverage).</PackageReleaseNotes>
     <Copyright>© EQX Media B.V. All rights reserved.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -47,6 +48,8 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <PackageTags>TransactionScope, File, Directory, FileStream, Transaction, NET, dotnet, IO</PackageTags>
     <PackageIcon>eqxmedia-logo.png</PackageIcon>
     <PackageLicenseFile>License.md</PackageLicenseFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <AssemblyName>EQXMedia.TxFileSystem</AssemblyName>
     <RootNamespace>EQXMedia.TxFileSystem</RootNamespace>
     <Configurations>Debug;Release;Documentation</Configurations>

@@ -6,19 +6,22 @@
     using System.Reflection;
     using System.Runtime.CompilerServices;
 
-    public sealed class FsFactAttribute : MockingFactAttribute
+    public class FsFactAttribute : MockingFactAttribute
     {
         public FsFactAttribute([CallerMemberName] string unitTestMethodName = "")
             : base(unitTestMethodName)
         {
         }
 
-        public string FileName { get; set; }
-
         public override void Before(MethodInfo methodUnderTest)
         {
             base.Before(methodUnderTest);
 
+            this.SetupMocks();
+        }
+
+        protected virtual void SetupMocks()
+        {
             var fileSystemMock = new Mock<IFileSystem>();
             fileSystemMock.SetupGet(f => f.Path)
                 .Returns(() =>
