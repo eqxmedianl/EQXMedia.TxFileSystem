@@ -6,13 +6,13 @@
     using System.Transactions;
     using Xunit;
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
     using System.Runtime.Versioning;
 #endif
 
     public sealed class SetAccessControlOperation_Should
     {
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         [Fact]
@@ -40,7 +40,7 @@
             }
         }
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         [Fact]

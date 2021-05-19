@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="Transactional_Operations" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <summary>
+      <para>
+        <legacyItalic>Transactional Operations</legacyItalic> ensure <link
+          xlink:href="Transactions#DataIntegrity">Data Integrity</link> is 
+        maintained by applications using this library. This is a requirement 
+        for these kind of operations, as they make modifications to file 
+        system resources.
+      </para>
+    </summary>
+
+    <introduction>
+            
+    </introduction>
+    
+    <section address="OperationTypes">
+      
+      <title>Operation Types</title>
+      
+      <content>
+        
+        <para>
+          Three kind of <legacyItalic>Transactional Operations</legacyItalic> 
+          exist inside this library, being:
+        </para>
+        
+        <list class="ordered">
+          <listItem><para>File Operations,</para></listItem>
+          <listItem><para>Directory Operations,</para></listItem>
+          <listItem><para>File Stream Operations.</para></listItem>
+        </list>
+        
+        <para>
+          All operations using <link xlink:href="Transactions">Transactions</link>
+          function fully automatic. No extra code required, as long as you ensure 
+          <codeInline>TxFileSystem</codeInline> instances are created inside a 
+          <codeInline>TransactionScope</codeInline>, to activate the
+          <link xlink:href="Transactional_Journal#JournalActivation">Transaction 
+            Journal</link>.
+        </para>
+        
+      </content>
+      
+    </section>
+    
+    <section address="TransactionalJournal">
+      
+      <title>Transactional Journal</title>
+      
+      <content>
+        
+        <para>
+          In order to maintain <link
+            xlink:href="Transactions#DataIntegrity">Data Integrity</link> , the 
+          <codeInline>TxFileSystem</codeInline> class inside this library uses a 
+          <link xlink:href="Transactional_Journal">Transactional Journal</link>,
+          in which <legacyItalic>Transactional Operations</legacyItalic> are 
+          enlisted.
+        </para>
+        
+        <para>
+          All <legacyItalic>Transactional Operations</legacyItalic> performed,
+          using the methods of the object instances exposed by properties of 
+          <codeInline>TxFileSystem</codeInline>, are journalized. This ensures these 
+          operations can be rolled back in case exceptions occur inside the 
+          <codeInline>TransactionScope</codeInline>.
+        </para>
+        
+      </content>
+      
+    </section>
+
+
+    <relatedTopics>
+
+      <link xlink:href="Library_Concepts"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
+
+      <externalLink>
+        <linkText>System.Transactions Namespace | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the System.Transactions namespace</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the TransactionScope class</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

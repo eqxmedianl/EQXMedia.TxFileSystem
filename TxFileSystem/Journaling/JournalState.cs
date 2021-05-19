@@ -1,6 +1,6 @@
 ﻿namespace EQXMedia.TxFileSystem.Journaling
 {
-    public enum JournalState
+    internal enum JournalState
     {
         Initial,
         Committing,

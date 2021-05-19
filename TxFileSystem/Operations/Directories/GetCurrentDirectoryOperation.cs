@@ -4,7 +4,7 @@
 
     internal sealed class GetCurrentDirectoryOperation : DirectoryOperation, IReturningOperation<string>
     {
-        public GetCurrentDirectoryOperation(ITxDirectory directory)
+        public GetCurrentDirectoryOperation(TxDirectory directory)
             : base(directory)
         {
         }
@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            return _directory.FileSystem.Directory.GetCurrentDirectory();
+            return _directory.TxFileSystem.FileSystem.Directory.GetCurrentDirectory();
         }
     }
 }

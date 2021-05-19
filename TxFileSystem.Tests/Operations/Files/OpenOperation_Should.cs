@@ -1,9 +1,11 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.Files
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using global::EQXMedia.TxFileSystem.Tests.Attributes;
     using Moq;
     using System;
+#if SUPPRESS_SIMPLE_USING
+    using System.Diagnostics.CodeAnalysis;
+#endif
     using System.IO;
     using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
@@ -30,6 +32,10 @@
         }
 
         [Fact]
+#if SUPPRESS_SIMPLE_USING
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void OpenOperation_AddedToJournal()
         {
             var fileName = "/tmp/filetoopen.txt";
@@ -60,7 +66,7 @@
             txFileSystem.Directory.CreateDirectory("/tmp");
             txFileSystem.File.CreateText(fileName);
 
-            Stream fileStream = null;
+            Stream fileStream;
 
             using (var transactionScope = new TransactionScope())
             {
@@ -76,6 +82,10 @@
         }
 
         [Fact]
+#if SUPPRESS_SIMPLE_USING
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void OpenOperation_ExceptionThrown_BytesNotAppended()
         {
             var fileName = "/tmp/filetoopen.txt";
@@ -101,7 +111,7 @@
                 }
             });
 
-            Assert.Equal(new byte[] { }, txFileSystem.File.ReadAllBytes(fileName));
+            Assert.Equal(Array.Empty<byte>(), txFileSystem.File.ReadAllBytes(fileName));
         }
 
         [Fact, FsFact]

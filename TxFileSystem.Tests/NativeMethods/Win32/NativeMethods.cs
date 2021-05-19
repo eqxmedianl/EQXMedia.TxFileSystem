@@ -1,4 +1,4 @@
-﻿namespace EQXMedia.TxFileSystem.NativeMethods.Win32
+﻿namespace EQXMedia.TxFileSystem.Tests.NativeMethods.Win32
 {
     using System;
     using System.IO;

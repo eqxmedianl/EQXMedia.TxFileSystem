@@ -2,24 +2,24 @@
 {
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Text;
-#if !NETSTANDARD2_0
+#if ASYNC_IO
     using System.Threading;
     using System.Threading.Tasks;
 #endif
 
     internal sealed class ReadAllLinesOperation : FileOperation, IReturningOperation<string[]>
-#if !NETSTANDARD2_0
+#if ASYNC_IO
         , IAsyncReturningOperation<string[]>
 #endif
     {
         private readonly Encoding _encoding = null;
 
-        public ReadAllLinesOperation(ITxFile file, string path)
+        public ReadAllLinesOperation(TxFile file, string path)
             : base(file, path)
         {
         }
 
-        public ReadAllLinesOperation(ITxFile file, string path, Encoding encoding)
+        public ReadAllLinesOperation(TxFile file, string path, Encoding encoding)
             : this(file, path)
         {
             _encoding = encoding;
@@ -33,23 +33,23 @@
 
             if (_encoding != null)
             {
-                return _file.FileSystem.File.ReadAllLines(_path, _encoding);
+                return _file.TxFileSystem.FileSystem.File.ReadAllLines(_path, _encoding);
             }
 
-            return _file.FileSystem.File.ReadAllLines(_path);
+            return _file.TxFileSystem.FileSystem.File.ReadAllLines(_path);
         }
 
-#if !NETSTANDARD2_0
+#if ASYNC_IO
         public Task<string[]> ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);
 
             if (_encoding != null)
             {
-                return _file.FileSystem.File.ReadAllLinesAsync(_path, _encoding, cancellationToken);
+                return _file.TxFileSystem.FileSystem.File.ReadAllLinesAsync(_path, _encoding, cancellationToken);
             }
 
-            return _file.FileSystem.File.ReadAllLinesAsync(_path, cancellationToken);
+            return _file.TxFileSystem.FileSystem.File.ReadAllLinesAsync(_path, cancellationToken);
         }
 #endif
     }

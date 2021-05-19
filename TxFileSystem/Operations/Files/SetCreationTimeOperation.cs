@@ -8,13 +8,13 @@
         private readonly bool _asUtc = false;
         private readonly DateTime _creationTime;
 
-        public SetCreationTimeOperation(ITxFile file, string path, DateTime creationTime)
+        public SetCreationTimeOperation(TxFile file, string path, DateTime creationTime)
             : base(file, path)
         {
             _creationTime = creationTime;
         }
 
-        public SetCreationTimeOperation(ITxFile file, string path, DateTime creationTime, bool asUtc)
+        public SetCreationTimeOperation(TxFile file, string path, DateTime creationTime, bool asUtc)
             : this(file, path, creationTime)
         {
             _asUtc = asUtc;
@@ -28,12 +28,12 @@
 
             if (_asUtc)
             {
-                _file.FileSystem.File.SetCreationTimeUtc(_path, _creationTime);
+                _file.TxFileSystem.FileSystem.File.SetCreationTimeUtc(_path, _creationTime);
 
                 return;
             }
 
-            _file.FileSystem.File.SetCreationTime(_path, _creationTime);
+            _file.TxFileSystem.FileSystem.File.SetCreationTime(_path, _creationTime);
         }
     }
 }

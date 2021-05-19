@@ -7,29 +7,29 @@
         public static void Copy(this TxDirectory @this, string sourceDirPath, string destDirPath,
             bool preserveProperties = true)
         {
-            @this.FileSystem.Directory.CreateDirectory(destDirPath);
+            @this.TxFileSystem.FileSystem.Directory.CreateDirectory(destDirPath);
 
-            var accessControl = @this.FileSystem.Directory.GetAccessControl(sourceDirPath);
-            @this.FileSystem.Directory.SetAccessControl(destDirPath, accessControl);
+            var accessControl = @this.TxFileSystem.FileSystem.Directory.GetAccessControl(sourceDirPath);
+            @this.TxFileSystem.FileSystem.Directory.SetAccessControl(destDirPath, accessControl);
 
             if (preserveProperties)
             {
                 PreserveTime(@this, sourceDirPath, destDirPath);
             }
 
-            foreach (string dirPath in @this.FileSystem.Directory.GetDirectories(sourceDirPath, "*",
+            foreach (string dirPath in @this.TxFileSystem.FileSystem.Directory.GetDirectories(sourceDirPath, "*",
                 SearchOption.AllDirectories))
             {
                 @this.Copy(dirPath, dirPath
-                    .Replace(@this.FileSystem.Path.GetFullPath(sourceDirPath), @this.FileSystem.Path.GetFullPath(destDirPath)),
+                    .Replace(@this.TxFileSystem.FileSystem.Path.GetFullPath(sourceDirPath), @this.TxFileSystem.FileSystem.Path.GetFullPath(destDirPath)),
                     preserveProperties);
             }
 
-            foreach (string newPath in @this.FileSystem.Directory.GetFiles(sourceDirPath, "*",
+            foreach (string newPath in @this.TxFileSystem.FileSystem.Directory.GetFiles(sourceDirPath, "*",
                 SearchOption.AllDirectories))
             {
                 @this.FileSystem.File.Copy(newPath, newPath
-                    .Replace(@this.FileSystem.Path.GetFullPath(sourceDirPath), @this.FileSystem.Path.GetFullPath(destDirPath)),
+                    .Replace(@this.TxFileSystem.FileSystem.Path.GetFullPath(sourceDirPath), @this.TxFileSystem.FileSystem.Path.GetFullPath(destDirPath)),
                     true);
             }
         }
@@ -42,14 +42,14 @@
 
         private static void PreserveTime(TxDirectory @this, string sourceDirName, string destDirName)
         {
-            @this.FileSystem.Directory.SetCreationTimeUtc(destDirName,
-                @this.FileSystem.Directory.GetCreationTimeUtc(sourceDirName));
+            @this.TxFileSystem.FileSystem.Directory.SetCreationTimeUtc(destDirName,
+                @this.TxFileSystem.FileSystem.Directory.GetCreationTimeUtc(sourceDirName));
 
-            @this.FileSystem.Directory.SetLastAccessTimeUtc(destDirName,
-                @this.FileSystem.Directory.GetLastAccessTimeUtc(sourceDirName));
+            @this.TxFileSystem.FileSystem.Directory.SetLastAccessTimeUtc(destDirName,
+                @this.TxFileSystem.FileSystem.Directory.GetLastAccessTimeUtc(sourceDirName));
 
-            @this.FileSystem.Directory.SetLastWriteTimeUtc(destDirName,
-                @this.FileSystem.Directory.GetLastWriteTimeUtc(sourceDirName));
+            @this.TxFileSystem.FileSystem.Directory.SetLastWriteTimeUtc(destDirName,
+                @this.TxFileSystem.FileSystem.Directory.GetLastWriteTimeUtc(sourceDirName));
         }
     }
 }

@@ -7,7 +7,7 @@
     {
         private readonly FileAttributes _fileAttributes;
 
-        public SetAttributesOperation(ITxFile file, string path, FileAttributes fileAttributes)
+        public SetAttributesOperation(TxFile file, string path, FileAttributes fileAttributes)
             : base(file, path)
         {
             _fileAttributes = fileAttributes;
@@ -19,7 +19,7 @@
         {
             Journalize(this);
 
-            _file.FileSystem.File.SetAttributes(_path, _fileAttributes);
+            _file.TxFileSystem.FileSystem.File.SetAttributes(_path, _fileAttributes);
         }
     }
 }

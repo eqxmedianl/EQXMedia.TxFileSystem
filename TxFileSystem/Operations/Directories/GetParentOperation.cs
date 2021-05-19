@@ -5,7 +5,7 @@
 
     internal sealed class GetParentOperation : DirectoryOperation, IReturningOperation<IDirectoryInfo>
     {
-        public GetParentOperation(ITxDirectory directory, string path)
+        public GetParentOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
@@ -16,7 +16,7 @@
         {
             Journalize(this);
 
-            return _directory.FileSystem.Directory.GetParent(_path);
+            return _directory.TxFileSystem.FileSystem.Directory.GetParent(_path);
         }
     }
 }

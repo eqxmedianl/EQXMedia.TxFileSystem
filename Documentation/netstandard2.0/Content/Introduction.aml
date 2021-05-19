@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="1d8dab58-4f19-485f-af72-1382f2a74874" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>
+        <legacyBold>TxFileSystem</legacyBold> is a .NET library that supports performing transactional operations
+        on files. Using this library one is able to maintain data integrity at file system level. The library 
+        provides a transactional file system wrapper using the .NET file system abstraction from 
+        <codeInline>System.IO.Abstractions</codeInline>.
+      </para>
+		</introduction>
+
+		<section>
+			<title>Features</title>
+			<content>
+				<para>The <legacyBold>TxFileSystem</legacyBold> library has quite a complete feature set. See the list
+          below for a summary of the features:</para>
+				<list class="bullet">
+          <listItem>
+            <para>
+              Support transactional operations on:
+            </para>
+            <list class="bullet">
+              <listItem>
+                <para>
+                  Files,
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  Directories,
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  File streams.
+                </para>
+              </listItem>
+            </list>
+          </listItem>
+          
+					<listItem>
+						<para>
+              Fully automatically uses a journaling system underneath:
+            </para>
+            <list class="bullet">
+              <listItem>
+                <para>
+                  Operations that make modifications to one or more files or directories result in 
+                  backups being created.
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  When an exception occurs inside the <codeInline>TransactionScope</codeInline>, the
+                  journal takes care of rolling back all modifications. By restoring the backups
+                  created earlier.
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  When the <codeInline>TransactionScope</codeInline> completes without errors, the
+                  journal persists all modifications and removes the backups that were created.
+                </para>
+              </listItem>
+            </list>
+					</listItem>
+
+					<listItem>
+						<para>
+              Supports multiple .NET framework versions:
+            </para>
+            <list class="bullet">
+              <listItem>
+                <para>
+                  .NET Framework 4.6.1
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  .NET Standard 2.0
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  .NET Standard 2.1
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  .NET 5.0
+                </para>
+              </listItem>
+            </list>
+					</listItem>
+          
+          <listItem>
+            <para>
+              Published on as a NuGet package on <externalLink>
+                <linkText>NuGet.org</linkText>
+                <linkUri>https://www.nuget.org/packages/EQXMedia.TxFileSystem/</linkUri>
+                <linkTarget>_blank</linkTarget>
+              </externalLink>.
+            </para>
+          </listItem>
+          
+				</list>
+
+				<para>
+          The library already has got extensive documentation. Code examples will be added to the 
+          documentation in the near future.
+        </para>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="39af7f52-a248-429c-bf21-92831ce33ad0" />
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

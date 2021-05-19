@@ -6,12 +6,12 @@
     {
         private readonly string _searchPattern = null;
 
-        public GetFileSystemEntriesOperation(ITxDirectory directory, string path)
+        public GetFileSystemEntriesOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
 
-        public GetFileSystemEntriesOperation(ITxDirectory directory, string path, string searchPattern)
+        public GetFileSystemEntriesOperation(TxDirectory directory, string path, string searchPattern)
             : this(directory, path)
         {
             _searchPattern = searchPattern;
@@ -25,10 +25,10 @@
 
             if (_searchPattern == null)
             {
-                return _directory.FileSystem.Directory.GetFileSystemEntries(_path);
+                return _directory.TxFileSystem.FileSystem.Directory.GetFileSystemEntries(_path);
             }
 
-            return _directory.FileSystem.Directory.GetFileSystemEntries(_path, _searchPattern);
+            return _directory.TxFileSystem.FileSystem.Directory.GetFileSystemEntries(_path, _searchPattern);
         }
     }
 }

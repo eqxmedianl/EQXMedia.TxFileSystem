@@ -7,30 +7,30 @@
     {
         private readonly string _searchPattern = null;
         private readonly SearchOption? _searchOption;
-#if !NETSTANDARD2_0
+#if ENUMERATING_IO
         private readonly EnumerationOptions _enumerationOptions = null;
 #endif
 
-        public GetDirectoriesOperation(ITxDirectory directory, string path)
+        public GetDirectoriesOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
 
-        public GetDirectoriesOperation(ITxDirectory directory, string path, string searchPattern)
+        public GetDirectoriesOperation(TxDirectory directory, string path, string searchPattern)
             : this(directory, path)
         {
             _searchPattern = searchPattern;
         }
 
-        public GetDirectoriesOperation(ITxDirectory directory, string path, string searchPattern,
+        public GetDirectoriesOperation(TxDirectory directory, string path, string searchPattern,
             SearchOption searchOption)
             : this(directory, path, searchPattern)
         {
             _searchOption = searchOption;
         }
 
-#if !NETSTANDARD2_0
-        public GetDirectoriesOperation(ITxDirectory directory, string path, string searchPattern,
+#if ENUMERATING_IO
+        public GetDirectoriesOperation(TxDirectory directory, string path, string searchPattern,
             EnumerationOptions enumerationOptions)
             : this(directory, path, searchPattern)
         {
@@ -46,22 +46,22 @@
 
             if (_searchOption.HasValue)
             {
-                return _directory.FileSystem.Directory.GetDirectories(_path, _searchPattern, _searchOption.Value);
+                return _directory.TxFileSystem.FileSystem.Directory.GetDirectories(_path, _searchPattern, _searchOption.Value);
             }
 
-#if !NETSTANDARD2_0
+#if ENUMERATING_IO
             if (_enumerationOptions != null)
             {
-                return _directory.FileSystem.Directory.GetDirectories(_path, _searchPattern, _enumerationOptions);
+                return _directory.TxFileSystem.FileSystem.Directory.GetDirectories(_path, _searchPattern, _enumerationOptions);
             }
 #endif
 
             if (_searchPattern != null)
             {
-                return _directory.FileSystem.Directory.GetDirectories(_path, _searchPattern);
+                return _directory.TxFileSystem.FileSystem.Directory.GetDirectories(_path, _searchPattern);
             }
 
-            return _directory.FileSystem.Directory.GetDirectories(_path);
+            return _directory.TxFileSystem.FileSystem.Directory.GetDirectories(_path);
         }
     }
 }

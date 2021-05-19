@@ -37,7 +37,7 @@
             Assert.Equal(lines, linesReturned);
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if ASYNC_IO
         [Fact, FsFact]
         public void ReadAllLinesOperationAsync_CalledOnce_ReturnsStringArrayTask()
         {

@@ -1,9 +1,9 @@
-﻿namespace EQXMedia.TxFileSystem.NativeMethods.Win32
+﻿namespace EQXMedia.TxFileSystem.Tests.NativeMethods.Win32
 {
     using System;
 
     [Flags]
-    public enum FileAttributes : uint
+    internal enum FileAttributes : uint
     {
         Readonly = 0x00000001,
         Hidden = 0x00000002,

@@ -1,7 +1,9 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.Files
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using System;
+#if SUPPRESS_SIMPLE_USING
+    using System.Diagnostics.CodeAnalysis;
+#endif
     using System.IO;
     using System.IO.Abstractions.TestingHelpers;
     using System.Text;
@@ -11,6 +13,10 @@
     public sealed class OpenWriteOperation_Should
     {
         [Fact]
+#if SUPPRESS_SIMPLE_USING
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void OpenWriteOperation_RetunsStreamReader()
         {
             var fileName = "/tmp/filetwriteinto.txt";
@@ -32,6 +38,10 @@
         }
 
         [Fact]
+#if SUPPRESS_SIMPLE_USING
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void OpenWriteOperation_AddedToJournal()
         {
             var fileName = "/tmp/filetwriteinto.txt";
@@ -52,6 +62,10 @@
         }
 
         [Fact]
+#if SUPPRESS_SIMPLE_USING
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void OpenWriteOperation_ExceptionThrown_DataNotWritten()
         {
             var fileName = "/tmp/filetwriteinto.txt";
@@ -77,7 +91,7 @@
                 }
             });
 
-            Assert.Equal(new byte[] { }, txFileSystem.File.ReadAllBytes(fileName));
+            Assert.Equal(Array.Empty<byte>(), txFileSystem.File.ReadAllBytes(fileName));
         }
 
         [Fact]

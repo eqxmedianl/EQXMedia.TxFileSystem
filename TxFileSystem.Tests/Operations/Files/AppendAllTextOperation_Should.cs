@@ -108,7 +108,7 @@
             Assert.Equal(GetRandomlyGeneratedFrenchText(), txFileSystem.File.ReadAllText("/tmp/filetoappendtextto.txt"));
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if ASYNC_IO
         [Fact]
         public void AppendAllTextOperationAsync_Transactional_AllText_EqualsAppendedText()
         {

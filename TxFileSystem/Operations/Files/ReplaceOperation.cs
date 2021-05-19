@@ -8,14 +8,14 @@
         private readonly string _destBackupFileName = null;
         private readonly bool? _ignoreMetadataErrors = null;
 
-        public ReplaceOperation(ITxFile file, string path, string destPath, string destPathBackupFileName)
+        public ReplaceOperation(TxFile file, string path, string destPath, string destPathBackupFileName)
             : base(file, path)
         {
             _destPath = destPath;
             _destBackupFileName = destPathBackupFileName;
         }
 
-        public ReplaceOperation(ITxFile file, string path, string destPath, string destPathBackupFileName,
+        public ReplaceOperation(TxFile file, string path, string destPath, string destPathBackupFileName,
             bool ignoreMetadataErrors)
             : this(file, path, destPath, destPathBackupFileName)
         {
@@ -30,11 +30,11 @@
 
             if (!_ignoreMetadataErrors.HasValue)
             {
-                _file.FileSystem.File.Replace(_path, _destPath, _destBackupFileName);
+                _file.TxFileSystem.FileSystem.File.Replace(_path, _destPath, _destBackupFileName);
             }
             else
             {
-                _file.FileSystem.File.Replace(_path, _destPath, _destBackupFileName, _ignoreMetadataErrors.Value);
+                _file.TxFileSystem.FileSystem.File.Replace(_path, _destPath, _destBackupFileName, _ignoreMetadataErrors.Value);
             }
         }
 

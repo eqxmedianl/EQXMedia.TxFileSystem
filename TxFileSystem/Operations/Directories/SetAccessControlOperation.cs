@@ -3,7 +3,7 @@
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Security.AccessControl;
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
     using System.Runtime.Versioning;
 
     [SupportedOSPlatform("windows")]
@@ -12,7 +12,7 @@
     {
         private readonly DirectorySecurity _directorySecurity;
 
-        public SetAccessControlOperation(ITxDirectory directory, string path, DirectorySecurity directorySecurity)
+        public SetAccessControlOperation(TxDirectory directory, string path, DirectorySecurity directorySecurity)
             : base(directory, path)
         {
             _directorySecurity = directorySecurity;
@@ -24,13 +24,13 @@
         {
             Journalize(this);
 
-            _directory.FileSystem.Directory.SetAccessControl(_path, _directorySecurity);
+            _directory.TxFileSystem.FileSystem.Directory.SetAccessControl(_path, _directorySecurity);
         }
 
         public override void Restore()
         {
-            var oldDirectorySecurity = _directory.FileSystem.Directory.GetAccessControl(this.BackupPath);
-            _directory.FileSystem.Directory.SetAccessControl(_path, oldDirectorySecurity);
+            var oldDirectorySecurity = _directory.TxFileSystem.FileSystem.Directory.GetAccessControl(this.BackupPath);
+            _directory.TxFileSystem.FileSystem.Directory.SetAccessControl(_path, oldDirectorySecurity);
 
             Delete();
         }

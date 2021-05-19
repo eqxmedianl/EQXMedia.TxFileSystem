@@ -10,21 +10,21 @@
         private readonly int? _bufferSize;
         private readonly bool? _isAsync;
 
-        public CreateFromSafeFileHandleOperation(ITxFileStream fileStream, SafeFileHandle handle, FileAccess access)
+        public CreateFromSafeFileHandleOperation(TxFileStream fileStream, SafeFileHandle handle, FileAccess access)
             : base(fileStream, handle)
         {
             _safeFileHandle = handle;
             _access = access;
         }
 
-        public CreateFromSafeFileHandleOperation(ITxFileStream fileStream, SafeFileHandle handle, FileAccess access,
+        public CreateFromSafeFileHandleOperation(TxFileStream fileStream, SafeFileHandle handle, FileAccess access,
             int bufferSize)
             : this(fileStream, handle, access)
         {
             _bufferSize = bufferSize;
         }
 
-        public CreateFromSafeFileHandleOperation(ITxFileStream fileStream, SafeFileHandle handle, FileAccess access,
+        public CreateFromSafeFileHandleOperation(TxFileStream fileStream, SafeFileHandle handle, FileAccess access,
             int bufferSize, bool isAsync)
             : this(fileStream, handle, access, bufferSize)
         {
@@ -39,17 +39,17 @@
 
             if (_bufferSize.HasValue && _isAsync.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_safeFileHandle, _access,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_safeFileHandle, _access,
                     _bufferSize.Value, _isAsync.Value);
             }
             else if (_bufferSize.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_safeFileHandle, _access,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_safeFileHandle, _access,
                     _bufferSize.Value);
             }
             else
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_safeFileHandle, _access);
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_safeFileHandle, _access);
             }
 
             Backup();

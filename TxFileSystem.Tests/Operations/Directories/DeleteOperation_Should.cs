@@ -16,6 +16,8 @@
 
             void CreateAndDeleteDirectory()
             {
+                #region CodeExample_DeleteDirectory
+
                 var mockFileSystem = new MockFileSystem();
                 using (var transactionScope = new TransactionScope())
                 {
@@ -24,6 +26,8 @@
                     txFileSystem.Directory.Delete("/var/tobedeleted");
                     transactionScope.Complete();
                 }
+
+                #endregion
             }
 
             CreateAndDeleteDirectory();
@@ -43,6 +47,8 @@
 
             void CreateAndDeleteDirectories()
             {
+                #region CodeExample_DeleteDirectory_Recursive
+
                 var mockFileSystem = new MockFileSystem();
                 using (var transactionScope = new TransactionScope())
                 {
@@ -51,6 +57,8 @@
                     txFileSystem.Directory.Delete("/var", recursive: true);
                     transactionScope.Complete();
                 }
+
+                #endregion
             }
 
             CreateAndDeleteDirectories();

@@ -7,7 +7,7 @@
     {
         private readonly bool _asUtc;
 
-        public GetLastWriteTimeOperation(ITxFile file, string path, bool asUtc = false)
+        public GetLastWriteTimeOperation(TxFile file, string path, bool asUtc = false)
             : base(file, path)
         {
             _asUtc = asUtc;
@@ -21,10 +21,10 @@
 
             if (_asUtc)
             {
-                return _file.FileSystem.File.GetLastWriteTimeUtc(_path);
+                return _file.TxFileSystem.FileSystem.File.GetLastWriteTimeUtc(_path);
             }
 
-            return _file.FileSystem.File.GetLastWriteTime(_path);
+            return _file.TxFileSystem.FileSystem.File.GetLastWriteTime(_path);
         }
     }
 }

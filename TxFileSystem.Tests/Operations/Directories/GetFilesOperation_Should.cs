@@ -106,7 +106,7 @@
             Assert.True(fileNames.Count() == 3);
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if ENUMERATING_IO
         [Fact]
         public void GetFilesOperation_RecurseSubDirs_ReturnsTwentyOneFileNames()
         {

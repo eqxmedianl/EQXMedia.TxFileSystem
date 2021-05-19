@@ -9,12 +9,12 @@
         private readonly DirectorySecurity _directorySecurity = null;
         private bool _alreadyExisted = false;
 
-        public CreateDirectoryOperation(ITxDirectory directory, string path)
+        public CreateDirectoryOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
 
-        public CreateDirectoryOperation(ITxDirectory directory, string path, DirectorySecurity directorySecurity)
+        public CreateDirectoryOperation(TxDirectory directory, string path, DirectorySecurity directorySecurity)
             : this(directory, path)
         {
             _directorySecurity = directorySecurity;
@@ -33,10 +33,10 @@
 
             if (_directorySecurity != null)
             {
-                return _directory.FileSystem.Directory.CreateDirectory(_path, _directorySecurity);
+                return _directory.TxFileSystem.FileSystem.Directory.CreateDirectory(_path, _directorySecurity);
             }
 
-            return _directory.FileSystem.Directory.CreateDirectory(_path);
+            return _directory.TxFileSystem.FileSystem.Directory.CreateDirectory(_path);
         }
 
         public override void Restore()

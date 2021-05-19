@@ -1,0 +1,341 @@
+<TxFileSystem.BaseDocs>
+   <Extensions>
+      <Classes>
+         <Class modifying="true">
+           <remarks>
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
+             <para>
+               Depending on the method being invoked on instances of this object the <conceptualLink 
+                 target="Transactional_Journal">Transactional Journal</conceptualLink> is used 
+               to journalize the operation or not. <conceptualLink 
+                 target="Transactional_Operations">Transactional Operations</conceptualLink> 
+               are journalized and <conceptualLink
+                 target="Non_Transactional_Operations">Non-Transactional Operations</conceptualLink>
+               are not.
+             </para>             
+           </remarks>
+           <conceptualLink target="Transactional_Journal" />
+           <conceptualLink target="Transactional_Operations" />
+           <conceptualLink target="Non_Transactional_Operations" />
+         </Class>
+        <Class modifying="false">
+           <summary>
+             <para>
+               Instances of this class only contain <conceptualLink
+                 target="Non_Transactional_Operations">methods that don't modify file system resources
+               </conceptualLink>. Its methods are simply passed to the wrapped file system.
+             </para>
+           </summary>
+           <remarks>
+             <para>
+               Instances of this class only contain methods that don't modify any file system resources.
+               Regardless of the method of this class being invoked journalizing and, backup and 
+               restore, never take place.
+             </para>
+           </remarks>
+           <conceptualLink target="Non_Transactional_Operations" />
+         </Class>
+         <Class context="property" property="FileSystem">
+           <summary>
+             Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" />, which actually is an
+             implementation of <c>System.IO.Abstractions.IFileSystem</c> itself too.
+           </summary>
+           <value>
+             This read-only value contains the instance of the <see
+               cref="EQXMedia.TxFileSystem.TxFileSystem" /> you created.
+           </value>
+           <revisionHistory visible="true">
+             <revision date="04/26/2021" version="2.0.0" author="Jarno Kamminga" visible="true">
+               Up to and including version <c>1.3.0</c> this property returned the wrapped file system. In 
+               order to maintain data integrity, regardless of developers using this property directly,
+               this property now returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this object 
+               instance is a property of.
+             </revision>
+           </revisionHistory>
+           <remarks>
+             <para>
+               This property is exposed by the <c>System.IO.Abstractions.IDirectory</c> interface. The
+               way it is implemented in this library, ensures that all operations performed through this
+               property, are transactional too. Whenever required.
+             </para>
+             <para>
+               Everywhere a <c>System.IO.Abstractions.IFileSystem</c> interface implementation is returned,
+               the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> instance you created is returned.
+               Instead of exposing the wrapped file system. This is done to make the transactional operations
+               the default. Ensuring data integrity is kept intact.
+             </para>
+             <para>
+               This property is useful for implementing extension methods.
+             </para>
+           </remarks>
+         </Class>
+         <Class context="property" property="TxFileSystem">
+           <summary>
+             Returns the <see cref="EQXMedia.TxFileSystem.TxFileSystem" /> this <see
+               cref="EQXMedia.TxFileSystem.TxFileSystemWatcher" /> instance belongs to. Thus not the actual
+             file system being wrapped.
+           </summary>
+           <remarks>
+             <para>
+               Use <see cref="EQXMedia.TxFileSystem.TxFileSystem.FileSystem" /> to perform operations on
+               the wrapped file system.
+             </para>
+           </remarks>
+         </Class>
+         <Class context="constructor" param="TxFileSystem">
+           <remarks>
+             This is an internal constructor and thus not exposed to developers using this library.
+             The class is constructed only by the library itself, as a child of <see
+               cref="EQXMedia.TxFileSystem.TxFileSystem" /> instances developers can create.
+           </remarks>
+           <param name="txFileSystem">The transactional file system wrapper that creates an instance of this class (see remarks).</param>
+         </Class>
+         <Class type="TxFileSystemWatcher" method="CreateNew">
+           <returns>The new instance of the <c>IFileSystemWatcher</c> implementation part of the wrapped file system.</returns>
+           <remarks>The instance of the <c>IFileSystemWatcher</c> implementation returned abstracts the <see cref="System.IO.FileSystemWatcher" />.</remarks>
+           <seealso href="https://github.com/System-IO-Abstractions/System.IO.Abstractions/blob/main/src/System.IO.Abstractions/IFileSystemWatcher.cs" />
+         </Class>
+      </Classes>
+      <FileSystemProperties>
+         <FileSystemProperty modifying="true">
+           <note type="caution">
+             <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+               Backup and/or restore
+             </conceptualLink> only take place for transactional operations
+             journalized by an active <conceptualLink
+                 target="Transactional_Journal#JournalActivation">
+               Transactional Journal
+             </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+           </note>
+           <remarks>
+             <para>
+               Depending on the method of this object's instance being invoked the journal is used or 
+               not. Backup and restore takes place depending on usage of the journal.
+             </para>
+           </remarks>
+           <value>
+             <para>
+               This object instance contains both methods that modify file system resources and methods 
+               that don't modify any of them.
+             </para>
+           </value>
+           <conceptualLink target="Transactional_Operations" />
+           <conceptualLink target="Transactional_Journal" />
+         </FileSystemProperty>
+         <FileSystemProperty modifying="false">
+            <remarks>
+              <para>
+                This object instance only contains <conceptualLink
+                 target="Non_Transactional_Operations">methods that don't modify file system resources
+               </conceptualLink>. Regardless of which of this object's methods is being invoked 
+               journalizing and, backup and restore, never take place.
+              </para>
+            </remarks>
+            <conceptualLink target="Non_Transactional_Operations" />
+         </FileSystemProperty>
+      </FileSystemProperties>
+      <Operations>      
+         <Operation kind="FileOperation" type="modify">
+            <remarks>
+              <note type="caution">
+                <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                  Backup and/or restore</conceptualLink> only take place for transactional operations 
+                journalized by an active <conceptualLink 
+                  target="Transactional_Journal#JournalActivation">Transactional Journal
+                </conceptualLink>. Ensure that it <conceptualLink
+                  target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+              </note>
+              <para>
+                This is a <conceptualLink
+                  target="Transactional_Operations">Transactional Operation</conceptualLink>,
+                hence it is journalized. Journalized operations can either be rolled back or committed 
+                automatically, restoring or removing the backup file(s), respectively. In case an <see 
+                  cref="System.Exception"/> of any kind occurs, all journalized operations are rolled 
+                back, resulting in the original state to be restored.
+              </para>
+              <note type="info">
+                If no <see cref="System.Exception"/> occurs and the <see
+                  cref="System.Transactions.TransactionScope" /> completes successfully, all operations
+                enlisted inside the <conceptualLink
+                  target="Transactional_Journal">Transactional Journal</conceptualLink> are committed. 
+                Any modifications made are then preserved and after which the backup file(s) are 
+                removed.
+              </note>
+            </remarks>
+            <conceptualLink target="Transactional_Operations" />
+            <conceptualLink target="Transactional_Journal" />
+         </Operation>      
+         <Operation kind="FileOperation" type="info">
+            <remarks>
+              <para>
+                This is a <conceptualLink 
+                  target="Non_Transactional_Operations">Non-Transactional Operation</conceptualLink>,
+                hence it is not journalized. As there is no need to rollback any modifications made, 
+                in case an <see cref="System.Exception"/> of any kind occurs inside the <see 
+                  cref="System.Transactions.TransactionScope" />.
+              </para>
+            </remarks>
+            <conceptualLink target="Non_Transactional_Operations" />
+         </Operation>
+         <Operation kind="DirectoryOperation" type="create">
+            <remarks>
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
+              <para>
+                This is a <conceptualLink
+                  target="Transactional_Operations">Transactional Operation</conceptualLink>,
+                that creates a directory, hence it is journalized. Journalized operations can either be 
+                rolled back or committed automatically, removing or keeping the created directory, 
+                respectively. In case an <see cref="System.Exception" /> of any kind occurs, all 
+                journalized operations are rolled back, resulting in the original state to be restored.
+              </para>
+              <note type="info">
+                If no <see cref="System.Exception"/> occurs and the <see
+                  cref="System.Transactions.TransactionScope" /> completes successfully, all operations
+                enlisted inside the <conceptualLink
+                  target="Transactional_Journal">Transactional Journal</conceptualLink> are committed.
+                Any modifications made are then preserved.
+              </note>
+              <conceptualLink target="Transactional_Operations" />
+              <conceptualLink target="Transactional_Journal" />
+            </remarks>
+         </Operation>
+         <Operation kind="DirectoryOperation" type="delete">
+            <remarks>
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
+              <para>
+                This is a <conceptualLink
+                  target="Transactional_Operations">Transactional Operation</conceptualLink>,
+                that deletes a directory, hence it is journalized. Journalized operations can either be 
+                rolled back or committed automatically, restoring or keeping the directory deleted, 
+                respectively. In case an <see cref="System.Exception"/> of any kind occurs, all 
+                journalized operations are rolled back, resulting in the original state be restored.
+              </para>
+              <note type="info">
+                If no <see cref="System.Exception"/> occurs and the <see
+                  cref="System.Transactions.TransactionScope" /> completes successfully, all operations
+                enlisted inside the <conceptualLink
+                  target="Transactional_Journal">Transactional Journal</conceptualLink> are committed.
+                Any modifications made are then preserved.
+              </note>
+              <conceptualLink target="Transactional_Operations" />
+              <conceptualLink target="Transactional_Journal" />
+            </remarks>
+         </Operation>
+         <Operation kind="DirectoryOperation" type="info">
+            <remarks>
+              <para>
+                This is a <conceptualLink 
+                  target="Non_Transactional_Operations">Non-Transactional Operation</conceptualLink> 
+                that returns information about the directory or its contents, hence it is not 
+                journalized. There is no need for the operation to be rolled back.
+              </para>
+              <conceptualLink target="Non_Transactional_Operations" />
+            </remarks>
+         </Operation>
+         <Operation kind="DirectoryOperation" type="modify">
+            <remarks>
+              <para>
+                This is a <conceptualLink
+                  target="Transactional_Operations">Transactional Operation</conceptualLink>,
+                that modifies a directory and/or its contents, hence it is journalized. Journalized 
+                operations can either be rolled back or committed automatically, restoring or removing 
+                the backup directory and its contents, respectively. In case an <see 
+                  cref="System.Exception"/> of any kind occurs, all journalized operations are rolled 
+                back, resulting in the original state to be restored.
+              </para>
+              <note type="info">
+                If no <see cref="System.Exception"/> occurs and the <see
+                  cref="System.Transactions.TransactionScope" /> completes successfully, all operations
+                enlisted inside the <conceptualLink
+                  target="Transactional_Journal">Transactional Journal</conceptualLink> are committed.
+                Any modifications made are then preserved and the backup directory and its contents
+                (if any) is then removed.
+              </note>
+              <conceptualLink target="Transactional_Operations" />
+              <conceptualLink target="Transactional_Journal" />
+            </remarks>
+         </Operation>
+         <Operation kind="FileSystemOperation" type="info">
+            <remarks>
+              <para>
+                This is a <conceptualLink 
+                  target="Non_Transactional_Operations">Non-Transactional Operation</conceptualLink>, 
+                that returns information about the file system, hence it is not journalized. There is 
+                no need for the operation to be rolled back.
+              </para>
+              <conceptualLink target="Non_Transactional_Operations" />
+            </remarks>
+         </Operation>
+         <Operation kind="FileStreamOperation" type="create" only_obsolete="true">
+            <remarks>     
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
+              <para>
+                Even though the underlying method of <see cref="FileStream" /> is <c>obsolete</c>, it 
+                is still part of the <see 
+                  href="https://github.com/System-IO-Abstractions/System.IO.Abstractions/blob/main/src/System.IO.Abstractions/IFileStreamFactory.cs"
+                  alt="System.IO.Abstractions/IFileStreamFactory.cs at main - System-IO-Abstractions/System.IO.Abstractions"
+                  target="_blank">System.IO.Abstractions.IFileStreamFactory</see> interface. Hence, it 
+                had to be implemented here too. Therefor it is marked as being <c>obsolete</c> inside 
+                this library since the first time it was released.
+              </para>
+            </remarks>
+           <conceptualLink target="Transactional_Operations" />
+           <conceptualLink target="Transactional_Journal" />
+         </Operation>
+         <Operation kind="FileStreamOperation" type="create" from="handle">
+           <remarks>             
+             <note type="caution">
+               <conceptualLink target="Transactional_Journal#RollbackAndCommit">
+                 Backup and/or restore</conceptualLink> only take place for transactional operations 
+               journalized by an active <conceptualLink 
+                 target="Transactional_Journal#JournalActivation">Transactional Journal
+               </conceptualLink>. Ensure that it <conceptualLink
+                 target="Transactional_Journal#JournalActivation">gets activated</conceptualLink>.
+             </note>
+           </remarks>
+           <returns>
+             The newly created instance of the <see cref="FileStream" /> class for the specified file 
+             <c>handle</c>.
+           </returns>
+           <conceptualLink target="Transactional_Operations" />
+         </Operation>
+         <Operation kind="FileStreamOperation" type="create" from="path">
+           <returns>
+             The newly created instance of the <see cref="FileStream" /> class for the specified file 
+             <c>path</c>.
+           </returns>
+           <conceptualLink target="Transactional_Operations" />
+           <conceptualLink target="Transactional_Journal" />
+         </Operation>
+      </Operations>
+   </Extensions>
+</TxFileSystem.BaseDocs>

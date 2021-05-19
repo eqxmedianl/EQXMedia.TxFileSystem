@@ -4,7 +4,7 @@
 
     internal sealed class DeleteOperation : FileOperation, IExecutingOperation
     {
-        public DeleteOperation(ITxFile file, string path)
+        public DeleteOperation(TxFile file, string path)
             : base(file, path)
         {
         }
@@ -15,7 +15,7 @@
         {
             Journalize(this);
 
-            _file.FileSystem.File.Delete(_path);
+            _file.TxFileSystem.FileSystem.File.Delete(_path);
         }
     }
 }

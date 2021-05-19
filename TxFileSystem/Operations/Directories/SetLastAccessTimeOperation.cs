@@ -10,13 +10,13 @@
         private DateTime _oldLastAccessTimeUtc;
         private DateTime _oldLastAccessTime;
 
-        public SetLastAccessTimeOperation(ITxDirectory directory, string path, DateTime lastAcccesTime)
+        public SetLastAccessTimeOperation(TxDirectory directory, string path, DateTime lastAcccesTime)
             : base(directory, path)
         {
             _lastAccessTime = lastAcccesTime;
         }
 
-        public SetLastAccessTimeOperation(ITxDirectory directory, string path, DateTime lastAccessTime, bool asUtc)
+        public SetLastAccessTimeOperation(TxDirectory directory, string path, DateTime lastAccessTime, bool asUtc)
             : this(directory, path, lastAccessTime)
         {
             _asUtc = asUtc;
@@ -26,8 +26,8 @@
 
         public override void Backup()
         {
-            _oldLastAccessTimeUtc = _directory.FileSystem.Directory.GetLastAccessTimeUtc(this.Path);
-            _oldLastAccessTime = _directory.FileSystem.Directory.GetLastAccessTime(this.Path);
+            _oldLastAccessTimeUtc = _directory.TxFileSystem.FileSystem.Directory.GetLastAccessTimeUtc(this.Path);
+            _oldLastAccessTime = _directory.TxFileSystem.FileSystem.Directory.GetLastAccessTime(this.Path);
         }
 
         public void Execute()
@@ -36,21 +36,21 @@
 
             if (_asUtc)
             {
-                _directory.FileSystem.Directory.SetLastAccessTimeUtc(_path, _lastAccessTime);
+                _directory.TxFileSystem.FileSystem.Directory.SetLastAccessTimeUtc(_path, _lastAccessTime);
             }
 
-            _directory.FileSystem.Directory.SetLastAccessTime(_path, _lastAccessTime);
+            _directory.TxFileSystem.FileSystem.Directory.SetLastAccessTime(_path, _lastAccessTime);
         }
 
         public override void Restore()
         {
             if (_asUtc)
             {
-                _directory.FileSystem.Directory.SetLastAccessTimeUtc(_path, _oldLastAccessTimeUtc);
+                _directory.TxFileSystem.FileSystem.Directory.SetLastAccessTimeUtc(_path, _oldLastAccessTimeUtc);
             }
             else
             {
-                _directory.FileSystem.Directory.SetLastAccessTime(_path, _oldLastAccessTime);
+                _directory.TxFileSystem.FileSystem.Directory.SetLastAccessTime(_path, _oldLastAccessTime);
             }
 
             Delete();

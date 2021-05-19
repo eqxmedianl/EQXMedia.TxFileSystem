@@ -55,7 +55,7 @@
             Assert.Equal(data, txFileSystem.File.ReadAllBytes("/tmp/bytesfile.txt"));
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if ASYNC_IO
         [Fact]
         public void WriteAllBytesOperationAsync_ExceptionThrown_KeepsFile()
         {

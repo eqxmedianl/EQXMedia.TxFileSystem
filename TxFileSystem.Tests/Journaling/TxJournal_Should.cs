@@ -1,9 +1,11 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Journaling
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using global::EQXMedia.TxFileSystem.Journaling;
     using global::EQXMedia.TxFileSystem.Operations;
     using global::EQXMedia.TxFileSystem.Tests.Operations;
+#if SUPPRESS_SIMPLE_USING
+    using System.Diagnostics.CodeAnalysis;
+#endif
     using System.IO.Abstractions.TestingHelpers;
     using System.Linq;
     using System.Transactions;
@@ -12,6 +14,10 @@
     public sealed class TxJournal_Should
     {
         [Fact]
+#if SUPPRESS_SIMPLE_USING
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void TxJournal_Add_Results_JournalEntriesCountsOne()
         {
             var mockFileSystem = new MockFileSystem();
@@ -20,7 +26,7 @@
             {
                 var txFileSystem = new TxFileSystem(mockFileSystem);
                 var txJournal = txFileSystem.Journal;
-                txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                txJournal.Add(new UnitTestDirectoryOperation(txFileSystem.Directory,
                     "/var/journaltestdir"));
 
                 Assert.Single(txFileSystem.Journal._txJournalEntries);
@@ -38,7 +44,7 @@
             {
                 var txFileSystem = new TxFileSystem(mockFileSystem);
                 var txJournal = txFileSystem.Journal;
-                txJournal.Add(new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                txJournal.Add(new UnitTestDirectoryOperation(txFileSystem.Directory,
                     "/var/journaltestdir"));
 
                 firstJournalEntry = txJournal._txJournalEntries.First();

@@ -3,13 +3,13 @@
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Collections.Generic;
     using System.Text;
-#if !NETSTANDARD2_0
+#if ASYNC_IO
     using System.Threading;
     using System.Threading.Tasks;
 #endif
 
     internal sealed class WriteAllLinesOperation : FileOperation, IExecutingOperation
-#if !NETSTANDARD2_0
+#if ASYNC_IO
         , IAsyncOperation
 #endif
     {
@@ -17,25 +17,25 @@
         private readonly string[] _contentsArray = null;
         private readonly Encoding _encoding = null;
 
-        public WriteAllLinesOperation(ITxFile file, string path, IEnumerable<string> contents)
+        public WriteAllLinesOperation(TxFile file, string path, IEnumerable<string> contents)
             : base(file, path)
         {
             _contentsEnumerable = contents;
         }
 
-        public WriteAllLinesOperation(ITxFile file, string path, IEnumerable<string> contents, Encoding encoding)
+        public WriteAllLinesOperation(TxFile file, string path, IEnumerable<string> contents, Encoding encoding)
             : this(file, path, contents)
         {
             _encoding = encoding;
         }
 
-        public WriteAllLinesOperation(ITxFile file, string path, string[] contents)
+        public WriteAllLinesOperation(TxFile file, string path, string[] contents)
             : base(file, path)
         {
             _contentsArray = contents;
         }
 
-        public WriteAllLinesOperation(ITxFile file, string path, string[] contents, Encoding encoding)
+        public WriteAllLinesOperation(TxFile file, string path, string[] contents, Encoding encoding)
             : this(file, path, contents)
         {
             _encoding = encoding;
@@ -51,27 +51,27 @@
             {
                 if (_encoding == null)
                 {
-                    _file.FileSystem.File.WriteAllLines(_path, _contentsEnumerable);
+                    _file.TxFileSystem.FileSystem.File.WriteAllLines(_path, _contentsEnumerable);
                 }
                 else
                 {
-                    _file.FileSystem.File.WriteAllLines(_path, _contentsEnumerable, _encoding);
+                    _file.TxFileSystem.FileSystem.File.WriteAllLines(_path, _contentsEnumerable, _encoding);
                 }
             }
             else
             {
                 if (_encoding == null)
                 {
-                    _file.FileSystem.File.WriteAllLines(_path, _contentsArray);
+                    _file.TxFileSystem.FileSystem.File.WriteAllLines(_path, _contentsArray);
                 }
                 else
                 {
-                    _file.FileSystem.File.WriteAllLines(_path, _contentsArray, _encoding);
+                    _file.TxFileSystem.FileSystem.File.WriteAllLines(_path, _contentsArray, _encoding);
                 }
             }
         }
 
-#if !NETSTANDARD2_0
+#if ASYNC_IO
         public Task ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);
@@ -80,12 +80,12 @@
             {
                 if (_encoding == null)
                 {
-                    return _file.FileSystem.File.WriteAllLinesAsync(_path, _contentsEnumerable,
+                    return _file.TxFileSystem.FileSystem.File.WriteAllLinesAsync(_path, _contentsEnumerable,
                         cancellationToken);
                 }
                 else
                 {
-                    return _file.FileSystem.File.WriteAllLinesAsync(_path, _contentsEnumerable, _encoding,
+                    return _file.TxFileSystem.FileSystem.File.WriteAllLinesAsync(_path, _contentsEnumerable, _encoding,
                         cancellationToken);
                 }
             }
@@ -93,12 +93,12 @@
             {
                 if (_encoding == null)
                 {
-                    return _file.FileSystem.File.WriteAllLinesAsync(_path, _contentsArray,
+                    return _file.TxFileSystem.FileSystem.File.WriteAllLinesAsync(_path, _contentsArray,
                         cancellationToken);
                 }
                 else
                 {
-                    return _file.FileSystem.File.WriteAllLinesAsync(_path, _contentsArray, _encoding,
+                    return _file.TxFileSystem.FileSystem.File.WriteAllLinesAsync(_path, _contentsArray, _encoding,
                         cancellationToken);
                 }
             }

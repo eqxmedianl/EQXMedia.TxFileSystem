@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net461;</TargetFrameworks>
     <Company>EQX Media B.V.</Company>
     <Authors>Jarno Kamminga</Authors>
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
@@ -19,6 +19,12 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <PackageReleaseNotes>Version 2.0.2
 -------------
 
+● TxFileSystem class is now a IFileSystem implementation too.
+● Exposing the TxFileSystem on property instances too to maintain data integrity.
+● Added support for IntelliSense.
+● Added documentation for all supported framework versions:
+  ○ Generated HTML Documentation.
+  ○ Generated Windows Help File.
 ● Providing a System.IO.Abstractions filesystem wrapper.
 ● Can be used to wrap any filesystem that implements the IFileSystem interface.
 ● Support transactional operations on:
@@ -27,11 +33,12 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   ○ Filestreams.
 ● Plain proxy functionality for all remaining parts of the System.IO.Abstractions interfaces.
 ● Fully covered by Unit Tests (100% code coverage).
-● Added support for .NET Standard 2.0, as per System.IO.Abstractions.
+● Added support for .NET Framework 4.6.1, as per System.IO.Abstractions.
 ● Now supports multiple framework versions:
   ○ .NET Standard 2.0,
   ○ .NET Standard 2.1,
   ○ .NET 5.0.
+  ○ .NET Framework 4.6.1.
 ● Unit Testing all supported framework versions.</PackageReleaseNotes>
     <Copyright>© EQX Media B.V. All rights reserved.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -42,24 +49,79 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <AssemblyName>EQXMedia.TxFileSystem</AssemblyName>
     <RootNamespace>EQXMedia.TxFileSystem</RootNamespace>
+    <Configurations>Debug;Release;Documentation</Configurations>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net461'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG</DefineConstants>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPORTED_OS_PLATFORM</DefineConstants>
+  </PropertyGroup>
+  
   <ItemGroup>
     <PackageReference Include="System.IO.Abstractions" Version="13.2.9" />
+    <PackageReference Include="Vsxmd" Version="1.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
   
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <Reference Include="System" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
+  </ItemGroup>
+  
   <ItemGroup>
     <None Include="..\eqxmedia-logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+      <Visible>False</Visible>
     </None>
     <None Include="..\License.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+      <Visible>False</Visible>
     </None>
   </ItemGroup>
 

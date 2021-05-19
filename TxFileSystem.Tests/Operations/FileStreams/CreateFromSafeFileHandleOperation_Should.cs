@@ -1,7 +1,7 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Operations.FileStreams
 {
-    using global::EQXMedia.TxFileSystem.NativeMethods.Win32;
     using global::EQXMedia.TxFileSystem.Tests.Attributes;
+    using global::EQXMedia.TxFileSystem.Tests.NativeMethods.Win32;
     using global::EQXMedia.TxFileSystem.Tests.Operations.FileStreams.Utils;
     using Microsoft.Win32.SafeHandles;
     using Moq;
@@ -12,7 +12,7 @@
     using System.Text;
     using System.Transactions;
     using Xunit;
-    using FileAttributes = global::EQXMedia.TxFileSystem.NativeMethods.Win32.FileAttributes;
+    using FileAttributes = NativeMethods.Win32.FileAttributes;
 
     public sealed class CreateFromSafeFileHandleOperation_Should
     {

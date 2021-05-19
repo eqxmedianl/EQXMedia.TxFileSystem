@@ -1,12 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp3.1;net5.0;net461</TargetFrameworks>
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">2.0.0</RuntimeFrameworkVersion>
+    <CheckEolTargetFramework Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">false</CheckEolTargetFramework>
 
     <IsPackable>false</IsPackable>
 
-    <Version>1.2.0</Version>
+    <Version>2.0.0</Version>
+    <Configurations>Debug;Release;Documentation</Configurations>
+    <AssemblyName>EQXMedia.TxFileSystem.Tests</AssemblyName>
+    <RootNamespace>EQXMedia.TxFileSystem.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +18,7 @@
     <PackageReference Include="Microsoft.TestPlatform" Version="16.8.3" />
     <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="System.IO.Abstractions.TestingHelpers" Version="13.2.9" />
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,14 +31,35 @@
     </PackageReference>
   </ItemGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' AND '$(IsWindows)'!='true'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1' AND '$(IsWindows)'=='true'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING;TESTRUN_ON_WINDOWS</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0' AND '$(IsWindows)'!='true'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0' AND '$(IsWindows)'=='true'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM;TESTRUN_ON_WINDOWS</DefineConstants>
+  </PropertyGroup>
+  
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp2.0'">
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
-  </ItemGroup>    
-    
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\TxFileSystem\TxFileSystem.csproj" />
   </ItemGroup>

@@ -17,7 +17,7 @@
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
 
-            Assert.Equal(mockFileSystem, ((ITxPath)txFileSystem.Path).FileSystem);
+            Assert.Equal(mockFileSystem, txFileSystem.Path.TxFileSystem.FileSystem);
         }
 
         [Fact]
@@ -308,7 +308,7 @@
             Assert.Equal(fullPath, fullPathReturned);
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if PATH_NG
         [Fact, FsFact]
         public void TxPath_GetFullPath_WithBasePath_CalledOnce_ReturnsFullPath()
         {
@@ -378,7 +378,7 @@
             Assert.Equal(randomFileName, randomFileNameReturned);
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if PATH_NG
         [Fact, FsFact]
         public void TxPath_GetRelativePath_CalledOnce_ReturnsRelativePath()
         {
@@ -469,7 +469,7 @@
             Assert.Equal(hasExtension, hasExtensionReturned);
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if PATH_NG
         [Fact, FsFact]
         public void TxPath_IsPathFullyQualified_CalledOnce_ReturnsIsPathFullyQualified()
         {
@@ -557,7 +557,7 @@
             Assert.Equal(invalidPathChars, invalidPathCharsReturned);
         }
 
-#if NETCOREAPP3_1_OR_GREATER
+#if PATH_NG
         [Fact]
         public void TxPath_Join_TwoPaths_CalledOnce_ReturnsJoinedPaths()
         {

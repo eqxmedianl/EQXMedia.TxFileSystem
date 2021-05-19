@@ -12,7 +12,7 @@
         private readonly FileOptions? _fileOptions;
         private readonly bool? _useAsync;
 
-        public CreateFromPathOperation(ITxFileStream fileStream, string path, FileMode mode)
+        public CreateFromPathOperation(TxFileStream fileStream, string path, FileMode mode)
             : base(fileStream, path)
         {
             _fileMode = mode;
@@ -61,33 +61,33 @@
             if (_fileAccess.HasValue && _fileShare.HasValue && _bufferSize.HasValue &&
                 !_fileOptions.HasValue && _useAsync.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_path, _fileMode,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_path, _fileMode,
                     _fileAccess.Value, _fileShare.Value, _bufferSize.Value, _useAsync.Value);
             }
             else if (_fileAccess.HasValue && _fileShare.HasValue && _bufferSize.HasValue &&
                 _fileOptions.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_path, _fileMode,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_path, _fileMode,
                     _fileAccess.Value, _fileShare.Value, _bufferSize.Value, _fileOptions.Value);
             }
             else if (_fileAccess.HasValue && _fileShare.HasValue && _bufferSize.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_path, _fileMode,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_path, _fileMode,
                     _fileAccess.Value, _fileShare.Value, _bufferSize.Value);
             }
             else if (_fileAccess.HasValue && _fileShare.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_path, _fileMode,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_path, _fileMode,
                     _fileAccess.Value, _fileShare.Value);
             }
             else if (_fileAccess.HasValue)
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_path, _fileMode,
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_path, _fileMode,
                     _fileAccess.Value);
             }
             else
             {
-                _stream = _fileStream.FileSystem.FileStream.Create(_path, _fileMode);
+                _stream = _fileStream.TxFileSystem.FileSystem.FileStream.Create(_path, _fileMode);
             }
 
             Backup();

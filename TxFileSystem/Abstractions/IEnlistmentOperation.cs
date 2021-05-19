@@ -1,6 +1,6 @@
 ﻿namespace EQXMedia.TxFileSystem.Abstractions
 {
-    public interface IEnlistmentOperation
+    internal interface IEnlistmentOperation
     {
         void Commit();
 

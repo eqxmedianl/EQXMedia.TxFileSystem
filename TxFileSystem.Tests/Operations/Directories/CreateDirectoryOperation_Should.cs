@@ -1,9 +1,11 @@
 namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using global::EQXMedia.TxFileSystem.Journaling;
     using Moq;
     using System;
+#if SUPPRESS_SIMPLE_USING
+    using System.Diagnostics.CodeAnalysis;
+#endif
     using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
     using System.Security.AccessControl;
@@ -18,6 +20,10 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
     public sealed class CreateDirectoryOperation_Should
     {
         [Fact]
+#if SUPPRESS_SIMPLE_USING
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void CreateDirectoryOperation_Fails_ResultsInExists_ReturnsFalse()
         {
             var fileSystemMock = new Mock<IFileSystem>();
@@ -45,12 +51,18 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
         }
 
         [Fact]
+#if SUPPRESS_SIMPLE_USING
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
         public void CreateDirectoryOperation_ResultsInExists_ReturnsTrue()
         {
             TxFileSystem txFileSystem = null;
 
             void CreateDirectories()
             {
+                #region CodeExample_CreateDirectory
+
                 var mockFileSystem = new MockFileSystem();
                 using (var transactionScope = new TransactionScope())
                 {
@@ -59,6 +71,8 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
                     txFileSystem.Directory.CreateDirectory("/var/nonfailingdirectory");
                     transactionScope.Complete();
                 }
+
+                #endregion
             }
 
             CreateDirectories();
@@ -132,7 +146,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
             Assert.Equal(Environment.UserName, identityUserName);
         }
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
         [Fact]

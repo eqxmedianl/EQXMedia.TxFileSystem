@@ -26,7 +26,7 @@
 
         internal bool IsRolledBack { get { return (this.State == JournalState.RolledBack); } }
 
-        public JournalState State { get; private set; } = JournalState.Initial;
+        internal JournalState State { get; private set; } = JournalState.Initial;
 
         internal void Add(IOperation operation)
         {

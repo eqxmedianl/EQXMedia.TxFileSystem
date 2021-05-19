@@ -5,7 +5,7 @@
 
     internal sealed class OpenWriteOperation : FileOperation, IReturningOperation<Stream>
     {
-        public OpenWriteOperation(ITxFile file, string path)
+        public OpenWriteOperation(TxFile file, string path)
             : base(file, path)
         {
         }
@@ -16,7 +16,7 @@
         {
             Journalize(this);
 
-            return _file.FileSystem.File.OpenWrite(_path);
+            return _file.TxFileSystem.FileSystem.File.OpenWrite(_path);
         }
     }
 }

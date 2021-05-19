@@ -3,7 +3,7 @@
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Security.AccessControl;
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
     using System.Runtime.Versioning;
 
     [SupportedOSPlatform("windows")]
@@ -12,12 +12,12 @@
     {
         private readonly AccessControlSections? _includeSections = null;
 
-        public GetAccessControlOperation(ITxFile file, string path)
+        public GetAccessControlOperation(TxFile file, string path)
             : base(file, path)
         {
         }
 
-        public GetAccessControlOperation(ITxFile file, string path, AccessControlSections includeSections)
+        public GetAccessControlOperation(TxFile file, string path, AccessControlSections includeSections)
             : this(file, path)
         {
             _includeSections = includeSections;
@@ -31,10 +31,10 @@
 
             if (_includeSections.HasValue)
             {
-                return _file.FileSystem.File.GetAccessControl(_path, _includeSections.Value);
+                return _file.TxFileSystem.FileSystem.File.GetAccessControl(_path, _includeSections.Value);
             }
 
-            return _file.FileSystem.File.GetAccessControl(_path);
+            return _file.TxFileSystem.FileSystem.File.GetAccessControl(_path);
         }
     }
 }

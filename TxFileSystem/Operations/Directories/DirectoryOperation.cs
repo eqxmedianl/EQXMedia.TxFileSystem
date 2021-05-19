@@ -4,23 +4,19 @@
 
     internal abstract class DirectoryOperation : DirectoryBackupOperation, IEnlistmentOperation
     {
-        protected readonly ITxDirectory _directory;
         protected readonly string _path = null;
 
-        protected DirectoryOperation(ITxDirectory directory, string path)
+        protected DirectoryOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
-            _directory = directory;
             _path = path;
 
             Backup();
         }
 
-        protected DirectoryOperation(ITxDirectory directory)
+        protected DirectoryOperation(TxDirectory directory)
             : this(directory, null)
         {
-            _directory = directory;
-
             Backup();
         }
 
@@ -33,12 +29,12 @@
 
         public void Journalize(IOperation operation)
         {
-            ((TxDirectory)_directory)._txFileSystem.Journal.Add(operation);
+            _directory.TxFileSystem.Journal.Add(operation);
         }
 
         public void Rollback()
         {
-            if (OperationRollbackGuard.ShouldRollback(this.OperationType, ((TxDirectory)_directory)._txFileSystem.Journal.State))
+            if (OperationRollbackGuard.ShouldRollback(this.OperationType, _directory.TxFileSystem.Journal.State))
             {
                 Restore();
             }

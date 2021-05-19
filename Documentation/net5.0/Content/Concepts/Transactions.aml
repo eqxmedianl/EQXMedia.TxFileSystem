@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="Transactions" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Transactions can be used inside applications to ensure all logic inside 
+        them is performed or not. This is a efficient way to keep 
+        <legacyItalic>Data Integrity</legacyItalic>.
+      </para>
+    </introduction>
+
+    <section address="DataIntegrity">
+      <title>Data Integrity</title>
+      <content>
+        <para>
+          <legacyItalic>Data Integrity</legacyItalic> inside an application is 
+          often one of the most important requirements of software designs. We 
+          will take microservice designs as an example to illustrate this 
+          better.
+        </para>
+        <para>
+          In case a message payload is processed, resulting in data inside a 
+          database to be added, modified or removed, it is very important that 
+          all these actions are performed. If both the operations on the 
+          messaging mechanism and the database succeed, then <link
+            xlink:href="Transactions#DataIntegrity">Data Integrity</link> is 
+          preserved.
+        </para>
+        <para>
+          If on the other hand an exception occurs while performing one of these 
+          operations, the message might be removed from the message queue, and 
+          only half of the manipulations on the data inside the database might 
+          have took place.
+        </para>
+        <para>
+          By using transactions inside an application we gain the possibility of 
+          all of these operations to be rolled back in case of exceptions. That 
+          way the <legacyItalic>Data Integrity</legacyItalic> is kept intact.
+        </para>
+        <para>
+          The <codeInline>TxFileSystem</codeInline> class provided by this 
+          library makes the above also applicable to file system operations. 
+          Using this library you can maintain 
+          <legacyItalic>Data Integrity</legacyItalic>> using several storage 
+          solutions and messaging mechanisms.
+        </para>
+      </content>
+    </section>
+
+    <relatedTopics>
+
+      <link xlink:href="Library_Concepts"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
+
+      <externalLink>
+        <linkText>Writing a Transactional Application | Microsoft Docs</linkText>
+        <linkAlternateText>Read about Writing a Transactional Application at Microsoft.com</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/framework/data/transactions/writing-a-transactional-application</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>Features Provided by System.Transactions | Microsoft Docs</linkText>
+        <linkAlternateText>Read about Features Provided by System.Transactions at Microsoft.com</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/framework/data/transactions/features-provided-by-system-transactions</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

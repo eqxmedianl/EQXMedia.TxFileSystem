@@ -8,18 +8,18 @@
         private readonly int? _bufferSize;
         private readonly FileOptions? _fileOptions;
 
-        public CreateOperation(ITxFile file, string path)
+        public CreateOperation(TxFile file, string path)
             : base(file, path)
         {
         }
 
-        public CreateOperation(ITxFile file, string path, int bufferSize)
+        public CreateOperation(TxFile file, string path, int bufferSize)
             : this(file, path)
         {
             _bufferSize = bufferSize;
         }
 
-        public CreateOperation(ITxFile file, string path, int bufferSize, FileOptions options)
+        public CreateOperation(TxFile file, string path, int bufferSize, FileOptions options)
             : this(file, path, bufferSize)
         {
             _fileOptions = options;
@@ -33,15 +33,15 @@
 
             if (_fileOptions.HasValue)
             {
-                return _file.FileSystem.File.Create(_path, _bufferSize.Value, _fileOptions.Value);
+                return _file.TxFileSystem.FileSystem.File.Create(_path, _bufferSize.Value, _fileOptions.Value);
             }
 
             if (_bufferSize.HasValue)
             {
-                return _file.FileSystem.File.Create(_path, _bufferSize.Value);
+                return _file.TxFileSystem.FileSystem.File.Create(_path, _bufferSize.Value);
             }
 
-            return _file.FileSystem.File.Create(_path);
+            return _file.TxFileSystem.FileSystem.File.Create(_path);
         }
 
         public override void Rollback()

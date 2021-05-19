@@ -1,12 +1,16 @@
-﻿/.sonarqube
+﻿/packages
+
+/.sonarqube
 /.vs
 
 bin/
 obj/
 
+GeneratedFiles/
+Help/
+/TxFileSystem/EQXMedia.TxFileSystem.xml
+
+/Documentation/Generated/
+
 Debug/
 Release/
-
-/packages
-
-/Documentation/Generated

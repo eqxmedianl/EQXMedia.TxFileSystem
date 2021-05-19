@@ -1,6 +1,29 @@
-TxFileSystem
-=================
-`TxFileSystem` is a transactional filesystem wrapper using the .NET filesystem abstraction from `System.IO.Abstractions`.
+# TxFileSystem
+`TxFileSystem` is a transactional file system wrapper using the .NET file system abstraction from `System.IO.Abstractions`.
+
+## Version 2.0.0
+
+### Fixes
+* `TxFileSystem` class is now a `IFileSystem` implementation too.
+* Exposing the `TxFileSystem` on property instances too to maintain data integrity.
+
+### Features
+* Added support for *IntelliSense*.
+* Added documentation for all supported framework versions:
+  * Generated **HTML Documentation**.
+  * Generated **Windows Help File**.
+
+### Improvements
+* Minimized binary size of built libraries.
+
+## Version 1.3.0
+
+### Features
+
+*  Added support for `.NET Framework 4.6.1`, as per `System.IO.Abstractions`.
+*  Also Unit Testing this newly supported framework.
+
+## Version 1.2.0
 
 ## Version 2.0.2
 
@@ -22,24 +45,27 @@ TxFileSystem
 *  Added support for `.NET Standard 2.0`, as per `System.IO.Abstractions`.
 *  Unit Testing all supported framework versions.
 
-Version 1.1.1
------------------
+## Version 1.1.1
+
+### Fixes
 
 *  Bug in rollback functionality of `File.Move(string sourceFileName, string destFileName, bool overwrite)` (>= `.NET 5.0`) fixed.
 
-Version 1.1.0
------------------
+## Version 1.1.0
+
+### Features
 
 *  Now supports multiple framework versions (currently being `.NET Standard 2.1` and `.NET 5.0`).
 
-Version 1.0.0
------------------
+## Version 1.0.0
 
-*  Providing a `System.IO.Abstractions` filesystem wrapper.
-*  Can be used to wrap any filesystem that implements the `IFileSystem` interface.
+### Features
+
+*  Providing a `System.IO.Abstractions` file system wrapper.
+*  Can be used to wrap any file system that implements the `IFileSystem` interface.
 *  Support transactional operations on:
    *   Files,
    *   Directories,
-   *   Filestreams.
+   *   File Streams.
 *  Plain proxy functionality for all remaining parts of the `System.IO.Abstractions` interfaces.
 *  Fully covered by Unit Tests (**100% code coverage**).

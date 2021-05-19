@@ -20,7 +20,7 @@
                 txFileSystem = new TxFileSystem(mockFileSystem);
                 txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped");
 
-                var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                var unitTestOperation = new UnitTestDirectoryOperation(txFileSystem.Directory,
                     "/tmp/directorytobackupped");
                 unitTestOperation.Backup();
 
@@ -44,7 +44,7 @@
                     txFileSystem.Directory.CreateDirectory("/tmp/directorytobackupped/subdir_" + i.ToString());
                 }
 
-                var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                var unitTestOperation = new UnitTestDirectoryOperation(txFileSystem.Directory,
                     "/tmp/directorytobackupped");
                 unitTestOperation.Backup();
 
@@ -76,7 +76,7 @@
                     }
                 }
 
-                var unitTestOperation = new UnitTestDirectoryOperation((ITxDirectory)txFileSystem.Directory,
+                var unitTestOperation = new UnitTestDirectoryOperation(txFileSystem.Directory,
                     "/tmp/directorytobackupped");
                 unitTestOperation.Backup();
 
@@ -89,7 +89,7 @@
                     SearchOption.AllDirectories);
 
                 Assert.NotEmpty(files);
-                Assert.Equal(6, files.Count());
+                Assert.Equal(12, files.Count());
             }
         }
     }

@@ -7,12 +7,12 @@
     {
         private readonly bool _asUtc = false;
 
-        public GetLastWriteTimeOperation(ITxDirectory directory, string path)
+        public GetLastWriteTimeOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
 
-        public GetLastWriteTimeOperation(ITxDirectory directory, string path, bool asUtc)
+        public GetLastWriteTimeOperation(TxDirectory directory, string path, bool asUtc)
             : this(directory, path)
         {
             _asUtc = asUtc;
@@ -26,10 +26,10 @@
 
             if (_asUtc)
             {
-                return _directory.FileSystem.Directory.GetLastWriteTimeUtc(_path);
+                return _directory.TxFileSystem.FileSystem.Directory.GetLastWriteTimeUtc(_path);
             }
 
-            return _directory.FileSystem.Directory.GetLastWriteTime(_path);
+            return _directory.TxFileSystem.FileSystem.Directory.GetLastWriteTime(_path);
         }
     }
 }

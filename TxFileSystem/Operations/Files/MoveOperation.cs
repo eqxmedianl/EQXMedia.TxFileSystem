@@ -13,14 +13,14 @@
         private readonly bool? _overwrite;
 #endif
 
-        public MoveOperation(ITxFile file, string path, string destPath)
+        public MoveOperation(TxFile file, string path, string destPath)
             : base(file, path)
         {
             _destPath = destPath;
         }
 
 #if NET5_0
-        public MoveOperation(ITxFile file, string path, string destPath, bool overwrite)
+        public MoveOperation(TxFile file, string path, string destPath, bool overwrite)
             : base(file, path)
         {
             _destPath = destPath;
@@ -37,9 +37,9 @@
         {
             base.Backup();
 
-            if (_overwrite.HasValue && _overwrite.Value && _file.FileSystem.File.Exists(_destPath))
+            if (_overwrite.HasValue && _overwrite.Value && _file.TxFileSystem.FileSystem.File.Exists(_destPath))
             {
-                _file.FileSystem.File.Copy(_destPath, ((TxFile)_file).GetBackupPath(_destPath, _tempFileUuid));
+                _file.TxFileSystem.FileSystem.File.Copy(_destPath, _file.GetBackupPath(_destPath, _tempFileUuid));
             }
         }
 #endif
@@ -51,12 +51,12 @@
 #if NET5_0
             if (_overwrite.HasValue)
             {
-                _file.FileSystem.File.Move(_path, _destPath, _overwrite.Value);
+                _file.TxFileSystem.FileSystem.File.Move(_path, _destPath, _overwrite.Value);
 
                 return;
             }
 #endif
-            _file.FileSystem.File.Move(_path, _destPath);
+            _file.TxFileSystem.FileSystem.File.Move(_path, _destPath);
         }
 
         public override void Rollback()
@@ -71,11 +71,11 @@
 #if NET5_0
         private void RestoreOverwrittenDestinationFile()
         {
-            var backupFile = ((TxFile)_file).GetBackupPath(_destPath, _tempFileUuid);
-            if (_overwrite.HasValue && _overwrite.Value && _file.FileSystem.File.Exists(backupFile))
+            var backupFile = _file.GetBackupPath(_destPath, _tempFileUuid);
+            if (_overwrite.HasValue && _overwrite.Value && _file.TxFileSystem.FileSystem.File.Exists(backupFile))
             {
-                _file.FileSystem.File.Copy(backupFile, _destPath);
-                _file.FileSystem.File.Delete(backupFile);
+                _file.TxFileSystem.FileSystem.File.Copy(backupFile, _destPath);
+                _file.TxFileSystem.FileSystem.File.Delete(backupFile);
             }
         }
 #endif

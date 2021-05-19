@@ -28,7 +28,7 @@
             var txFileSystem = new TxFileSystem(fileSystemMock.Object);
 
             var path = "/tmp/dummydirectory";
-            var unitTestOperation = new UnitTestDirectoryOperation(((ITxDirectory)txFileSystem.Directory), path);
+            var unitTestOperation = new UnitTestDirectoryOperation(txFileSystem.Directory, path);
             var journalEntry = new TxJournalEntry(unitTestOperation);
             var journalEntries = new TxJournalEntryCollection
             {

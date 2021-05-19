@@ -12,7 +12,7 @@
             var mockFileSystem = new MockFileSystem();
             var txFileSystem = new TxFileSystem(mockFileSystem);
 
-            Assert.Equal(mockFileSystem, ((ITxFileStream)txFileSystem.FileStream).FileSystem);
+            Assert.Equal(mockFileSystem, txFileSystem.FileStream.TxFileSystem.FileSystem);
         }
     }
 }

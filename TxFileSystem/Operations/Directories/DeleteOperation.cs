@@ -6,12 +6,12 @@
     {
         private readonly bool? _recursive = null;
 
-        public DeleteOperation(ITxDirectory directory, string path)
+        public DeleteOperation(TxDirectory directory, string path)
             : base(directory, path)
         {
         }
 
-        public DeleteOperation(ITxDirectory directory, string path, bool recursive)
+        public DeleteOperation(TxDirectory directory, string path, bool recursive)
             : this(directory, path)
         {
             _recursive = recursive;
@@ -25,11 +25,11 @@
 
             if (!_recursive.HasValue)
             {
-                _directory.FileSystem.Directory.Delete(_path);
+                _directory.TxFileSystem.FileSystem.Directory.Delete(_path);
             }
             else
             {
-                _directory.FileSystem.Directory.Delete(_path, _recursive.Value);
+                _directory.TxFileSystem.FileSystem.Directory.Delete(_path, _recursive.Value);
             }
         }
     }

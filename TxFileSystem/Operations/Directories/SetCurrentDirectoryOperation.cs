@@ -6,15 +6,15 @@
     {
         private readonly string _newDirectoryPath;
 
-        public SetCurrentDirectoryOperation(ITxDirectory directory, string path)
+        public SetCurrentDirectoryOperation(TxDirectory directory, string path)
             : base(directory, GetCurrentDirectory(directory))
         {
             _newDirectoryPath = path;
         }
 
-        private static string GetCurrentDirectory(ITxDirectory directory)
+        private static string GetCurrentDirectory(TxDirectory directory)
         {
-            return ((TxDirectory)directory)._txFileSystem.FileSystem.Directory.GetCurrentDirectory();
+            return directory.TxFileSystem.FileSystem.Directory.GetCurrentDirectory();
         }
 
         public override OperationType OperationType => OperationType.Navigate;
@@ -23,12 +23,12 @@
         {
             Journalize(this);
 
-            _directory.FileSystem.Directory.SetCurrentDirectory(_newDirectoryPath);
+            _directory.TxFileSystem.FileSystem.Directory.SetCurrentDirectory(_newDirectoryPath);
         }
 
         public override void Restore()
         {
-            _directory.FileSystem.Directory.SetCurrentDirectory(this.Path);
+            _directory.TxFileSystem.FileSystem.Directory.SetCurrentDirectory(this.Path);
 
             Delete();
         }

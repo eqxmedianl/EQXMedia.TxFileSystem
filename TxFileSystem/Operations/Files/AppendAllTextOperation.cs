@@ -2,26 +2,26 @@
 {
     using global::EQXMedia.TxFileSystem.Abstractions;
     using System.Text;
-#if !NETSTANDARD2_0
+#if ASYNC_IO
     using System.Threading;
     using System.Threading.Tasks;
 #endif
 
     internal sealed class AppendAllTextOperation : FileOperation, IExecutingOperation
-#if !NETSTANDARD2_0
+#if ASYNC_IO
         , IAsyncOperation
 #endif
     {
         private readonly string _contents = null;
         private readonly Encoding _encoding = null;
 
-        public AppendAllTextOperation(ITxFile file, string path, string contents)
+        public AppendAllTextOperation(TxFile file, string path, string contents)
             : base(file, path)
         {
             _contents = contents;
         }
 
-        public AppendAllTextOperation(ITxFile file, string path, string contents, Encoding encoding)
+        public AppendAllTextOperation(TxFile file, string path, string contents, Encoding encoding)
             : this(file, path, contents)
         {
             _encoding = encoding;
@@ -35,26 +35,26 @@
 
             if (_encoding == null)
             {
-                _file.FileSystem.File.AppendAllText(_path, _contents);
+                _file.TxFileSystem.FileSystem.File.AppendAllText(_path, _contents);
             }
             else
             {
-                _file.FileSystem.File.AppendAllText(_path, _contents, _encoding);
+                _file.TxFileSystem.FileSystem.File.AppendAllText(_path, _contents, _encoding);
             }
         }
 
-#if !NETSTANDARD2_0
+#if ASYNC_IO
         public Task ExecuteAsync(CancellationToken cancellationToken = default)
         {
             Journalize(this);
 
             if (_encoding == null)
             {
-                return _file.FileSystem.File.AppendAllTextAsync(_path, _contents, cancellationToken);
+                return _file.TxFileSystem.FileSystem.File.AppendAllTextAsync(_path, _contents, cancellationToken);
             }
             else
             {
-                return _file.FileSystem.File.AppendAllTextAsync(_path, _contents, _encoding, cancellationToken);
+                return _file.TxFileSystem.FileSystem.File.AppendAllTextAsync(_path, _contents, _encoding, cancellationToken);
             }
         }
 #endif
