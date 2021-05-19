@@ -1,13 +1,11 @@
 # EQXMedia.TxFileSystem
 
-`EQXMedia.TxFileSystem` is a transactional filesystem wrapper using the .NET filesystem abstraction from `System.IO.Abstractions`.
+`EQXMedia.TxFileSystem` is a transactional file system wrapper using the .NET file system abstraction from `System.IO.Abstractions`.
 
-This filesystem wrapper supports transactional operations on:
+This file system wrapper supports transactional operations on:
 *   Files,
 *   Directories,
-*   Filestreams.
-
-![Quality Gate Status](https://txfilesystem.io/coverage-badge.php)
+*   File streams.
 
 ## About the Project
 
@@ -18,6 +16,10 @@ This library has been designed and implemented by [Jarno Kamminga](https://www.l
 ### Project Website
 
 The project has a website of its own which can be found at [https://txfilesystem.io/](https://txfilesystem.io/ "Visit the project website of EQXMedia.TxFileSystem").
+
+### Library Documentation
+
+The documentation of the library can be found at [https://txfilesystem.io/docs/](https://txfilesystem.io/docs/ "Read the documentation of EQXMedia.TxFileSystem").
 
 ## NuGet Package
 
@@ -31,17 +33,17 @@ More information about the NuGet package can be found at NuGet.org:
 
 #### Package Manager
 ```powershell
-PS> Install-Package EQXMedia.TxFileSystem -Version 1.2.0
+PS> Install-Package EQXMedia.TxFileSystem -Version 2.0.2
 ```
 
 #### .NET CLI
 ```
-$ dotnet add package EQXMedia.TxFileSystem --version 1.2.0
+$ dotnet add package EQXMedia.TxFileSystem --version 2.0.2
 ```
 
 #### Package Reference
 ```xml
-<PackageReference Include="EQXMedia.TxFileSystem" Version="1.2.0" />
+<PackageReference Include="EQXMedia.TxFileSystem" Version="2.0.2" />
 ```
 
 ## Code Example

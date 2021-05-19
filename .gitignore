@@ -6,3 +6,7 @@ obj/
 
 Debug/
 Release/
+
+/packages
+
+/Documentation/Generated
