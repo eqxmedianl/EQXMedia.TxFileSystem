@@ -1,6 +1,5 @@
 ﻿namespace EQXMedia.TxFileSystem.Tests.Journaling
 {
-    using global::EQXMedia.TxFileSystem.Abstractions;
     using global::EQXMedia.TxFileSystem.Journaling;
     using global::EQXMedia.TxFileSystem.TestingHelpers.Attributes;
     using global::EQXMedia.TxFileSystem.Tests.Operations;
