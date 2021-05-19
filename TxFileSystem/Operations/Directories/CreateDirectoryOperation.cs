@@ -7,6 +7,7 @@
     internal sealed class CreateDirectoryOperation : DirectoryOperation, IReturningOperation<IDirectoryInfo>
     {
         private readonly DirectorySecurity _directorySecurity = null;
+        private bool _alreadyExisted = false;
 
         public CreateDirectoryOperation(TxDirectory directory, string path)
             : base(directory, path)
@@ -25,6 +26,11 @@
         {
             Journalize(this);
 
+            if (_directory.TxFileSystem.FileSystem.Directory.Exists(_path))
+            {
+                _alreadyExisted = true;
+            }
+
             if (_directorySecurity != null)
             {
                 return _directory.TxFileSystem.FileSystem.Directory.CreateDirectory(_path, _directorySecurity);
@@ -35,7 +41,10 @@
 
         public override void Restore()
         {
-            new DeleteOperation(_directory, _path, recursive: true).Execute();
+            if (!_alreadyExisted)
+            {
+                new DeleteOperation(_directory, _path, recursive: true).Execute();
+            }
 
             Delete();
         }

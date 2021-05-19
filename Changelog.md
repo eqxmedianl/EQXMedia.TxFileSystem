@@ -1,6 +1,11 @@
 # TxFileSystem
 `TxFileSystem` is a transactional file system wrapper using the .NET file system abstraction from `System.IO.Abstractions`.
 
+## Version 2.0.2
+
+### Fixes
+* Directories already existing when invoking `Directory.CreateDirectory` are no longer removed after rollback execution.
+
 ## Version 2.0.1
 
 ### Improvements

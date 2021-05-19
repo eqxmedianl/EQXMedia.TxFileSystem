@@ -85,6 +85,35 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
             Assert.True(txFileSystem.Directory.Exists("/var/nonfailingdirectory"));
         }
 
+        [Fact]
+#if SUPPRESS_SIMPLE_USING
+        [SuppressMessage("Style", "IDE0063:Use simple 'using' statement",
+            Justification = "This library is supporting framework versions relying on older language versions")]
+#endif
+        public void CreateDirectoryOperation_OnExistingDirectory_ExceptionThrown_ResultsInExists_ReturnsTrue()
+        {
+            var mockFileSystem = new MockFileSystem();
+            var txFileSystem = new TxFileSystem(mockFileSystem);
+            txFileSystem.Directory.CreateDirectory("/var/alreadyexistingdirectory");
+
+            Assert.True(txFileSystem.Directory.Exists("/var/alreadyexistingdirectory"));
+
+            Assert.ThrowsAsync<Exception>(() =>
+            {
+                using (var transactionScope = new TransactionScope())
+                {
+                    txFileSystem = new TxFileSystem(mockFileSystem);
+                    txFileSystem.Directory.CreateDirectory("/var/alreadyexistingdirectory");
+
+                    throw new Exception("Error occurs after calling CreateDirectory on existing directory");
+                }
+            });
+
+            Assert.Equal(JournalState.RolledBack, txFileSystem.Journal.State);
+            Assert.True(txFileSystem.Journal.IsRolledBack);
+            Assert.True(txFileSystem.Directory.Exists("/var/alreadyexistingdirectory"));
+        }
+
 #if SUPPORTED_OS_PLATFORM
         [SupportedOSPlatform("windows")]
 #endif
