@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31019.35
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TxFileSystem", "TxFileSystem\TxFileSystem.csproj", "{998DAF5A-A5B9-4A8E-A29D-43910B0C52E0}"
 EndProject
@@ -43,7 +43,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{82
 		Documentation\Examples\TxFileSystem_Examples.cs = Documentation\Examples\TxFileSystem_Examples.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TxFileSystem.TestingHelpers", "TxFileSystem.TestingHelpers\TxFileSystem.TestingHelpers.csproj", "{76D72CDF-024B-4EBB-8DB8-1507B279285E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TxFileSystem.TestingHelpers", "TxFileSystem.TestingHelpers\TxFileSystem.TestingHelpers.csproj", "{76D72CDF-024B-4EBB-8DB8-1507B279285E}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "net6.0", "Documentation\net6.0\net6.0.shfbproj", "{FA209A4E-2FF5-4910-987E-904C0460863A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -82,6 +84,12 @@ Global
 		{76D72CDF-024B-4EBB-8DB8-1507B279285E}.Documentation|Any CPU.Build.0 = Debug|Any CPU
 		{76D72CDF-024B-4EBB-8DB8-1507B279285E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76D72CDF-024B-4EBB-8DB8-1507B279285E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA209A4E-2FF5-4910-987E-904C0460863A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA209A4E-2FF5-4910-987E-904C0460863A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA209A4E-2FF5-4910-987E-904C0460863A}.Documentation|Any CPU.ActiveCfg = Documentation|Any CPU
+		{FA209A4E-2FF5-4910-987E-904C0460863A}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
+		{FA209A4E-2FF5-4910-987E-904C0460863A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA209A4E-2FF5-4910-987E-904C0460863A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +101,7 @@ Global
 		{30EAD1F5-B804-458F-8B77-5EBA48AF5FF7} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 		{B7959812-1BAE-496D-B727-567B6E582E03} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 		{8234BD58-60CC-4633-BD9C-A99BDF8F0E10} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
+		{FA209A4E-2FF5-4910-987E-904C0460863A} = {713EC071-8A8C-410F-8C1F-C44F8A831683}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7076B68C-14D6-4D20-A715-F5FB506D15CF}
