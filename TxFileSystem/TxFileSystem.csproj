@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net461;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0;net461;</TargetFrameworks>
     <Company>EQX Media B.V.</Company>
     <Authors>Jarno Kamminga</Authors>
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageId>EQXMedia.TxFileSystem</PackageId>
-    <Version>2.0.2</Version>
+    <Version>2.1.0</Version>
     <Description>TxFileSystem is a transactional file system wrapper using the .NET file system abstraction from System.IO.Abstractions. 
 
 Use this file system wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
@@ -16,7 +16,7 @@ Use this file system wrapper in combination with System.Transactions.Transaction
 ● FileStreams.
 
 All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true file system being wrapped.</Description>
-    <PackageReleaseNotes>Version 2.0.2
+    <PackageReleaseNotes>Version 2.1.0
 -------------
 
 ● Providing a System.IO.Abstractions file system wrapper.
@@ -38,7 +38,8 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   ○ .NET Framework 4.6.1,
   ○ .NET Standard 2.0,
   ○ .NET Standard 2.1,
-  ○ .NET 5.0.
+  ○ .NET 5.0,
+  ○ .NET 6.0.
 ● Unit Testing all supported framework versions.
 ● Fully covered by Unit Tests (100% code coverage).</PackageReleaseNotes>
     <Copyright>© EQX Media B.V. All rights reserved.</Copyright>
@@ -86,9 +87,13 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
     <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG</DefineConstants>
   </PropertyGroup>
-  
-  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
-    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPORTED_OS_PLATFORM</DefineConstants>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0' ">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;NET_GTE_5_0;PATH_NG;SUPPORTED_OS_PLATFORM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0' ">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;NET_GTE_5_0;PATH_NG</DefineConstants>
   </PropertyGroup>
   
   <ItemGroup>
