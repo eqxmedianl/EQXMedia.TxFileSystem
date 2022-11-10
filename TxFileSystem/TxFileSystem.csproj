@@ -89,7 +89,7 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="System.IO.Abstractions" Version="13.2.9" />
+    <PackageReference Include="System.IO.Abstractions" Version="17.2.3" />
     <PackageReference Include="Vsxmd" Version="1.4.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
