@@ -7,7 +7,7 @@
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageId>EQXMedia.TxFileSystem</PackageId>
-    <Version>2.1.0</Version>
+    <Version>2.1.1</Version>
     <Description>TxFileSystem is a transactional file system wrapper using the .NET file system abstraction from System.IO.Abstractions. 
 
 Use this file system wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
@@ -16,7 +16,7 @@ Use this file system wrapper in combination with System.Transactions.Transaction
 ● FileStreams.
 
 All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true file system being wrapped.</Description>
-    <PackageReleaseNotes>Version 2.1.0
+    <PackageReleaseNotes>Version 2.1.1
 -------------
 
 ● Providing a System.IO.Abstractions file system wrapper.
