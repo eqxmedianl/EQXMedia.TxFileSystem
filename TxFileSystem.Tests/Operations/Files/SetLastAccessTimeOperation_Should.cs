@@ -62,7 +62,12 @@
                 }
             });
 
-            Assert.Equal(originalAccessTime, txFileSystem.File.GetLastAccessTime(fileName));
+            Assert.Equal(originalAccessTime.Year, txFileSystem.Directory.GetLastAccessTime(fileName).Year);
+            Assert.Equal(originalAccessTime.Month, txFileSystem.Directory.GetLastAccessTime(fileName).Month);
+            Assert.Equal(originalAccessTime.Day, txFileSystem.Directory.GetLastAccessTime(fileName).Day);
+            Assert.Equal(originalAccessTime.Hour, txFileSystem.Directory.GetLastAccessTime(fileName).Hour);
+            Assert.Equal(originalAccessTime.Minute, txFileSystem.Directory.GetLastAccessTime(fileName).Minute);
+            Assert.Equal(originalAccessTime.Second, txFileSystem.Directory.GetLastAccessTime(fileName).Second);
             Assert.NotEqual(modifiedAccessTime, txFileSystem.File.GetLastAccessTime(fileName));
         }
 
