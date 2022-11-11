@@ -9,6 +9,9 @@ This file system wrapper supports transactional operations on:
 
 ## About the Project
 
+### Build Status
+[![.NET](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml/badge.svg?branch=dev)](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml)
+
 ### Project Development
 
 This library has been designed and implemented by [Jarno Kamminga](https://www.linkedin.com/in/jarnokamminga/ "Visit the profile of Jarno Kamminga on LinkedIn") for [EQX Media B.V.](https://www.eqx-media.nl "Visit the website of EQX Media B.V."), and published as an OpenSource project on GitHub.
