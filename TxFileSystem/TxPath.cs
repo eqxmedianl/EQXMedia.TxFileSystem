@@ -255,13 +255,27 @@
             return this.TxFileSystem.FileSystem.Path.GetPathRoot(path);
         }
 
+#if !NETSTANDARD2_1
         /// <inheritdoc cref="System.IO.Path.Join(string, string)" />
+#else
+        /// <summary>
+        ///   Concatenates two paths into a single path.
+        /// </summary>
+        /// <returns>The concatenated path.</returns>
+#endif
         public string Join(string path1, string path2)
         {
             return this.TxFileSystem.FileSystem.Path.Join(path1, path2);
         }
 
+#if !NETSTANDARD2_1
         /// <inheritdoc cref="System.IO.Path.Join(string, string, string)" />
+#else
+        /// <summary>
+        ///   Concatenates three paths into a single path.
+        /// </summary>
+        /// <returns>The concatenated path.</returns>
+#endif
         public string Join(string path1, string path2, string path3)
         {
             return this.TxFileSystem.FileSystem.Path.Join(path1, path2, path3);

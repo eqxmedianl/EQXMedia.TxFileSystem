@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net461;</TargetFrameworks>
+    <CheckEolTargetFramework Condition=" '$(TargetFramework)' == 'net5.0' ">false</CheckEolTargetFramework>
     <Company>EQX Media B.V.</Company>
     <Authors>Jarno Kamminga</Authors>
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageId>EQXMedia.TxFileSystem</PackageId>
-    <Version>2.0.2</Version>
+    <Version>2.2.0</Version>
     <Description>TxFileSystem is a transactional file system wrapper using the .NET file system abstraction from System.IO.Abstractions. 
 
 Use this filesystem wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
@@ -16,9 +17,10 @@ Use this filesystem wrapper in combination with System.Transactions.TransactionS
 ● FileStreams.
 
 All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true file system being wrapped.</Description>
-    <PackageReleaseNotes>Version 2.0.2
+    <PackageReleaseNotes>Version 2.2.0
 -------------
 
+● Supports `System.IO.Abstractions` 17.2.3 and onwards.
 ● TxFileSystem class is now a IFileSystem implementation too.
 ● Exposing the TxFileSystem on property instances too to maintain data integrity.
 ● Added support for IntelliSense.
@@ -39,7 +41,8 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   ○ .NET Standard 2.1,
   ○ .NET 5.0.
   ○ .NET Framework 4.6.1.
-● Unit Testing all supported framework versions.</PackageReleaseNotes>
+● Unit Testing all supported framework versions.
+</PackageReleaseNotes>
     <Copyright>© EQX Media B.V. All rights reserved.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
