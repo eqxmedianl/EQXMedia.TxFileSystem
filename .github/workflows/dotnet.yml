@@ -54,6 +54,10 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+    - name: Setup .NET 6.0
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
     - name: Clean solution and NuGet cache
       run: dotnet clean TxFileSystem.sln --configuration Debug && dotnet nuget locals all --clear
     - name: Install SonarCloud scanner
