@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="FileSystem_Abstraction" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      
+      <para>
+        This library is built on top of interfaces that are provided by 
+        <literal>System.IO.Abstractions</literal>. That library abstracts file system
+        interaction methods from <literal>System.IO</literal>.
+      </para>
+    
+    </introduction>
+
+    <section address="AbstractionInterfaces">
+      <title>Abstraction Interfaces</title>
+      <content>
+        <para>
+          By abstracting the file system interaction methods from
+          <literal>System.IO</literal>, the <literal>System.IO.Abstractions</literal>
+          provided interfaces enable us to easily create our own implementations of file 
+          systems.
+        </para>
+        <para>
+          This library makes use of this advantage at the base of its design by providing
+          an implementation of its own. The <codeInline>TxFileSystem</codeInline> class is 
+          an implementation of a file system using the abstraction interfaces provided by
+          <literal>System.IO.Abstractions</literal>.
+        </para>
+        <para>
+          The design of the <codeInline>TxFileSystem</codeInline> class brings the added 
+          functionality of <link xlink:href="Transactional_Operations">
+            Transactional Operations</link> on files, directories and file streams. By
+          providing a file system that exactly resembles the default implementation 
+          <literal>System.IO.Abstractions</literal> provides with its
+          <codeInline>FileSystem</codeInline> class.
+        </para>
+        <para>
+          By exactly resembling the <codeInline>FileSystem</codeInline> class, 
+          <codeInline>TxFileSystem</codeInline> can be used as a drop-in replacement. 
+          Requiring developers using <codeInline>TxFileSystem</codeInline> just to add a 
+          few extra lines to their existing codebase. And take advantage of transaction
+          support, bringing them <link
+            xlink:href="Transactions#DataIntegrity">Data Integrity</link> to their 
+          applications performing file system operations.
+        </para>
+      </content>
+    </section>
+
+    <section address="UnitTesting">
+      <title>Unit Testing</title>
+      <content>
+        <para>
+          By abstracting file system interaction methods from
+          <literal>System.IO</literal>, <literal>System.IO.Abstractions</literal>
+          provides interfaces for the normally <codeInline>static</codeInline>
+          classes inside <literal>System.IO</literal>.
+        </para>
+        <para>
+          This results in the abstracted implementations of these formerly
+          <codeInline>static</codeInline> classes to become
+          <legacyItalic>mockable</legacyItalic>. Being
+          <legacyItalic>mockable</legacyItalic> we are capable to replace the functionality
+          of their methods inside Unit Tests.
+        </para>
+        <para>
+          As said, because the <codeInline>TxFileSystem</codeInline> class exactly resembles 
+          the <codeInline>FileSystem</codeInline> class, it can be Unit Tested the same way. 
+          As it can be used as a drop-in replacement. Simply pass a 
+          <codeInline>MockableFileSystem</codeInline> instance from 
+          <literal>System.IO.Abstractions.TestingHelpers</literal>, using the 
+          <codeInline>fileSystem</codeInline> parameter, to the constructor of
+          <codeInline>TxFileSystem</codeInline> inside Unit Tests.
+        </para>
+      </content>
+    </section>
+    
+    <relatedTopics>
+
+      <link xlink:href="Library_Concepts"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
+
+      <externalLink>
+        <linkText>NuGet Gallery | EQXMedia.TxFileSystem</linkText>
+        <linkAlternateText>Go to the package listing of EQXMedia.TxFileSystem on NuGet</linkAlternateText>
+        <linkUri>https://www.nuget.org/packages/EQXMedia.TxFileSystem/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>NuGet Gallery | System.IO.Abstractions</linkText>
+        <linkAlternateText>Go to the package listing of System.IO.Abstractions on NuGet</linkAlternateText>
+        <linkUri>https://www.nuget.org/packages/System.IO.Abstractions/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>NuGet Gallery | System.IO.Abstractions.TestingHelpers</linkText>
+        <linkAlternateText>Go to the package listing of System.IO.Abstractions.TestingHelpers on NuGet</linkAlternateText>
+        <linkUri>https://www.nuget.org/packages/System.IO.Abstractions.TestingHelpers/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

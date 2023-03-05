@@ -1,6 +1,17 @@
 # TxFileSystem
 `TxFileSystem` is a transactional file system wrapper using the .NET file system abstraction from `System.IO.Abstractions`.
 
+## Version 2.0.2
+
+### Fixes
+* Directories already existing when invoking `Directory.CreateDirectory` are no longer removed after rollback execution.
+
+## Version 2.0.1
+
+### Improvements
+* Added support for Symbol files (`.pdb`).
+* Added testing helpers to aid projects in Unit Testing.
+
 ## Version 2.0.0
 
 ### Fixes
@@ -25,22 +36,7 @@
 
 ## Version 1.2.0
 
-## Version 2.0.2
-
-### Fixes
-* Directories already existing when invoking `Directory.CreateDirectory` are no longer removed after rollback execution.
-
-## Version 2.0.1
-
-### Improvements
-* Added support for Symbol files (`.pdb`).
-* Added testing helpers to aid projects in Unit Testing.
-
-## Version 2.0.0
-
-### Fixes
-* `TxFileSystem` class is now a `IFileSystem` implementation too.
-* Exposing the `TxFileSystem` on property instances too to maintain data integrity.
+### Features
 
 *  Added support for `.NET Standard 2.0`, as per `System.IO.Abstractions`.
 *  Unit Testing all supported framework versions.

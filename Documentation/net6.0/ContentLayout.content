@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="About" visible="True" isExpanded="true" title="About TxFileSystem" tocTitle="About TxFileSystem" linkText="About TxFileSystem">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="welcome, start, introduction, txfilesystem" />
+    </HelpKeywords>
+    <Topic id="Library_Concepts" visible="True" isExpanded="true" apiParentMode="InsertAfter" title="Library Concepts" tocTitle="Library Concepts" linkText="Library  Concepts">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="library, concepts, concept" />
+      </HelpKeywords>
+      <Topic id="FileSystem_Abstraction" visible="True" title="File System Abstraction" tocTitle="File System Abstraction" linkText="File System Abstraction">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="file system, abstraction, io, library" />
+        </HelpKeywords>
+      </Topic>
+      <Topic id="Transactions" visible="True" title="Transactions" tocTitle="Transactions" linkText="Transactions">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="transactions, transactionscope, transaction scope, commit, rollback, indoubt, prepare" />
+        </HelpKeywords>
+      </Topic>
+      <Topic id="Transactional_Journal" visible="True" title="Transactional Journal" tocTitle="Transactional Journal" linkText="Transactional Journal">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="journal, journalize, journalizing, prepare, rollback, commit" />
+        </HelpKeywords>
+      </Topic>
+      <Topic id="Transactional_Operations" visible="True" title="Transactional Operations " tocTitle="Transactional Operations" linkText="Transactional Operations">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="transactional, transactions, transaction scope, data integrity" />
+        </HelpKeywords>
+      </Topic>
+      <Topic id="Non_Transactional_Operations" visible="True" title="Non-Transactional Operations " tocTitle="Non-Transactional Operations " linkText="Non-Transactional Operations ">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="operations, non-transactional" />
+        </HelpKeywords>
+      </Topic>
+    </Topic>
+    <Topic id="Donate" visible="True" isSelected="true" title="Making a Donation" tocTitle="Making a Donation" linkText="Making a Donation">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="donate, donations, support, opensource, development" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="Copyright" visible="True" title="TxFileSystem Copyright" tocTitle="Copyright" linkText="Copyright">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="copyright, company, software development house, marketing agency, eqx media, jarno kamminga, license" />
+      </HelpKeywords>
+    </Topic>
+  </Topic>
+</Topics>

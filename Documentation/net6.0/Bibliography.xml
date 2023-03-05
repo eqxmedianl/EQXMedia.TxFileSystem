@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bibliography>
+
+  <reference name="Writing a Transactional Application">
+    <title>Writing a Transactional Application</title>
+    <author>Microsoft</author>
+    <publisher>Microsoft.com</publisher>
+    <link>https://docs.microsoft.com/en-us/dotnet/framework/data/transactions/writing-a-transactional-application</link>
+  </reference>
+
+  <reference name="Features Provided by System.Transactions">
+    <title>Features Provided by System.Transactions</title>
+    <author>Microsoft</author>
+    <publisher>Microsoft.com</publisher>
+    <link>https://docs.microsoft.com/en-us/dotnet/framework/data/transactions/features-provided-by-system-transactions</link>
+  </reference>
+
+  <reference name="System.IO.Abstractions">
+    <title>System.IO.Abstractions</title>
+    <author>Community</author>
+    <publisher>GitHub.com</publisher>
+    <link>https://github.com/System-IO-Abstractions/System.IO.Abstractions</link>
+  </reference>
+  
+</bibliography>

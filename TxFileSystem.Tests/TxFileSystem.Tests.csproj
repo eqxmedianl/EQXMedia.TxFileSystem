@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp3.1;net5.0;net461</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp3.1;net5.0;net6.0;net461</TargetFrameworks>
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">2.0.0</RuntimeFrameworkVersion>
     <CheckEolTargetFramework Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">false</CheckEolTargetFramework>
     <CheckEolTargetFramework Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">false</CheckEolTargetFramework>
@@ -63,6 +63,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\TxFileSystem.TestingHelpers\TxFileSystem.TestingHelpers.csproj" />
     <ProjectReference Include="..\TxFileSystem\TxFileSystem.csproj" />
   </ItemGroup>
 

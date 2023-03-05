@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="About" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!-- TODO: do add a summary  -->
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <para>
+        <literal>EQXMedia.TxFileSystem</literal> is a transactional file system 
+        wrapper using the .NET file system abstractions from
+        <literal>System.IO.Abstractions</literal>.
+      </para>
+    </introduction>
+
+    <section address="Features">
+      <title>Features</title>
+      <content>
+        
+        <list class="bullet">
+          <listItem>
+            <para>Providing a <literal>System.IO.Abstractions</literal> file 
+              system wrapper.</para>
+          </listItem>
+          <listItem>
+            <para>Can be used to wrap any file system that implements the 
+              <literal>IFileSystem</literal> interface.</para>
+          </listItem>
+          <listItem>
+            Support transactional operations on:
+            <list class="bullet">
+              <listItem>
+                <para>Files,</para>
+              </listItem>
+              <listItem>
+                <para>Directories,</para>
+              </listItem>
+              <listItem>
+                <para>File Streams.</para>
+              </listItem>
+            </list>
+          </listItem>
+          <listItem>
+            <para>Uses a fully automatic journal for transactional operations
+              internally.</para>
+          </listItem>
+          <listItem>
+            Supports multiple framework versions, currently being:            
+            <list class="bullet">
+              <listItem>
+                <para>.NET 5.0,</para>
+              </listItem>
+              <listItem>
+                <para>.NET Framework 4.6.1,</para>
+              </listItem>
+              <listItem>
+                <para>.NET Standard 2.1,</para>
+              </listItem>
+              <listItem>
+                <para>.NET Standard 2.0.</para>
+              </listItem>
+            </list>
+          </listItem>
+          <listItem>
+            <para>Drop-in replacement for <literal>IFileSystem</literal> 
+              implementations already used inside projects.</para>
+          </listItem>
+          <listItem>
+            <para>Exposing the <literal>TxFileSystem</literal> instance through
+              exposed properties too to maintain <link 
+                xlink:href="Transactions#DataIntegrity">Data Integrity</link>.</para>
+          </listItem>
+          <listItem>
+            <para>Plain proxy functionality for all remaining parts of the 
+              <literal>System.IO.Abstractions</literal> interfaces.</para>
+          </listItem>
+          <listItem>
+            <para>
+              Supports <literal>IntelliSense</literal>.
+            </para>
+          </listItem>
+          <listItem>
+            <para>Fully covered by Unit Tests (<legacyBold>100% code coverage
+              </legacyBold>).</para>
+          </listItem>
+        </list>
+          
+      </content>
+    </section>
+
+    <section address="History">
+      <title>History</title>
+      <content>
+
+        <para>
+          <!-- TODO: write the actual contents below -->
+          Contents will follow soon.
+        </para>
+        
+      </content>
+    </section>
+
+    <bibliography>
+      <cite>Writing a Transactional Application</cite>
+      <cite>Features Provided by System.Transactions</cite>
+      <cite>System.IO.Abstractions</cite>   
+    </bibliography>
+
+    <relatedTopics>
+
+      <link xlink:href="Library_Concepts"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
+
+      <externalLink>
+        <linkText>Project Website</linkText>
+        <linkAlternateText>Go to the project website of TxFileSystem</linkAlternateText>
+        <linkUri>https://txfilesystem.io/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>Website of EQX Media B.V.</linkText>
+        <linkAlternateText>Go to the website of EQX Media B.V.</linkAlternateText>
+        <linkUri>https://www.eqx-media.nl/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>NuGet Gallery | EQXMedia.TxFileSystem 2.0.0</linkText>
+        <linkAlternateText>Go to the package listing of TxFileSystem on NuGet Gallery</linkAlternateText>
+        <linkUri>https://www.nuget.org/packages/EQXMedia.TxFileSystem/2.0.0/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>GitHub.com | eqxmedianl/EQXMedia.TxFileSystem</linkText>
+        <linkAlternateText>Go to the repository of TxFileSystem on GitHub.com</linkAlternateText>
+        <linkUri>https://github.com/eqxmedianl/EQXMedia.TxFileSystem/tree/main</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

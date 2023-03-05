@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="Copyright" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        This OpenSource .NET library is published under the <externalLink>
+          <linkText>BSD-4-Clause License</linkText>
+          <linkAlternateText>Skip to the BSD-4-Clause License</linkAlternateText>
+          <linkUri>#License</linkUri>
+          <linkTarget>_self</linkTarget>
+        </externalLink>. The development is funded by a Dutch company, and designed and 
+        implemented by the company's owner, who also is a Senior Software Consultant.
+      </para>
+    </introduction>
+
+    <section address="License">
+      <title>License</title>
+      <content>
+        <code source="..\..\License.md" title="BSD-4-Clause License" language="none" />
+      </content>
+    </section>
+
+    <section address="Publisher">
+      <title>Publisher</title>
+      <content>
+        <para>
+          <legacyBold>EQX Media B.V.</legacyBold> is a software development house and marketing
+          agency from The Netherlands. All copyrights of this library is strictly reserved by them. 
+          Yet, the library is published and licensed under the <externalLink>
+            <linkText>BSD-4-Clause License</linkText>
+            <linkAlternateText>Skip to the BSD-4-Clause License</linkAlternateText>
+            <linkUri>#License</linkUri>
+            <linkTarget>_self</linkTarget>
+          </externalLink>.
+        </para>
+      </content>
+    </section>
+
+    <section address="Developer">
+      <title>Developer</title>
+      <content>
+        <para>
+          <legacyBold>Jarno Kamminga</legacyBold> is the architect who designed this library 
+          and also the developer that implemented it.
+        </para>
+      </content>
+    </section>
+    
+    <relatedTopics>
+      
+      <externalLink>
+        <linkText>Jarno Kamminga on LinkedIn</linkText>
+        <linkAlternateText>Go to profile of Jarno Kamminga on LinkedIn</linkAlternateText>
+        <linkUri>https://www.eqx-media.nl/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>Website of EQX Media B.V.</linkText>
+        <linkAlternateText>Go to the website of EQX Media B.V.</linkAlternateText>
+        <linkUri>https://www.eqx-media.nl/</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

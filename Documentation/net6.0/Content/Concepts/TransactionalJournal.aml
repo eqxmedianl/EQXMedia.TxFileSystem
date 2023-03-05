@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="Transactional_Journal" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <summary>
+      <para>
+        The transactional journal provides the prepare, rollback, and commit functionality for the 
+        transactional operations of this library. It is internally fully automatically used by
+        <codeInline>TxFileSystem</codeInline>, and activates itself once it detects that it is part 
+        of a transaction.
+      </para>
+    </summary>
+
+    <introduction>
+
+      <para>
+        As said the journal activates itself once it detects that it is part of a transaction. If an 
+        instance of <codeInline>TxFileSystem</codeInline> is incorrectly created, the support for 
+        transactional operations does not become active. Meaning <link
+          xlink:href="Transactions#DataIntegrity">Data Integrity</link> is not guaranteed in that 
+        case.
+      </para>
+      
+      <alert class="caution">
+        <para>
+          The journal only becomes active when the <codeInline>TxFileSystem</codeInline> instance is 
+          constructed inside a <externalLink>
+            <linkText>TransactionScope</linkText>
+            <linkAlternateText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkAlternateText>
+            <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
+            <linkTarget>_blank</linkTarget>
+          </externalLink>. Without doing so the <codeInline>TxFileSystem</codeInline> will function 
+          exactly the same as the file system implementation it wraps. Causing you not take advantage 
+          of transactional operations on files, directories and file streams.
+        </para>
+      </alert>
+      
+    </introduction>
+
+    <section address="JournalActivation">
+      <title>Activating Transactional Support</title>
+      <content>
+
+        <para>
+          The code sample below demonstrates how to correctly create an instance of
+          <codeInline>TxFileSystem</codeInline>, thereby activating its support for transactional
+          operations. As said it will then automatically use the journal internally.
+        </para>
+
+        <code source="..\Examples\TxFileSystem_Examples.cs" region="Constructor_ExampleFour" language="cs"
+          title="Creating an instance inside a transaction scope, enabling support for transactional operations" />
+
+      </content>
+
+    </section>
+        
+    <section address="RollbackAndCommit">    
+      <title>Rollback and Commit Functionality</title>
+      <content>
+      
+        <para>
+          The journal takes care of maintaining <link
+            xlink:href="Transactions#DataIntegrity">Data Integrity</link>. Depending on 
+          exceptions occurring while completing the transaction scope, or not, 
+          any changes made to the files, directories and file streams using the
+          wrapped file system, are rolled back or persisted, respectively.
+        </para>
+        
+        <para>
+          The table below goes a bit more into detail, and might make this easier
+          to understand, what the state of the journal is depending on the state of the current 
+          transaction enlisted inside the <externalLink>
+            <linkText>TransactionScope</linkText>
+            <linkAlternateText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkAlternateText>
+            <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
+            <linkTarget>_blank</linkTarget>
+          </externalLink>.
+        </para>
+        
+        <table>
+  	      <tableHeader>
+            <row>
+              <entry><para>TransactionScope&#160;Operation</para></entry>
+              <entry><para>Transaction&#160;Status</para></entry>
+              <entry><para>Journal&#160;State</para></entry>
+            </row>
+          </tableHeader>
+          <row>
+            <entry><para><codeInline>Complete()</codeInline></para></entry>
+            <entry><para><literal>Aborted</literal></para></entry>
+            <entry><para>All changes made by transactional operations are rolled back.<lineBreak />
+              Meaning the backups that were created are automatically restored, and 
+              removed afterwards.</para></entry>
+          </row>
+          <row>
+            <entry><para><codeInline>Complete()</codeInline></para></entry>
+            <entry><para><literal>Active</literal></para></entry>
+            <entry><para>All transactional operations, that might need to be rolled back, are 
+              still journalized.<lineBreak />
+              Backups that were created exist until the transaction status changes.</para></entry>
+          </row>
+          <row>
+            <entry><para><codeInline>Complete()</codeInline></para></entry>
+            <entry><para><literal>Committed</literal></para></entry>
+            <entry><para>All changes made by transactional operations are preserved.<lineBreak />
+              The backups that were created automatically are removed.</para></entry>
+          </row>
+          <row>
+            <entry><para><codeInline>Complete()</codeInline></para></entry>
+            <entry><para><literal>InDoubt</literal></para></entry>
+            <entry><para>This will have the same result as the <literal>Aborted</literal>
+              transaction status.</para></entry>
+          </row>
+        </table>
+      
+      </content>
+      
+    </section>
+
+    <relatedTopics>
+
+      <link xlink:href="Library_Concepts"
+            topicType_id="1FE70836-AA7D-4515-B54B-E10C4B516E50">Library Concepts</link>
+      
+      <externalLink>
+        <linkText>System.Transactions Namespace | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the System.Transactions namespace</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+      
+      <externalLink>
+        <linkText>TransactionScope Class (System.Transactions) | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the TransactionScope class</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>TransactionScope.Complete Method | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the TransactionScope.Complete method</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope.complete</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+
+      <externalLink>
+        <linkText>TransactionStatus Enum | Microsoft Docs</linkText>
+        <linkAlternateText>Read more about the TransactionStatus Enum</linkAlternateText>
+        <linkUri>https://docs.microsoft.com/en-us/dotnet/api/system.transactions.transactionstatus</linkUri>
+        <linkTarget>_blank</linkTarget>
+      </externalLink>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="Library_Concepts" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      
+      <para>
+        This OpenSource .NET library is designed and implemented after a couple 
+        of fundamental concepts. These concepts are the cornerstones of the 
+        functionality this library provides.
+      </para>
+      
+    </introduction>
+
+    <section address="Concepts">
+      <title>The Concepts</title>
+      <content>
+        <para>
+          The concepts used in the design and implementation of this library are
+          explained in the child topics of this topic. They can be read using 
+          the <legacyBold>Table of Contents</legacyBold> of this documentation.
+        </para>
+      </content>    
+    </section>
+    
+    <relatedTopics>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

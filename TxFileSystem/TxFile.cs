@@ -296,7 +296,7 @@
             new MoveOperation(this, sourceFileName, destFileName).Execute();
         }
 
-#if NET5_0
+#if NET_GTE_5_0
         /// <inheritdoc cref="System.IO.File.Move(string, string, bool)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
         /// <revisionHistory visible="true">
