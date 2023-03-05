@@ -67,7 +67,12 @@
             });
 
             Assert.NotEqual(modifiedCreationTime, txFileSystem.File.GetCreationTime(fileName));
-            Assert.Equal(originalCreationTime, txFileSystem.File.GetCreationTime(fileName));
+            Assert.Equal(originalCreationTime.Year, txFileSystem.Directory.GetCreationTime(fileName).Year);
+            Assert.Equal(originalCreationTime.Month, txFileSystem.Directory.GetCreationTime(fileName).Month);
+            Assert.Equal(originalCreationTime.Day, txFileSystem.Directory.GetCreationTime(fileName).Day);
+            Assert.Equal(originalCreationTime.Hour, txFileSystem.Directory.GetCreationTime(fileName).Hour);
+            Assert.Equal(originalCreationTime.Minute, txFileSystem.Directory.GetCreationTime(fileName).Minute);
+            Assert.Equal(originalCreationTime.Second, txFileSystem.Directory.GetCreationTime(fileName).Second);
         }
 
         [Fact, FsFact]

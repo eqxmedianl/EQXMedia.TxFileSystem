@@ -202,6 +202,129 @@
         {
             return this.TxFileSystem.FileSystem.Path.TryJoin(path1, path2, destination, out charsWritten);
         }
+
+#endif
+
+#if !NETFRAMEWORK
+#if !NETSTANDARD2_0
+        /// <inheritdoc cref="System.IO.Path.HasExtension(ReadOnlySpan{char})" />
+        public bool HasExtension(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.HasExtension(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.IsPathFullyQualified(ReadOnlySpan{char})" />
+        public bool IsPathFullyQualified(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.IsPathFullyQualified(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.IsPathRooted(ReadOnlySpan{char})" />
+        public bool IsPathRooted(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.IsPathRooted(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.GetDirectoryName(ReadOnlySpan{char})" />
+        public ReadOnlySpan<char> GetDirectoryName(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.GetDirectoryName(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.GetExtension(ReadOnlySpan{char})" />
+        public ReadOnlySpan<char> GetExtension(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.GetExtension(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.GetFileName(ReadOnlySpan{char})" />
+        public ReadOnlySpan<char> GetFileName(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.GetFileName(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.GetFileNameWithoutExtension(ReadOnlySpan{char})" />
+        public ReadOnlySpan<char> GetFileNameWithoutExtension(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.GetFileNameWithoutExtension(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.GetPathRoot(ReadOnlySpan{char})" />
+        public ReadOnlySpan<char> GetPathRoot(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.GetPathRoot(path);
+        }
+
+#if !NETSTANDARD2_1
+        /// <inheritdoc cref="System.IO.Path.Join(string, string)" />
+#else
+        /// <summary>
+        ///   Concatenates two paths into a single path.
+        /// </summary>
+        /// <returns>The concatenated path.</returns>
+#endif
+        public string Join(string path1, string path2)
+        {
+            return this.TxFileSystem.FileSystem.Path.Join(path1, path2);
+        }
+
+#if !NETSTANDARD2_1
+        /// <inheritdoc cref="System.IO.Path.Join(string, string, string)" />
+#else
+        /// <summary>
+        ///   Concatenates three paths into a single path.
+        /// </summary>
+        /// <returns>The concatenated path.</returns>
+#endif
+        public string Join(string path1, string path2, string path3)
+        {
+            return this.TxFileSystem.FileSystem.Path.Join(path1, path2, path3);
+        }
+
+#if !NETSTANDARD2_1
+        /// <inheritdoc cref="System.IO.Path.Join(string[])" />
+        public string Join(params string[] paths)
+        {
+            return this.TxFileSystem.FileSystem.Path.Join(paths);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.EndsInDirectorySeparator(ReadOnlySpan{char})" />
+        public bool EndsInDirectorySeparator(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.EndsInDirectorySeparator(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.EndsInDirectorySeparator(string)" />
+        public bool EndsInDirectorySeparator(string path)
+        {
+            return this.TxFileSystem.FileSystem.Path.EndsInDirectorySeparator(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.TrimEndingDirectorySeparator(ReadOnlySpan{char})" />
+        public ReadOnlySpan<char> TrimEndingDirectorySeparator(ReadOnlySpan<char> path)
+        {
+            return this.TxFileSystem.FileSystem.Path.TrimEndingDirectorySeparator(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.TrimEndingDirectorySeparator(string)" />
+        public string TrimEndingDirectorySeparator(string path)
+        {
+            return this.TxFileSystem.FileSystem.Path.TrimEndingDirectorySeparator(path);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.Join(ReadOnlySpan{char}, ReadOnlySpan{char}, ReadOnlySpan{char}, ReadOnlySpan{char})" />
+        public string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3, ReadOnlySpan<char> path4)
+        {
+            return this.TxFileSystem.FileSystem.Path.Join(path1, path2, path3, path4);
+        }
+
+        /// <inheritdoc cref="System.IO.Path.Join(string, string, string, string)" />
+        public string Join(string path1, string path2, string path3, string path4)
+        {
+            return this.TxFileSystem.FileSystem.Path.Join(path1, path2, path3, path4);
+        }
+#endif
+#endif
 #endif
     }
 }

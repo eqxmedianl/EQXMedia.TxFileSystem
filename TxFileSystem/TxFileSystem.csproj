@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0;net461;</TargetFrameworks>
+    <CheckEolTargetFramework Condition=" '$(TargetFramework)' == 'net5.0' ">false</CheckEolTargetFramework>
     <Company>EQX Media B.V.</Company>
     <Authors>Jarno Kamminga</Authors>
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageId>EQXMedia.TxFileSystem</PackageId>
-    <Version>2.1.1</Version>
+    <Version>2.2.0</Version>
     <Description>TxFileSystem is a transactional file system wrapper using the .NET file system abstraction from System.IO.Abstractions. 
 
 Use this file system wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
@@ -16,15 +17,9 @@ Use this file system wrapper in combination with System.Transactions.Transaction
 ● FileStreams.
 
 All other parts of the interfaces in System.IO.Abstractions are simply proxied to the true file system being wrapped.</Description>
-    <PackageReleaseNotes>Version 2.1.1
--------------
+    <PackageReleaseNotes>Version 2.2.0
 
-● Providing a System.IO.Abstractions file system wrapper.
-● Support transactional operations on:
-  ○ Files,
-  ○ Directories,
-  ○ File Streams.
-● Can be used to wrap any files system that implements the IFileSystem interface.
+● Supports `System.IO.Abstractions` 17.2.3 and onwards.
 ● TxFileSystem class is now a IFileSystem implementation too.
 ● Exposing the TxFileSystem on property instances too to maintain data integrity.
 ● Plain proxy functionality for all remaining parts of the System.IO.Abstractions interfaces.
@@ -42,6 +37,7 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   ○ .NET 6.0.
 ● Unit Testing all supported framework versions.
 ● Fully covered by Unit Tests (100% code coverage).</PackageReleaseNotes>
+</PackageReleaseNotes>
     <Copyright>© EQX Media B.V. All rights reserved.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -97,7 +93,7 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="System.IO.Abstractions" Version="13.2.9" />
+    <PackageReference Include="System.IO.Abstractions" Version="17.2.3" />
     <PackageReference Include="Vsxmd" Version="1.4.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

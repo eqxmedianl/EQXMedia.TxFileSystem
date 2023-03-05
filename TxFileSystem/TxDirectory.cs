@@ -369,6 +369,13 @@
             return new GetFileSystemEntriesOperation(this, path, searchPattern).Execute();
         }
 
+        /// <inheritdoc cref="System.IO.Directory.GetFileSystemEntries(string, string, SearchOption)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
+        public string[] GetFileSystemEntries(string path, string searchPattern, SearchOption searchOption)
+        {
+            return new GetFileSystemEntriesOperation(this, path, searchPattern, searchOption).Execute();
+        }
+
         /// <inheritdoc cref="System.IO.Directory.GetLastAccessTime(string)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="info"]/*' />
         public DateTime GetLastAccessTime(string path)
