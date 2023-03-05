@@ -36,8 +36,8 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   ○ .NET 5.0,
   ○ .NET 6.0.
 ● Unit Testing all supported framework versions.
-● Fully covered by Unit Tests (100% code coverage).</PackageReleaseNotes>
-</PackageReleaseNotes>
+● Fully covered by Unit Tests (100% code coverage).
+    </PackageReleaseNotes>
     <Copyright>© EQX Media B.V. All rights reserved.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
