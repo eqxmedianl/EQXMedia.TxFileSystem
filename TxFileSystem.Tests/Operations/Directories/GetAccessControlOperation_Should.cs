@@ -15,9 +15,6 @@
 
     public sealed class GetAccessControlOperation_Should
     {
-#if SUPPORTED_OS_PLATFORM
-        [SupportedOSPlatform("windows")]
-#endif
         [Fact, FsFact]
         public void GetAccessControlOperation_CalledOnce_ReturnsSameDirectorySecurity()
         {

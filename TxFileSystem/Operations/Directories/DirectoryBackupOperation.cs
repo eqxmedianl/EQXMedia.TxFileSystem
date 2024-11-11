@@ -21,7 +21,8 @@
         {
             get
             {
-                var parentDirectory = _directory.FileSystem.DirectoryInfo.FromDirectoryName(this.Path)
+                var parentDirectoryInfo = _directory.FileSystem.DirectoryInfo.FromDirectoryName(this.Path);
+                var parentDirectory = parentDirectoryInfo
                     .Parent.FullName + _directory.FileSystem.Path.DirectorySeparatorChar;
                 var backupDir = parentDirectory + "tempdir_" + _tempFileUuid + "_" + _directory.FileSystem
                     .FileInfo.FromFileName(this.Path).Name;
@@ -66,7 +67,10 @@
 
         public virtual void Restore()
         {
-            _directory.CopyRecursive(this.BackupPath, this.Path);
+            if (_directory.TxFileSystem.FileSystem.Directory.Exists(this.BackupPath))
+            {
+                _directory.CopyRecursive(this.BackupPath, this.Path);
+            }
 
             Delete();
         }

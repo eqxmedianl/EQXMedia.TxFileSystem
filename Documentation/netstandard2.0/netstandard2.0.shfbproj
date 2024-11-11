@@ -15,7 +15,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <!-- A framework version is required for NuGet restore.  This can be any valid version -->
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <!-- The configuration and platform will be used to determine which assemblies to include from solution and
 				 project documentation sources -->
     <FrameworkVersion Condition=" '$(FrameworkVersion)' == '' ">netstandard2.0</FrameworkVersion>

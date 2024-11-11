@@ -59,6 +59,21 @@
             return new CreateDirectoryOperation(this, path, directorySecurity).Execute();
         }
 
+#if SYMBOLIC_LINKS
+        /// <inheritdoc cref="System.IO.Directory.CreateSymbolicLink(string, string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="create"]/*' />
+        /// <example>
+        /// 
+        /// <code source="..\..\TxFileSystem.Tests\Operations\Directories\CreateSymbolicLinkOperation_Should.cs" region="CodeExample_CreateSymbolicLink" lang="C#" 
+        ///   title="Creating a symbolic link transitionally (extracted Unit Test, hence using the MockFileSystem)" />
+        ///   
+        /// </example>
+        public IFileSystemInfo CreateSymbolicLink(string path, string pathToTarget)
+        {
+            return new CreateSymbolicLinkOperation(this, path, pathToTarget).Execute();
+        }
+#endif
+
         /// <inheritdoc cref="System.IO.Directory.Delete(string)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="DirectoryOperation" and @type="delete"]/*' />
         /// <example>

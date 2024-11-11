@@ -6,7 +6,7 @@
     using System.IO;
     using System.IO.Abstractions;
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
     using System.Runtime.Versioning;
 #endif
 

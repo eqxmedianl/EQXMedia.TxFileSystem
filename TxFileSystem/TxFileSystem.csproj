@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0;net461;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0;net7.0;net8.0;net461;net481;</TargetFrameworks>
     <CheckEolTargetFramework Condition=" '$(TargetFramework)' == 'net5.0' ">false</CheckEolTargetFramework>
     <Company>EQX Media B.V.</Company>
     <Authors>Jarno Kamminga</Authors>
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageId>EQXMedia.TxFileSystem</PackageId>
-    <Version>2.2.0</Version>
+    <Version>3.0.0-beta1</Version>
     <Description>TxFileSystem is a transactional file system wrapper using the .NET file system abstraction from System.IO.Abstractions. 
 
 Use this file system wrapper in combination with System.Transactions.TransactionScope to perform transactional operations on:
@@ -73,7 +73,35 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net7.0'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(TargetFramework)'=='net461'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
+    <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net481'">
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\EQXMedia.TxFileSystem.xml</DocumentationFile>
     <DocumentationMarkdown>$(ProjectDir)..\Documentation\GeneratedFiles\$(TargetFramework)\$(PackageId).md</DocumentationMarkdown>
@@ -89,7 +117,15 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0' ">
-    <DefineConstants>ASYNC_IO;ENUMERATING_IO;NET_GTE_5_0;PATH_NG</DefineConstants>
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;SYMBOLIC_LINKS;NET_GTE_5_0;PATH_NG;SUPPORTED_OS_PLATFORM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net7.0' ">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;SYMBOLIC_LINKS;NET_GTE_5_0;PATH_NG;SUPPORTED_OS_PLATFORM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' ">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;SYMBOLIC_LINKS;NET_GTE_5_0;PATH_NG;SUPPORTED_OS_PLATFORM;NET8_0_OR_GREATER</DefineConstants>
   </PropertyGroup>
   
   <ItemGroup>
@@ -103,7 +139,7 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
-  
+
   <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
     <Reference Include="System" />
     <Reference Include="System.Collections" />
@@ -111,7 +147,29 @@ All other parts of the interfaces in System.IO.Abstractions are simply proxied t
     <Reference Include="System.Transactions" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'net481'">
+    <Reference Include="System" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+
   <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
     <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
     <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
   </ItemGroup>

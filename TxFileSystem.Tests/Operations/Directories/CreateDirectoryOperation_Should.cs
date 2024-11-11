@@ -13,7 +13,7 @@ namespace EQXMedia.TxFileSystem.Tests.Operations.Directories
     using System.Transactions;
     using Xunit;
 
-#if NET5_0
+#if RUNTIME_VERSIONING
     using System.Runtime.Versioning;
 #endif
 
