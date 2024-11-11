@@ -22,6 +22,11 @@
         Create,
 
         /// <summary>
+        ///   Used to specify that an operation creates a symbolic link.
+        /// </summary>
+        CreateSymlink,
+
+        /// <summary>
         ///   Used to specify that an operation creates a <see cref="System.IO.FileStream" />.
         /// </summary>
         /// <remarks>

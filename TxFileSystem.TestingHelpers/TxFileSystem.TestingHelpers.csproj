@@ -14,10 +14,15 @@
     <PackageProjectUrl>https://txfilesystem.io/</PackageProjectUrl>
     <PackageIcon>eqxmedia-logo.png</PackageIcon>
     <RepositoryUrl>https://github.com/eqxmedianl/EQXMedia.TxFileSystem.git</RepositoryUrl>
-    <Version>2.1.1</Version>
+    <Version>3.0.0-beta1</Version>
     <PackageTags>TransactionScope, File, Directory, FileStream, Transaction, NET, dotnet, IO</PackageTags>
     <RepositoryType>Git</RepositoryType>
-    <PackageReleaseNotes>Version 2.1.1
+    <PackageReleaseNotes>Version 3.0.0-beta1
+-------------
+
+● Added support for .NET 6, .NET 7 and .NET 8.
+
+Version 2.1.1
 -------------
 
 ● Added package icon.

@@ -50,7 +50,7 @@
             }
         }
 
-        public void Restore()
+        public virtual void Restore()
         {
             if (_file.TxFileSystem.FileSystem.File.Exists(this.BackupPath))
             {

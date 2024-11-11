@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp3.1;net5.0;net6.0;net461</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp3.1;net5.0;net6.0;net7.0;net8.0;net461</TargetFrameworks>
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">2.0.0</RuntimeFrameworkVersion>
     <CheckEolTargetFramework Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">false</CheckEolTargetFramework>
     <CheckEolTargetFramework Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">false</CheckEolTargetFramework>
@@ -9,7 +9,7 @@
 
     <IsPackable>false</IsPackable>
 
-    <Version>2.2.0</Version>
+    <Version>3.0.0-beta1</Version>
     <Configurations>Debug;Release;Documentation</Configurations>
     <AssemblyName>EQXMedia.TxFileSystem.Tests</AssemblyName>
     <RootNamespace>EQXMedia.TxFileSystem.Tests</RootNamespace>
@@ -27,7 +27,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="XunitXml.TestLogger" Version="3.0.62" />
-    <PackageReference Include="coverlet.collector" Version="1.3.0">
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -42,11 +42,19 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0' AND '$(IsWindows)'!='true'">
-    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM</DefineConstants>
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;RUNTIME_VERSIONING;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0' AND '$(IsWindows)'=='true'">
-    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM;TESTRUN_ON_WINDOWS</DefineConstants>
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;RUNTIME_VERSIONING;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM;TESTRUN_ON_WINDOWS</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0' AND '$(IsWindows)'!='true'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;RUNTIME_VERSIONING;SYMBOLIC_LINKS;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0' AND '$(IsWindows)'=='true'">
+    <DefineConstants>ASYNC_IO;ENUMERATING_IO;PATH_NG;RUNTIME_VERSIONING;SYMBOLIC_LINKS;SUPPRESS_SIMPLE_USING;SUPPORTED_OS_PLATFORM;TESTRUN_ON_WINDOWS</DefineConstants>
   </PropertyGroup>
   
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
@@ -58,6 +66,11 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net481'">
     <Reference Include="System.Linq" />
     <Reference Include="System.Transactions" />
   </ItemGroup>

@@ -8,6 +8,7 @@
         public static IList<OperationType> NonBackupableOperationTypes => new List<OperationType>()
         {
             OperationType.Create,
+            OperationType.CreateSymlink,
             OperationType.Info,
             OperationType.Navigate,
             OperationType.Read

@@ -1,5 +1,6 @@
 ﻿namespace EQXMedia.TxFileSystem.IO.Extensions
 {
+    using System;
     using System.IO;
 
     internal static class TxDirectoryExtensions
@@ -9,8 +10,11 @@
         {
             @this.TxFileSystem.FileSystem.Directory.CreateDirectory(destDirPath);
 
-            var accessControl = @this.TxFileSystem.FileSystem.Directory.GetAccessControl(sourceDirPath);
-            @this.TxFileSystem.FileSystem.Directory.SetAccessControl(destDirPath, accessControl);
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            {
+                var accessControl = @this.TxFileSystem.FileSystem.Directory.GetAccessControl(sourceDirPath);
+                @this.TxFileSystem.FileSystem.Directory.SetAccessControl(destDirPath, accessControl);
+            }
 
             if (preserveProperties)
             {

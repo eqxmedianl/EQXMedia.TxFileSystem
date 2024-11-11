@@ -12,7 +12,7 @@
     using System.Threading.Tasks;
 #endif
 
-#if NET5_0
+#if SUPPORTED_OS_PLATFORM
     using System.Runtime.Versioning;
 #endif
 
@@ -147,6 +147,21 @@
         {
             return new CreateOperation(this, path, bufferSize, options).Execute();
         }
+
+#if SYMBOLIC_LINKS
+        /// <inheritdoc cref="System.IO.File.CreateSymbolicLink(string, string)"/>
+        /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="create"]/*' />
+        /// <example>
+        /// 
+        /// <code source="..\..\TxFileSystem.Tests\Operations\Files\CreateSymbolicLinkOperation_Should.cs" region="CodeExample_CreateSymbolicLink" lang="C#" 
+        ///   title="Creating a symbolic link transitionally (extracted Unit Test, hence using the MockFileSystem)" />
+        ///   
+        /// </example>
+        public IFileSystemInfo CreateSymbolicLink(string path, string pathToTarget)
+        {
+            return new CreateSymbolicLinkOperation(this, path, pathToTarget).Execute();
+        }
+#endif
 
         /// <inheritdoc cref="System.IO.File.CreateText(string)"/>
         /// <include file="../Documentation/XmlDoc/TxFileSystem.XmlDoc.Extensions.xml" path='TxFileSystem.BaseDocs/Extensions/Operations/Operation[@kind="FileOperation" and @type="modify"]/*' />
