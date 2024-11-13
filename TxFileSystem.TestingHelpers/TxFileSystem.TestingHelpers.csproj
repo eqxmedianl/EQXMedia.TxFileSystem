@@ -17,7 +17,13 @@
     <Version>3.0.0-beta1</Version>
     <PackageTags>TransactionScope, File, Directory, FileStream, Transaction, NET, dotnet, IO</PackageTags>
     <RepositoryType>Git</RepositoryType>
-    <PackageReleaseNotes>Version 3.0.0-beta1
+    <PackageReleaseNotes>Version 3.0.0
+-------------
+
+● Switched to SonarQube Cloud for SAST.
+● Building and Unit Testing with GitHub Actions.
+
+Version 3.0.0-beta1
 -------------
 
 ● Added support for .NET 6, .NET 7 and .NET 8.
