@@ -10,7 +10,7 @@ This file system wrapper supports transactional operations on:
 ## About the Project
 
 ### Build Status
-[![.NET](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml/badge.svg)](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml)
+[![.NET](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml/badge.svg)](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml)[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=eqxmedianl_EQXMedia.TxFileSystem&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=eqxmedianl_EQXMedia.TxFileSystem)
 
 ### Project Development
 
