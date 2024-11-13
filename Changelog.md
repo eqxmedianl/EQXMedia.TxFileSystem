@@ -1,13 +1,24 @@
 # TxFileSystem
 `TxFileSystem` is a transactional file system wrapper using the .NET file system abstraction from `System.IO.Abstractions`.
 
-## Version 3.0.0-beta1
+## Version 3.0.0
 
 ### Improvements
-* Added support for .NET 6, .NET 7 and .NET 8.
+* Switched to SonarQube Cloud for SAST.
+* Building and Unit Testing with GitHub Actions.
+
+## Version 3.0.0-beta1
+
+### Features
 * Added support for symbolic links.
 
+### Improvements
+* Added support for .NET Framework 4.8.1, .NET 6, .NET 7 and .NET 8.
+
 ## Version 2.0.2
+
+### Features
+* Upgraded to System.IO.Abstractions >= 17.2.3.
 
 ### Fixes
 * Directories already existing when invoking `Directory.CreateDirectory` are no longer removed after rollback execution.
