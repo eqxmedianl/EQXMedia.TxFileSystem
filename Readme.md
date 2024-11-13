@@ -10,7 +10,7 @@ This file system wrapper supports transactional operations on:
 ## About the Project
 
 ### Build Status
-[![.NET](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml/badge.svg?branch=dev)](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml)
+[![.NET](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml/badge.svg)](https://github.com/eqxmedianl/EQXMedia.TxFileSystem/actions/workflows/dotnet.yml)
 
 ### Project Development
 
